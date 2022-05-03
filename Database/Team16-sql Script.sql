@@ -15,7 +15,7 @@ Role_ID int primary key identity(1,1) not null,
 UserRoleName varchar (50) not null
 )
 
-insert into Role values 
+insert into [Role] values 
 ('Client'),
 ('Employee')
 
