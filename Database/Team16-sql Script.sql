@@ -62,8 +62,10 @@ CREATE TABLE Employee
 Employee_ID int Identity (1,1) Primary Key Not Null,
 [User_ID] int references [User]([User_ID]),
 EmployeeType_ID int references EmployeeType(EmployeeType_ID),
-EmployeeName varchar (50) not null, 
+Name varchar (50) not null, 
 Surname varchar (50) not null,
+PhoneNum int not null,
+IDNum int not null,
 UserPassword varchar (20) not null
 )
 
@@ -72,7 +74,7 @@ CREATE TABLE Booking
 (
 Booking_ID int Identity (1,1) Primary Key Not Null,
 Client_ID int references Client(Client_ID),
-DateMade datetime not null,
+DateMade datetime not null
 )
 
 /* Create Table 7 */

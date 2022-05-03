@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "HgY6C4n5UcbMrtO+J/t1d6rP2wftFfrmpEoZl0eE3uSK9l6A+6e+yhcLaanFD2Tl22TYB5ABS2YHFkRaK1AMxg==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\User\\Documents\\GitHub\\Team_16\\Team 16 API\\Team16API\\Team16API.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\User\\.nuget\\packages\\microsoft.visualstudio.azure.containers.tools.targets\\1.10.13\\microsoft.visualstudio.azure.containers.tools.targets.1.10.13.nupkg.sha512"
+  ],
+  "logs": []
+}
