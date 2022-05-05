@@ -26,7 +26,7 @@ CREATE TABLE [User]
 UserName varchar (50) not null,
 [Password] varchar (50) not null,
 Email varchar (100) not null,
-Role_ID int references Role(Role_ID)
+Role_ID int not null foreign key references Role(Role_ID) on delete no action
 )
 
 /* Create Table 3 */
@@ -384,11 +384,9 @@ CandidateName varchar (50) not null
 CREATE TABLE [Application] 
 (
 Application_ID int Identity (1,1) Primary Key Not Null,
-JobType_ID int references JobType(JobType_ID),
-Candidate_ID int references Candidate(Candidate_ID),
-Job_ID int references JobListing(Job_ID),
-ApplicationStatus_ID int references ApplicationStatus(ApplicationStatus_ID),
-Client_ID int references Client(Client_ID),
+Candidate_ID int not null foreign key references Candidate(Candidate_ID) on delete cascade,
+Job_ID int not null foreign key references JobListing(Job_ID) on delete cascade,
+ApplicationStatus_ID int not null foreign key references ApplicationStatus(ApplicationStatus_ID) on delete no action,
 ApplicationDate date not null
 )
 
