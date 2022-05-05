@@ -366,8 +366,8 @@ Discription varchar (200) not null,
 Amount decimal(16,2) not null,
 HoursOrWeek decimal not null,
 Document_ID int references Document(Document_ID),
-ListingStatus_ID int references ListingStatus(ListingStatus_ID),
-Admin_ID int references Admin(Admin_ID),
+ListingStatus_ID int not null foreign key references ListingStatus(ListingStatus_ID) on delete no action,
+Admin_ID int not null foreign key references Admin(Admin_ID) on delete cascade,
 )
 
 /* Create Table 36 */
