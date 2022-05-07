@@ -5,7 +5,7 @@ import { Observable,BehaviorSubject } from 'rxjs';
 //import { Truck } from '../class/truck';
 import { Truck } from '../Model/Trucks/truck.model';
 import { catchError, tap, map } from 'rxjs/operators';
-const baseURL = 'http://localhost:49243/api/Customers';
+const baseURL = 'http://localhost:49243/api/Trucks';
 @Injectable({
   providedIn: 'root'
 })
@@ -33,7 +33,7 @@ deleteTruck(id: any): Observable<any> {
   return this.httpClient.delete(`${baseURL}/${id}`);
 }
 
-searchByCustomer(name: any): Observable<any> {
+searchByTruck(name: any): Observable<any> {
   return this.httpClient.get(`${baseURL}?name=${name}`);
 }
 }

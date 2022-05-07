@@ -3,7 +3,7 @@ import { FormBuilder, Validators } from '@angular/forms';
 import { Observable } from 'rxjs';
 import { TruckService } from 'src/app/services/truck.service';
 import { Truck } from 'src/app/class/truck';
-import { Interface } from 'readline';
+//import { Interface } from 'readline';
 
 
 @Component({

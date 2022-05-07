@@ -12,7 +12,7 @@ export class TruckListComponent implements OnInit {
   allTrucks!: Observable<Truck[]>;  
   constructor(public truckService: TruckService,private toastr : ToastrService) { }
   ngOnInit() {
-    this.loadAllTrucks();  
+    //this.loadAllTrucks();  
   }
   loadAllTrucks() {  
     this.allTrucks = this.truckService.getTruckList();  

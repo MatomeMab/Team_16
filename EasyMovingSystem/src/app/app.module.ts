@@ -5,7 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { TruckComponent } from './Components/Trucks/truck/truck.component';
 import { UserComponent } from './Components/Users/user/user.component';
-import { HttpClientModule, HttpClient } from '@angular/common/http';
+import { HttpClientModule} from '@angular/common/http';
 import { TruckService } from './services/truck.service';
 import { AssignTruckComponent } from './Components/AssignTrucks/assign-truck/assign-truck.component';
 import { TruckListComponent } from './Components/TrucksList/truck-list/truck-list.component';
@@ -22,7 +22,7 @@ import { ToastrModule } from 'ngx-toastr';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule, ReactiveFormsModule, HttpClientModule, HttpClient, ToastrModule.forRoot()
+    FormsModule, ReactiveFormsModule, HttpClientModule,  ToastrModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]

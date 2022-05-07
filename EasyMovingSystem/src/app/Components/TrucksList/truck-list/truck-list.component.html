@@ -1,17 +1,51 @@
-<p>truck-list works!</p>
-<table class="table table-sm table-hover">
-    <tr *ngFor="let truck of truckService.TruckList | async">
-      <td>{{truck.TruckId}}</td>
-      <td>{{truck.Make}}</td>
-      <td>{{truck.Model}}</td>
-      <td>{{truck.Year}}</td>
-      <td>
-        <a class="btn" (click)="showForEdit(truck)">
-          <i class="fa fa-pencil-square-o"></i>
-        </a>
-        <a class="btn text-danger" (click)="onDelete(truck.TruckId)">
-          <i class="fa fa-trash-o"></i>
-        </a>
-      </td>
-    </tr>
-  </table>
+<div class="container" style="margin-bottom:20px;padding-top:20px;">  
+    <div class="row">  
+      <div class="col-sm-12 btn btn-success">  
+       Trucks Information  
+      </div>  
+    </div>  
+    <div class="col-sm-12" style="margin-bottom:20px;padding-top:20px;">  
+      <div class="row">  
+        <div class="col-sm-6">  
+          <button type="button" class="btn btn-primary" data-toggle="modal" routerLink="/addemployee">  
+            Add New Truck  
+          </button>  
+        </div>  
+        <div class="col-sm-6">  
+          <input class="form-control" type="text" name="search"  placeholder="Search">  
+        </div>  
+      </div>  
+    </div>  
+  </div>  
+  <div class="container" style="padding-top:20px;">  
+    <table class="table table-striped">  
+      <thead class="thead-dark"> 
+        <th>Image</th> 
+        <th>Registration Number</th>  
+        <th>Model</th>  
+        <th>Year</th>  
+        <th>Colour</th>  
+        <th>Make</th>  
+      </thead>
+      <!--  
+      <tbody>  
+        <tr *ngFor="let truck of truckService.TruckList | async|filter:filter| paginate: { itemsPerPage: 5, currentPage: p } ; let i=index">  
+          <td>{{truck.Image}}</td>  
+          <td>{{truck.RegNum}}</td>  
+          <td>{{truck.Model}}</td>  
+          <td>{{truck.Year}}</td>  
+          <td>{{truck.Colour}}</td>  
+          <td>{{truck.Make}}</td>  
+          <td>  
+            <div class="btn-group">  
+              <button type="button" class="btn btn-primary mr-1" (click)="showForEdit(truck.TruckId)">Edit</button>  
+              <button type="button" class="btn btn-danger mr-1" (click)="onDelete(truck.TruckId)">Delete</button>  
+            </div>  
+          </td>  
+        </tr>  
+      </tbody>  
+      -->
+    </table>  
+    <ul class="pagination">   
+    </ul>  
+  </div>  

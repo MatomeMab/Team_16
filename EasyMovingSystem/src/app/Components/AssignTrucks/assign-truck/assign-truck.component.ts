@@ -28,7 +28,7 @@ changeTruck(e:any){
   constructor() { }
 
   ngOnInit(): void {
-    this.bookingService.getBookingList().subscribe((data:any)=>{
+   /* this.bookingService.getBookingList().subscribe((data:any)=>{
       this.bookingList=data
     })
     this.employeeService.getEmployeeList().subscribe((data:any)=>{
@@ -36,6 +36,6 @@ changeTruck(e:any){
     })
     this.truckService.getTruckList().subscribe((data:any)=>{
       this.truckList=data
-    })
+    })*/
   }
 }
