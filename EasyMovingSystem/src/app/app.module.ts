@@ -8,18 +8,21 @@ import { UserComponent } from './Components/Users/user/user.component';
 import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { TruckService } from './services/truck.service';
 import { AssignTruckComponent } from './Components/AssignTrucks/assign-truck/assign-truck.component';
+import { TruckListComponent } from './Components/TrucksList/truck-list/truck-list.component';
+import { ToastrModule } from 'ngx-toastr';
 
 @NgModule({
   declarations: [
     AppComponent,
     TruckComponent,
     UserComponent,
-    AssignTruckComponent
+    AssignTruckComponent,
+    TruckListComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule, ReactiveFormsModule, HttpClientModule, HttpClient
+    FormsModule, ReactiveFormsModule, HttpClientModule, HttpClient, ToastrModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -12,7 +12,7 @@ import { Interface } from 'readline';
   styleUrls: ['./truck.component.css']
 })
 export class TruckComponent implements OnInit {
-
+  truckIdUpdate = null;  
   dataSaved = false;
   truckForm: any;
   //allTrucks: Observable<Truck[]>;
@@ -29,7 +29,7 @@ export class TruckComponent implements OnInit {
        Make:["",[Validators.required]],
        Model:["",[Validators.required]],
        Year:["",[Validators.required]],
-       NumberPlate:["",[Validators.required]],
+       RegNum:["",[Validators.required]],
        Colour:["",[Validators.required]]
     }); 
   }
@@ -41,6 +41,7 @@ export class TruckComponent implements OnInit {
     this.truckForm.reset();
   }
 
-
+    
+  
 
 }
