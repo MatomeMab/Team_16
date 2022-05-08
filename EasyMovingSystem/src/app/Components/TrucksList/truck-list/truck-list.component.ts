@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Observable } from 'rxjs';
-import { Truck } from 'src/app/Model/Trucks/truck.model';
+import { Observable,BehaviorSubject } from 'rxjs';
+import { ITruck } from 'src/app/Model/ITrucks/itruck';
 import { TruckService } from 'src/app/services/truck.service';
 import { ToastrService } from 'ngx-toastr'
 @Component({
@@ -9,10 +9,10 @@ import { ToastrService } from 'ngx-toastr'
   styleUrls: ['./truck-list.component.css']
 })
 export class TruckListComponent implements OnInit {
-  allTrucks!: Observable<Truck[]>;  
+  allTrucks!: Observable<ITruck[]>;  
   constructor(public truckService: TruckService,private toastr : ToastrService) { }
   ngOnInit() {
-    //this.loadAllTrucks();  
+    this.loadAllTrucks();  
   }
   loadAllTrucks() {  
     this.allTrucks = this.truckService.getTruckList();  
@@ -20,10 +20,10 @@ export class TruckListComponent implements OnInit {
   getTruckList() {  
    this.truckService.getTruckList();  
   }  
-  showForEdit(truck: Truck) {
+  showForEdit(truck: ITruck) {
     this.truckService.selectedTruck = Object.assign({}, truck);;
   }
-  onDelete(id: number) {
+  onDelete(id: string) {
     if (confirm('Are you sure to delete this record ?') == true) {
       this.truckService.deleteTruck(id)
       .subscribe(x => {
