@@ -5,35 +5,42 @@ import { Observable,BehaviorSubject } from 'rxjs';
 //import { Truck } from '../class/truck';
 import { ITruck } from '../Model/ITrucks/itruck';
 import { catchError, tap, map } from 'rxjs/operators';
-const baseURL = 'http://localhost:44372/api/truck';
+const baseURL = 'https://localhost:44355/Api/Truck';
+const httpOptions = {
+  headers: new HttpHeaders({ 'Content-Type': 'application/json' }),
+};
 @Injectable({
   providedIn: 'root'
 })
 export class TruckService {
   selectedTruck!: ITruck;
-  TruckList!: Observable<ITruck[]>;
-
+  TruckList:any=[]
+  //TruckList!: Observable<ITruck[]>;
+  //TruckList = new BehaviorSubject<any>([]);
  //Create constructor to get Http instance
  constructor(private httpClient: HttpClient) {
  }
+
  getTruckList(): Observable<ITruck[]> {  
-  this.TruckList=this.httpClient.get<ITruck[]>(baseURL+'/gettrucks');  
-  return this.TruckList;  
+   
+  return this.TruckList=this.httpClient.get<ITruck[]>(baseURL+'/AllTruckDetails',httpOptions); 
+  
 }  
+
 getTruckById(id:any): Observable<any> {
   return this.httpClient.get(`${baseURL}/${id}`);
 }
 addTruck(truck:ITruck): Observable<ITruck> {
   const httpOptions = { headers: new HttpHeaders({ 'Content-Type': 'application/json'}) }; 
-  return this.httpClient.post<ITruck>(baseURL+ '/createtrucks',truck,httpOptions);
+  return this.httpClient.post<ITruck>(baseURL+ 'Truck/InsertTruckDetails',truck,httpOptions);
 }
 updateTruck(truck:ITruck): Observable<ITruck> {
   const httpOptions = { headers: new HttpHeaders({ 'Content-Type': 'application/json'}) }; 
-  return this.httpClient.put<ITruck>(baseURL+'/updatetrucks',truck, httpOptions);
+  return this.httpClient.put<ITruck>(baseURL+'/UpdateTruckDetails',truck, httpOptions);
 }
 deleteTruck(id: string): Observable<number> {
   const httpOptions = { headers: new HttpHeaders({ 'Content-Type': 'application/json'}) }; 
-  return this.httpClient.delete<number>(baseURL+'/deletetrucks?Id='+id,httpOptions);
+  return this.httpClient.delete<number>(baseURL+'DeleteTruckDetails?id={id}'+id,httpOptions);
 }
 
 searchByTruck(name: any): Observable<any> {

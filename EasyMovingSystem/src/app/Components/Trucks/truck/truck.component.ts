@@ -50,35 +50,18 @@ export class TruckComponent implements OnInit {
       this.truckService.addTruck(truck).subscribe(  
         () => {  
           this.dataSaved = true;  
+          console.log(truck);
          // this.massage = 'Record saved Successfully';  
           this.loadAllTrucks();  
           this.truckIdUpdate = null;  
           this.truckForm.reset();  
         }  
       );  
-    } else {  
-      truck.Truck_ID= this.truckIdUpdate;  
-      this.truckService.updateTruck(truck).subscribe(() => {  
-        this.dataSaved = true;  
-        //this.massage = 'Record Updated Successfully';  
-        this.loadAllTrucks();  
-        this.truckIdUpdate = null;  
-        this.truckForm.reset();  
-      });  
-    }  
+    } 
+      
   }   
     
-  deleteTruck(truckId: string) {  
-    if (confirm("Are you sure you want to delete this ?")) {   
-    this.truckService.deleteTruck(truckId).subscribe(() => {  
-      this.dataSaved = true;  
-      //this.massage = 'Record Deleted Succefully';  
-      this.loadAllTrucks();  
-      this.truckIdUpdate = null;  
-      this.truckForm.reset();  
   
-    });  
-  }  
-}  
+ 
 
 }

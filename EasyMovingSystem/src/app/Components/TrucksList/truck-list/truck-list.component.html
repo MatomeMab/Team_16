@@ -27,24 +27,24 @@
         <th>Colour</th>  
         <th>Make</th>  
       </thead>
-      <!--  
+      
       <tbody>  
-        <tr *ngFor="let truck of truckService.TruckList | async|filter:filter| paginate: { itemsPerPage: 5, currentPage: p } ; let i=index">  
-          <td>{{truck.Image}}</td>  
-          <td>{{truck.RegNum}}</td>  
+        <tr *ngFor="let truck of allTrucks | async ; let i=index">  
+           
+          <td>{{truck.NumberPlate}}</td>  
           <td>{{truck.Model}}</td>  
           <td>{{truck.Year}}</td>  
           <td>{{truck.Colour}}</td>  
           <td>{{truck.Make}}</td>  
           <td>  
             <div class="btn-group">  
-              <button type="button" class="btn btn-primary mr-1" (click)="showForEdit(truck.TruckId)">Edit</button>  
-              <button type="button" class="btn btn-danger mr-1" (click)="onDelete(truck.TruckId)">Delete</button>  
+              <button type="button" class="btn btn-primary mr-1" (click)="showForEdit(truck.Truck_ID)">Edit</button>  
+              <button type="button" class="btn btn-danger mr-1" (click)="onDelete(truck.Truck_ID)">Delete</button>  
             </div>  
           </td>  
         </tr>  
       </tbody>  
-      -->
+     
     </table>  
     <ul class="pagination">   
     </ul>  
