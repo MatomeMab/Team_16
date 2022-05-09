@@ -1,0 +1,31 @@
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
+    <h1>Update Schedule</h1>
+  
+    <div class="Container">
+    <label>Please select an employee:</label>
+    <input type="number" required value="" formControlName="name" required/>
+    <br>
+    <br>
+    <label>Please enter date:</label>
+    <input type="date" required value="" formControlName="name" required/>
+    <br>
+    <br>
+
+
+    <label>Please enter startTime:</label>
+    <input type="time" required value="" formControlName="name" required/>
+    <br>
+    <br>
+
+
+    <label>Please enter endTime:</label>
+    <input type="time" required value="" formControlName="name" required/>
+    <br>
+    <br>
+
+
+     <div> <button Class="Cancel">Back</button>&nbsp;<button type="submit" class="Save" [disabled]="!form.valid">Save</button></div>
+    </div>
+    <br>
+  </form>
+  

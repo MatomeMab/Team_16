@@ -1,0 +1,43 @@
+<h3 class="p-3 text-center">Search Schedule</h3>
+        <br>
+        <form >
+                <input type="search" name="search" id="search" onkeyup="CheckInput()">
+                <button type="submit" class="Cancel" id="search_btn"><i class="bi bi-search"></i></button>&nbsp;
+                <button Class="Cancel" routerLink="/addtype"><i class="bi bi-plus-lg"></i></button>
+            </form>
+    <br>
+<div class="container">
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Date</th>
+                <th>StartTime</th>
+                <th>EndTime</th>
+                
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let product of ScheduleR">
+                <td>{{product.date}}</td>
+                <td>{{product.startTime}}</td>
+                <td>{{product.endTime}}</td>
+               <td><i class="bi bi-pencil-fill" id="icon"></i></td>
+                <td><i class="bi bi-trash-fill" id="icon"></i></td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<script>
+    const search_btn = document.getElementById("search_btn");
+    const search = document.getElementById("search");
+
+    function CheckInput(){
+        search_btn.disabled = search.value === '';
+    }
+
+    const add_role = document.getElementById("add_role");
+
+    add_role.addEventListener('click', () => {
+        FormModal.classList.add('form-modal-active');
+    });
+</script>
