@@ -10,6 +10,7 @@ import { TruckService } from './services/truck.service';
 import { AssignTruckComponent } from './Components/AssignTrucks/assign-truck/assign-truck.component';
 import { TruckListComponent } from './Components/TrucksList/truck-list/truck-list.component';
 import { ToastrModule } from 'ngx-toastr';
+import { EmployeeTypeComponent } from './Components/EmployeeTypes/employee-type/employee-type.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { ToastrModule } from 'ngx-toastr';
     TruckComponent,
     UserComponent,
     AssignTruckComponent,
-    TruckListComponent
+    TruckListComponent,
+    EmployeeTypeComponent
   ],
   imports: [
     BrowserModule,
