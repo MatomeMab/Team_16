@@ -1,0 +1,31 @@
+<div class="container pt-5">
+    <div class="row justify-content-sm-center pt-5">
+        <div class="col-sm-6 shadow round pb-3">
+            <div align-item="center" display="flex">
+                <P style="font-weight:bold; font-size:large; text-align: center;">Create Employee Type</P>
+          
+            </div>
+  <form [formGroup]="EmployeeTypeForm" (ngSubmit)="onFormSubmit()">
+      <div class="form-group">
+          <label for="Name">Name</label>
+          <input type="text" class="form-control" formControlName="Name">
+      <div>
+        <span *ngIf="!EmployeeTypeForm.get('Name').value && EmployeeTypeForm.get('Name').touched"></span>
+      </div>
+        </div>
+      <div class="form-group">
+          <label for="Description">Description</label>
+          <input type="text" class="form-control" formCntrolName="Description">
+          <div>
+            <span *ngIf="!EmployeeTypeForm.get('Description').value && EmployeeTypeForm.get('Description').touched"></span>
+          </div>
+        </div>
+  <div class="d-flex" style="margin-top:8px">
+    <button  type="submit" class="btn btn-primary" [disabled]="!EmployeeTypeForm.valid">Create</button>
+  </div>
+  </form>
+  </div>
+  </div>
+  <div class="d-flex" style="margin-top:8px">
+    <button  routerLink='EmployeeTypeList' class="btn btn-primary"> Employee Type List</button>
+  </div>

@@ -1,1 +1,66 @@
+<<<<<<< Updated upstream
 <p>truck works!</p>
+=======
+<div class="container pt-5">
+  <div class="row justify-content-sm-center pt-5">
+      <div class="col-sm-6 shadow round pb-3">
+          <div align-item="center" display="flex">
+              <P style="font-weight:bold; font-size:large; text-align: center;">Register a Truck</P>
+        
+          </div>
+<form [formGroup]="truckForm" (ngSubmit)="onFormSubmit()">
+  <div class="col-auto"><button type="button" class="btn btn-danger pull-right">Add Truck Image</button></div><br>
+    <div class="form-group">
+        <label for="Registration">Truck Registration Number</label>
+        <input type="text" class="form-control" formControlName="Registration">
+    <div>
+      <span *ngIf="!truckForm.get('Registration').value && truckForm.get('Registration').touched"></span>
+    </div>
+      </div>
+    <div class="form-group">
+        <label for="Make">Make</label>
+        <input type="text" class="form-control" formCntrolName="Make">
+        <div>
+          <span *ngIf="!truckForm.get('Make').value && truckForm.get('Make').touched"></span>
+        </div>
+      </div>
+  <div class="form-group">
+    <label for="Model">Model</label>
+    <input type="text" formControlName="Model" class="form-control">
+    <div>
+      <span *ngIf="!truckForm.get('Model').value && truckForm.get('Model').touched"></span>
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="Year">Year</label>
+    <input type="text" formControlName="Year" class="form-control">
+    <div>
+      <span *ngIf="!truckForm.get('Year').value && truckForm.get('Year').touched"></span>
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="Colour">Colour</label>
+        <input type="text" formControlName="Colour" class="form-control">
+        <div>
+          <span *ngIf="!truckForm.get('Colour').value && truckForm.get('Colour').touched"></span>
+        </div>
+  </div>
+<div class="d-flex" style="margin-top:8px">
+  <button  type="submit" class="btn btn-primary" [disabled]="!truckForm.valid">Create Truck</button>
+</div>
+</form>
+</div>
+</div>
+<div class="d-flex" style="margin-top:8px">
+  <button  routerLink='AssignTruck' class="btn btn-primary">Assign Truck </button>
+</div>
+<div class="d-flex" style="margin-top:8px">
+  <button  routerLink='TruckList' class="btn btn-primary"> Truck List</button>
+</div>
+<div class="d-flex" style="margin-top:8px">
+  <button  routerLink='EmployeeTypeList' class="btn btn-primary"> Employee Type List</button>
+</div>
+<div class="d-flex" style="margin-top:8px">
+  <button  routerLink='EmployeeType' class="btn btn-primary"> Employee Type </button>
+</div>
+>>>>>>> Stashed changes

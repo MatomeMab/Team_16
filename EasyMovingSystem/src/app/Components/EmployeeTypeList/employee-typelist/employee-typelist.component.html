@@ -1,0 +1,44 @@
+<div class="container" style="margin-bottom:20px;padding-top:20px;">  
+    <div class="row">  
+      <div class="col-sm-12 btn btn-success">  
+       Employee Type Information  
+      </div>  
+    </div>  
+    <div class="col-sm-12" style="margin-bottom:20px;padding-top:20px;">  
+      <div class="row">  
+        <div class="col-sm-6">  
+          <button type="button" class="btn btn-primary" data-toggle="modal" routerLink="/addemployee">  
+            Add New Employee Type  
+          </button>  
+        </div>  
+        <div class="col-sm-6">  
+          <input class="form-control" type="text" name="search"  placeholder="Search">  
+        </div>  
+      </div>  
+    </div>  
+  </div>  
+  <div class="container" style="padding-top:20px;">  
+    <table class="table table-striped">  
+      <thead class="thead-dark"> 
+        <th>Name</th> 
+        <th>Description</th>  
+      </thead>
+      <!--  
+      <tbody>  
+        <tr *ngFor="let employeeType of employeeTypeService.EmployeeTypeList | async|filter:filter| paginate: { itemsPerPage: 5, currentPage: p } ; let i=index">  
+          <td>{{employeeType.Name}}</td>  
+          <td>{{employeeType.Description}}</td>  
+          
+          <td>  
+            <div class="btn-group">  
+              <button type="button" class="btn btn-primary mr-1" (click)="showForEdit(employeeType.EmployeeType_Id)">Edit</button>  
+              <button type="button" class="btn btn-danger mr-1" (click)="onDelete(employeeType.EmployeeType_Id)">Delete</button>  
+            </div>  
+          </td>  
+        </tr>  
+      </tbody>  
+      -->
+    </table>  
+    <ul class="pagination">   
+    </ul>  
+  </div>  
