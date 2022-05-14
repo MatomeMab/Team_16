@@ -10,13 +10,10 @@ import { EmployeeComponent } from './Admin/Components/Employee/employee/employee
 import { InspectionTypeComponent } from './Admin/Components/InspectionType/inspection-type/inspection-type.component';
 import { TruckComponent } from './Admin/Components/Truck/truck/truck.component';
 import { EmployeeTypeComponent } from './Admin/Components/EmployeeType/employee-type/employee-type.component';
-import { LoginComponent } from './Login/Components/login/login.component';
-import { ForgotPasswordComponent } from './Login/Components/forgot-password/forgot-password.component';
-import { RegisterComponent } from './Login/Components/register/register.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { JobListComponent } from './Admin/Components/JobListing/job-list/job-list.component';
 import { QoutationComponent } from './Admin/Components/qoutation/qoutation.component';
-import { RequestQouteListComponent } from './Admin/Components/Qoutation/request-qoute-list/request-qoute-list.component';
+//import { RequestQouteListComponent } from './Admin/Components/Qoutation/request-qoute-list/request-qoute-list.component';
 import { SearchBookingComponent } from './Admin/Components/Booking/search-booking/search-booking.component';
 import { UpdateBackgroundStatusComponent } from './Admin/Components/update-background-status/update-background-status.component';
 import { CapturePaymentComponent } from './Admin/Components/Payment/capture-payment/capture-payment.component';
@@ -36,12 +33,9 @@ import { CapturePaymentComponent } from './Admin/Components/Payment/capture-paym
     TruckComponent,
     InspectionTypeComponent,
     EmployeeTypeComponent,
-    LoginComponent,
-    RegisterComponent,
-    ForgotPasswordComponent,
     JobListComponent,
     QoutationComponent,
-    RequestQouteListComponent,
+    //RequestQouteListComponent,
     SearchBookingComponent,
     UpdateBackgroundStatusComponent,
     CapturePaymentComponent,
