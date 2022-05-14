@@ -13,7 +13,7 @@ import { EmployeeTypeComponent } from './Admin/Components/EmployeeType/employee-
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { JobListComponent } from './Admin/Components/JobListing/job-list/job-list.component';
 import { QoutationComponent } from './Admin/Components/qoutation/qoutation.component';
-//import { RequestQouteListComponent } from './Admin/Components/Qoutation/request-qoute-list/request-qoute-list.component';
+import { RequestQouteListComponent } from './Admin/Components/qoutation/request-qoute-list/request-qoute-list.component';
 import { SearchBookingComponent } from './Admin/Components/Booking/search-booking/search-booking.component';
 import { UpdateBackgroundStatusComponent } from './Admin/Components/update-background-status/update-background-status.component';
 import { CapturePaymentComponent } from './Admin/Components/Payment/capture-payment/capture-payment.component';
@@ -38,7 +38,7 @@ import { ForgotPasswordComponent } from './Login/Components/forgot-password/forg
     EmployeeTypeComponent,
     JobListComponent,
     QoutationComponent,
-    //RequestQouteListComponent,
+    RequestQouteListComponent,
     SearchBookingComponent,
     UpdateBackgroundStatusComponent,
     CapturePaymentComponent,
