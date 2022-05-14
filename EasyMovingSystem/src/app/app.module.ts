@@ -20,6 +20,7 @@ import { CapturePaymentComponent } from './Admin/Components/Payment/capture-paym
 import { LoginComponent } from './Login/Components/login/login.component';
 import { RegisterComponent } from './Login/Components/register/register.component';
 import { ForgotPasswordComponent } from './Login/Components/forgot-password/forgot-password.component';
+import { NavBarComponent } from './Admin/Components/nav-bar/nav-bar.component';
 
 
 //Navingation 
@@ -45,6 +46,7 @@ import { ForgotPasswordComponent } from './Login/Components/forgot-password/forg
     LoginComponent,
     RegisterComponent,
     ForgotPasswordComponent,
+    NavBarComponent,
     
     
    //navigation
