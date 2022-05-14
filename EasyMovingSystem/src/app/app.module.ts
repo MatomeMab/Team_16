@@ -17,6 +17,9 @@ import { QoutationComponent } from './Admin/Components/qoutation/qoutation.compo
 import { SearchBookingComponent } from './Admin/Components/Booking/search-booking/search-booking.component';
 import { UpdateBackgroundStatusComponent } from './Admin/Components/update-background-status/update-background-status.component';
 import { CapturePaymentComponent } from './Admin/Components/Payment/capture-payment/capture-payment.component';
+import { LoginComponent } from './Login/Components/login/login.component';
+import { RegisterComponent } from './Login/Components/register/register.component';
+import { ForgotPasswordComponent } from './Login/Components/forgot-password/forgot-password.component';
 
 
 //Navingation 
@@ -39,6 +42,9 @@ import { CapturePaymentComponent } from './Admin/Components/Payment/capture-paym
     SearchBookingComponent,
     UpdateBackgroundStatusComponent,
     CapturePaymentComponent,
+    LoginComponent,
+    RegisterComponent,
+    ForgotPasswordComponent,
     
     
    //navigation
