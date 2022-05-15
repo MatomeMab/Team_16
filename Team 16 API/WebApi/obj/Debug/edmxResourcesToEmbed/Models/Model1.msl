@@ -1,0 +1,66 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="EasyMovingSystemModelStoreContainer" CdmEntityContainer="EasyMovingSystemEntities1">
+    <EntitySetMapping Name="Dates">
+      <EntityTypeMapping TypeName="EasyMovingSystemModel.Date">
+        <MappingFragment StoreEntitySet="Date">
+          <ScalarProperty Name="Date_ID" ColumnName="Date_ID" />
+          <ScalarProperty Name="Date1" ColumnName="Date" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DateOrTimeSlots">
+      <EntityTypeMapping TypeName="EasyMovingSystemModel.DateOrTimeSlot">
+        <MappingFragment StoreEntitySet="DateOrTimeSlot">
+          <ScalarProperty Name="DateorTimeslot_ID" ColumnName="DateorTimeslot_ID" />
+          <ScalarProperty Name="Date_ID" ColumnName="Date_ID" />
+          <ScalarProperty Name="TimeSlot_ID" ColumnName="TimeSlot_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="EmployeeTypes">
+      <EntityTypeMapping TypeName="EasyMovingSystemModel.EmployeeType">
+        <MappingFragment StoreEntitySet="EmployeeType">
+          <ScalarProperty Name="EmployeeType_ID" ColumnName="EmployeeType_ID" />
+          <ScalarProperty Name="EmployeeTypeName" ColumnName="EmployeeTypeName" />
+          <ScalarProperty Name="EmployeeDescription" ColumnName="EmployeeDescription" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="InspectionTypes">
+      <EntityTypeMapping TypeName="EasyMovingSystemModel.InspectionType">
+        <MappingFragment StoreEntitySet="InspectionType">
+          <ScalarProperty Name="InspectionType_ID" ColumnName="InspectionType_ID" />
+          <ScalarProperty Name="TypeName" ColumnName="TypeName" />
+          <ScalarProperty Name="TypeDescription" ColumnName="TypeDescription" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TimeSlots">
+      <EntityTypeMapping TypeName="EasyMovingSystemModel.TimeSlot">
+        <MappingFragment StoreEntitySet="TimeSlot">
+          <ScalarProperty Name="TimeSlot_ID" ColumnName="TimeSlot_ID" />
+          <ScalarProperty Name="StartTime" ColumnName="StartTime" />
+          <ScalarProperty Name="EndTime" ColumnName="EndTime" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Trucks">
+      <EntityTypeMapping TypeName="EasyMovingSystemModel.Truck">
+        <MappingFragment StoreEntitySet="Truck">
+          <ScalarProperty Name="Truck_ID" ColumnName="Truck_ID" />
+          <ScalarProperty Name="Client_ID" ColumnName="Client_ID" />
+          <ScalarProperty Name="TruckType_ID" ColumnName="TruckType_ID" />
+          <ScalarProperty Name="Employee_ID" ColumnName="Employee_ID" />
+          <ScalarProperty Name="TruckStatus_ID" ColumnName="TruckStatus_ID" />
+          <ScalarProperty Name="Admin_ID" ColumnName="Admin_ID" />
+          <ScalarProperty Name="Model" ColumnName="Model" />
+          <ScalarProperty Name="Year" ColumnName="Year" />
+          <ScalarProperty Name="Colour" ColumnName="Colour" />
+          <ScalarProperty Name="NumberPlate" ColumnName="NumberPlate" />
+          <ScalarProperty Name="Make" ColumnName="Make" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

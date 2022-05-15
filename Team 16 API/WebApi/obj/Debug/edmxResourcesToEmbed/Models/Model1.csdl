@@ -1,0 +1,102 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="EasyMovingSystemModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Date">
+    <Key>
+      <PropertyRef Name="Date_ID" />
+    </Key>
+    <Property Name="Date_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Date1" Type="DateTime" Nullable="false" Precision="3" />
+    <NavigationProperty Name="DateOrTimeSlots" Relationship="Self.FK__DateOrTim__Date___2739D489" FromRole="Date" ToRole="DateOrTimeSlot" />
+  </EntityType>
+  <EntityType Name="DateOrTimeSlot">
+    <Key>
+      <PropertyRef Name="DateorTimeslot_ID" />
+    </Key>
+    <Property Name="DateorTimeslot_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Date_ID" Type="Int32" />
+    <Property Name="TimeSlot_ID" Type="Int32" />
+    <NavigationProperty Name="Date" Relationship="Self.FK__DateOrTim__Date___2739D489" FromRole="DateOrTimeSlot" ToRole="Date" />
+    <NavigationProperty Name="TimeSlot" Relationship="Self.FK__DateOrTim__TimeS__282DF8C2" FromRole="DateOrTimeSlot" ToRole="TimeSlot" />
+  </EntityType>
+  <EntityType Name="EmployeeType">
+    <Key>
+      <PropertyRef Name="EmployeeType_ID" />
+    </Key>
+    <Property Name="EmployeeType_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="EmployeeTypeName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="EmployeeDescription" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+  </EntityType>
+  <EntityType Name="InspectionType">
+    <Key>
+      <PropertyRef Name="InspectionType_ID" />
+    </Key>
+    <Property Name="InspectionType_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TypeName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="TypeDescription" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+  </EntityType>
+  <EntityType Name="TimeSlot">
+    <Key>
+      <PropertyRef Name="TimeSlot_ID" />
+    </Key>
+    <Property Name="TimeSlot_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="StartTime" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="EndTime" Type="DateTime" Nullable="false" Precision="3" />
+    <NavigationProperty Name="DateOrTimeSlots" Relationship="Self.FK__DateOrTim__TimeS__282DF8C2" FromRole="TimeSlot" ToRole="DateOrTimeSlot" />
+  </EntityType>
+  <EntityType Name="Truck">
+    <Key>
+      <PropertyRef Name="Truck_ID" />
+    </Key>
+    <Property Name="Truck_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Client_ID" Type="Int32" />
+    <Property Name="TruckType_ID" Type="Int32" />
+    <Property Name="Employee_ID" Type="Int32" />
+    <Property Name="TruckStatus_ID" Type="Int32" />
+    <Property Name="Admin_ID" Type="Int32" />
+    <Property Name="Model" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Year" Type="Int32" Nullable="false" />
+    <Property Name="Colour" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="NumberPlate" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Make" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+  </EntityType>
+  <Association Name="FK__DateOrTim__Date___2739D489">
+    <End Role="Date" Type="Self.Date" Multiplicity="0..1" />
+    <End Role="DateOrTimeSlot" Type="Self.DateOrTimeSlot" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Date">
+        <PropertyRef Name="Date_ID" />
+      </Principal>
+      <Dependent Role="DateOrTimeSlot">
+        <PropertyRef Name="Date_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__DateOrTim__TimeS__282DF8C2">
+    <End Role="TimeSlot" Type="Self.TimeSlot" Multiplicity="0..1" />
+    <End Role="DateOrTimeSlot" Type="Self.DateOrTimeSlot" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TimeSlot">
+        <PropertyRef Name="TimeSlot_ID" />
+      </Principal>
+      <Dependent Role="DateOrTimeSlot">
+        <PropertyRef Name="TimeSlot_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="EasyMovingSystemEntities1" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Dates" EntityType="Self.Date" />
+    <EntitySet Name="DateOrTimeSlots" EntityType="Self.DateOrTimeSlot" />
+    <EntitySet Name="EmployeeTypes" EntityType="Self.EmployeeType" />
+    <EntitySet Name="InspectionTypes" EntityType="Self.InspectionType" />
+    <EntitySet Name="TimeSlots" EntityType="Self.TimeSlot" />
+    <EntitySet Name="Trucks" EntityType="Self.Truck" />
+    <AssociationSet Name="FK__DateOrTim__Date___2739D489" Association="Self.FK__DateOrTim__Date___2739D489">
+      <End Role="Date" EntitySet="Dates" />
+      <End Role="DateOrTimeSlot" EntitySet="DateOrTimeSlots" />
+    </AssociationSet>
+    <AssociationSet Name="FK__DateOrTim__TimeS__282DF8C2" Association="Self.FK__DateOrTim__TimeS__282DF8C2">
+      <End Role="TimeSlot" EntitySet="TimeSlots" />
+      <End Role="DateOrTimeSlot" EntitySet="DateOrTimeSlots" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
