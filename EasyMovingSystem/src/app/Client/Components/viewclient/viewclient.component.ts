@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { first } from 'rxjs';
+import { ClientService } from '../../Service/client.service';
 
 @Component({
   selector: 'app-viewclient',
@@ -6,10 +8,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./viewclient.component.css']
 })
 export class ViewclientComponent implements OnInit {
+  users:any;
 
-  constructor() { }
+  constructor(private clientService: ClientService) {}
 
-  ngOnInit(): void {
+  ngOnInit() {
+      this.clientService.getAll()
+          .pipe()
+          .subscribe(users => this.users = users);
   }
-
 }
