@@ -86,7 +86,7 @@ namespace WebApi.Controllers
                 try
                 {
                     EmployeeType objEmp = new EmployeeType();
-                    //objEmp = objEntity.EmployeeTypes.Find(employee.EmployeeType_ID);
+                   // objEmp = objEntity.EmployeeTypes.Find(employee.EmployeeType_ID);
                     if (objEmp != null)
                     {
                         objEmp.EmployeeTypeName = employee.EmployeeTypeName;

@@ -18,6 +18,8 @@ namespace WebApi.Models
         public EasyMovingSystemEntities3()
             : base("name=EasyMovingSystemEntities3")
         {
+            //for lazy loading
+            Configuration.ProxyCreationEnabled = false;
         }
     
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
