@@ -21,7 +21,11 @@ import { LoginComponent } from './Login/Components/login/login.component';
 import { RegisterComponent } from './Login/Components/register/register.component';
 import { ForgotPasswordComponent } from './Login/Components/forgot-password/forgot-password.component';
 import { NavBarComponent } from './Admin/Components/nav-bar/nav-bar.component';
-
+import { AddclientComponent } from './Client/Components/addclient/addclient.component';
+import { UpdateclientComponent } from './Client/Components/updateclient/updateclient.component';
+import { ViewclientComponent } from './Client/Components/viewclient/viewclient.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
 //Navingation 
 
@@ -47,6 +51,9 @@ import { NavBarComponent } from './Admin/Components/nav-bar/nav-bar.component';
     RegisterComponent,
     ForgotPasswordComponent,
     NavBarComponent,
+    AddclientComponent,
+    UpdateclientComponent,
+    ViewclientComponent,
     
     
    //navigation
@@ -54,7 +61,10 @@ import { NavBarComponent } from './Admin/Components/nav-bar/nav-bar.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule, BrowserAnimationsModule 
+    AppRoutingModule, BrowserAnimationsModule,
+    ReactiveFormsModule,
+    HttpClientModule,
+    AppRoutingModule
   
   ],
   providers: [],
