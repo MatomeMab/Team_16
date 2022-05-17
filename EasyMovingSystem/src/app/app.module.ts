@@ -21,7 +21,7 @@ import { LoginComponent } from './Login/Components/login/login.component';
 import { RegisterComponent } from './Login/Components/register/register.component';
 import { ForgotPasswordComponent } from './Login/Components/forgot-password/forgot-password.component';
 import { NavBarComponent } from './Admin/Components/nav-bar/nav-bar.component';
-
+import { Router, RouterModule} from '@angular/router';
 
 //Navingation 
 
@@ -54,7 +54,7 @@ import { NavBarComponent } from './Admin/Components/nav-bar/nav-bar.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule, BrowserAnimationsModule 
+    AppRoutingModule, BrowserAnimationsModule
   
   ],
   providers: [],
