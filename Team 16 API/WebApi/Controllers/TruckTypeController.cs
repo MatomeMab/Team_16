@@ -11,6 +11,7 @@ namespace WebApi.Controllers
     public class TruckTypeController : ApiController
     {
         private EasyMovingSystemEntities3 objEntity = new EasyMovingSystemEntities3();
+
         [HttpGet]
         [Route("AllTruckTypeDetails")]
         public IQueryable<TruckType> GetTruckType()
