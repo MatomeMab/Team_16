@@ -1,8 +1,7 @@
 {
   "ExpandedNodes": [
-    "",
-    "\\Controllers"
+    ""
   ],
-  "SelectedNode": "\\WebApi.csproj",
+  "SelectedNode": "\\Global.asax.cs",
   "PreviewInSolutionExplorer": false
 }
