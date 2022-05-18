@@ -1,1 +1,12 @@
 
+<mat-toolbar color="primary">
+    <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
+     <mat-icon>supervised_user_circle</mat-icon>
+   </button>
+   <span>Job List</span>
+   <span class="example-spacer"></span>
+   <button mat-raised-button color="warn" (click)="openDialog()" >
+     Add Job
+   </button>
+ </mat-toolbar>
+ <router-outlet></router-outlet>

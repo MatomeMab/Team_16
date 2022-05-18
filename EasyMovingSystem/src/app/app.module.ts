@@ -1,5 +1,6 @@
-import { NgModule } from '@angular/core';
+import { NgModule, CUSTOM_ELEMENTS_SCHEMA  } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { RouterModule } from '@angular/router';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { InspectionTypeListComponent } from './Admin/Components/InspectionType/inspection-type-list/inspection-type-list.component';
@@ -22,6 +23,7 @@ import { RegisterComponent } from './Login/Components/register/register.componen
 import { ForgotPasswordComponent } from './Login/Components/forgot-password/forgot-password.component';
 import { NavBarComponent } from './Admin/Components/nav-bar/nav-bar.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import { JobListingComponent } from './Admin/Components/JobListing/job-listing/job-listing.component';
 //Tables
 import {HttpClientModule} from '@angular/common/http';
 import { MatButtonModule } from '@angular/material/button';
@@ -32,7 +34,10 @@ import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
 import { MatTableModule } from '@angular/material/table';
 import { MatToolbarModule } from '@angular/material/toolbar';
+import {MatFormFieldModule} from '@angular/material/form-field';
 
+import{MatDatepickerModule} from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
 //Navingation 
 
 
@@ -57,14 +62,14 @@ import { MatToolbarModule } from '@angular/material/toolbar';
     RegisterComponent,
     ForgotPasswordComponent,
     NavBarComponent,
-    
+    JobListingComponent
     
    //navigation
    
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule, BrowserAnimationsModule ,
+    AppRoutingModule, BrowserAnimationsModule , 
     //Tables
         HttpClientModule,
         MatDialogModule,
@@ -76,11 +81,17 @@ import { MatToolbarModule } from '@angular/material/toolbar';
         MatToolbarModule,
         MatPaginatorModule,
         FormsModule,
-        ReactiveFormsModule
-  
+        ReactiveFormsModule,
+        MatFormFieldModule,
+       
+        MatDatepickerModule,
+        MatNativeDateModule,
+        RouterModule
+     
   ],
   providers: [],
   bootstrap: [AppComponent],
+  schemas:[ CUSTOM_ELEMENTS_SCHEMA ]
  // exports:[ ]
 })
 export class AppModule { }
