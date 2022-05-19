@@ -22,8 +22,12 @@ import { RegisterComponent } from './Login/Components/register/register.componen
 import { ForgotPasswordComponent } from './Login/Components/forgot-password/forgot-password.component';
 import { NavBarComponent } from './Admin/Components/nav-bar/nav-bar.component';
 import { Router, RouterModule} from '@angular/router';
+import { MatButtonModule} from '@angular/material/button';
+import { MatToolbarModule} from '@angular/material/toolbar';
+import { MatSidenavModule} from '@angular/material/sidenav';
+import { MatIconModule} from '@angular/material/icon';
+import { MatDividerModule} from '@angular/material/divider';
 
-//Navingation 
 
 
 @NgModule({
@@ -54,8 +58,10 @@ import { Router, RouterModule} from '@angular/router';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule, BrowserAnimationsModule
-  
+    AppRoutingModule, BrowserAnimationsModule,
+    MatButtonModule, MatToolbarModule,
+    MatDividerModule,MatSidenavModule,
+    MatIconModule
   ],
   providers: [],
   bootstrap: [AppComponent],
