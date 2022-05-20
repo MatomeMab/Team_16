@@ -27,8 +27,9 @@ import { MatToolbarModule} from '@angular/material/toolbar';
 import { MatSidenavModule} from '@angular/material/sidenav';
 import { MatIconModule} from '@angular/material/icon';
 import { MatDividerModule} from '@angular/material/divider';
-
-
+import {MatCardModule} from '@angular/material/card';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
 
 @NgModule({
   declarations: [
@@ -61,7 +62,8 @@ import { MatDividerModule} from '@angular/material/divider';
     AppRoutingModule, BrowserAnimationsModule,
     MatButtonModule, MatToolbarModule,
     MatDividerModule,MatSidenavModule,
-    MatIconModule
+    MatIconModule, MatCardModule,
+    MatFormFieldModule, MatInputModule
   ],
   providers: [],
   bootstrap: [AppComponent],
