@@ -5,13 +5,13 @@ mat-toolbar {
   
   mat-sidenav {
     margin: 16px;
-    width: 200px;
+    width: 260px;
     border-right: none;
     background: #004a9f;
     color: white;
     border-radius: 10px;
     padding: 16px;
-    text-align: center;
+    text-align: auto;
   }
   
   .content {
@@ -35,22 +35,34 @@ mat-toolbar {
     align-items: center;
     justify-content: flex-start;
     font-size: 1rem;
+  }
+
+  .menu-button1 {
+    width: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    font-size: 1rem;
   
   }
+
   mat-icon {
     margin-right: 8px;
   }
+
   
   .avatar {
     margin-top: 16px;
     width: 100px;
     height: 100px;
-    border-radius: 50%;
+    border-radius: 15%;
+    align-self: center;
   }
   
-  .name {
+  .CompanyName {
     margin-top: 8px;
-    font-weight: normal;
+    font-weight: bold;
+    text-shadow: red;
   }
   
   .designation {
@@ -64,3 +76,53 @@ mat-toolbar {
     margin-bottom: 16px;
     background-color: rgba(255, 255, 255, 0.5);
   }
+
+  /* Dropdown Button */
+.dropbtn {
+  background-color: #04AA6D;
+  color: white;
+  padding: 16px;
+  font-size: 16px;
+  border: none;
+}
+
+/* The container <div> - needed to position the dropdown content */
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+/* Dropdown Content (Hidden by Default) */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #0094fe;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+  font-size: 1px;
+}
+
+/* Links inside the dropdown */
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+/* Change color of dropdown links on hover */
+.dropdown-content a:hover {
+  background-color: #060606;
+}
+
+/* Show the dropdown menu on hover */
+.dropdown:hover .dropdown-content {
+  display: block;
+  border-radius: 15px;
+}
+
+/* Change the background color of the dropdown button when the dropdown content is shown */
+.dropdown:hover .dropbtn {
+  background-color: #3e8e41;
+}
