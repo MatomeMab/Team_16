@@ -25,13 +25,9 @@ namespace WebApi.Models
         public System.DateTime InspectionTime { get; set; }
         public int InspectionType_ID { get; set; }
         public int Truck_ID { get; set; }
-        public int User_ID { get; set; }
-        public int Admin_ID { get; set; }
     
-        public virtual Admin Admin { get; set; }
         public virtual InspectionType InspectionType { get; set; }
         public virtual Truck Truck { get; set; }
-        public virtual User User { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<RentalAgreement> RentalAgreements { get; set; }
     }

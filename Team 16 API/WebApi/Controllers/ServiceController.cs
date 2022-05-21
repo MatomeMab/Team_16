@@ -5,20 +5,21 @@ using System.Net;
 using System.Net.Http;
 using System.Web.Http;
 using WebApi.Models;
+
 namespace WebApi.Controllers
 {
-    [RoutePrefix("Api/Truck")]
-    public class TruckController : ApiController
+    [RoutePrefix("Api/Service")]
+    public class ServiceController : ApiController
     {
         private EasyMovingSystemEntities1 objEntity = new EasyMovingSystemEntities1();
 
         [HttpGet]
-        [Route("AllTruckDetails")]
-        public IQueryable<Truck> GetTruck()
+        [Route("AllServiceDetails")]
+        public IQueryable<Service> GetService()
         {
             try
             {
-                return objEntity.Trucks;
+                return objEntity.Services;
             }
             catch (Exception)
             {
@@ -27,15 +28,15 @@ namespace WebApi.Controllers
         }
 
         [HttpGet]
-        [Route("GetTruckDetailsById/{Truck_ID}")]
-        public IHttpActionResult GetTruckById(string Truck_ID)
+        [Route("GetServiceDetailsById/{Service_ID}")]
+        public IHttpActionResult GetServiceById(string Service_ID)
         {
 
-            Truck objEmp = new Truck();
-            int ID = Convert.ToInt32(Truck_ID);
+            Service objEmp = new Service();
+            int ID = Convert.ToInt32(Service_ID);
             try
             {
-                objEmp = objEntity.Trucks.Find(ID);
+                objEmp = objEntity.Services.Find(ID);
                 if (objEmp == null)
                 {
                     return NotFound();
@@ -50,8 +51,8 @@ namespace WebApi.Controllers
         }
 
         [HttpPost]
-        [Route("InsertTruckDetails")]
-        public IHttpActionResult PostTruck(Truck data)
+        [Route("InsertServiceDetails")]
+        public IHttpActionResult PostService(Service data)
         {
             if (!ModelState.IsValid)
             {
@@ -60,7 +61,7 @@ namespace WebApi.Controllers
             try
             {
 
-                objEntity.Trucks.Add(data);
+                objEntity.Services.Add(data);
                 objEntity.SaveChanges();
             }
             catch (Exception)
@@ -73,8 +74,8 @@ namespace WebApi.Controllers
         }
 
         [HttpPut]
-        [Route("UpdateTruckDetails")]
-        public IHttpActionResult PutTruck(Truck truck)
+        [Route("UpdateServiceDetails")]
+        public IHttpActionResult PutService(Service service)
         {
 
             if (!ModelState.IsValid)
@@ -82,15 +83,13 @@ namespace WebApi.Controllers
 
             try
             {
-                Truck objEmp = new Truck();
-                objEmp = objEntity.Trucks.Find(truck.Truck_ID);
+                Service objEmp = new Service();
+                objEmp = objEntity.Services.Find(service.Service_ID);
                 if (objEmp != null)
                 {
-                    objEmp.Model = truck.Model;
-                    objEmp.Make = truck.Make;
-                    objEmp.RegNum = objEmp.RegNum;
-                    objEmp.Year = truck.Year;
-                    objEmp.Colour = truck.Colour;
+                    objEmp.ServiceName = service.ServiceName;
+                    objEmp.ServiceDescription = service.ServiceDescription;
+                    
                 }
                 this.objEntity.SaveChanges();
             }
@@ -98,22 +97,22 @@ namespace WebApi.Controllers
             {
                 throw;
             }
-            return Ok(truck);
+            return Ok(service);
 
         }
         [HttpDelete]
-        [Route("DeleteTruckDetails")]
-        public IHttpActionResult DeleteTruckDetails(int id)
+        [Route("DeleteServiceDetails")]
+        public IHttpActionResult DeleteServiceDetails(int id)
         {
 
-            Truck truck = objEntity.Trucks.Find(id);
-            if (truck == null)
+            Service service = objEntity.Services.Find(id);
+            if (service == null)
             {
                 return NotFound();
             }
-            objEntity.Trucks.Remove(truck);
+            objEntity.Services.Remove(service);
             objEntity.SaveChanges();
-            return Ok(truck);
+            return Ok(service);
 
         }
     }

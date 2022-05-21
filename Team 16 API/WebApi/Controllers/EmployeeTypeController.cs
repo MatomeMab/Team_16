@@ -12,7 +12,7 @@ namespace WebApi.Controllers
     public class EmployeeTypeController : ApiController
     {
     
-        private EasyMovingSystemEntities3 objEntity = new EasyMovingSystemEntities3();
+        private EasyMovingSystemEntities1 objEntity = new EasyMovingSystemEntities1();
 
         [HttpGet]
         [Route("AllEmployeeTypeDetails")]

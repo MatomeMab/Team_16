@@ -26,14 +26,12 @@ namespace WebApi.Models
         public int Truck_ID { get; set; }
         public int TruckType_ID { get; set; }
         public int TruckStatus_ID { get; set; }
-        public int Admin_ID { get; set; }
         public string Model { get; set; }
         public int Year { get; set; }
         public string Colour { get; set; }
         public string RegNum { get; set; }
         public string Make { get; set; }
     
-        public virtual Admin Admin { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<BookingInstance> BookingInstances { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

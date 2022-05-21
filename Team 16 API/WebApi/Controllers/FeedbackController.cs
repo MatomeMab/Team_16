@@ -5,19 +5,22 @@ using System.Net;
 using System.Net.Http;
 using System.Web.Http;
 using WebApi.Models;
+
 namespace WebApi.Controllers
 {
-    [RoutePrefix("Api/TruckType")]
-    public class TruckTypeController : ApiController
+    [RoutePrefix("Api/Feedback")]
+    public class FeedbackController : ApiController
     {
+       
         private EasyMovingSystemEntities1 objEntity = new EasyMovingSystemEntities1();
+
         [HttpGet]
-        [Route("AllTruckTypeDetails")]
-        public IQueryable<TruckType> GetTruckType()
+        [Route("AllFeedbackDetails")]
+        public IQueryable<Feedback> GetFeedback()
         {
             try
             {
-                return objEntity.TruckTypes;
+                return objEntity.Feedbacks;
             }
             catch (Exception)
             {
@@ -26,15 +29,15 @@ namespace WebApi.Controllers
         }
 
         [HttpGet]
-        [Route("GetTruckTypeDetailsById/{TruckType_ID}")]
-        public IHttpActionResult GetTruckTypeById(string TruckType_ID)
+        [Route("GetFeedbackDetailsById/{Feedback_ID}")]
+        public IHttpActionResult GetFeedbackById(string Feedback_ID)
         {
 
-            TruckType objEmp = new TruckType();
-            int ID = Convert.ToInt32(TruckType_ID);
+            Feedback objEmp = new Feedback();
+            int ID = Convert.ToInt32(Feedback_ID);
             try
             {
-                objEmp = objEntity.TruckTypes.Find(ID);
+                objEmp = objEntity.Feedbacks.Find(ID);
                 if (objEmp == null)
                 {
                     return NotFound();
@@ -49,8 +52,8 @@ namespace WebApi.Controllers
         }
 
         [HttpPost]
-        [Route("InsertTruckTypeDetails")]
-        public IHttpActionResult PostTruckType(TruckType data)
+        [Route("InsertFeedbackDetails")]
+        public IHttpActionResult PostFeedback(Feedback data)
         {
             if (!ModelState.IsValid)
             {
@@ -59,7 +62,7 @@ namespace WebApi.Controllers
             try
             {
 
-                objEntity.TruckTypes.Add(data);
+                objEntity.Feedbacks.Add(data);
                 objEntity.SaveChanges();
             }
             catch (Exception)
@@ -72,8 +75,8 @@ namespace WebApi.Controllers
         }
 
         [HttpPut]
-        [Route("UpdateTruckTypeDetails")]
-        public IHttpActionResult PutTruckType([FromBody] TruckType truckType)
+        [Route("UpdateFeedbackDetails")]
+        public IHttpActionResult PutFeedback([FromBody] Feedback feedback)
         {
             try
             {
@@ -82,12 +85,12 @@ namespace WebApi.Controllers
 
                 try
                 {
-                    TruckType objEmp = new TruckType();
-                    objEmp = objEntity.TruckTypes.Find(truckType.TruckType_ID);
+                    Feedback objEmp = new Feedback();
+                    // objEmp = objEntity.Feedbacks.Find(feedback.Feedback_ID);
                     if (objEmp != null)
                     {
-                        objEmp.TruckTypeName = truckType.TruckTypeName;
-                        objEmp.TruckTypeDescription = truckType.TruckTypeDescription;
+                        objEmp.FeedbackDescription = feedback.FeedbackDescription;
+                       
 
                     }
                     this.objEntity.SaveChanges();
@@ -96,7 +99,7 @@ namespace WebApi.Controllers
                 {
                     throw;
                 }
-                return Ok(truckType);
+                return Ok(feedback);
             }
             catch (Exception ex)
             {
@@ -104,18 +107,18 @@ namespace WebApi.Controllers
             }
         }
         [HttpDelete]
-        [Route("DeleteTruckTypeDetails")]
-        public IHttpActionResult DeleteTruckTypeDetails(int id)
+        [Route("DeleteFeedbackDetails")]
+        public IHttpActionResult DeleteFeedbackDetails(int id)
         {
 
-            TruckType truckType = objEntity.TruckTypes.Find(id);
-            if (truckType == null)
+            Feedback feedback = objEntity.Feedbacks.Find(id);
+            if (feedback == null)
             {
                 return NotFound();
             }
-            objEntity.TruckTypes.Remove(truckType);
+            objEntity.Feedbacks.Remove(feedback);
             objEntity.SaveChanges();
-            return Ok(truckType);
+            return Ok(feedback);
 
         }
     }

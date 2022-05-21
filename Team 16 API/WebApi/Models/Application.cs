@@ -17,11 +17,13 @@ namespace WebApi.Models
         public int Application_ID { get; set; }
         public int Candidate_ID { get; set; }
         public int Job_ID { get; set; }
+        public int Document_ID { get; set; }
         public int ApplicationStatus_ID { get; set; }
         public System.DateTime ApplicationDate { get; set; }
     
         public virtual ApplicationStatu ApplicationStatu { get; set; }
         public virtual Candidate Candidate { get; set; }
+        public virtual Document Document { get; set; }
         public virtual JobListing JobListing { get; set; }
     }
 }
