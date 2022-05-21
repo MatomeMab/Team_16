@@ -5,19 +5,21 @@ using System.Net;
 using System.Net.Http;
 using System.Web.Http;
 using WebApi.Models;
+
 namespace WebApi.Controllers
 {
-    [RoutePrefix("Api/TruckType")]
-    public class TruckTypeController : ApiController
+    [RoutePrefix("Api/Payment")]
+    public class PaymentController : ApiController
     {
         private EasyMovingSystemEntities1 objEntity = new EasyMovingSystemEntities1();
+
         [HttpGet]
-        [Route("AllTruckTypeDetails")]
-        public IQueryable<TruckType> GetTruckType()
+        [Route("AllPaymentDetails")]
+        public IQueryable<Payment> GetPayment()
         {
             try
             {
-                return objEntity.TruckTypes;
+                return objEntity.Payments;
             }
             catch (Exception)
             {
@@ -26,15 +28,15 @@ namespace WebApi.Controllers
         }
 
         [HttpGet]
-        [Route("GetTruckTypeDetailsById/{TruckType_ID}")]
-        public IHttpActionResult GetTruckTypeById(string TruckType_ID)
+        [Route("GetPaymentDetailsById/{Payment_ID}")]
+        public IHttpActionResult GetPaymentById(string Payment_ID)
         {
 
-            TruckType objEmp = new TruckType();
-            int ID = Convert.ToInt32(TruckType_ID);
+            Payment objEmp = new Payment();
+            int ID = Convert.ToInt32(Payment_ID);
             try
             {
-                objEmp = objEntity.TruckTypes.Find(ID);
+                objEmp = objEntity.Payments.Find(ID);
                 if (objEmp == null)
                 {
                     return NotFound();
@@ -49,8 +51,8 @@ namespace WebApi.Controllers
         }
 
         [HttpPost]
-        [Route("InsertTruckTypeDetails")]
-        public IHttpActionResult PostTruckType(TruckType data)
+        [Route("InsertPaymentDetails")]
+        public IHttpActionResult PostPayment(Payment data)
         {
             if (!ModelState.IsValid)
             {
@@ -59,7 +61,7 @@ namespace WebApi.Controllers
             try
             {
 
-                objEntity.TruckTypes.Add(data);
+                objEntity.Payments.Add(data);
                 objEntity.SaveChanges();
             }
             catch (Exception)
@@ -72,8 +74,8 @@ namespace WebApi.Controllers
         }
 
         [HttpPut]
-        [Route("UpdateTruckTypeDetails")]
-        public IHttpActionResult PutTruckType([FromBody] TruckType truckType)
+        [Route("UpdatePaymentDetails")]
+        public IHttpActionResult PutPayment([FromBody] Payment payment)
         {
             try
             {
@@ -82,12 +84,13 @@ namespace WebApi.Controllers
 
                 try
                 {
-                    TruckType objEmp = new TruckType();
-                    objEmp = objEntity.TruckTypes.Find(truckType.TruckType_ID);
+                    Payment objEmp = new Payment();
+                    // objEmp = objEntity.Payments.Find(payment.Payment_ID);
                     if (objEmp != null)
                     {
-                        objEmp.TruckTypeName = truckType.TruckTypeName;
-                        objEmp.TruckTypeDescription = truckType.TruckTypeDescription;
+                        objEmp.AmountPaid = payment.AmountPaid;
+                        objEmp.AmountDue = payment.AmountDue;
+
 
                     }
                     this.objEntity.SaveChanges();
@@ -96,7 +99,7 @@ namespace WebApi.Controllers
                 {
                     throw;
                 }
-                return Ok(truckType);
+                return Ok(payment);
             }
             catch (Exception ex)
             {
@@ -104,18 +107,18 @@ namespace WebApi.Controllers
             }
         }
         [HttpDelete]
-        [Route("DeleteTruckTypeDetails")]
-        public IHttpActionResult DeleteTruckTypeDetails(int id)
+        [Route("DeletePaymentDetails")]
+        public IHttpActionResult DeletePaymentDetails(int id)
         {
 
-            TruckType truckType = objEntity.TruckTypes.Find(id);
-            if (truckType == null)
+            Payment payment = objEntity.Payments.Find(id);
+            if (payment == null)
             {
                 return NotFound();
             }
-            objEntity.TruckTypes.Remove(truckType);
+            objEntity.Payments.Remove(payment);
             objEntity.SaveChanges();
-            return Ok(truckType);
+            return Ok(payment);
 
         }
     }

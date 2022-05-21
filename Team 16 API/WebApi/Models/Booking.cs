@@ -21,10 +21,8 @@ namespace WebApi.Models
         }
     
         public int Booking_ID { get; set; }
-        public int Client_ID { get; set; }
         public System.DateTime DateMade { get; set; }
     
-        public virtual Client Client { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<BookingInstance> BookingInstances { get; set; }
     }

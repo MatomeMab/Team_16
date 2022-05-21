@@ -5,19 +5,22 @@ using System.Net;
 using System.Net.Http;
 using System.Web.Http;
 using WebApi.Models;
+
 namespace WebApi.Controllers
 {
-    [RoutePrefix("Api/TruckType")]
-    public class TruckTypeController : ApiController
+    [RoutePrefix("Api/Candidate")]
+    public class CandidateController : ApiController
     {
+
         private EasyMovingSystemEntities1 objEntity = new EasyMovingSystemEntities1();
+
         [HttpGet]
-        [Route("AllTruckTypeDetails")]
-        public IQueryable<TruckType> GetTruckType()
+        [Route("AllCandidateDetails")]
+        public IQueryable<Candidate> GetCandidate()
         {
             try
             {
-                return objEntity.TruckTypes;
+                return objEntity.Candidates;
             }
             catch (Exception)
             {
@@ -26,15 +29,15 @@ namespace WebApi.Controllers
         }
 
         [HttpGet]
-        [Route("GetTruckTypeDetailsById/{TruckType_ID}")]
-        public IHttpActionResult GetTruckTypeById(string TruckType_ID)
+        [Route("GetCandidateDetailsById/{Candidate_ID}")]
+        public IHttpActionResult GetCandidateById(string Candidate_ID)
         {
 
-            TruckType objEmp = new TruckType();
-            int ID = Convert.ToInt32(TruckType_ID);
+            Candidate objEmp = new Candidate();
+            int ID = Convert.ToInt32(Candidate_ID);
             try
             {
-                objEmp = objEntity.TruckTypes.Find(ID);
+                objEmp = objEntity.Candidates.Find(ID);
                 if (objEmp == null)
                 {
                     return NotFound();
@@ -49,8 +52,8 @@ namespace WebApi.Controllers
         }
 
         [HttpPost]
-        [Route("InsertTruckTypeDetails")]
-        public IHttpActionResult PostTruckType(TruckType data)
+        [Route("InsertCandidateDetails")]
+        public IHttpActionResult PostCandidate(Candidate data)
         {
             if (!ModelState.IsValid)
             {
@@ -59,7 +62,7 @@ namespace WebApi.Controllers
             try
             {
 
-                objEntity.TruckTypes.Add(data);
+                objEntity.Candidates.Add(data);
                 objEntity.SaveChanges();
             }
             catch (Exception)
@@ -72,8 +75,8 @@ namespace WebApi.Controllers
         }
 
         [HttpPut]
-        [Route("UpdateTruckTypeDetails")]
-        public IHttpActionResult PutTruckType([FromBody] TruckType truckType)
+        [Route("UpdateCandidateDetails")]
+        public IHttpActionResult PutCandidate([FromBody] Candidate candidate)
         {
             try
             {
@@ -82,12 +85,14 @@ namespace WebApi.Controllers
 
                 try
                 {
-                    TruckType objEmp = new TruckType();
-                    objEmp = objEntity.TruckTypes.Find(truckType.TruckType_ID);
+                    Candidate objEmp = new Candidate();
+                    // objEmp = objEntity.Candidates.Find(candidate.Candidate_ID);
                     if (objEmp != null)
                     {
-                        objEmp.TruckTypeName = truckType.TruckTypeName;
-                        objEmp.TruckTypeDescription = truckType.TruckTypeDescription;
+                        objEmp.CandidateName = candidate.CandidateName;
+                        objEmp.CandidateSurname = candidate.CandidateSurname;
+                        objEmp.CandidatePhonNum = candidate.CandidatePhonNum;
+                        objEmp.CandidateEmailAddress = candidate.CandidateEmailAddress;
 
                     }
                     this.objEntity.SaveChanges();
@@ -96,7 +101,7 @@ namespace WebApi.Controllers
                 {
                     throw;
                 }
-                return Ok(truckType);
+                return Ok(candidate);
             }
             catch (Exception ex)
             {
@@ -104,18 +109,18 @@ namespace WebApi.Controllers
             }
         }
         [HttpDelete]
-        [Route("DeleteTruckTypeDetails")]
-        public IHttpActionResult DeleteTruckTypeDetails(int id)
+        [Route("DeleteCandidateDetails")]
+        public IHttpActionResult DeleteCandidateDetails(int id)
         {
 
-            TruckType truckType = objEntity.TruckTypes.Find(id);
-            if (truckType == null)
+            Candidate candidate = objEntity.Candidates.Find(id);
+            if (candidate == null)
             {
                 return NotFound();
             }
-            objEntity.TruckTypes.Remove(truckType);
+            objEntity.Candidates.Remove(candidate);
             objEntity.SaveChanges();
-            return Ok(truckType);
+            return Ok(candidate);
 
         }
     }

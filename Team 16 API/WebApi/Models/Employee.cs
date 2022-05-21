@@ -22,13 +22,12 @@ namespace WebApi.Models
         }
     
         public int Employee_ID { get; set; }
-        public int User_ID { get; set; }
         public int EmployeeType_ID { get; set; }
         public int EmployeeStatus_ID { get; set; }
         public int Title_ID { get; set; }
         public string EmployeeName { get; set; }
         public string EmployeeSurname { get; set; }
-        public long IDNum { get; set; }
+        public System.DateTime DateOfBirth { get; set; }
         public System.DateTime DateEmployed { get; set; }
         public int PhoneNum { get; set; }
         public string EmergencyName { get; set; }
@@ -42,6 +41,5 @@ namespace WebApi.Models
         public virtual EmployeeType EmployeeType { get; set; }
         public virtual EmployeeStatu EmployeeStatu { get; set; }
         public virtual Title Title { get; set; }
-        public virtual User User { get; set; }
     }
 }

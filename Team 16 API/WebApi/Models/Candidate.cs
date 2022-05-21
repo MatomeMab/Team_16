@@ -22,8 +22,9 @@ namespace WebApi.Models
     
         public int Candidate_ID { get; set; }
         public string CandidateSurname { get; set; }
-        public int CandidateNumber { get; set; }
         public string CandidateName { get; set; }
+        public string CandidateEmailAddress { get; set; }
+        public int CandidatePhonNum { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Application> Applications { get; set; }

@@ -12,7 +12,7 @@ namespace WebApi.Controllers
     public class EmployeeTypeController : ApiController
     {
     
-        private EasyMovingSystemEntities3 objEntity = new EasyMovingSystemEntities3();
+        private EasyMovingSystemEntities1 objEntity = new EasyMovingSystemEntities1();
 
         [HttpGet]
         [Route("AllEmployeeTypeDetails")]
@@ -86,7 +86,7 @@ namespace WebApi.Controllers
                 try
                 {
                     EmployeeType objEmp = new EmployeeType();
-                    //objEmp = objEntity.EmployeeTypes.Find(employee.EmployeeType_ID);
+                   // objEmp = objEntity.EmployeeTypes.Find(employee.EmployeeType_ID);
                     if (objEmp != null)
                     {
                         objEmp.EmployeeTypeName = employee.EmployeeTypeName;

@@ -13,10 +13,10 @@ namespace WebApi.Models
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class EasyMovingSystemEntities3 : DbContext
+    public partial class EasyMovingSystemEntities1 : DbContext
     {
-        public EasyMovingSystemEntities3()
-            : base("name=EasyMovingSystemEntities3")
+        public EasyMovingSystemEntities1()
+            : base("name=EasyMovingSystemEntities1")
         {
         }
     

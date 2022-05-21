@@ -17,15 +17,15 @@ namespace WebApi.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Document()
         {
-            this.JobListings = new HashSet<JobListing>();
+            this.Applications = new HashSet<Application>();
         }
     
         public int Document_ID { get; set; }
         public string DocumentName { get; set; }
         public int DocumentType_ID { get; set; }
     
-        public virtual DocumentType DocumentType { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<JobListing> JobListings { get; set; }
+        public virtual ICollection<Application> Applications { get; set; }
+        public virtual DocumentType DocumentType { get; set; }
     }
 }
