@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router, RouterModule, Routes} from '@angular/router';
 import { TruckService } from 'src/app/Admin/Services/truck.service';
+import { TrucktypeService } from 'src/app/Admin/Services/trucktype.service';
 import { TruckType, Truck } from '../../Interfaces/interface';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { NotificationsService } from 'src/app/Admin/Services/notifications.service';
@@ -24,7 +25,8 @@ export class TruckComponent implements OnInit {
 
   
 
-  constructor(private truckService: TruckService, 
+  constructor(private truckService: TruckService,
+              private trucktypeService: TrucktypeService, 
               private formBuilder: FormBuilder,
               private notificationService: NotificationsService) { }
 
@@ -44,7 +46,7 @@ export class TruckComponent implements OnInit {
   }
 
   readTruckTypes() {
-    this.truckService.getTruckTypes().subscribe(res => {
+    this.trucktypeService.getTruckTypes().subscribe(res => {
       this.truckTypeList = res as TruckType[];
     },
       err => {

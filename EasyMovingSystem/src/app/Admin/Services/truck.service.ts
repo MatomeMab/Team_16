@@ -9,17 +9,17 @@ export class TruckService {
   createTruck(truck: Truck) {
     throw new Error('Method not implemented.');
   }
-URL = '';
+URL = 'https://localhost:44355/Api/Truck/';
   constructor(private http: HttpClient) { }
 
-  
-  getTruckTypes(): Observable<TruckType[]> {
-    return this.http.get<TruckType[]>(`${this.URL}`)
+  getTrucks(): Observable<Truck[]> {
+    return this.http.get<Truck[]>(`${this.URL}ALLTruckDetails`)
       .pipe(map(res => res));
   }
 
-  getTruckType(id: number): Observable<TruckType[]> {
-    return this.http.get<TruckType[]>(`${this.URL}/${id}`)
+  
+  getTruckById(Truck_ID: number): Observable<Truck[]> {
+    return this.http.get<Truck[]>(`${this.URL}GetTrcukDetailsById/${Truck_ID}`)
       .pipe(map(res => res));
   }
 }
