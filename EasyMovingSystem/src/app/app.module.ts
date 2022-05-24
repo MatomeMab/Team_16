@@ -24,21 +24,9 @@ import { ForgotPasswordComponent } from './Login/Components/forgot-password/forg
 import { NavBarComponent } from './Admin/Components/nav-bar/nav-bar.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { JobListingComponent } from './Admin/Components/JobListing/job-listing/job-listing.component';
-//Tables
-import {HttpClientModule} from '@angular/common/http';
-import { MatButtonModule } from '@angular/material/button';
-import { MatDialogModule } from '@angular/material/dialog';
-import { MatIconModule } from '@angular/material/icon';
-import { MatInputModule } from '@angular/material/input';
-import { MatPaginatorModule } from '@angular/material/paginator';
-import { MatSortModule } from '@angular/material/sort';
-import { MatTableModule } from '@angular/material/table';
-import { MatToolbarModule } from '@angular/material/toolbar';
-import {MatFormFieldModule} from '@angular/material/form-field';
+import { MaterialModule } from './Shared/material.module';
+import { HttpClientModule } from '@angular/common/http';
 
-import{MatDatepickerModule} from '@angular/material/datepicker';
-import { MatNativeDateModule } from '@angular/material/core';
-//Navingation 
 
 
 @NgModule({
@@ -70,23 +58,14 @@ import { MatNativeDateModule } from '@angular/material/core';
   imports: [
     BrowserModule,
     AppRoutingModule, BrowserAnimationsModule , 
-    //Tables
-        HttpClientModule,
-        MatDialogModule,
-        MatButtonModule,
-        MatInputModule,
-        MatIconModule,
-        MatSortModule,
-        MatTableModule,
-        MatToolbarModule,
-        MatPaginatorModule,
+    
         FormsModule,
         ReactiveFormsModule,
-        MatFormFieldModule,
-       
-        MatDatepickerModule,
-        MatNativeDateModule,
-        RouterModule
+        RouterModule,
+        MaterialModule,
+        HttpClientModule,
+        FormsModule,
+        ReactiveFormsModule
      
   ],
   providers: [],
