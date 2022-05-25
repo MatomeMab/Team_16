@@ -9,6 +9,7 @@ import { IJob } from '../Models/ijob';
 })
 export class JobService {
   url = 'https://localhost:44355/Api/JobListing'; 
+  urlListingStatus='https://localhost:44355/Api/ListingStatus';
   constructor(private http: HttpClient) { }
   getAllJob(): Observable<IJob[]> {  
     return this.http.get<IJob[]>(this.url + '/AllJobListingDetails/');  
@@ -30,5 +31,9 @@ export class JobService {
     const httpOptions = { headers: new HttpHeaders({ 'Content-Type': 'application/json'}) };  
     return this.http.delete<number>(this.url + '/DeleteJobListingDetails?id=' +Jobid,  
  httpOptions);  
+  } 
+  //
+  getAllListingStatus(): Observable<IJob[]> {  
+    return this.http.get<IJob[]>(this.urlListingStatus + '/AllListingStatusDetails/');  
   } 
 }

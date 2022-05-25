@@ -26,6 +26,8 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { JobListingComponent } from './Admin/Components/JobListing/job-listing/job-listing.component';
 import { MaterialModule } from './Shared/material.module';
 import { HttpClientModule } from '@angular/common/http';
+import { CreateServiceComponent } from './Admin/Components/Servi/create-service/create-service.component';
+import { ServiceListComponent } from './Admin/Components/Servi/service-list/service-list.component';
 
 
 
@@ -50,7 +52,9 @@ import { HttpClientModule } from '@angular/common/http';
     RegisterComponent,
     ForgotPasswordComponent,
     NavBarComponent,
-    JobListingComponent
+    JobListingComponent,
+    CreateServiceComponent,
+    ServiceListComponent
     
    //navigation
    

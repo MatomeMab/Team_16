@@ -1,0 +1,34 @@
+<div class="container" id="center">  
+    <mat-card style="background-color: white;" >  
+      <mat-toolbar color="accent">  
+        <div align="center" style="color:white;text-align: left;">  
+         Jobs List
+        </div>    
+      </mat-toolbar>  
+    <br><br>  
+      <mat-card-content>  
+        <form [formGroup]="serviceForm"(ngSubmit)="onFormSubmit()">  
+    <br><br>  
+          <table class="table table-striped" >  
+              <tr ngclass="btn-primary">  
+                <th class="tbl2">Name</th> 
+                <th class="tbl2">Description</th> 
+                
+              </tr>  
+              <tr *ngFor="let ser of serviceList  | async">  
+                <td class="tbl2">{{ser.ServiceName}}</td> 
+                <td class="tbl2">{{ser.ServiceDescription}}</td>  
+                <td class="tbl2">  
+                  <button type="button" class="btn btn-info"matTooltip="Click Edit Button"(click)="loadServiceToEdit(ser.Service_ID);openDialog()" >Edit</button>  
+                </td>  
+                <td class="tbl2">  
+                  <button type="button" class="btn btn-danger"matTooltip="Click Delete Button"(click)="deleteService(ser.Service_ID)">Delete</button>  
+                </td>  
+              </tr>  
+      
+            </table>  
+        </form>  
+      </mat-card-content>  
+    </mat-card>  
+    </div>  
+   

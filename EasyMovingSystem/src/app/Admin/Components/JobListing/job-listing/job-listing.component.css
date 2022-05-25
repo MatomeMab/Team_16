@@ -1,3 +1,13 @@
-mat-form-field{
-    width: 100%;
+
+#center{
+    display: flex;
+    justify-content: center;
+    display: inline-block;
+    position: absolute;
+    top: 30%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+.container{
+    flex: 1 1 auto;
 }

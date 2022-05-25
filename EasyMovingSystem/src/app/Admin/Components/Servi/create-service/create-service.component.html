@@ -1,0 +1,83 @@
+<!--<div class="container" id="center">
+    <mat-card >
+      
+      <mat-toolbar color="accent" >
+        <span align="center" style="color:white;text-align: right;">
+          Create Service 
+        </span>
+      </mat-toolbar>
+      <br/>
+      <mat-card-content>
+        <form [formGroup]="serviceForm" (ngSubmit)="onFormSubmit()">
+        <p>
+        <mat-form-field appearance="fill">
+          
+          <input matInput formControlName="ServiceName" matTooltip="Enter Service Name" matInput placeholder="Service Name">
+        </mat-form-field>
+        </p>
+    
+        <p>
+        <mat-form-field appearance="fill">
+         
+          <textarea matInput formControlName="ServiceDescription" matTooltip="Enter Service Description" matInput placeholder="Service Description"></textarea>
+        </mat-form-field>
+        </p>
+        <td  class="content-center">
+          <button type="submit" mat-raised-button color="accent"matTooltip="Click Submit Button"[disabled]="!serviceForm.valid">Save</button>
+          <button type="reset" mat-raised-button color="accent"matTooltip="Click Reset Button" (click)="resetForm()">Reset</button>
+        </td>
+      </form>
+      </mat-card-content>
+    </mat-card>
+  </div>-->
+  <div class="container" id="center" >  
+    <mat-card style="background-color: white;">  
+      <mat-toolbar color="accent">  
+        <div align="center" style="color:rgb(15, 15, 15);text-align: left;">  
+         Create Service
+        </div>    
+      </mat-toolbar>  
+    <br><br>  
+      <mat-card-content style="color:black">  
+        <form [formGroup]="serviceForm"(ngSubmit)="onFormSubmit()">  
+                <table class="table table-striped" style="color:black">  
+                  <tr>  
+                   <p>
+                    <td class="tbl1">  
+                      <mat-form-field class="demo-full-width">  
+                        <input formControlName="ServiceName" matTooltip="Enter Name" matInput placeholder="Service Name">  
+                      </mat-form-field>  
+                      <mat-error>  
+                        <span *ngIf="!serviceForm.get('ServiceName').value && serviceForm.get('ServiceName').touched"></span>  
+                      </mat-error>  
+                    </td> 
+                    </p>
+                    <p>
+                        <td class="tbl1" style="color:black">  
+                          <mat-form-field class="demo-full-width" style="color:black"> 
+                            <textarea formControlName="ServiceDescription" matTooltip="Enter Service Description" matInput placeholder="Service Description"matInput style="color:black"></textarea> 
+                          </mat-form-field>  
+                          <mat-error>  
+                            <span *ngIf="!serviceForm.get('ServiceDescription').value && serviceForm.get('ServiceDescription').touched"></span>  
+                          </mat-error>  
+                        </td>  
+                        <p>
+                  </tr>   
+                  <tr>  
+                    <td  class="content-center">  
+                      <button type="submit" mat-raised-button color="accent"matTooltip="Click Submit Button"[disabled]="!serviceForm.valid">Submit</button>      
+                      <button type="reset" mat-raised-button color="accent"matTooltip="Click Reset Button" (click)="resetForm()">Reset</button>  
+                    </td>  
+                    <td>  
+                      <p *ngIf="dataSaved" style="color:rgb(0, 128, 0);font-size:20px;font-weight:bold" Class="success" align="left">  
+                        {{massage}}  
+                      </p>  
+                    </td>  
+                  </tr>  
+                </table>   
+        </form>  
+      </mat-card-content>  
+    </mat-card>  
+    </div>  
+   
+   
