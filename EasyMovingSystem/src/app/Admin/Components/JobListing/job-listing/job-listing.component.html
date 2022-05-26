@@ -5,11 +5,11 @@
    </button>
    <span>Job List</span>
    <span class="example-spacer"></span>
-   <button mat-raised-button color="warn" (click)="openDialog()" >
-     Add Job
-   </button>
+  
  </mat-toolbar>
-
+ <button mat-raised-button color="warm" style="position: right;" (click)="openDialog()" >
+  Add Job
+</button>
  <div class="container" id="center">  
   <mat-card style="background-color: white;" >  
     <mat-toolbar color="accent">  
@@ -29,9 +29,11 @@
               <th class="tbl2">Amount</th>  
               <th class="tbl2">status</th>  
               <th class="tbl2">Options</th>
+             
             </tr>  
             <tr *ngFor="let job of allJobs  | async">  
               <td class="tbl2">{{job.Description}}</td>  
+              <td class="tbl12">{{job.DatePosted|date}}</td>
               <td class="tbl2">{{job.ExpiryDate | date }}</td> 
               <td class="tbl2">{{job.Amount}}</td>  
               <td class="tbl2">

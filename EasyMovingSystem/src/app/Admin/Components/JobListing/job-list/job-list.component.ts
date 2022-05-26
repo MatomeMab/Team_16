@@ -19,6 +19,7 @@ export class JobListComponent implements OnInit {
   jobIdUpdate = null;  
   massage ='';  
   allJobTypesList:any=[];
+  DatePosted= new Date();
   constructor(private formbulider: FormBuilder, private jobService:JobService,private router: Router) { }
 
   ngOnInit(): void {
