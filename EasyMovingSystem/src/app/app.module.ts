@@ -28,6 +28,7 @@ import { MaterialModule } from './Shared/material.module';
 import { HttpClientModule } from '@angular/common/http';
 import { CreateServiceComponent } from './Admin/Components/Servi/create-service/create-service.component';
 import { ServiceListComponent } from './Admin/Components/Servi/service-list/service-list.component';
+import { StaticPageComponent } from './LandingPage/static-page/static-page.component';
 
 
 
@@ -54,7 +55,8 @@ import { ServiceListComponent } from './Admin/Components/Servi/service-list/serv
     NavBarComponent,
     JobListingComponent,
     CreateServiceComponent,
-    ServiceListComponent
+    ServiceListComponent,
+    StaticPageComponent
     
    //navigation
    
