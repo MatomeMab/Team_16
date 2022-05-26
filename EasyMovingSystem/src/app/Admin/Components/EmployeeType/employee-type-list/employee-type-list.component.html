@@ -1,0 +1,54 @@
+<div class="container-fluid page">
+    <div class="d-flex page__box p-3 mt-2">Employee Types</div>
+    <div class="page__content shadow p-3">
+      <div class="page__content-data">
+        <mat-form-field appearance="standard">
+          <mat-label>Filter</mat-label>
+          <input matInput (keyup)="myFilter=($any($event.target).value)" placeholder="Ex. ium" #input>
+        </mat-form-field>
+        <div class="position-relative">
+          <div class="position-absolute top-0 end-0 icon-hover">
+            <mat-icon (click)="routerAddEmployeeTypes()" style="font-size: xx-large">add</mat-icon>
+          </div>
+        </div>
+        <br>
+        <br>
+  
+        <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+          <ng-container matColumnDef="EmployeeTypeName">
+            <th mat-header-cell *matHeaderCellDef>Employee Type Name </th>
+            <td mat-cell *matCellDef="let element"> {{element.EmployeeTypeName}} </td>
+          </ng-container>
+          <ng-container matColumnDef="EmployeeTypeDescription">
+            <th mat-header-cell *matHeaderCellDef> Employee Type Description </th>
+            <td mat-cell *matCellDef="let element"> {{element.EmployeeTypeDescription}} </td>
+          </ng-container>
+  
+          <ng-container matColumnDef="edit">
+            <tr>
+              <th mat-header-cell *matHeaderCellDef> Edit </th>
+            </tr>
+            <tr>
+              <td mat-cell *matCellDef="let element" style="width:20%">
+                <button mat-icon-button
+                  (click)="routerEditEmployeeTypes(element.EmployeeType_ID,element.EmployeeTypeName, element.EmployeeTypeDescription)"
+                  title="Edit EmployeeType">
+                  <mat-icon>edit</mat-icon>
+                </button>
+              </td>
+            </tr>
+          </ng-container>
+          <ng-container matColumnDef="delete">
+            <tr>
+              <th mat-header-cell *matHeaderCellDef> Delete </th>
+            </tr>
+            <tr>
+              <td mat-cell *matCellDef="let element" style="width:20%">
+                <button mat-icon-button color="danger" title="Delete ServiceType">
+                  <mat-icon (click)="DeleteEmployeeType(element.EmployeeType_ID)">delete</mat-icon>
+                </button>
+              </td>
+            </tr>
+          </ng-container>
+          <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+          <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
