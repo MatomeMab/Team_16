@@ -5,19 +5,21 @@ using System.Net;
 using System.Net.Http;
 using System.Web.Http;
 using WebApi.Models;
+
 namespace WebApi.Controllers
 {
-    [RoutePrefix("Api/TruckType")]
-    public class TruckTypeController : ApiController
+    [RoutePrefix("Api/Client")]
+    public class ClientController : ApiController
     {
         private EasyMovingSystemEntities1 objEntity = new EasyMovingSystemEntities1();
+
         [HttpGet]
-        [Route("AllTruckTypeDetails")]
-        public IQueryable<TruckType> GetTruckType()
+        [Route("AllClientDetails")]
+        public IQueryable<Client> GetClient()
         {
             try
             {
-                return objEntity.TruckTypes;
+                return objEntity.Clients;
             }
             catch (Exception)
             {
@@ -26,15 +28,15 @@ namespace WebApi.Controllers
         }
 
         [HttpGet]
-        [Route("GetTruckTypeDetailsById/{TruckType_ID}")]
-        public IHttpActionResult GetTruckTypeById(string TruckType_ID)
+        [Route("GetClientDetailsById/{Client_ID}")]
+        public IHttpActionResult GetClientById(string Client_ID)
         {
 
-            TruckType objEmp = new TruckType();
-            int ID = Convert.ToInt32(TruckType_ID);
+            Client objEmp = new Client();
+            int ID = Convert.ToInt32(Client_ID);
             try
             {
-                objEmp = objEntity.TruckTypes.Find(ID);
+                objEmp = objEntity.Clients.Find(ID);
                 if (objEmp == null)
                 {
                     return NotFound();
@@ -49,8 +51,8 @@ namespace WebApi.Controllers
         }
 
         [HttpPost]
-        [Route("InsertTruckTypeDetails")]
-        public IHttpActionResult PostTruckType(TruckType data)
+        [Route("InsertClientDetails")]
+        public IHttpActionResult PostClient(Client data)
         {
             if (!ModelState.IsValid)
             {
@@ -59,7 +61,7 @@ namespace WebApi.Controllers
             try
             {
 
-                objEntity.TruckTypes.Add(data);
+                objEntity.Clients.Add(data);
                 objEntity.SaveChanges();
             }
             catch (Exception)
@@ -72,8 +74,8 @@ namespace WebApi.Controllers
         }
 
         [HttpPut]
-        [Route("UpdateTruckTypeDetails")]
-        public IHttpActionResult PutTruckType([FromBody] TruckType truckType)
+        [Route("UpdateClientDetails")]
+        public IHttpActionResult PutClient([FromBody] Client client)
         {
             try
             {
@@ -82,12 +84,13 @@ namespace WebApi.Controllers
 
                 try
                 {
-                    TruckType objEmp = new TruckType();
-                    objEmp = objEntity.TruckTypes.Find(truckType.TruckType_ID);
+                    Client objEmp = new Client();
+                    // objEmp = objEntity.Clients.Find(client.Client_ID);
                     if (objEmp != null)
                     {
-                        objEmp.TruckTypeName = truckType.TruckTypeName;
-                        objEmp.TruckTypeDescription = truckType.TruckTypeDescription;
+                        objEmp.ClientName = client.ClientName;
+                        objEmp.ClientSurname = client.ClientSurname;
+                        objEmp.PhoneNum = client.PhoneNum;
 
                     }
                     this.objEntity.SaveChanges();
@@ -96,7 +99,7 @@ namespace WebApi.Controllers
                 {
                     throw;
                 }
-                return Ok(truckType);
+                return Ok(client);
             }
             catch (Exception ex)
             {
@@ -104,18 +107,18 @@ namespace WebApi.Controllers
             }
         }
         [HttpDelete]
-        [Route("DeleteTruckTypeDetails")]
-        public IHttpActionResult DeleteTruckTypeDetails(int id)
+        [Route("DeleteClientDetails")]
+        public IHttpActionResult DeleteClientDetails(int id)
         {
 
-            TruckType truckType = objEntity.TruckTypes.Find(id);
-            if (truckType == null)
+            Client client = objEntity.Clients.Find(id);
+            if (client == null)
             {
                 return NotFound();
             }
-            objEntity.TruckTypes.Remove(truckType);
+            objEntity.Clients.Remove(client);
             objEntity.SaveChanges();
-            return Ok(truckType);
+            return Ok(client);
 
         }
     }

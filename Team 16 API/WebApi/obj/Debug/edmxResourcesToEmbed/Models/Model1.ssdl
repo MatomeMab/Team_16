@@ -17,6 +17,7 @@
     <Property Name="Application_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Candidate_ID" Type="int" Nullable="false" />
     <Property Name="Job_ID" Type="int" Nullable="false" />
+    <Property Name="Document_ID" Type="int" Nullable="false" />
     <Property Name="ApplicationStatus_ID" Type="int" Nullable="false" />
     <Property Name="ApplicationDate" Type="date" Nullable="false" />
   </EntityType>
@@ -33,14 +34,12 @@
     </Key>
     <Property Name="BackgroundCheckStatus_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="BackgroundCheckStatusName" Type="varchar" MaxLength="50" Nullable="false" />
-    <Property Name="Admin_ID" Type="int" Nullable="false" />
   </EntityType>
   <EntityType Name="Booking">
     <Key>
       <PropertyRef Name="Booking_ID" />
     </Key>
     <Property Name="Booking_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="Client_ID" Type="int" Nullable="false" />
     <Property Name="DateMade" Type="datetime" Nullable="false" />
   </EntityType>
   <EntityType Name="BookingInstance">
@@ -71,15 +70,15 @@
     </Key>
     <Property Name="Candidate_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="CandidateSurname" Type="varchar" MaxLength="50" Nullable="false" />
-    <Property Name="CandidateNumber" Type="int" Nullable="false" />
     <Property Name="CandidateName" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="CandidateEmailAddress" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="CandidatePhonNum" Type="int" Nullable="false" />
   </EntityType>
   <EntityType Name="Client">
     <Key>
       <PropertyRef Name="Client_ID" />
     </Key>
     <Property Name="Client_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="User_ID" Type="int" Nullable="false" />
     <Property Name="ClientName" Type="varchar" MaxLength="50" Nullable="false" />
     <Property Name="ClientSurname" Type="varchar" MaxLength="50" Nullable="false" />
     <Property Name="PhoneNum" Type="int" Nullable="false" />
@@ -129,13 +128,12 @@
       <PropertyRef Name="Employee_ID" />
     </Key>
     <Property Name="Employee_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="User_ID" Type="int" Nullable="false" />
     <Property Name="EmployeeType_ID" Type="int" Nullable="false" />
     <Property Name="EmployeeStatus_ID" Type="int" Nullable="false" />
     <Property Name="Title_ID" Type="int" Nullable="false" />
     <Property Name="EmployeeName" Type="varchar" MaxLength="50" Nullable="false" />
     <Property Name="EmployeeSurname" Type="varchar" MaxLength="50" Nullable="false" />
-    <Property Name="IDNum" Type="bigint" Nullable="false" />
+    <Property Name="DateOfBirth" Type="date" Nullable="false" />
     <Property Name="DateEmployed" Type="date" Nullable="false" />
     <Property Name="PhoneNum" Type="int" Nullable="false" />
     <Property Name="EmergencyName" Type="varchar" MaxLength="50" Nullable="false" />
@@ -174,8 +172,6 @@
     <Property Name="InspectionTime" Type="datetime" Nullable="false" />
     <Property Name="InspectionType_ID" Type="int" Nullable="false" />
     <Property Name="Truck_ID" Type="int" Nullable="false" />
-    <Property Name="User_ID" Type="int" Nullable="false" />
-    <Property Name="Admin_ID" Type="int" Nullable="false" />
   </EntityType>
   <EntityType Name="InspectionItem">
     <Key>
@@ -197,13 +193,9 @@
       <PropertyRef Name="Job_ID" />
     </Key>
     <Property Name="Job_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="JobType_ID" Type="int" Nullable="false" />
-    <Property Name="Discription" Type="varchar" MaxLength="200" Nullable="false" />
+    <Property Name="Description" Type="varchar" MaxLength="200" Nullable="false" />
     <Property Name="Amount" Type="decimal" Precision="16" Scale="2" Nullable="false" />
-    <Property Name="HoursOrWeek" Type="decimal" Precision="18" Scale="0" Nullable="false" />
-    <Property Name="Document_ID" Type="int" Nullable="false" />
     <Property Name="ListingStatus_ID" Type="int" Nullable="false" />
-    <Property Name="Admin_ID" Type="int" Nullable="false" />
     <Property Name="DatePosted" Type="datetime" Nullable="false" />
     <Property Name="ExpiryDate" Type="datetime" Nullable="false" />
   </EntityType>
@@ -270,7 +262,7 @@
       <PropertyRef Name="Quotation_ID" />
     </Key>
     <Property Name="Quotation_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="Admin_ID" Type="int" Nullable="false" />
+    <Property Name="QuotationDescription" Type="varchar" MaxLength="300" />
     <Property Name="QuotationDate" Type="datetime" Nullable="false" />
     <Property Name="Amount" Type="decimal" Precision="16" Scale="2" Nullable="false" />
   </EntityType>
@@ -289,9 +281,10 @@
       <PropertyRef Name="QuotationRequest_ID" />
     </Key>
     <Property Name="QuotationRequest_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="Client_ID" Type="int" Nullable="false" />
     <Property Name="QuotationReqDate" Type="datetime" Nullable="false" />
     <Property Name="QuotationReqDescription" Type="varchar" MaxLength="200" Nullable="false" />
+    <Property Name="FromAddress" Type="varchar" MaxLength="200" Nullable="false" />
+    <Property Name="ToAddress" Type="varchar" MaxLength="200" Nullable="false" />
   </EntityType>
   <EntityType Name="RentalAgreement">
     <Key>
@@ -358,7 +351,6 @@
     <Property Name="Truck_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="TruckType_ID" Type="int" Nullable="false" />
     <Property Name="TruckStatus_ID" Type="int" Nullable="false" />
-    <Property Name="Admin_ID" Type="int" Nullable="false" />
     <Property Name="Model" Type="varchar" MaxLength="50" Nullable="false" />
     <Property Name="Year" Type="int" Nullable="false" />
     <Property Name="Colour" Type="varchar" MaxLength="50" Nullable="false" />
@@ -415,7 +407,7 @@ warning 6002: The table/view 'EasyMovingSystem.dbo.UserRole' does not have a pri
     <Property Name="Role_ID" Type="int" Nullable="false" />
     <Property Name="User_ID" Type="int" Nullable="false" />
   </EntityType>
-  <Association Name="FK__Admin__User_ID__440B1D61">
+  <Association Name="FK__Admin__User_ID__412EB0B6">
     <End Role="User" Type="Self.User" Multiplicity="1">
       <OnDelete Action="Cascade" />
     </End>
@@ -429,7 +421,7 @@ warning 6002: The table/view 'EasyMovingSystem.dbo.UserRole' does not have a pri
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__Applicati__Appli__1F98B2C1">
+  <Association Name="FK__Applicati__Appli__151B244E">
     <End Role="ApplicationStatus" Type="Self.ApplicationStatus" Multiplicity="1" />
     <End Role="Application" Type="Self.Application" Multiplicity="*" />
     <ReferentialConstraint>
@@ -441,7 +433,7 @@ warning 6002: The table/view 'EasyMovingSystem.dbo.UserRole' does not have a pri
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__Applicati__Candi__1DB06A4F">
+  <Association Name="FK__Applicati__Candi__123EB7A3">
     <End Role="Candidate" Type="Self.Candidate" Multiplicity="1">
       <OnDelete Action="Cascade" />
     </End>
@@ -455,7 +447,19 @@ warning 6002: The table/view 'EasyMovingSystem.dbo.UserRole' does not have a pri
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__Applicati__Job_I__1EA48E88">
+  <Association Name="FK__Applicati__Docum__14270015">
+    <End Role="Document" Type="Self.Document" Multiplicity="1" />
+    <End Role="Application" Type="Self.Application" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Document">
+        <PropertyRef Name="Document_ID" />
+      </Principal>
+      <Dependent Role="Application">
+        <PropertyRef Name="Document_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Applicati__Job_I__1332DBDC">
     <End Role="JobListing" Type="Self.JobListing" Multiplicity="1">
       <OnDelete Action="Cascade" />
     </End>
@@ -469,33 +473,7 @@ warning 6002: The table/view 'EasyMovingSystem.dbo.UserRole' does not have a pri
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__Backgroun__Admin__0A9D95DB">
-    <End Role="Admin" Type="Self.Admin" Multiplicity="1" />
-    <End Role="BackgroundCheckStatus" Type="Self.BackgroundCheckStatus" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Admin">
-        <PropertyRef Name="Admin_ID" />
-      </Principal>
-      <Dependent Role="BackgroundCheckStatus">
-        <PropertyRef Name="Admin_ID" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK__Booking__Client___398D8EEE">
-    <End Role="Client" Type="Self.Client" Multiplicity="1">
-      <OnDelete Action="Cascade" />
-    </End>
-    <End Role="Booking" Type="Self.Booking" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Client">
-        <PropertyRef Name="Client_ID" />
-      </Principal>
-      <Dependent Role="Booking">
-        <PropertyRef Name="Client_ID" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK__BookingIn__Booki__5EBF139D">
+  <Association Name="FK__BookingIn__Booki__59063A47">
     <End Role="BookingStatus" Type="Self.BookingStatus" Multiplicity="0..1" />
     <End Role="BookingInstance" Type="Self.BookingInstance" Multiplicity="*" />
     <ReferentialConstraint>
@@ -507,7 +485,7 @@ warning 6002: The table/view 'EasyMovingSystem.dbo.UserRole' does not have a pri
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__BookingIn__Booki__5FB337D6">
+  <Association Name="FK__BookingIn__Booki__59FA5E80">
     <End Role="Booking" Type="Self.Booking" Multiplicity="1">
       <OnDelete Action="Cascade" />
     </End>
@@ -521,7 +499,7 @@ warning 6002: The table/view 'EasyMovingSystem.dbo.UserRole' does not have a pri
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__BookingIn__Emplo__60A75C0F">
+  <Association Name="FK__BookingIn__Emplo__5AEE82B9">
     <End Role="Employee" Type="Self.Employee" Multiplicity="1" />
     <End Role="BookingInstance" Type="Self.BookingInstance" Multiplicity="*" />
     <ReferentialConstraint>
@@ -533,7 +511,7 @@ warning 6002: The table/view 'EasyMovingSystem.dbo.UserRole' does not have a pri
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__BookingIn__Inspe__5DCAEF64">
+  <Association Name="FK__BookingIn__Inspe__5812160E">
     <End Role="InspectionItem" Type="Self.InspectionItem" Multiplicity="1">
       <OnDelete Action="Cascade" />
     </End>
@@ -547,7 +525,7 @@ warning 6002: The table/view 'EasyMovingSystem.dbo.UserRole' does not have a pri
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__BookingIn__Renta__628FA481">
+  <Association Name="FK__BookingIn__Renta__5CD6CB2B">
     <End Role="RentalAgreement" Type="Self.RentalAgreement" Multiplicity="1" />
     <End Role="BookingInstance" Type="Self.BookingInstance" Multiplicity="*" />
     <ReferentialConstraint>
@@ -559,7 +537,7 @@ warning 6002: The table/view 'EasyMovingSystem.dbo.UserRole' does not have a pri
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__BookingIn__Track__5CD6CB2B">
+  <Association Name="FK__BookingIn__Track__571DF1D5">
     <End Role="TrackingStatus" Type="Self.TrackingStatus" Multiplicity="0..1" />
     <End Role="BookingInstance" Type="Self.BookingInstance" Multiplicity="*" />
     <ReferentialConstraint>
@@ -571,7 +549,7 @@ warning 6002: The table/view 'EasyMovingSystem.dbo.UserRole' does not have a pri
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__BookingIn__Truck__619B8048">
+  <Association Name="FK__BookingIn__Truck__5BE2A6F2">
     <End Role="Truck" Type="Self.Truck" Multiplicity="0..1" />
     <End Role="BookingInstance" Type="Self.BookingInstance" Multiplicity="*" />
     <ReferentialConstraint>
@@ -583,21 +561,7 @@ warning 6002: The table/view 'EasyMovingSystem.dbo.UserRole' does not have a pri
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__Client__User_ID__2B3F6F97">
-    <End Role="User" Type="Self.User" Multiplicity="1">
-      <OnDelete Action="Cascade" />
-    </End>
-    <End Role="Client" Type="Self.Client" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="User">
-        <PropertyRef Name="User_ID" />
-      </Principal>
-      <Dependent Role="Client">
-        <PropertyRef Name="User_ID" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK__DateOrTim__Booki__2EDAF651">
+  <Association Name="FK__DateOrTim__Booki__245D67DE">
     <End Role="BookingInstance" Type="Self.BookingInstance" Multiplicity="1" />
     <End Role="DateOrTimeSlotOrDriver" Type="Self.DateOrTimeSlotOrDriver" Multiplicity="*" />
     <ReferentialConstraint>
@@ -609,7 +573,7 @@ warning 6002: The table/view 'EasyMovingSystem.dbo.UserRole' does not have a pri
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__DateOrTim__Date___29221CFB">
+  <Association Name="FK__DateOrTim__Date___1EA48E88">
     <End Role="Date" Type="Self.Date" Multiplicity="1">
       <OnDelete Action="Cascade" />
     </End>
@@ -623,7 +587,7 @@ warning 6002: The table/view 'EasyMovingSystem.dbo.UserRole' does not have a pri
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__DateOrTim__Dateo__2DE6D218">
+  <Association Name="FK__DateOrTim__Dateo__236943A5">
     <End Role="DateOrTimeSlot" Type="Self.DateOrTimeSlot" Multiplicity="1" />
     <End Role="DateOrTimeSlotOrDriver" Type="Self.DateOrTimeSlotOrDriver" Multiplicity="*" />
     <ReferentialConstraint>
@@ -635,7 +599,7 @@ warning 6002: The table/view 'EasyMovingSystem.dbo.UserRole' does not have a pri
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__DateOrTim__Emplo__2CF2ADDF">
+  <Association Name="FK__DateOrTim__Emplo__22751F6C">
     <End Role="Employee" Type="Self.Employee" Multiplicity="1" />
     <End Role="DateOrTimeSlotOrDriver" Type="Self.DateOrTimeSlotOrDriver" Multiplicity="*" />
     <ReferentialConstraint>
@@ -647,7 +611,7 @@ warning 6002: The table/view 'EasyMovingSystem.dbo.UserRole' does not have a pri
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__DateOrTim__TimeS__2A164134">
+  <Association Name="FK__DateOrTim__TimeS__1F98B2C1">
     <End Role="TimeSlot" Type="Self.TimeSlot" Multiplicity="1">
       <OnDelete Action="Cascade" />
     </End>
@@ -661,7 +625,7 @@ warning 6002: The table/view 'EasyMovingSystem.dbo.UserRole' does not have a pri
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__Document__Docume__0F624AF8">
+  <Association Name="FK__Document__Docume__06CD04F7">
     <End Role="DocumentType" Type="Self.DocumentType" Multiplicity="1" />
     <End Role="Document" Type="Self.Document" Multiplicity="*" />
     <ReferentialConstraint>
@@ -673,7 +637,7 @@ warning 6002: The table/view 'EasyMovingSystem.dbo.UserRole' does not have a pri
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__Employee__Employ__34C8D9D1">
+  <Association Name="FK__Employee__Employ__32E0915F">
     <End Role="EmployeeType" Type="Self.EmployeeType" Multiplicity="1" />
     <End Role="Employee" Type="Self.Employee" Multiplicity="*" />
     <ReferentialConstraint>
@@ -685,7 +649,7 @@ warning 6002: The table/view 'EasyMovingSystem.dbo.UserRole' does not have a pri
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__Employee__Employ__35BCFE0A">
+  <Association Name="FK__Employee__Employ__33D4B598">
     <End Role="EmployeeStatus" Type="Self.EmployeeStatus" Multiplicity="1" />
     <End Role="Employee" Type="Self.Employee" Multiplicity="*" />
     <ReferentialConstraint>
@@ -697,7 +661,7 @@ warning 6002: The table/view 'EasyMovingSystem.dbo.UserRole' does not have a pri
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__Employee__Title___36B12243">
+  <Association Name="FK__Employee__Title___34C8D9D1">
     <End Role="Title" Type="Self.Title" Multiplicity="1" />
     <End Role="Employee" Type="Self.Employee" Multiplicity="*" />
     <ReferentialConstraint>
@@ -709,19 +673,7 @@ warning 6002: The table/view 'EasyMovingSystem.dbo.UserRole' does not have a pri
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__Employee__User_I__33D4B598">
-    <End Role="User" Type="Self.User" Multiplicity="1" />
-    <End Role="Employee" Type="Self.Employee" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="User">
-        <PropertyRef Name="User_ID" />
-      </Principal>
-      <Dependent Role="Employee">
-        <PropertyRef Name="User_ID" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK__Feedback__Bookin__6D0D32F4">
+  <Association Name="FK__Feedback__Bookin__6754599E">
     <End Role="BookingInstance" Type="Self.BookingInstance" Multiplicity="0..1" />
     <End Role="Feedback" Type="Self.Feedback" Multiplicity="*" />
     <ReferentialConstraint>
@@ -733,19 +685,7 @@ warning 6002: The table/view 'EasyMovingSystem.dbo.UserRole' does not have a pri
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__Inspectio__Admin__52593CB8">
-    <End Role="Admin" Type="Self.Admin" Multiplicity="1" />
-    <End Role="Inspection" Type="Self.Inspection" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Admin">
-        <PropertyRef Name="Admin_ID" />
-      </Principal>
-      <Dependent Role="Inspection">
-        <PropertyRef Name="Admin_ID" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK__Inspectio__Inspe__4F7CD00D">
+  <Association Name="FK__Inspectio__Inspe__4BAC3F29">
     <End Role="InspectionType" Type="Self.InspectionType" Multiplicity="1" />
     <End Role="Inspection" Type="Self.Inspection" Multiplicity="*" />
     <ReferentialConstraint>
@@ -757,7 +697,7 @@ warning 6002: The table/view 'EasyMovingSystem.dbo.UserRole' does not have a pri
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__Inspectio__Truck__5070F446">
+  <Association Name="FK__Inspectio__Truck__4CA06362">
     <End Role="Truck" Type="Self.Truck" Multiplicity="1">
       <OnDelete Action="Cascade" />
     </End>
@@ -771,57 +711,7 @@ warning 6002: The table/view 'EasyMovingSystem.dbo.UserRole' does not have a pri
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__Inspectio__User___5165187F">
-    <End Role="User" Type="Self.User" Multiplicity="1" />
-    <End Role="Inspection" Type="Self.Inspection" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="User">
-        <PropertyRef Name="User_ID" />
-      </Principal>
-      <Dependent Role="Inspection">
-        <PropertyRef Name="User_ID" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK__JobListin__Admin__18EBB532">
-    <End Role="Admin" Type="Self.Admin" Multiplicity="1">
-      <OnDelete Action="Cascade" />
-    </End>
-    <End Role="JobListing" Type="Self.JobListing" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Admin">
-        <PropertyRef Name="Admin_ID" />
-      </Principal>
-      <Dependent Role="JobListing">
-        <PropertyRef Name="Admin_ID" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK__JobListin__Docum__17036CC0">
-    <End Role="Document" Type="Self.Document" Multiplicity="1" />
-    <End Role="JobListing" Type="Self.JobListing" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Document">
-        <PropertyRef Name="Document_ID" />
-      </Principal>
-      <Dependent Role="JobListing">
-        <PropertyRef Name="Document_ID" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK__JobListin__JobTy__160F4887">
-    <End Role="JobType" Type="Self.JobType" Multiplicity="1" />
-    <End Role="JobListing" Type="Self.JobListing" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="JobType">
-        <PropertyRef Name="JobType_ID" />
-      </Principal>
-      <Dependent Role="JobListing">
-        <PropertyRef Name="JobType_ID" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK__JobListin__Listi__17F790F9">
+  <Association Name="FK__JobListin__Listi__0D7A0286">
     <End Role="ListingStatus" Type="Self.ListingStatus" Multiplicity="1" />
     <End Role="JobListing" Type="Self.JobListing" Multiplicity="*" />
     <ReferentialConstraint>
@@ -833,7 +723,7 @@ warning 6002: The table/view 'EasyMovingSystem.dbo.UserRole' does not have a pri
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__License__Client___72C60C4A">
+  <Association Name="FK__License__Client___6D0D32F4">
     <End Role="Client" Type="Self.Client" Multiplicity="1">
       <OnDelete Action="Cascade" />
     </End>
@@ -847,7 +737,7 @@ warning 6002: The table/view 'EasyMovingSystem.dbo.UserRole' does not have a pri
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__License__Rental___71D1E811">
+  <Association Name="FK__License__Rental___6C190EBB">
     <End Role="RentalAgreement" Type="Self.RentalAgreement" Multiplicity="1" />
     <End Role="License" Type="Self.License" Multiplicity="*" />
     <ReferentialConstraint>
@@ -859,7 +749,7 @@ warning 6002: The table/view 'EasyMovingSystem.dbo.UserRole' does not have a pri
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__Notificat__Notif__797309D9">
+  <Association Name="FK__Notificat__Notif__73BA3083">
     <End Role="NotificationType" Type="Self.NotificationType" Multiplicity="0..1" />
     <End Role="Notification" Type="Self.Notification" Multiplicity="*" />
     <ReferentialConstraint>
@@ -871,7 +761,7 @@ warning 6002: The table/view 'EasyMovingSystem.dbo.UserRole' does not have a pri
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__Payment__Booking__693CA210">
+  <Association Name="FK__Payment__Booking__6383C8BA">
     <End Role="BookingInstance" Type="Self.BookingInstance" Multiplicity="1" />
     <End Role="Payment" Type="Self.Payment" Multiplicity="*" />
     <ReferentialConstraint>
@@ -883,7 +773,7 @@ warning 6002: The table/view 'EasyMovingSystem.dbo.UserRole' does not have a pri
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__Payment__Client___6A30C649">
+  <Association Name="FK__Payment__Client___6477ECF3">
     <End Role="Client" Type="Self.Client" Multiplicity="0..1" />
     <End Role="Payment" Type="Self.Payment" Multiplicity="*" />
     <ReferentialConstraint>
@@ -895,7 +785,7 @@ warning 6002: The table/view 'EasyMovingSystem.dbo.UserRole' does not have a pri
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__Payment__Payment__6754599E">
+  <Association Name="FK__Payment__Payment__619B8048">
     <End Role="PaymentType" Type="Self.PaymentType" Multiplicity="1" />
     <End Role="Payment" Type="Self.Payment" Multiplicity="*" />
     <ReferentialConstraint>
@@ -907,7 +797,7 @@ warning 6002: The table/view 'EasyMovingSystem.dbo.UserRole' does not have a pri
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__Payment__Rental___68487DD7">
+  <Association Name="FK__Payment__Rental___628FA481">
     <End Role="RentalAgreement" Type="Self.RentalAgreement" Multiplicity="1" />
     <End Role="Payment" Type="Self.Payment" Multiplicity="*" />
     <ReferentialConstraint>
@@ -919,35 +809,7 @@ warning 6002: The table/view 'EasyMovingSystem.dbo.UserRole' does not have a pri
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__Quotation__Admin__00200768">
-    <End Role="Admin" Type="Self.Admin" Multiplicity="1">
-      <OnDelete Action="Cascade" />
-    </End>
-    <End Role="Quotation" Type="Self.Quotation" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Admin">
-        <PropertyRef Name="Admin_ID" />
-      </Principal>
-      <Dependent Role="Quotation">
-        <PropertyRef Name="Admin_ID" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK__Quotation__Clien__02FC7413">
-    <End Role="Client" Type="Self.Client" Multiplicity="1">
-      <OnDelete Action="Cascade" />
-    </End>
-    <End Role="QuotationRequest" Type="Self.QuotationRequest" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Client">
-        <PropertyRef Name="Client_ID" />
-      </Principal>
-      <Dependent Role="QuotationRequest">
-        <PropertyRef Name="Client_ID" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK__Quotation__Quota__05D8E0BE">
+  <Association Name="FK__Quotation__Quota__7E37BEF6">
     <End Role="QuotationRequest" Type="Self.QuotationRequest" Multiplicity="1" />
     <End Role="QuotationLine" Type="Self.QuotationLine" Multiplicity="*" />
     <ReferentialConstraint>
@@ -959,7 +821,7 @@ warning 6002: The table/view 'EasyMovingSystem.dbo.UserRole' does not have a pri
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__Quotation__Quota__06CD04F7">
+  <Association Name="FK__Quotation__Quota__7F2BE32F">
     <End Role="Quotation" Type="Self.Quotation" Multiplicity="1" />
     <End Role="QuotationLine" Type="Self.QuotationLine" Multiplicity="*" />
     <ReferentialConstraint>
@@ -971,7 +833,7 @@ warning 6002: The table/view 'EasyMovingSystem.dbo.UserRole' does not have a pri
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__Quotation__Servi__07C12930">
+  <Association Name="FK__Quotation__Servi__00200768">
     <End Role="Service" Type="Self.Service" Multiplicity="1" />
     <End Role="QuotationLine" Type="Self.QuotationLine" Multiplicity="*" />
     <ReferentialConstraint>
@@ -983,7 +845,7 @@ warning 6002: The table/view 'EasyMovingSystem.dbo.UserRole' does not have a pri
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__RentalAgr__Clien__571DF1D5">
+  <Association Name="FK__RentalAgr__Clien__5165187F">
     <End Role="Client" Type="Self.Client" Multiplicity="1">
       <OnDelete Action="Cascade" />
     </End>
@@ -997,7 +859,7 @@ warning 6002: The table/view 'EasyMovingSystem.dbo.UserRole' does not have a pri
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__RentalAgr__Inspe__5812160E">
+  <Association Name="FK__RentalAgr__Inspe__52593CB8">
     <End Role="Inspection" Type="Self.Inspection" Multiplicity="1" />
     <End Role="RentalAgreement" Type="Self.RentalAgreement" Multiplicity="*" />
     <ReferentialConstraint>
@@ -1009,7 +871,7 @@ warning 6002: The table/view 'EasyMovingSystem.dbo.UserRole' does not have a pri
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__RentalAgr__Renta__5629CD9C">
+  <Association Name="FK__RentalAgr__Renta__5070F446">
     <End Role="RentalStatus" Type="Self.RentalStatus" Multiplicity="1" />
     <End Role="RentalAgreement" Type="Self.RentalAgreement" Multiplicity="*" />
     <ReferentialConstraint>
@@ -1021,7 +883,7 @@ warning 6002: The table/view 'EasyMovingSystem.dbo.UserRole' does not have a pri
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__RentalAgr__Truck__5535A963">
+  <Association Name="FK__RentalAgr__Truck__4F7CD00D">
     <End Role="Truck" Type="Self.Truck" Multiplicity="1" />
     <End Role="RentalAgreement" Type="Self.RentalAgreement" Multiplicity="*" />
     <ReferentialConstraint>
@@ -1033,19 +895,7 @@ warning 6002: The table/view 'EasyMovingSystem.dbo.UserRole' does not have a pri
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__Truck__Admin_ID__4CA06362">
-    <End Role="Admin" Type="Self.Admin" Multiplicity="1" />
-    <End Role="Truck" Type="Self.Truck" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Admin">
-        <PropertyRef Name="Admin_ID" />
-      </Principal>
-      <Dependent Role="Truck">
-        <PropertyRef Name="Admin_ID" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK__Truck__TruckStat__4BAC3F29">
+  <Association Name="FK__Truck__TruckStat__48CFD27E">
     <End Role="TruckStatus" Type="Self.TruckStatus" Multiplicity="1" />
     <End Role="Truck" Type="Self.Truck" Multiplicity="*" />
     <ReferentialConstraint>
@@ -1057,7 +907,7 @@ warning 6002: The table/view 'EasyMovingSystem.dbo.UserRole' does not have a pri
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__Truck__TruckType__4AB81AF0">
+  <Association Name="FK__Truck__TruckType__47DBAE45">
     <End Role="TruckType" Type="Self.TruckType" Multiplicity="1" />
     <End Role="Truck" Type="Self.Truck" Multiplicity="*" />
     <ReferentialConstraint>
@@ -1069,7 +919,7 @@ warning 6002: The table/view 'EasyMovingSystem.dbo.UserRole' does not have a pri
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__TruckPhot__Truck__22751F6C">
+  <Association Name="FK__TruckPhot__Truck__17F790F9">
     <End Role="Truck" Type="Self.Truck" Multiplicity="1">
       <OnDelete Action="Cascade" />
     </End>
@@ -1083,7 +933,7 @@ warning 6002: The table/view 'EasyMovingSystem.dbo.UserRole' does not have a pri
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__UserNotif__Notif__7C4F7684">
+  <Association Name="FK__UserNotif__Notif__76969D2E">
     <End Role="Notification" Type="Self.Notification" Multiplicity="1">
       <OnDelete Action="Cascade" />
     </End>
@@ -1097,7 +947,7 @@ warning 6002: The table/view 'EasyMovingSystem.dbo.UserRole' does not have a pri
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__UserNotif__User___7D439ABD">
+  <Association Name="FK__UserNotif__User___778AC167">
     <End Role="User" Type="Self.User" Multiplicity="1" />
     <End Role="UserNotification" Type="Self.UserNotification" Multiplicity="*" />
     <ReferentialConstraint>
@@ -1187,223 +1037,179 @@ warning 6002: The table/view 'EasyMovingSystem.dbo.UserRole' does not have a pri
     [UserRole].[User_ID] AS [User_ID]
     FROM [dbo].[UserRole] AS [UserRole]</DefiningQuery>
     </EntitySet>
-    <AssociationSet Name="FK__Admin__User_ID__440B1D61" Association="Self.FK__Admin__User_ID__440B1D61">
+    <AssociationSet Name="FK__Admin__User_ID__412EB0B6" Association="Self.FK__Admin__User_ID__412EB0B6">
       <End Role="User" EntitySet="User" />
       <End Role="Admin" EntitySet="Admin" />
     </AssociationSet>
-    <AssociationSet Name="FK__Applicati__Appli__1F98B2C1" Association="Self.FK__Applicati__Appli__1F98B2C1">
+    <AssociationSet Name="FK__Applicati__Appli__151B244E" Association="Self.FK__Applicati__Appli__151B244E">
       <End Role="ApplicationStatus" EntitySet="ApplicationStatus" />
       <End Role="Application" EntitySet="Application" />
     </AssociationSet>
-    <AssociationSet Name="FK__Applicati__Candi__1DB06A4F" Association="Self.FK__Applicati__Candi__1DB06A4F">
+    <AssociationSet Name="FK__Applicati__Candi__123EB7A3" Association="Self.FK__Applicati__Candi__123EB7A3">
       <End Role="Candidate" EntitySet="Candidate" />
       <End Role="Application" EntitySet="Application" />
     </AssociationSet>
-    <AssociationSet Name="FK__Applicati__Job_I__1EA48E88" Association="Self.FK__Applicati__Job_I__1EA48E88">
+    <AssociationSet Name="FK__Applicati__Docum__14270015" Association="Self.FK__Applicati__Docum__14270015">
+      <End Role="Document" EntitySet="Document" />
+      <End Role="Application" EntitySet="Application" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Applicati__Job_I__1332DBDC" Association="Self.FK__Applicati__Job_I__1332DBDC">
       <End Role="JobListing" EntitySet="JobListing" />
       <End Role="Application" EntitySet="Application" />
     </AssociationSet>
-    <AssociationSet Name="FK__Backgroun__Admin__0A9D95DB" Association="Self.FK__Backgroun__Admin__0A9D95DB">
-      <End Role="Admin" EntitySet="Admin" />
-      <End Role="BackgroundCheckStatus" EntitySet="BackgroundCheckStatus" />
-    </AssociationSet>
-    <AssociationSet Name="FK__Booking__Client___398D8EEE" Association="Self.FK__Booking__Client___398D8EEE">
-      <End Role="Client" EntitySet="Client" />
-      <End Role="Booking" EntitySet="Booking" />
-    </AssociationSet>
-    <AssociationSet Name="FK__BookingIn__Booki__5EBF139D" Association="Self.FK__BookingIn__Booki__5EBF139D">
+    <AssociationSet Name="FK__BookingIn__Booki__59063A47" Association="Self.FK__BookingIn__Booki__59063A47">
       <End Role="BookingStatus" EntitySet="BookingStatus" />
       <End Role="BookingInstance" EntitySet="BookingInstance" />
     </AssociationSet>
-    <AssociationSet Name="FK__BookingIn__Booki__5FB337D6" Association="Self.FK__BookingIn__Booki__5FB337D6">
+    <AssociationSet Name="FK__BookingIn__Booki__59FA5E80" Association="Self.FK__BookingIn__Booki__59FA5E80">
       <End Role="Booking" EntitySet="Booking" />
       <End Role="BookingInstance" EntitySet="BookingInstance" />
     </AssociationSet>
-    <AssociationSet Name="FK__BookingIn__Emplo__60A75C0F" Association="Self.FK__BookingIn__Emplo__60A75C0F">
+    <AssociationSet Name="FK__BookingIn__Emplo__5AEE82B9" Association="Self.FK__BookingIn__Emplo__5AEE82B9">
       <End Role="Employee" EntitySet="Employee" />
       <End Role="BookingInstance" EntitySet="BookingInstance" />
     </AssociationSet>
-    <AssociationSet Name="FK__BookingIn__Inspe__5DCAEF64" Association="Self.FK__BookingIn__Inspe__5DCAEF64">
+    <AssociationSet Name="FK__BookingIn__Inspe__5812160E" Association="Self.FK__BookingIn__Inspe__5812160E">
       <End Role="InspectionItem" EntitySet="InspectionItem" />
       <End Role="BookingInstance" EntitySet="BookingInstance" />
     </AssociationSet>
-    <AssociationSet Name="FK__BookingIn__Renta__628FA481" Association="Self.FK__BookingIn__Renta__628FA481">
+    <AssociationSet Name="FK__BookingIn__Renta__5CD6CB2B" Association="Self.FK__BookingIn__Renta__5CD6CB2B">
       <End Role="RentalAgreement" EntitySet="RentalAgreement" />
       <End Role="BookingInstance" EntitySet="BookingInstance" />
     </AssociationSet>
-    <AssociationSet Name="FK__BookingIn__Track__5CD6CB2B" Association="Self.FK__BookingIn__Track__5CD6CB2B">
+    <AssociationSet Name="FK__BookingIn__Track__571DF1D5" Association="Self.FK__BookingIn__Track__571DF1D5">
       <End Role="TrackingStatus" EntitySet="TrackingStatus" />
       <End Role="BookingInstance" EntitySet="BookingInstance" />
     </AssociationSet>
-    <AssociationSet Name="FK__BookingIn__Truck__619B8048" Association="Self.FK__BookingIn__Truck__619B8048">
+    <AssociationSet Name="FK__BookingIn__Truck__5BE2A6F2" Association="Self.FK__BookingIn__Truck__5BE2A6F2">
       <End Role="Truck" EntitySet="Truck" />
       <End Role="BookingInstance" EntitySet="BookingInstance" />
     </AssociationSet>
-    <AssociationSet Name="FK__Client__User_ID__2B3F6F97" Association="Self.FK__Client__User_ID__2B3F6F97">
-      <End Role="User" EntitySet="User" />
-      <End Role="Client" EntitySet="Client" />
-    </AssociationSet>
-    <AssociationSet Name="FK__DateOrTim__Booki__2EDAF651" Association="Self.FK__DateOrTim__Booki__2EDAF651">
+    <AssociationSet Name="FK__DateOrTim__Booki__245D67DE" Association="Self.FK__DateOrTim__Booki__245D67DE">
       <End Role="BookingInstance" EntitySet="BookingInstance" />
       <End Role="DateOrTimeSlotOrDriver" EntitySet="DateOrTimeSlotOrDriver" />
     </AssociationSet>
-    <AssociationSet Name="FK__DateOrTim__Date___29221CFB" Association="Self.FK__DateOrTim__Date___29221CFB">
+    <AssociationSet Name="FK__DateOrTim__Date___1EA48E88" Association="Self.FK__DateOrTim__Date___1EA48E88">
       <End Role="Date" EntitySet="Date" />
       <End Role="DateOrTimeSlot" EntitySet="DateOrTimeSlot" />
     </AssociationSet>
-    <AssociationSet Name="FK__DateOrTim__Dateo__2DE6D218" Association="Self.FK__DateOrTim__Dateo__2DE6D218">
+    <AssociationSet Name="FK__DateOrTim__Dateo__236943A5" Association="Self.FK__DateOrTim__Dateo__236943A5">
       <End Role="DateOrTimeSlot" EntitySet="DateOrTimeSlot" />
       <End Role="DateOrTimeSlotOrDriver" EntitySet="DateOrTimeSlotOrDriver" />
     </AssociationSet>
-    <AssociationSet Name="FK__DateOrTim__Emplo__2CF2ADDF" Association="Self.FK__DateOrTim__Emplo__2CF2ADDF">
+    <AssociationSet Name="FK__DateOrTim__Emplo__22751F6C" Association="Self.FK__DateOrTim__Emplo__22751F6C">
       <End Role="Employee" EntitySet="Employee" />
       <End Role="DateOrTimeSlotOrDriver" EntitySet="DateOrTimeSlotOrDriver" />
     </AssociationSet>
-    <AssociationSet Name="FK__DateOrTim__TimeS__2A164134" Association="Self.FK__DateOrTim__TimeS__2A164134">
+    <AssociationSet Name="FK__DateOrTim__TimeS__1F98B2C1" Association="Self.FK__DateOrTim__TimeS__1F98B2C1">
       <End Role="TimeSlot" EntitySet="TimeSlot" />
       <End Role="DateOrTimeSlot" EntitySet="DateOrTimeSlot" />
     </AssociationSet>
-    <AssociationSet Name="FK__Document__Docume__0F624AF8" Association="Self.FK__Document__Docume__0F624AF8">
+    <AssociationSet Name="FK__Document__Docume__06CD04F7" Association="Self.FK__Document__Docume__06CD04F7">
       <End Role="DocumentType" EntitySet="DocumentType" />
       <End Role="Document" EntitySet="Document" />
     </AssociationSet>
-    <AssociationSet Name="FK__Employee__Employ__34C8D9D1" Association="Self.FK__Employee__Employ__34C8D9D1">
+    <AssociationSet Name="FK__Employee__Employ__32E0915F" Association="Self.FK__Employee__Employ__32E0915F">
       <End Role="EmployeeType" EntitySet="EmployeeType" />
       <End Role="Employee" EntitySet="Employee" />
     </AssociationSet>
-    <AssociationSet Name="FK__Employee__Employ__35BCFE0A" Association="Self.FK__Employee__Employ__35BCFE0A">
+    <AssociationSet Name="FK__Employee__Employ__33D4B598" Association="Self.FK__Employee__Employ__33D4B598">
       <End Role="EmployeeStatus" EntitySet="EmployeeStatus" />
       <End Role="Employee" EntitySet="Employee" />
     </AssociationSet>
-    <AssociationSet Name="FK__Employee__Title___36B12243" Association="Self.FK__Employee__Title___36B12243">
+    <AssociationSet Name="FK__Employee__Title___34C8D9D1" Association="Self.FK__Employee__Title___34C8D9D1">
       <End Role="Title" EntitySet="Title" />
       <End Role="Employee" EntitySet="Employee" />
     </AssociationSet>
-    <AssociationSet Name="FK__Employee__User_I__33D4B598" Association="Self.FK__Employee__User_I__33D4B598">
-      <End Role="User" EntitySet="User" />
-      <End Role="Employee" EntitySet="Employee" />
-    </AssociationSet>
-    <AssociationSet Name="FK__Feedback__Bookin__6D0D32F4" Association="Self.FK__Feedback__Bookin__6D0D32F4">
+    <AssociationSet Name="FK__Feedback__Bookin__6754599E" Association="Self.FK__Feedback__Bookin__6754599E">
       <End Role="BookingInstance" EntitySet="BookingInstance" />
       <End Role="Feedback" EntitySet="Feedback" />
     </AssociationSet>
-    <AssociationSet Name="FK__Inspectio__Admin__52593CB8" Association="Self.FK__Inspectio__Admin__52593CB8">
-      <End Role="Admin" EntitySet="Admin" />
-      <End Role="Inspection" EntitySet="Inspection" />
-    </AssociationSet>
-    <AssociationSet Name="FK__Inspectio__Inspe__4F7CD00D" Association="Self.FK__Inspectio__Inspe__4F7CD00D">
+    <AssociationSet Name="FK__Inspectio__Inspe__4BAC3F29" Association="Self.FK__Inspectio__Inspe__4BAC3F29">
       <End Role="InspectionType" EntitySet="InspectionType" />
       <End Role="Inspection" EntitySet="Inspection" />
     </AssociationSet>
-    <AssociationSet Name="FK__Inspectio__Truck__5070F446" Association="Self.FK__Inspectio__Truck__5070F446">
+    <AssociationSet Name="FK__Inspectio__Truck__4CA06362" Association="Self.FK__Inspectio__Truck__4CA06362">
       <End Role="Truck" EntitySet="Truck" />
       <End Role="Inspection" EntitySet="Inspection" />
     </AssociationSet>
-    <AssociationSet Name="FK__Inspectio__User___5165187F" Association="Self.FK__Inspectio__User___5165187F">
-      <End Role="User" EntitySet="User" />
-      <End Role="Inspection" EntitySet="Inspection" />
-    </AssociationSet>
-    <AssociationSet Name="FK__JobListin__Admin__18EBB532" Association="Self.FK__JobListin__Admin__18EBB532">
-      <End Role="Admin" EntitySet="Admin" />
-      <End Role="JobListing" EntitySet="JobListing" />
-    </AssociationSet>
-    <AssociationSet Name="FK__JobListin__Docum__17036CC0" Association="Self.FK__JobListin__Docum__17036CC0">
-      <End Role="Document" EntitySet="Document" />
-      <End Role="JobListing" EntitySet="JobListing" />
-    </AssociationSet>
-    <AssociationSet Name="FK__JobListin__JobTy__160F4887" Association="Self.FK__JobListin__JobTy__160F4887">
-      <End Role="JobType" EntitySet="JobType" />
-      <End Role="JobListing" EntitySet="JobListing" />
-    </AssociationSet>
-    <AssociationSet Name="FK__JobListin__Listi__17F790F9" Association="Self.FK__JobListin__Listi__17F790F9">
+    <AssociationSet Name="FK__JobListin__Listi__0D7A0286" Association="Self.FK__JobListin__Listi__0D7A0286">
       <End Role="ListingStatus" EntitySet="ListingStatus" />
       <End Role="JobListing" EntitySet="JobListing" />
     </AssociationSet>
-    <AssociationSet Name="FK__License__Client___72C60C4A" Association="Self.FK__License__Client___72C60C4A">
+    <AssociationSet Name="FK__License__Client___6D0D32F4" Association="Self.FK__License__Client___6D0D32F4">
       <End Role="Client" EntitySet="Client" />
       <End Role="License" EntitySet="License" />
     </AssociationSet>
-    <AssociationSet Name="FK__License__Rental___71D1E811" Association="Self.FK__License__Rental___71D1E811">
+    <AssociationSet Name="FK__License__Rental___6C190EBB" Association="Self.FK__License__Rental___6C190EBB">
       <End Role="RentalAgreement" EntitySet="RentalAgreement" />
       <End Role="License" EntitySet="License" />
     </AssociationSet>
-    <AssociationSet Name="FK__Notificat__Notif__797309D9" Association="Self.FK__Notificat__Notif__797309D9">
+    <AssociationSet Name="FK__Notificat__Notif__73BA3083" Association="Self.FK__Notificat__Notif__73BA3083">
       <End Role="NotificationType" EntitySet="NotificationType" />
       <End Role="Notification" EntitySet="Notification" />
     </AssociationSet>
-    <AssociationSet Name="FK__Payment__Booking__693CA210" Association="Self.FK__Payment__Booking__693CA210">
+    <AssociationSet Name="FK__Payment__Booking__6383C8BA" Association="Self.FK__Payment__Booking__6383C8BA">
       <End Role="BookingInstance" EntitySet="BookingInstance" />
       <End Role="Payment" EntitySet="Payment" />
     </AssociationSet>
-    <AssociationSet Name="FK__Payment__Client___6A30C649" Association="Self.FK__Payment__Client___6A30C649">
+    <AssociationSet Name="FK__Payment__Client___6477ECF3" Association="Self.FK__Payment__Client___6477ECF3">
       <End Role="Client" EntitySet="Client" />
       <End Role="Payment" EntitySet="Payment" />
     </AssociationSet>
-    <AssociationSet Name="FK__Payment__Payment__6754599E" Association="Self.FK__Payment__Payment__6754599E">
+    <AssociationSet Name="FK__Payment__Payment__619B8048" Association="Self.FK__Payment__Payment__619B8048">
       <End Role="PaymentType" EntitySet="PaymentType" />
       <End Role="Payment" EntitySet="Payment" />
     </AssociationSet>
-    <AssociationSet Name="FK__Payment__Rental___68487DD7" Association="Self.FK__Payment__Rental___68487DD7">
+    <AssociationSet Name="FK__Payment__Rental___628FA481" Association="Self.FK__Payment__Rental___628FA481">
       <End Role="RentalAgreement" EntitySet="RentalAgreement" />
       <End Role="Payment" EntitySet="Payment" />
     </AssociationSet>
-    <AssociationSet Name="FK__Quotation__Admin__00200768" Association="Self.FK__Quotation__Admin__00200768">
-      <End Role="Admin" EntitySet="Admin" />
-      <End Role="Quotation" EntitySet="Quotation" />
-    </AssociationSet>
-    <AssociationSet Name="FK__Quotation__Clien__02FC7413" Association="Self.FK__Quotation__Clien__02FC7413">
-      <End Role="Client" EntitySet="Client" />
-      <End Role="QuotationRequest" EntitySet="QuotationRequest" />
-    </AssociationSet>
-    <AssociationSet Name="FK__Quotation__Quota__05D8E0BE" Association="Self.FK__Quotation__Quota__05D8E0BE">
+    <AssociationSet Name="FK__Quotation__Quota__7E37BEF6" Association="Self.FK__Quotation__Quota__7E37BEF6">
       <End Role="QuotationRequest" EntitySet="QuotationRequest" />
       <End Role="QuotationLine" EntitySet="QuotationLine" />
     </AssociationSet>
-    <AssociationSet Name="FK__Quotation__Quota__06CD04F7" Association="Self.FK__Quotation__Quota__06CD04F7">
+    <AssociationSet Name="FK__Quotation__Quota__7F2BE32F" Association="Self.FK__Quotation__Quota__7F2BE32F">
       <End Role="Quotation" EntitySet="Quotation" />
       <End Role="QuotationLine" EntitySet="QuotationLine" />
     </AssociationSet>
-    <AssociationSet Name="FK__Quotation__Servi__07C12930" Association="Self.FK__Quotation__Servi__07C12930">
+    <AssociationSet Name="FK__Quotation__Servi__00200768" Association="Self.FK__Quotation__Servi__00200768">
       <End Role="Service" EntitySet="Service" />
       <End Role="QuotationLine" EntitySet="QuotationLine" />
     </AssociationSet>
-    <AssociationSet Name="FK__RentalAgr__Clien__571DF1D5" Association="Self.FK__RentalAgr__Clien__571DF1D5">
+    <AssociationSet Name="FK__RentalAgr__Clien__5165187F" Association="Self.FK__RentalAgr__Clien__5165187F">
       <End Role="Client" EntitySet="Client" />
       <End Role="RentalAgreement" EntitySet="RentalAgreement" />
     </AssociationSet>
-    <AssociationSet Name="FK__RentalAgr__Inspe__5812160E" Association="Self.FK__RentalAgr__Inspe__5812160E">
+    <AssociationSet Name="FK__RentalAgr__Inspe__52593CB8" Association="Self.FK__RentalAgr__Inspe__52593CB8">
       <End Role="Inspection" EntitySet="Inspection" />
       <End Role="RentalAgreement" EntitySet="RentalAgreement" />
     </AssociationSet>
-    <AssociationSet Name="FK__RentalAgr__Renta__5629CD9C" Association="Self.FK__RentalAgr__Renta__5629CD9C">
+    <AssociationSet Name="FK__RentalAgr__Renta__5070F446" Association="Self.FK__RentalAgr__Renta__5070F446">
       <End Role="RentalStatus" EntitySet="RentalStatus" />
       <End Role="RentalAgreement" EntitySet="RentalAgreement" />
     </AssociationSet>
-    <AssociationSet Name="FK__RentalAgr__Truck__5535A963" Association="Self.FK__RentalAgr__Truck__5535A963">
+    <AssociationSet Name="FK__RentalAgr__Truck__4F7CD00D" Association="Self.FK__RentalAgr__Truck__4F7CD00D">
       <End Role="Truck" EntitySet="Truck" />
       <End Role="RentalAgreement" EntitySet="RentalAgreement" />
     </AssociationSet>
-    <AssociationSet Name="FK__Truck__Admin_ID__4CA06362" Association="Self.FK__Truck__Admin_ID__4CA06362">
-      <End Role="Admin" EntitySet="Admin" />
-      <End Role="Truck" EntitySet="Truck" />
-    </AssociationSet>
-    <AssociationSet Name="FK__Truck__TruckStat__4BAC3F29" Association="Self.FK__Truck__TruckStat__4BAC3F29">
+    <AssociationSet Name="FK__Truck__TruckStat__48CFD27E" Association="Self.FK__Truck__TruckStat__48CFD27E">
       <End Role="TruckStatus" EntitySet="TruckStatus" />
       <End Role="Truck" EntitySet="Truck" />
     </AssociationSet>
-    <AssociationSet Name="FK__Truck__TruckType__4AB81AF0" Association="Self.FK__Truck__TruckType__4AB81AF0">
+    <AssociationSet Name="FK__Truck__TruckType__47DBAE45" Association="Self.FK__Truck__TruckType__47DBAE45">
       <End Role="TruckType" EntitySet="TruckType" />
       <End Role="Truck" EntitySet="Truck" />
     </AssociationSet>
-    <AssociationSet Name="FK__TruckPhot__Truck__22751F6C" Association="Self.FK__TruckPhot__Truck__22751F6C">
+    <AssociationSet Name="FK__TruckPhot__Truck__17F790F9" Association="Self.FK__TruckPhot__Truck__17F790F9">
       <End Role="Truck" EntitySet="Truck" />
       <End Role="TruckPhoto" EntitySet="TruckPhoto" />
     </AssociationSet>
-    <AssociationSet Name="FK__UserNotif__Notif__7C4F7684" Association="Self.FK__UserNotif__Notif__7C4F7684">
+    <AssociationSet Name="FK__UserNotif__Notif__76969D2E" Association="Self.FK__UserNotif__Notif__76969D2E">
       <End Role="Notification" EntitySet="Notification" />
       <End Role="UserNotification" EntitySet="UserNotification" />
     </AssociationSet>
-    <AssociationSet Name="FK__UserNotif__User___7D439ABD" Association="Self.FK__UserNotif__User___7D439ABD">
+    <AssociationSet Name="FK__UserNotif__User___778AC167" Association="Self.FK__UserNotif__User___778AC167">
       <End Role="User" EntitySet="User" />
       <End Role="UserNotification" EntitySet="UserNotification" />
     </AssociationSet>

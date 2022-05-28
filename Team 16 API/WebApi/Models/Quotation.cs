@@ -21,11 +21,10 @@ namespace WebApi.Models
         }
     
         public int Quotation_ID { get; set; }
-        public int Admin_ID { get; set; }
+        public string QuotationDescription { get; set; }
         public System.DateTime QuotationDate { get; set; }
         public decimal Amount { get; set; }
     
-        public virtual Admin Admin { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<QuotationLine> QuotationLines { get; set; }
     }

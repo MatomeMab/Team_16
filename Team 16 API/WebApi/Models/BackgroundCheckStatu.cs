@@ -16,8 +16,5 @@ namespace WebApi.Models
     {
         public int BackgroundCheckStatus_ID { get; set; }
         public string BackgroundCheckStatusName { get; set; }
-        public int Admin_ID { get; set; }
-    
-        public virtual Admin Admin { get; set; }
     }
 }

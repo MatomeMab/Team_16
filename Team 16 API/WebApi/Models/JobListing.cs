@@ -21,21 +21,14 @@ namespace WebApi.Models
         }
     
         public int Job_ID { get; set; }
-        public int JobType_ID { get; set; }
-        public string Discription { get; set; }
+        public string Description { get; set; }
         public decimal Amount { get; set; }
-        public decimal HoursOrWeek { get; set; }
-        public int Document_ID { get; set; }
         public int ListingStatus_ID { get; set; }
-        public int Admin_ID { get; set; }
         public System.DateTime DatePosted { get; set; }
         public System.DateTime ExpiryDate { get; set; }
     
-        public virtual Admin Admin { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Application> Applications { get; set; }
-        public virtual Document Document { get; set; }
-        public virtual JobType JobType { get; set; }
         public virtual ListingStatu ListingStatu { get; set; }
     }
 }

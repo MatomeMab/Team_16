@@ -38,7 +38,7 @@ GO
 CREATE TABLE Client  
 (
 Client_ID int Identity (1,1) Primary Key Not Null,
-User_ID int not null foreign key references [User] (User_ID) on delete cascade,
+--User_ID int not null foreign key references [User] (User_ID) on delete cascade,
 ClientName varchar (50) not null,
 ClientSurname varchar (50) not null,
 PhoneNum int not null,
@@ -73,18 +73,19 @@ GO
 CREATE TABLE Employee 
 (
 Employee_ID int Identity (1,1) Primary Key Not Null,
-User_ID int not null foreign key references [User](User_ID),
+--User_ID int not null foreign key references [User](User_ID),
 EmployeeType_ID int not null foreign key references EmployeeType(EmployeeType_ID) on delete no action,
 EmployeeStatus_ID int not null foreign Key references EmployeeStatus(EmployeeStatus_ID) on delete no action,
 Title_ID int not null foreign key references Title(Title_ID) on delete no action,
 EmployeeName varchar (50) not null, 
 EmployeeSurname varchar (50) not null,
-IDNum bigint not null,
+DateOfBirth date not null,
 DateEmployed date not null,
 PhoneNum int  not null,
 EmergencyName varchar (50) not null,
 EmergencySurname varchar (50) not null,
 EmergencyPhoneNum int not null
+--Admin_ID int not null foreign key references Admin(Admin_ID)
 )
 GO
 
@@ -93,7 +94,7 @@ GO
 CREATE TABLE Booking 
 (
 Booking_ID int Identity (1,1) Primary Key Not Null,
-Client_ID int not null foreign key references Client(Client_ID)  on delete cascade,
+--Client_ID int not null foreign key references Client(Client_ID)  on delete cascade,
 DateMade datetime not null,
 )
 GO
@@ -165,7 +166,7 @@ CREATE TABLE Truck
 Truck_ID int Identity (1,1) Primary Key Not Null,
 TruckType_ID int not null foreign key references TruckType(TruckType_ID) on delete no action,
 TruckStatus_ID int not null foreign key references TruckStatus(TruckStatus_ID) on delete no action,
-Admin_ID int not null foreign key references Admin(Admin_ID) on delete no action,
+--Admin_ID int not null foreign key references Admin(Admin_ID) on delete no action,
 Model varchar (50) not null,
 Year int not null,
 Colour varchar (50) not null,
@@ -182,9 +183,9 @@ Inspection_ID int Identity (1,1) Primary Key Not Null,
 InspectionNote varchar (200) not null,
 InspectionTime datetime not null,
 InspectionType_ID int not null foreign key references InspectionType(InspectionType_ID),
-Truck_ID int not null foreign key references Truck(Truck_ID) on delete cascade,
-User_ID int not null foreign key references [User](User_ID),
-Admin_ID int not null foreign key references Admin(Admin_ID)
+Truck_ID int not null foreign key references Truck(Truck_ID) on delete cascade
+--User_ID int not null foreign key references [User](User_ID),
+--Admin_ID int not null foreign key references Admin(Admin_ID)
 )
 GO
 
@@ -241,6 +242,7 @@ PaymentType_ID int not null foreign key references PaymentType(PaymentType_ID),
 Rental_ID int not null foreign key references RentalAgreement(Rental_ID) on delete no action,
 BookingInstance_ID int not null foreign key references BookingInstance(BookingInstance_ID) on delete no action,
 Client_ID int references Client(Client_ID),
+--ProofOfPayment varbinary(max) not null,
 AmountPaid decimal (16,2) not null,
 AmountDue decimal (16,2) not null,
 DatePaid datetime not null 
@@ -324,7 +326,8 @@ GO
 CREATE TABLE Quotation
 (
 Quotation_ID int Identity (1,1) Primary Key Not Null,
-Admin_ID int not null foreign key references Admin(Admin_ID) on delete cascade,
+--Admin_ID int not null foreign key references Admin(Admin_ID) on delete cascade,
+QuotationDescription varchar(300),
 QuotationDate datetime not null,
 Amount decimal(16,2) not null
 )
@@ -335,9 +338,11 @@ GO
 CREATE TABLE QuotationRequest
 (
 QuotationRequest_ID int Identity (1,1) Primary Key Not Null,
-Client_ID int not null foreign key references Client(Client_ID) on delete cascade,
+--Client_ID int not null foreign key references Client(Client_ID) on delete cascade,
 QuotationReqDate datetime not null,
 QuotationReqDescription varchar (200) not null,
+FromAddress varchar(200) not null,
+ToAddress varchar(200) not null
 --From and To Address
 )
 GO
@@ -358,7 +363,7 @@ CREATE TABLE BackgroundCheckStatus
 (
 BackgroundCheckStatus_ID int Identity (1,1) Primary Key Not Null,
 BackgroundCheckStatusName varchar (50) not null,
-Admin_ID int not null foreign key references Admin(Admin_ID),
+--Admin_ID int not null foreign key references Admin(Admin_ID),
 )
 GO
 
@@ -387,25 +392,22 @@ ListingStatusName varchar (50) not null,
 )
 GO
 
-/* Create Table 38 */
+/* Create Table 38 
 CREATE TABLE JobType 
 (
 JobType_ID int Identity (1,1) Primary Key Not Null,
 JobType varchar(50) not null,
 )
-GO
+GO*/
 
 /* Create Table 39 */
 CREATE TABLE JobListing
 (
 Job_ID int Identity (1,1) Primary Key Not Null,
-JobType_ID int not null foreign key references JobType(JobType_ID),
-Discription varchar (200) not null,
+Description varchar (200) not null,
 Amount decimal(16,2) not null,
-HoursOrWeek decimal not null,
-Document_ID int not null foreign key references Document(Document_ID),
 ListingStatus_ID int not null foreign key references ListingStatus(ListingStatus_ID) on delete no action,
-Admin_ID int not null foreign key references Admin(Admin_ID) on delete cascade,
+--Admin_ID int not null foreign key references Admin(Admin_ID) on delete cascade,
 DatePosted datetime not null,
 ExpiryDate datetime not null,
 )
@@ -416,8 +418,10 @@ CREATE TABLE Candidate
 (
 Candidate_ID int Identity (1,1) Primary Key Not Null,
 CandidateSurname varchar (50) not null,
-CandidateNumber int not null,
-CandidateName varchar (50) not null
+CandidateName varchar (50) not null,
+CandidateEmailAddress varchar(50) not null,
+CandidatePhonNum int not null
+
 )
 GO
 
@@ -429,6 +433,7 @@ CREATE TABLE Application
 Application_ID int Identity (1,1) Primary Key Not Null,
 Candidate_ID int not null foreign key references Candidate(Candidate_ID) on delete cascade,
 Job_ID int not null foreign key references JobListing(Job_ID) on delete cascade,
+Document_ID int not null foreign key references Document(Document_ID),
 ApplicationStatus_ID int not null foreign key references ApplicationStatus(ApplicationStatus_ID),
 ApplicationDate date not null
 )
@@ -479,7 +484,9 @@ BookingInstance_ID int not null foreign key references BookingInstance(BookingIn
 )
 GO
 
-
+insert into InspectionType values
+('Pre Inspection','Inspection done before the vehicle is rented out or used'),
+('Post Inspection','Inspection done after the vehicle is returned')
 
 insert into Title values
 ('Mr'),
@@ -540,7 +547,8 @@ insert into ListingStatus values
 ('Active')
 
 insert into JobType values
-('Parker')
+('Parker'),
+('Cleaner')
 
 insert into TruckType values
 ('Flatbed','A flatbed truck is a type of truck which can be either articulated or rigid. As the name suggests, its bodywork is just an entirely flat, level "bed" with no sides or roof.')
@@ -552,8 +560,10 @@ insert into [User] values
 insert into Admin values 
 (3,'Billy','VanVick',0845631279)
 insert into Client values
-(1,'Fanelo','Nghonyama',0784569874)
+('Fanelo','Nghonyama',0784569874)
 insert into Employee values
-(1,2,1,1,'Percy','Chabalala',0102457863597,'2020-01-04',0782598641,'Cecil','Mpongose',0785962112)
+(2,1,1,'Percy','Chabalala','1998-01-04','2020-01-04',0782598641,'Cecil','Mpongose',0785962112)
 insert into Truck values
-(1,2,1,'Altima',2022,'White','YYD89GP','Nissan')
+(1,2,'Altima',2022,'White','YYD89GP','Nissan')
+insert into JobListing values
+('For testing purposes',500,1,'2020-01-04','2020-08-04')

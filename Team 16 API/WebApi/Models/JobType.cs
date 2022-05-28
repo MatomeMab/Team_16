@@ -14,16 +14,7 @@ namespace WebApi.Models
     
     public partial class JobType
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public JobType()
-        {
-            this.JobListings = new HashSet<JobListing>();
-        }
-    
         public int JobType_ID { get; set; }
         public string JobType1 { get; set; }
-    
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<JobListing> JobListings { get; set; }
     }
 }

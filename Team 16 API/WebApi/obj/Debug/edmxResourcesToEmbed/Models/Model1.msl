@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-  <EntityContainerMapping StorageEntityContainer="EasyMovingSystemModelStoreContainer" CdmEntityContainer="EasyMovingSystemEntities3">
+  <EntityContainerMapping StorageEntityContainer="EasyMovingSystemModelStoreContainer" CdmEntityContainer="EasyMovingSystemEntities1">
     <EntitySetMapping Name="Admins">
       <EntityTypeMapping TypeName="EasyMovingSystemModel.Admin">
         <MappingFragment StoreEntitySet="Admin">
@@ -18,6 +18,7 @@
           <ScalarProperty Name="Application_ID" ColumnName="Application_ID" />
           <ScalarProperty Name="Candidate_ID" ColumnName="Candidate_ID" />
           <ScalarProperty Name="Job_ID" ColumnName="Job_ID" />
+          <ScalarProperty Name="Document_ID" ColumnName="Document_ID" />
           <ScalarProperty Name="ApplicationStatus_ID" ColumnName="ApplicationStatus_ID" />
           <ScalarProperty Name="ApplicationDate" ColumnName="ApplicationDate" />
         </MappingFragment>
@@ -36,7 +37,6 @@
         <MappingFragment StoreEntitySet="BackgroundCheckStatus">
           <ScalarProperty Name="BackgroundCheckStatus_ID" ColumnName="BackgroundCheckStatus_ID" />
           <ScalarProperty Name="BackgroundCheckStatusName" ColumnName="BackgroundCheckStatusName" />
-          <ScalarProperty Name="Admin_ID" ColumnName="Admin_ID" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -44,7 +44,6 @@
       <EntityTypeMapping TypeName="EasyMovingSystemModel.Booking">
         <MappingFragment StoreEntitySet="Booking">
           <ScalarProperty Name="Booking_ID" ColumnName="Booking_ID" />
-          <ScalarProperty Name="Client_ID" ColumnName="Client_ID" />
           <ScalarProperty Name="DateMade" ColumnName="DateMade" />
         </MappingFragment>
       </EntityTypeMapping>
@@ -78,8 +77,9 @@
         <MappingFragment StoreEntitySet="Candidate">
           <ScalarProperty Name="Candidate_ID" ColumnName="Candidate_ID" />
           <ScalarProperty Name="CandidateSurname" ColumnName="CandidateSurname" />
-          <ScalarProperty Name="CandidateNumber" ColumnName="CandidateNumber" />
           <ScalarProperty Name="CandidateName" ColumnName="CandidateName" />
+          <ScalarProperty Name="CandidateEmailAddress" ColumnName="CandidateEmailAddress" />
+          <ScalarProperty Name="CandidatePhonNum" ColumnName="CandidatePhonNum" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -87,7 +87,6 @@
       <EntityTypeMapping TypeName="EasyMovingSystemModel.Client">
         <MappingFragment StoreEntitySet="Client">
           <ScalarProperty Name="Client_ID" ColumnName="Client_ID" />
-          <ScalarProperty Name="User_ID" ColumnName="User_ID" />
           <ScalarProperty Name="ClientName" ColumnName="ClientName" />
           <ScalarProperty Name="ClientSurname" ColumnName="ClientSurname" />
           <ScalarProperty Name="PhoneNum" ColumnName="PhoneNum" />
@@ -143,13 +142,12 @@
       <EntityTypeMapping TypeName="EasyMovingSystemModel.Employee">
         <MappingFragment StoreEntitySet="Employee">
           <ScalarProperty Name="Employee_ID" ColumnName="Employee_ID" />
-          <ScalarProperty Name="User_ID" ColumnName="User_ID" />
           <ScalarProperty Name="EmployeeType_ID" ColumnName="EmployeeType_ID" />
           <ScalarProperty Name="EmployeeStatus_ID" ColumnName="EmployeeStatus_ID" />
           <ScalarProperty Name="Title_ID" ColumnName="Title_ID" />
           <ScalarProperty Name="EmployeeName" ColumnName="EmployeeName" />
           <ScalarProperty Name="EmployeeSurname" ColumnName="EmployeeSurname" />
-          <ScalarProperty Name="IDNum" ColumnName="IDNum" />
+          <ScalarProperty Name="DateOfBirth" ColumnName="DateOfBirth" />
           <ScalarProperty Name="DateEmployed" ColumnName="DateEmployed" />
           <ScalarProperty Name="PhoneNum" ColumnName="PhoneNum" />
           <ScalarProperty Name="EmergencyName" ColumnName="EmergencyName" />
@@ -192,8 +190,6 @@
           <ScalarProperty Name="InspectionTime" ColumnName="InspectionTime" />
           <ScalarProperty Name="InspectionType_ID" ColumnName="InspectionType_ID" />
           <ScalarProperty Name="Truck_ID" ColumnName="Truck_ID" />
-          <ScalarProperty Name="User_ID" ColumnName="User_ID" />
-          <ScalarProperty Name="Admin_ID" ColumnName="Admin_ID" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -218,13 +214,9 @@
       <EntityTypeMapping TypeName="EasyMovingSystemModel.JobListing">
         <MappingFragment StoreEntitySet="JobListing">
           <ScalarProperty Name="Job_ID" ColumnName="Job_ID" />
-          <ScalarProperty Name="JobType_ID" ColumnName="JobType_ID" />
-          <ScalarProperty Name="Discription" ColumnName="Discription" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
           <ScalarProperty Name="Amount" ColumnName="Amount" />
-          <ScalarProperty Name="HoursOrWeek" ColumnName="HoursOrWeek" />
-          <ScalarProperty Name="Document_ID" ColumnName="Document_ID" />
           <ScalarProperty Name="ListingStatus_ID" ColumnName="ListingStatus_ID" />
-          <ScalarProperty Name="Admin_ID" ColumnName="Admin_ID" />
           <ScalarProperty Name="DatePosted" ColumnName="DatePosted" />
           <ScalarProperty Name="ExpiryDate" ColumnName="ExpiryDate" />
         </MappingFragment>
@@ -299,7 +291,7 @@
       <EntityTypeMapping TypeName="EasyMovingSystemModel.Quotation">
         <MappingFragment StoreEntitySet="Quotation">
           <ScalarProperty Name="Quotation_ID" ColumnName="Quotation_ID" />
-          <ScalarProperty Name="Admin_ID" ColumnName="Admin_ID" />
+          <ScalarProperty Name="QuotationDescription" ColumnName="QuotationDescription" />
           <ScalarProperty Name="QuotationDate" ColumnName="QuotationDate" />
           <ScalarProperty Name="Amount" ColumnName="Amount" />
         </MappingFragment>
@@ -320,9 +312,10 @@
       <EntityTypeMapping TypeName="EasyMovingSystemModel.QuotationRequest">
         <MappingFragment StoreEntitySet="QuotationRequest">
           <ScalarProperty Name="QuotationRequest_ID" ColumnName="QuotationRequest_ID" />
-          <ScalarProperty Name="Client_ID" ColumnName="Client_ID" />
           <ScalarProperty Name="QuotationReqDate" ColumnName="QuotationReqDate" />
           <ScalarProperty Name="QuotationReqDescription" ColumnName="QuotationReqDescription" />
+          <ScalarProperty Name="FromAddress" ColumnName="FromAddress" />
+          <ScalarProperty Name="ToAddress" ColumnName="ToAddress" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -397,7 +390,6 @@
           <ScalarProperty Name="Truck_ID" ColumnName="Truck_ID" />
           <ScalarProperty Name="TruckType_ID" ColumnName="TruckType_ID" />
           <ScalarProperty Name="TruckStatus_ID" ColumnName="TruckStatus_ID" />
-          <ScalarProperty Name="Admin_ID" ColumnName="Admin_ID" />
           <ScalarProperty Name="Model" ColumnName="Model" />
           <ScalarProperty Name="Year" ColumnName="Year" />
           <ScalarProperty Name="Colour" ColumnName="Colour" />

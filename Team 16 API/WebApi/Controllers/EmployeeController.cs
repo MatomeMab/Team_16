@@ -14,7 +14,7 @@ namespace WebApi.Controllers
     [RoutePrefix("Api/Employee")]
     public class EmployeeController : ApiController
     {
-        private EasyMovingSystemEntities3 objEntity = new EasyMovingSystemEntities3();
+        private EasyMovingSystemEntities1 objEntity = new EasyMovingSystemEntities1();
 
         [HttpGet]
         [Route("AllEmployeeDetails")]
@@ -94,7 +94,7 @@ namespace WebApi.Controllers
                         objEmp.EmployeeName = employee.EmployeeName;
                         objEmp.EmployeeSurname = employee.EmployeeSurname;
                         objEmp.PhoneNum = objEmp.PhoneNum;
-                        objEmp.IDNum = objEmp.IDNum;
+                        objEmp.DateOfBirth = objEmp.DateOfBirth;
                         objEmp.EmergencyName = objEmp.EmergencyName;
                         objEmp.EmergencySurname = objEmp.EmergencySurname;
                         objEmp.EmergencyPhoneNum = objEmp.EmergencyPhoneNum;

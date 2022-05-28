@@ -14,16 +14,6 @@ namespace WebApi.Models
     
     public partial class Admin
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Admin()
-        {
-            this.BackgroundCheckStatus = new HashSet<BackgroundCheckStatu>();
-            this.Inspections = new HashSet<Inspection>();
-            this.JobListings = new HashSet<JobListing>();
-            this.Quotations = new HashSet<Quotation>();
-            this.Trucks = new HashSet<Truck>();
-        }
-    
         public int Admin_ID { get; set; }
         public int User_ID { get; set; }
         public string AdminName { get; set; }
@@ -31,15 +21,5 @@ namespace WebApi.Models
         public int PhoneNum { get; set; }
     
         public virtual User User { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<BackgroundCheckStatu> BackgroundCheckStatus { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Inspection> Inspections { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<JobListing> JobListings { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Quotation> Quotations { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Truck> Trucks { get; set; }
     }
 }
