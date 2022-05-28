@@ -44,10 +44,23 @@
           </button>
         </div>
       </div>
-      <button mat-button class="menu-button" routerLink="/Truck">
-        <mat-icon>directions_car</mat-icon>
-        <span>Truck</span>
-      </button>
+
+      <div class="dropdown">
+        <button mat-button class="menu-button" routerLink="/Truck">
+          <mat-icon>directions_car</mat-icon>
+          <span>Truck</span>
+        </button>
+        <div class="dropdown-content">
+          <button style="align-items: center" mat-button class="menu-button" routerLink="/Truck">
+            <mat-icon>directions_car</mat-icon>
+            <span>Register Truck</span>
+          </button>
+          <button mat-button class="menu-button" routerLink="/TruckList">
+            <mat-icon>view_list</mat-icon>
+            <span>Truck List</span>
+          </button>
+        </div>
+      </div>
 
     </mat-sidenav>
     <mat-sidenav-content>

@@ -4,6 +4,7 @@ import { TruckComponent } from './Admin/Components/Truck/truck/truck.component';
 import { EmployeeComponent } from './Admin/Components/Employee/employee/employee.component';
 import { EmployeeTypeComponent } from './Admin/Components/EmployeeType/employee-type/employee-type.component';
 import { EmployeeListComponent } from './Admin/Components/Employee/employee-list/employee-list.component';
+import { TruckListComponent } from './Admin/Components/Truck/truck-list/truck-list.component';
 
 const routes: Routes = [ 
   {
@@ -17,6 +18,10 @@ const routes: Routes = [
   { 
     path: 'Truck', 
     component: TruckComponent
+  },
+  { 
+    path: 'TruckList', 
+    component: TruckListComponent
   },
   {
     path: 'EmployeeType', 
