@@ -1,36 +1,36 @@
 <div class="container" id="center" >  
-  <mat-card style="background-color: white;">  
+  <mat-card style="background-color: white;" class="job-card">  
     <mat-toolbar color="accent">  
       <div align="center" style="color:rgb(15, 15, 15);text-align: left;">  
-       Jobs  
+       Create Job 
       </div>    
     </mat-toolbar>  
   <br><br>  
-    <mat-card-content style="color:black">  
+    <mat-card-content style="color:black" >  
       <form [formGroup]="jobForm"(ngSubmit)="onFormSubmit()">  
               <table class="table table-striped" style="color:black">  
                 <tr>  
                   <p>
-                  <td class="tbl1" style="color:black">  
+                  
                     <mat-form-field class="demo-full-width" style="color:black"> 
                       <textarea formControlName="Description" matTooltip="Enter job Description" matInput placeholder="job Description"matInput style="color:black"></textarea> 
                     </mat-form-field>  
                     <mat-error>  
                       <span *ngIf="!jobForm.get('Description').value && jobForm.get('Description').touched"></span>  
                     </mat-error>  
-                  </td>  
-                  </p>
+                 
+                  
                   <p>
-                  <td class="tbl1">  
+                   
                     <mat-form-field class="demo-full-width">  
-                      <input matInput [matDatepicker]="picker"matTooltip="Enter Expiry Date " formControlName="ExpiryDate"placeholder="Choose Expiry Date">  
+                      <input matInput [matDatepicker]="picker" matTooltip="Enter Expiry Date " formControlName="ExpiryDate"placeholder="Choose Expiry Date">  
                       <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>  
                       <mat-datepicker #picker></mat-datepicker>  
                     </mat-form-field>  
                     <mat-error>  
                       <span *ngIf="!jobForm.get('ExpiryDate').value && jobForm.get('ExpiryDate').touched"></span>  
                     </mat-error>  
-                  </td> 
+                
                   </p>
                   <p>
                     <td>
@@ -38,19 +38,19 @@
                     </td>
                   </p>
                   <p>
-                  <td class="tbl1">  
+                 
                     <mat-form-field class="demo-full-width">  
                       <input formControlName="Amount" matTooltip="Enter Amount" matInput placeholder="Amount">  
                     </mat-form-field>  
                     <mat-error>  
                       <span *ngIf="!jobForm.get('Amount').value && jobForm.get('Amount').touched"></span>  
                     </mat-error>  
-                  </td> 
+                 
                   </p>
                   <p>
-                  <td class="tbl1">  
+                
                     <mat-form-field class="demo-full-width">  
-                      <mat-select formControlName="ListingStatusName" matTooltip="Choose Status " placeholder="Choose Status">
+                      <mat-select formControlName="ListingStatusName" matTooltip="Choose Status " placeholder="Choose Status" style=" color: red; ">
                         <mat-option *ngFor="let status of allListingStatus|async"  [value]="status.ListingStatus_ID">
                           {{status.ListingStatusName}}
                         </mat-option>
@@ -59,7 +59,7 @@
                     <mat-error>  
                       <span *ngIf="!jobForm.get('ListingStatusName').value && jobForm.get('ListingStatusName').touched"></span>  
                     </mat-error>  
-                  </td> 
+                  
                   </p>
                 </tr>   
                 <tr>  

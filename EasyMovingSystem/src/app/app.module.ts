@@ -10,7 +10,7 @@ import { EmployeeListComponent } from './Admin/Components/Employee/employee-list
 import { EmployeeComponent } from './Admin/Components/Employee/employee/employee.component';
 import { InspectionTypeComponent } from './Admin/Components/InspectionType/inspection-type/inspection-type.component';
 import { TruckComponent } from './Admin/Components/Truck/truck/truck.component';
-import { EmployeeTypeComponent } from './Admin/Components/EmployeeType/employee-type/employee-type.component';
+//import { EmployeeTypeComponent } from './Admin/Components/EmployeeType/employee-type/employee-type.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { JobListComponent } from './Admin/Components/JobListing/job-list/job-list.component';
 import { QoutationComponent } from './Admin/Components/qoutation/qoutation.component';
@@ -30,7 +30,7 @@ import { CreateServiceComponent } from './Admin/Components/Servi/create-service/
 import { ServiceListComponent } from './Admin/Components/Servi/service-list/service-list.component';
 import { StaticPageComponent } from './LandingPage/static-page/static-page.component';
 import{ToastrModule,ToastrService} from 'ngx-toastr';
-
+import { EmployeeTypeComponent } from './Admin/Components/EmployeeType/employee-type/employee-type.component';
 
 
 

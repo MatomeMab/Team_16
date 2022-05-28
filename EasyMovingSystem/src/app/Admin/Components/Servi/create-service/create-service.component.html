@@ -30,22 +30,23 @@
       </mat-card-content>
     </mat-card>
   </div>-->
+  
   <div class="container" id="center" >  
-    <mat-card style="background-color: white;">  
+    <mat-card style="background-color: white;" class="service-card">  
       <mat-toolbar color="accent">  
         <div align="center" style="color:rgb(15, 15, 15);text-align: left;">  
          Create Service
         </div>    
       </mat-toolbar>  
     <br><br>  
-      <mat-card-content style="color:black">  
-        <form [formGroup]="serviceForm"(ngSubmit)="onFormSubmit()">  
+      <mat-card-content class="text" style="color:black">  
+        <form [formGroup]="serviceForm"(ngSubmit)="onFormSubmit()" class="example-container">  
                 <table class="table table-striped" style="color:black">  
                   <tr>  
                    <p>
-                    <td class="tbl1">  
-                      <mat-form-field class="demo-full-width">  
-                        <input formControlName="ServiceName" matTooltip="Enter Name" matInput placeholder="Service Name">  
+                    <td class="tbl1" style="color:black">  
+                      <mat-form-field class="demo-full-width" >  
+                        <input formControlName="ServiceName" matTooltipClass="primary-tooltip" matTooltip="Enter Name" matInput placeholder="Service Name" style="color:black">  
                       </mat-form-field>  
                       <mat-error>  
                         <span *ngIf="!serviceForm.get('ServiceName').value && serviceForm.get('ServiceName').touched"></span>  
@@ -79,5 +80,49 @@
       </mat-card-content>  
     </mat-card>  
     </div>  
-   
-   
+ 
+ <!-- <h2 mat-dialog-title>Add Employee Type</h2>
+<mat-dialog-content>
+    <form [formGroup]="serviceForm" (ngSubmit)="onFormSubmit()">
+        <mat-form-field class="example-full-width" appearance="fill">
+            <mat-label>Add Employee Type Name</mat-label>
+            <input matInput placeholder="" formControlName="ServiceName">
+            <div class="errors">
+                <ng-container *ngFor="let item of error_messages.ServiceName">
+                    <div class="errors" *ngIf="
+                  serviceForm.get('ServiceName')?.hasError(item.type) &&
+                  (serviceForm.get('ServiceName')?.dirty ||
+                    serviceForm.get('ServiceName')?.touched)">
+                        {{ item.message }}
+                    </div>
+                </ng-container>
+            </div>           
+        </mat-form-field>
+        <br>
+        <mat-form-field class="example-full-width" appearance="fill">
+          <mat-label class="col-form-label col-form-label-sm mt-2" for="inputSmall">Employee Type Description</mat-label>
+          <input matInput placeholder="" formControlName="ServiceDescription">
+                    
+      </mat-form-field>
+        
+        <div align="bottom">
+          <div class="errors">
+            <ng-container *ngFor="let item of error_messages.ServiceDescription">
+                <div class="errors" *ngIf="
+                serviceForm.get('ServiceDescription')?.hasError(item.type) &&
+              (serviceForm.get('ServiceDescription')?.dirty ||
+              serviceForm.get('ServiceDescription')?.touched)">
+                    {{ item.message }}
+                </div>
+            </ng-container>
+        </div>
+
+            <button mat-stroked-button [disabled]="!serviceForm.valid">Save</button>
+        </div>
+    </form>
+    <div align="end">
+        <button mat-raised-button (click)="resetForm()" color="warn">Reset</button>
+    </div>
+</mat-dialog-content>
+-->
+

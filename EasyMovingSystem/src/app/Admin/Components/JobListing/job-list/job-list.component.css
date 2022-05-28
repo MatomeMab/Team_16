@@ -68,3 +68,32 @@
 /*.container{
     flex: 1 1 auto;
 }*/
+::ng-deep .mat-form-field-label{
+  color:#000 !important;
+}
+.job-card{
+  /*display: flex;*/
+  width: 350px;
+    justify-content: center;
+    display: inline-block;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+mat-datepicker-toggle {
+  color: rgb(83, 39, 202) !important;
+}
+mat-form-field.mat-form-field {
+  font-size: 14px;
+  color: #000;
+  border-bottom: #000;
+  outline: #000;
+}
+.mat-select-arrow {
+  border-top: 5px solid rgb(10, 73, 99);
+}
+.mat-form-field-appearance-fill .mat-form-field-underline::before {
+  background-color: black;
+}

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { ServiceService } from 'src/app/Admin/Services/service.service';
-import { FormBuilder, Validators } from '@angular/forms'; 
+import { FormBuilder, Validators, FormControl } from '@angular/forms'; 
 import { IService } from 'src/app/Admin/Models/iservice';
 @Component({
   selector: 'app-create-service',
@@ -10,7 +10,8 @@ import { IService } from 'src/app/Admin/Models/iservice';
 })
 export class CreateServiceComponent implements OnInit {
   dataSaved = false;  
-  serviceForm: any;  
+  serviceForm: any; 
+  colorControl = new FormControl('accent'); 
   allServices!: Observable<ServiceService[]>;  
   serviceIdUpdate = null;  
   massage ='';  
@@ -47,4 +48,18 @@ export class CreateServiceComponent implements OnInit {
     this.CreateService(service);   
     this.serviceForm.reset();  
   }
+
+  error_messages = {
+    ServiceName: [
+      { type: 'minlength', message: 'Employee Type must be more than 1 character' },
+      { type: 'maxlength', message: 'Employee Type must be less than 30 characters' },
+      { type: 'required', message: 'Employee Type name is required' }
+    ],
+    ServiceDescription: [
+      { type: 'minlength', message: 'Employee Type must be more than 1 character' },
+      { type: 'maxlength', message: 'Employee Type must be less than 30 characters' },
+      { type: 'required', message: 'Employee Type description is required' }
+    ]
+  }
+  
 }
