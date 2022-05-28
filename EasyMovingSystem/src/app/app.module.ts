@@ -29,6 +29,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { CreateServiceComponent } from './Admin/Components/Servi/create-service/create-service.component';
 import { ServiceListComponent } from './Admin/Components/Servi/service-list/service-list.component';
 import { StaticPageComponent } from './LandingPage/static-page/static-page.component';
+import{ToastrModule,ToastrService} from 'ngx-toastr';
+
 
 
 
@@ -71,7 +73,13 @@ import { StaticPageComponent } from './LandingPage/static-page/static-page.compo
         MaterialModule,
         HttpClientModule,
         FormsModule,
-        ReactiveFormsModule
+        ReactiveFormsModule,
+        ToastrModule.forRoot({
+          positionClass: 'toast-top-full-width'
+        }),
+        
+       
+       
      
   ],
   providers: [],

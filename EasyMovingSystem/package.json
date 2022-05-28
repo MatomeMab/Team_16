@@ -25,6 +25,9 @@
     "jquery": "^3.6.0",
     "mat-sidenav-menu": "^0.10.0",
     "material": "^0.4.3",
+    "ngf-bootstrap": "^0.0.5",
+    "ngx-bootstrap": "^8.0.0",
+    "ngx-toastr": "^14.3.0",
     "rxjs": "~7.5.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.11.4"

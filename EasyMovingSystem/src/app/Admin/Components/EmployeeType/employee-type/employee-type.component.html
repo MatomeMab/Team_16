@@ -1,1 +1,42 @@
-<p>employee-type works!</p>
+<h2 mat-dialog-title>Add Employee Type</h2>
+<mat-dialog-content>
+    <form [formGroup]="form" (ngSubmit)="OnSubmit()">
+        <mat-form-field class="example-full-width" appearance="fill">
+            <mat-label>Add Employee Type Name</mat-label>
+            <input matInput placeholder="" formControlName="EmployeeTypeName">
+            <div class="errors">
+                <ng-container *ngFor="let item of error_messages.EmployeeTypeName">
+                    <div class="errors" *ngIf="
+                  form.get('EmployeeTypeName')?.hasError(item.type) &&
+                  (form.get('EmployeeTypeName')?.dirty ||
+                    form.get('EmployeeTypeName')?.touched)">
+                        {{ item.message }}
+                    </div>
+                </ng-container>
+            </div>           
+        </mat-form-field>
+        <br>
+        <mat-form-field class="example-full-width" appearance="fill">
+          <mat-label class="col-form-label col-form-label-sm mt-2" for="inputSmall">Employee Type Description</mat-label>
+          <input matInput placeholder="" formControlName="EmployeeTypeDescription">
+          <div class="errors">
+              <ng-container *ngFor="let item of error_messages.EmployeeTypeDescription">
+                  <div class="errors" *ngIf="
+                form.get('EmployeeTypeDescription')?.hasError(item.type) &&
+                (form.get('EmployeeTypeDescription')?.dirty ||
+                  form.get('EmployeeTypeDescription')?.touched)">
+                      {{ item.message }}
+                  </div>
+              </ng-container>
+          </div>           
+      </mat-form-field>
+        
+        <div align="end">
+            <button mat-stroked-button [disabled]="!form.valid">Save</button>
+        </div>
+    </form>
+    <div align="end">
+        <button mat-raised-button (click)="Close()" color="warn">Cancel</button>
+    </div>
+</mat-dialog-content>
+
