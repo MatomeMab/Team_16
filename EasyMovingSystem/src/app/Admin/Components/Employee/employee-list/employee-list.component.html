@@ -1,1 +1,28 @@
-<p>employee-list works alright!</p>
+<table class="table table-striped">
+    <thead>
+      <th>Id</th>
+      <th>Name</th>
+      <th>Surname</th>
+      <th>Date Of Birth</th>
+      <th>Phone Number</th>
+      <th>Date Employed</th>
+      <th>Employee Type</th>
+      <th>Options</th>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of employeeList$|async">
+        <td>{{item.id}}</td>
+        <td>{{item.EmployeeName}}</td>
+        <td>{{item.EmployeeSurname}}</td>
+        <td>{{item.DateOfBirth}}</td>
+        <td>{{item.DateEmployed}}</td>
+        <td>{{item.EmployeeType}}</td>
+        <!-- <td>{{item.inspectionTypeId}}</td> -->
+        <td>{{item.status}}</td>
+        <td>{{item.comments}}</td>
+
+  
+      </tr>
+    </tbody>
+  </table>
+  

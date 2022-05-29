@@ -95,6 +95,7 @@ namespace WebApi.Controllers
                         objEmp.EmployeeSurname = employee.EmployeeSurname;
                         objEmp.PhoneNum = objEmp.PhoneNum;
                         objEmp.DateOfBirth = objEmp.DateOfBirth;
+                        objEmp.DateEmployed = objEmp.DateEmployed;
                         objEmp.EmergencyName = objEmp.EmergencyName;
                         objEmp.EmergencySurname = objEmp.EmergencySurname;
                         objEmp.EmergencyPhoneNum = objEmp.EmergencyPhoneNum;

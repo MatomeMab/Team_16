@@ -1,3 +1,4 @@
+import { SharedService } from './shared.service';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
@@ -32,6 +33,10 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import {MatSelectModule} from '@angular/material/select';
+import {MatTableModule} from '@angular/material/table';
+
+import {HttpClientModule} from '@angular/common/http';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -66,10 +71,12 @@ import {MatSelectModule} from '@angular/material/select';
     MatDividerModule,MatSidenavModule,
     MatIconModule, MatCardModule,
     MatFormFieldModule, MatInputModule,
-    MatDatepickerModule, MatSelectModule
+    MatDatepickerModule, MatSelectModule,
+    MatTableModule, HttpClientModule,
+    FormsModule, ReactiveFormsModule
+
   ],
-  providers: [],
-  bootstrap: [AppComponent],
- // exports:[ ]
+  providers: [SharedService],
+  bootstrap: [AppComponent]
 })
 export class AppModule { }

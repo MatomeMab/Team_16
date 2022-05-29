@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
+import { SharedService } from 'src/app/shared.service';
 
 @Component({
   selector: 'app-employee-list',
@@ -7,9 +9,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class EmployeeListComponent implements OnInit {
 
-  constructor() { }
+  employeeList$!:Observable<any[]>
+
+  constructor(private service:SharedService) { }
+ 
 
   ngOnInit(): void {
+    this.employeeList$ = this.service.AllEmployeeDetails();
   }
+  
 
 }
