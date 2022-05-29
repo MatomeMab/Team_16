@@ -70,5 +70,6 @@ namespace WebApi.Models
         public virtual DbSet<TruckType> TruckTypes { get; set; }
         public virtual DbSet<User> Users { get; set; }
         public virtual DbSet<UserNotification> UserNotifications { get; set; }
+        public virtual DbSet<UserRole> UserRoles { get; set; }
     }
 }

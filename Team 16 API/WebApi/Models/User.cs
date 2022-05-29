@@ -19,7 +19,7 @@ namespace WebApi.Models
         {
             this.Admins = new HashSet<Admin>();
             this.UserNotifications = new HashSet<UserNotification>();
-            this.Roles = new HashSet<Role>();
+            this.UserRoles = new HashSet<UserRole>();
         }
     
         public int User_ID { get; set; }
@@ -32,6 +32,6 @@ namespace WebApi.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<UserNotification> UserNotifications { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Role> Roles { get; set; }
+        public virtual ICollection<UserRole> UserRoles { get; set; }
     }
 }

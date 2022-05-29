@@ -443,13 +443,14 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <AssociationSetMapping Name="UserRole" TypeName="EasyMovingSystemModel.UserRole" StoreEntitySet="UserRole">
-      <EndProperty Name="Role">
-        <ScalarProperty Name="Role_ID" ColumnName="Role_ID" />
-      </EndProperty>
-      <EndProperty Name="User">
-        <ScalarProperty Name="User_ID" ColumnName="User_ID" />
-      </EndProperty>
-    </AssociationSetMapping>
+    <EntitySetMapping Name="UserRoles">
+      <EntityTypeMapping TypeName="EasyMovingSystemModel.UserRole">
+        <MappingFragment StoreEntitySet="UserRole">
+          <ScalarProperty Name="UserRole1" ColumnName="UserRole" />
+          <ScalarProperty Name="Role_ID" ColumnName="Role_ID" />
+          <ScalarProperty Name="User_ID" ColumnName="User_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
   </EntityContainerMapping>
 </Mapping>

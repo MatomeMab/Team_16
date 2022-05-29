@@ -29,6 +29,7 @@ GO
 --Table3
 CREATE TABLE UserRole  
 (
+UserRole int Identity (1,1) Primary Key Not Null,
 Role_ID int not null foreign key references Role(Role_ID) on delete no action,
 User_ID int not null foreign key references [User] (User_ID) on delete cascade
 )
@@ -392,13 +393,13 @@ ListingStatusName varchar (50) not null,
 )
 GO
 
-/* Create Table 38 
+/*Create Table 38*/
 CREATE TABLE JobType 
 (
 JobType_ID int Identity (1,1) Primary Key Not Null,
 JobType varchar(50) not null,
 )
-GO*/
+GO
 
 /* Create Table 39 */
 CREATE TABLE JobListing
