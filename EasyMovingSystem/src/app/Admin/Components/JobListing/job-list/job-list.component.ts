@@ -49,6 +49,7 @@ export class JobListComponent implements OnInit {
         this.dataSaved = true;  
         this.massage = 'Record Updated Successfully';  
         this.loadAllJobs();  
+        
         this.jobIdUpdate = null;  
         this.jobForm.reset();  
       });  
@@ -63,6 +64,7 @@ export class JobListComponent implements OnInit {
   }
   loadAllJobs() {  
     this.allJobs = this.jobService.getAllJob();  
+    this.allListingStatus=this.jobService.getAllListingStatus();
   }  
   onFormSubmit() {  
     this.dataSaved = false;  
