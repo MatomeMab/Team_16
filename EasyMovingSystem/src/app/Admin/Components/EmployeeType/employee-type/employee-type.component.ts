@@ -5,6 +5,7 @@ import { EmployeeTypeService } from 'src/app/Admin/Services/employee-type.servic
 import { IEmployeeType } from 'src/app/Admin/Models/iemployee-type';
 import { NotificationsService } from 'src/app/Admin/Services/notifications.service';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-employee-type',
@@ -12,90 +13,57 @@ import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms'
   styleUrls: ['./employee-type.component.css']
 })
 export class EmployeeTypeComponent implements OnInit {
-
-  form!:FormGroup;
-  employeeType!:IEmployeeType
- 
-   error_messages = {
-     EmployeeTypeName: [
-       { type: 'minlength', message: 'Employee Type must be more than 1 character' },
-       { type: 'maxlength', message: 'Employee Type must be less than 30 characters' },
-       { type: 'required', message: 'Employee Type name is required' }
-     ],
-     EmployeeTypeDescription: [
-       { type: 'minlength', message: 'Employee Type must be more than 1 character' },
-       { type: 'maxlength', message: 'Employee Type must be less than 30 characters' },
-       { type: 'required', message: 'Employee Type description is required' }
-     ]
-   }
-
-  constructor(
-    private employeeTypeService: EmployeeTypeService,
-    public dialog: MatDialog,
-    private formBuilder: FormBuilder, 
-    private notificationService: NotificationsService,
-    public dialogRef: MatDialogRef<EmployeeTypeComponent>
-  ) { }
+  dataSaved = false;  
+  employeeTypeForm: any; 
+  colorControl = new FormControl('accent'); 
+  allEmployeeTypes!: Observable<IEmployeeType[]>;  
+  empTypeIdUpdate = null;  
+  massage ='';  
+  isAddMode!: boolean;
+  constructor(private formbulider: FormBuilder,private empType:EmployeeTypeService) { }
 
   ngOnInit(): void {
-    this.refreshForm();
-    this.createForm();
-    console.log('Employee Types')
+    this.employeeTypeForm = this.formbulider.group({  
+      EmployeeTypeName: ['', [Validators.required]],  
+      EmployeeDescription: ['', [Validators.required]],  
+    });  
   }
-
-  createForm() {
-    this.form = this.formBuilder.group({
-      EmployeeTypeName: new FormControl(
-        this.employeeType.EmployeeTypeName,
-        Validators.compose([
-          Validators.maxLength(20),
-          Validators.minLength(2),
-          Validators.required
-        ])
-      ),
-      EmployeeTypeDescription: new FormControl(
-        this.employeeType.EmployeeDescription,
-        Validators.compose([
-          Validators.maxLength(60),
-          Validators.minLength(2),
-          Validators.required          
-        ])
-      ),
-    });
-  }
-      Close(){
-        this.dialog.closeAll();
-      }
-        
-      OnSubmit() {
-        console.log('Employee Type added')
-        if (this.form.valid) {
-          this.employeeType = this.form.value;
-          this.employeeTypeService.CreateEmployeeType(this.employeeType).subscribe(res => {
-            this.refreshForm();
-            this.dialogRef.close('add');
-          },
-          err => {
-            if (err.status == 401) {
-              this.notificationService.failToaster('Unable to Create Employee Type', 'Error');
-            }
-            else if(err.status != 201){
-              this.notificationService.errorToaster('Server Error, Please Contact System Administrator','Error');
-            }
-            else{
-              console.log(err);
-            }
-          }
-        );
-      }
+  CreateEmployeeType(emp: IEmployeeType) {  
+    if (this.empTypeIdUpdate == null) {  
+      this.empType.createEmployeeType(emp).subscribe(  
+        () => {  
+          this.dataSaved = true;  
+          this.massage = 'Record saved Successfully';  
+          this.employeeTypeForm.reset();  
+        }  
+      ); 
+      console.log(emp) 
     }
+  }   
+   
+  resetForm() {  
+    this.employeeTypeForm.reset();  
+    this.massage = '';  
+    this.dataSaved = false;  
+  }
+  onFormSubmit() {  
+    this.dataSaved = false; 
+    const emp=this.employeeTypeForm.value;
+    this.CreateEmployeeType(emp);   
+    this.employeeTypeForm.reset();  
+  }
 
-      refreshForm(){
-        this.employeeType = {
-          EmployeeType_ID: 0,
-          EmployeeTypeName: '',
-          EmployeeDescription:''
-        }
-      }
-
+  error_messages = {
+    EmployeeTypeName: [
+      { type: 'minlength', message: 'Employee Type must be more than 1 character' },
+      { type: 'maxlength', message: 'Employee Type must be less than 30 characters' },
+      { type: 'required', message: 'Employee Type name is required' }
+    ],
+    EmpoyeeDescription: [
+      { type: 'minlength', message: 'Employee Type must be more than 1 character' },
+      { type: 'maxlength', message: 'Employee Type must be less than 30 characters' },
+      { type: 'required', message: 'Employee Type description is required' }
+    ]
+  }
+  
 }

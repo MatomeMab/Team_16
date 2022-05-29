@@ -6,6 +6,7 @@ import { Router } from '@angular/router';
 import { FormBuilder } from '@angular/forms';
 import { Observable } from 'rxjs';
 import { IJob } from 'src/app/Admin/Models/ijob';
+import { MatTableDataSource } from '@angular/material/table';
 @Component({
   selector: 'app-job-listing',
   templateUrl: './job-listing.component.html',
@@ -17,9 +18,11 @@ export class JobListingComponent implements OnInit {
   allJobs!: Observable<IJob[]>;  
   allListingStatus!:Observable<IJob[]>;
   allJobTypes!:Observable<IJob[]>;
-  jobIdUpdate = null;  
+  jobIdUpdate =null;  
   massage ='';  
   allJobTypesList:any=[];
+  public dataSource = new MatTableDataSource<IJob>();
+  displayedColumns: string[] = ['Description', 'Amount', 'DatePosted','ExpiryDate','ListingStatus_ID'];
   constructor(private dialog:MatDialog,private formbulider: FormBuilder, private jobService:JobService,private router: Router) { }
 
   ngOnInit(): void {
@@ -45,11 +48,11 @@ export class JobListingComponent implements OnInit {
     this.jobService.getJobById(jobId).subscribe(job=> {  
       this.massage = '';  
       this.dataSaved = false;  
-      //this.jobIdUpdate = job.Job_ID;  
+      this.jobIdUpdate == job.Job_ID;  
       this.jobForm.controls['Description'].setValue(job.Description);  
       this.jobForm.controls['Amount'].setValue(job.Amount);  
       this.jobForm.controls['ExpiryDate'].setValue(job.ExpiryDate); 
-      this.jobForm.controls['ListingStatusName'].setValue(job.ListingStatusName) ;
+      this.jobForm.controls['ListingStatus_ID'].setValue(job.ListingStatus_ID) ;
       
         
     });  
@@ -91,6 +94,15 @@ export class JobListingComponent implements OnInit {
     });  
     
   }  
+  
+  
+
+ 
+
 }  
 
+public myFilter = (value: string) => {
+  this.dataSource.filter = value.trim().toLowerCase();
+  console.log(this.dataSource.filter)
+}
 }

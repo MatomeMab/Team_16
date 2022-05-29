@@ -4,7 +4,9 @@ import { FormBuilder, Validators } from '@angular/forms';
 import { Observable } from 'rxjs';
 import { JobService } from 'src/app/Admin/Services/job.service';  
 import { IJob } from 'src/app/Admin/Models/ijob';
-
+import * as _moment from 'moment';
+import { Moment } from 'moment';
+import * as moment from 'moment';
 @Component({
   selector: 'app-job-list',
   templateUrl: './job-list.component.html',
@@ -20,6 +22,7 @@ export class JobListComponent implements OnInit {
   massage ='';  
   allJobTypesList:any=[];
   DatePosted= new Date();
+  selectedStatus!: number;
   constructor(private formbulider: FormBuilder, private jobService:JobService,private router: Router) { }
 
   ngOnInit(): void {
@@ -28,8 +31,9 @@ export class JobListComponent implements OnInit {
       Amount: ['', [Validators.required]],  
       DatePosted: ['', [Validators.required]],  
       ExpiryDate: ['', [Validators.required]], 
-      ListingStatusName:['',[Validators.required]],
-    });  
+      ListingStatus_ID:['',[Validators.required]],
+    }); 
+    this.allListingStatus=this.jobService.getAllListingStatus(); 
   }
   Createjob(job: IJob) {  
     if (this.jobIdUpdate == null) {  
@@ -72,5 +76,16 @@ export class JobListComponent implements OnInit {
     this.Createjob(job);  
     this.jobForm.reset();  
   } 
+  
+  //minDate!: Moment;
+  maxDate!: Moment;
+  minDate=new Date();
 
+  /*picker(){
+    const currentYear = moment().year();
+    this.minDate = moment([currentYear - 1, 0, 1]);
+    this.maxDate = moment([currentYear + 1, 11, 31]);
+  }
+ */
+ 
 }

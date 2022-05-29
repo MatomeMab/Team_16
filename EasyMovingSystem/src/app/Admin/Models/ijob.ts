@@ -1,6 +1,6 @@
 export interface IJob {
-    ListingStatusName: any;
-    Job_ID:any;
+    ListingStatusName: string;
+    Job_ID:number;
     Description:string;
     Amount:number;
     HoursOrWeek:number;

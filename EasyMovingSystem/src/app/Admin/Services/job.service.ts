@@ -9,7 +9,7 @@ import { IJob } from '../Models/ijob';
 })
 export class JobService {
   url = 'https://localhost:44355/Api/JobListing'; 
-  urlListingStatus='https://localhost:44355/Api/ListingStatus';
+  urlListingStatus='https://localhost:44355/Api/ListingStatus/AllListingStatusDetails';
   constructor(private http: HttpClient) { }
   getAllJob(): Observable<IJob[]> {  
     return this.http.get<IJob[]>(this.url + '/AllJobListingDetails/');  
@@ -20,12 +20,12 @@ export class JobService {
   createJob(Job: IJob): Observable<IJob> {  
     const httpOptions = { headers: new HttpHeaders({ 'Content-Type': 'application/json'}) };  
     return this.http.post<IJob>(this.url + '/InsertJobListingDetails/',  
-    Job, httpOptions);  
+    Job, httpOptions); 
+ 
   }
   updateJob(Job: IJob): Observable<IJob> {  
     const httpOptions = { headers: new HttpHeaders({ 'Content-Type': 'application/json'}) };  
-    return this.http.put<IJob>(this.url + '/UpdateJobListingDetails/',  
-    Job, httpOptions);  
+    return this.http.put<IJob>(this.url + '/UpdateJobListingDetails/',  Job, httpOptions);  
   }  
   deleteJobById(Jobid: number): Observable<number> {  
     const httpOptions = { headers: new HttpHeaders({ 'Content-Type': 'application/json'}) };  
@@ -34,6 +34,6 @@ export class JobService {
   } 
   //
   getAllListingStatus(): Observable<IJob[]> {  
-    return this.http.get<IJob[]>(this.urlListingStatus + '/AllListingStatusDetails/');  
+    return this.http.get<IJob[]>(this.urlListingStatus);  
   } 
 }

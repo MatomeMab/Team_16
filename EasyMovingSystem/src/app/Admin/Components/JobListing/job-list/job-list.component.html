@@ -12,8 +12,8 @@
                 <tr>  
                   <p>
                   
-                    <mat-form-field class="demo-full-width" style="color:black"> 
-                      <textarea formControlName="Description" matTooltip="Enter job Description" matInput placeholder="job Description"matInput style="color:black"></textarea> 
+                    <mat-form-field class="demo-full-width" > 
+                      <textarea class="validate"  formControlName="Description" matTooltip="Enter job Description" matInput placeholder="job Description"  style="color:black;"></textarea> 
                     </mat-form-field>  
                     <mat-error>  
                       <span *ngIf="!jobForm.get('Description').value && jobForm.get('Description').touched"></span>  
@@ -23,7 +23,7 @@
                   <p>
                    
                     <mat-form-field class="demo-full-width">  
-                      <input matInput [matDatepicker]="picker" matTooltip="Enter Expiry Date " formControlName="ExpiryDate"placeholder="Choose Expiry Date">  
+                      <input matInput [matDatepicker]="picker" [min]="minDate"  matTooltip="Enter Expiry Date " formControlName="ExpiryDate"placeholder="Choose Expiry Date">  
                       <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>  
                       <mat-datepicker #picker></mat-datepicker>  
                     </mat-form-field>  
@@ -33,14 +33,15 @@
                 
                   </p>
                   <p>
-                    <td>
-                      <p>Date Posted{{DatePosted|date}}</p>
-                    </td>
+                    <mat-form-field class="demo-full-width">
+                      <input matInput  formControlName="DatePosted" [disabled]="true">Date Posted: {{DatePosted|date}}
+                    </mat-form-field>  
+                    
                   </p>
                   <p>
                  
                     <mat-form-field class="demo-full-width">  
-                      <input formControlName="Amount" matTooltip="Enter Amount" matInput placeholder="Amount">  
+                      <input formControlName="Amount" type="number" matTooltip="Enter Amount" matInput placeholder="Amount">  
                     </mat-form-field>  
                     <mat-error>  
                       <span *ngIf="!jobForm.get('Amount').value && jobForm.get('Amount').touched"></span>  
@@ -49,15 +50,16 @@
                   </p>
                   <p>
                 
-                    <mat-form-field class="demo-full-width">  
-                      <mat-select formControlName="ListingStatusName" matTooltip="Choose Status " placeholder="Choose Status" style=" color: red; ">
-                        <mat-option *ngFor="let status of allListingStatus|async"  [value]="status.ListingStatus_ID">
-                          {{status.ListingStatusName}}
+                    <mat-form-field class="demo-full-width" >  
+                      <mat-select formControlName="ListingStatus_ID" matTooltip="Choose Status " placeholder="Choose Status">
+                        <mat-option *ngFor="let status of allListingStatus|async"  [value]="status.ListingStatus_ID" >
+                          <p >{{status.ListingStatusName}}</p>
                         </mat-option>
                       </mat-select> 
                     </mat-form-field>  
+
                     <mat-error>  
-                      <span *ngIf="!jobForm.get('ListingStatusName').value && jobForm.get('ListingStatusName').touched"></span>  
+                      <span *ngIf="!jobForm.get('ListingStatus_ID').value && jobForm.get('ListingStatus_ID').touched"></span>  
                     </mat-error>  
                   
                   </p>
@@ -67,7 +69,8 @@
                   <td  class="content-center">  
                     <button type="submit" mat-raised-button color="accent"matTooltip="Click Submit Button"[disabled]="!jobForm.valid">Submit</button>      
                     <button type="reset" mat-raised-button color="accent"matTooltip="Click Reset Button" (click)="resetForm()">Reset</button>  
-                  </td>  
+                  </td> 
+                 
                   <td>  
                     <p *ngIf="dataSaved" style="color:rgb(0, 128, 0);font-size:20px;font-weight:bold" Class="success" align="left">  
                       {{massage}}  

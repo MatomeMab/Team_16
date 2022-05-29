@@ -46,7 +46,7 @@
                    <p>
                     <td class="tbl1" style="color:black">  
                       <mat-form-field class="demo-full-width" >  
-                        <input formControlName="ServiceName" matTooltipClass="primary-tooltip" matTooltip="Enter Name" matInput placeholder="Service Name" style="color:black">  
+                        <input formControlName="ServiceName" matTooltipClass="primary-tooltip" matTooltip="Enter Name" matInput placeholder="Service Name" style="color:black" type="text" ngModel pattern="[a-zA-Z ]*">  
                       </mat-form-field>  
                       <mat-error>  
                         <span *ngIf="!serviceForm.get('ServiceName').value && serviceForm.get('ServiceName').touched"></span>  
@@ -56,7 +56,7 @@
                     <p>
                         <td class="tbl1" style="color:black">  
                           <mat-form-field class="demo-full-width" style="color:black"> 
-                            <textarea formControlName="ServiceDescription" matTooltip="Enter Service Description" matInput placeholder="Service Description"matInput style="color:black"></textarea> 
+                            <textarea formControlName="ServiceDescription" matTooltip="Enter Service Description" matInput placeholder="Service Description"matInput style="color:black" type="text" ngModel pattern="[a-zA-Z ]*"></textarea> 
                           </mat-form-field>  
                           <mat-error>  
                             <span *ngIf="!serviceForm.get('ServiceDescription').value && serviceForm.get('ServiceDescription').touched"></span>  
