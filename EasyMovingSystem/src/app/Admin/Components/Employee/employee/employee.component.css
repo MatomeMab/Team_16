@@ -1,3 +1,7 @@
 p{
     font-size: 12px;
 }
+
+mat-form-field {
+    padding: 0 100px;
+  }

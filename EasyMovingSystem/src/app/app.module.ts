@@ -30,6 +30,8 @@ import { MatDividerModule} from '@angular/material/divider';
 import {MatCardModule} from '@angular/material/card';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import {MatSelectModule} from '@angular/material/select';
 
 @NgModule({
   declarations: [
@@ -63,7 +65,8 @@ import { MatInputModule } from '@angular/material/input';
     MatButtonModule, MatToolbarModule,
     MatDividerModule,MatSidenavModule,
     MatIconModule, MatCardModule,
-    MatFormFieldModule, MatInputModule
+    MatFormFieldModule, MatInputModule,
+    MatDatepickerModule, MatSelectModule
   ],
   providers: [],
   bootstrap: [AppComponent],
