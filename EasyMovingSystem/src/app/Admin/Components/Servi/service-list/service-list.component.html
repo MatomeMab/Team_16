@@ -33,7 +33,7 @@
     </div>  -->
    
     <div class="container" style="width: 700px;">
-      <div class="d-flex page__box p-3 mt-2">Job List</div>
+      <div class="d-flex page__box p-3 mt-2">Service List</div>
       <div class="page__content shadow p-3">
         <div class="page__content-data">
           <div class="position-relative">
@@ -66,7 +66,7 @@
               </tr>
               <tr>
                 <td mat-cell *matCellDef="let row">
-                  <button mat-icon-button >
+                  <button mat-icon-button (click)="loadServiceToEdit(row.serviceId)">
                     <mat-icon>edit</mat-icon>
                   </button>
                 </td>
@@ -79,13 +79,14 @@
               </tr>
               <tr>
                 <td mat-cell *matCellDef="let row">
-                  <button mat-icon-button class="warn" (click)="deleteService(row.jobId)">
+                  <button mat-icon-button (click)="deleteService(row.serviceId)">
                     <mat-icon>delete</mat-icon>
                   </button>
                 </td>
               </tr>
             </ng-container>
     
+          
             <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
             <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
     

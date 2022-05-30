@@ -31,8 +31,10 @@
     </mat-card>
   </div>-->
   
-  <div class="container" id="center" >  
-    <mat-card style="background-color: white;" class="service-card">  
+  <mat-dialog-content>
+    <form [formGroup]="serviceForm" (ngSubmit)="onFormSubmit()">
+<div class="container" id="center" >  
+    <mat-card style="background-color: white;width: 300px;" class="service-card" >  
       <mat-toolbar color="accent">  
         <div align="center" style="color:rgb(15, 15, 15);text-align: left;">  
          Create Service
@@ -40,29 +42,32 @@
       </mat-toolbar>  
     <br><br>  
       <mat-card-content class="text" style="color:black">  
-        <form [formGroup]="serviceForm"(ngSubmit)="onFormSubmit()" class="example-container">  
-                <table class="table table-striped" style="color:black">  
+      
+                <table class="table table-striped" style="color:black;width: 300px;" >  
                   <tr>  
                    <p>
-                    <td class="tbl1" style="color:black">  
-                      <mat-form-field class="demo-full-width" >  
-                        <input formControlName="ServiceName" matTooltipClass="primary-tooltip" matTooltip="Enter Name" matInput placeholder="Service Name" style="color:black" type="text" ngModel pattern="[a-zA-Z ]*">  
-                      </mat-form-field>  
+                    <td class="tbl1" style="color:black;width: 400px">  
+                      <mat-form-field class="demo-full-width" hintLabel="Min 5 characters" >  
+                        <input #input minlength="5" formControlName="ServiceName" matTooltipClass="primary-tooltip" matTooltip="Enter Name" matInput placeholder=" Name" style="color:black" type="text"  pattern="[a-zA-Z ]*">  
+                       
+                    </mat-form-field>  
                       <mat-error>  
                         <span *ngIf="!serviceForm.get('ServiceName').value && serviceForm.get('ServiceName').touched"></span>  
                       </mat-error>  
                     </td> 
                     </p>
+                    <mat-hint style="color: rgb(65, 62, 62);" align="end">hint: only provide characters: {{input.value?.length || 0}}/5</mat-hint>  
                     <p>
                         <td class="tbl1" style="color:black">  
-                          <mat-form-field class="demo-full-width" style="color:black"> 
-                            <textarea formControlName="ServiceDescription" matTooltip="Enter Service Description" matInput placeholder="Service Description"matInput style="color:black" type="text" ngModel pattern="[a-zA-Z ]*"></textarea> 
-                          </mat-form-field>  
+                          <mat-form-field class="demo-full-width" style="color:black" hintLabel="Min 10 characters"> 
+                            <textarea #txtarea minlength="10" formControlName="ServiceDescription" matTooltip="Enter Description" matInput placeholder="Description"  style="color:black;width: 600px;" type="text"  pattern="[a-zA-Z ]*"></textarea> 
+                            </mat-form-field>  
                           <mat-error>  
                             <span *ngIf="!serviceForm.get('ServiceDescription').value && serviceForm.get('ServiceDescription').touched"></span>  
                           </mat-error>  
                         </td>  
-                        <p>
+                    </p>
+                    <mat-hint style="color: rgb(65, 62, 62);" align="end">hint: only provide characters: {{input.value?.length || 0}}/10</mat-hint>  
                   </tr>   
                   <tr>  
                     <td  class="content-center">  
@@ -76,11 +81,12 @@
                     </td>  
                   </tr>  
                 </table>   
-        </form>  
+       
       </mat-card-content>  
     </mat-card>  
     </div>  
- 
+    </form>
+</mat-dialog-content>
  <!-- <h2 mat-dialog-title>Add Employee Type</h2>
 <mat-dialog-content>
     <form [formGroup]="serviceForm" (ngSubmit)="onFormSubmit()">

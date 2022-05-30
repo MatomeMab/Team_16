@@ -22,7 +22,7 @@ export class JobListingComponent implements OnInit {
   massage ='';  
   allJobTypesList:any=[];
   public dataSource = new MatTableDataSource<IJob>();
-  displayedColumns: string[] = ['Description', 'Amount', 'DatePosted','ExpiryDate','ListingStatus_ID'];
+  displayedColumns: string[] = ['Description', 'Amount', 'DatePosted','ExpiryDate','ListingStatus_ID','edit','delete'];
   constructor(private dialog:MatDialog,private formbulider: FormBuilder, private jobService:JobService,private router: Router) { }
 
   ngOnInit(): void {

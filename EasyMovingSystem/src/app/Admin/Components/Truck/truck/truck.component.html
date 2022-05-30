@@ -25,54 +25,59 @@
                         </p>
                    <p>
                     <td class="tbl1" style="color:black">  
-                      <mat-form-field class="demo-full-width" >  
-                        <input formControlName="Model" matTooltipClass="primary-tooltip" matTooltip="Enter Model" matInput placeholder="Service Model" style="color:black" type="text" >  
+                      <mat-form-field class="demo-full-width" hintLabel="Min 5 characters" >  
+                        <input #input minlength="5" formControlName="Model" matTooltipClass="primary-tooltip" matTooltip="Enter Model" matInput placeholder="Service Model" style="color:black" type="text" >  
                       </mat-form-field>  
                       <mat-error>  
                         <span *ngIf="!truckForm.get('Model').value && truckForm.get('Model').touched"></span>  
                       </mat-error>  
                     </td> 
                     </p>
+                    <mat-hint style="color: rgb(65, 62, 62);" align="end">hint: only provide characters: {{input.value?.length || 0}}/5</mat-hint> 
                     <p>
-                        <td class="tbl1" style="color:black">  
+                        <td class="tbl1" style="color:black" hintLabel="Min 4 characters">  
                           <mat-form-field class="demo-full-width" style="color:black"> 
-                            <input matInput formControlName="Year" matTooltip="Enter Year" matInput placeholder="Year"matInput style="color:black" type="text" > 
+                            <input #input maxlength="4" formControlName="Year" matTooltip="Enter Year" matInput placeholder="Year"matInput style="color:black" type="text" > 
                           </mat-form-field>  
                           <mat-error>  
                             <span *ngIf="!truckForm.get('Year').value && truckForm.get('Year').touched"></span>  
                           </mat-error>  
                         </td>  
-                    </p>  
+                    </p>
+                    <mat-hint style="color: rgb(65, 62, 62);" align="end">hint: only provide the year: {{input.value?.length || 0}}/4</mat-hint>   
                     <p>
                         <td class="tbl1" style="color:black">  
-                          <mat-form-field class="demo-full-width" style="color:black"> 
-                            <input matInput formControlName="Colour" matTooltip="Enter Colour" matInput placeholder="Colour"matInput style="color:black" type="text" ngModel pattern="[a-zA-Z ]*">
+                          <mat-form-field class="demo-full-width" style="color:black"  hintLabel="Min 5 characters"> 
+                            <input #input minlength="5" formControlName="Colour" matTooltip="Enter Colour" matInput placeholder="Colour"matInput style="color:black" type="text" ngModel pattern="[a-zA-Z ]*">
                           </mat-form-field>  
                           <mat-error>  
                             <span *ngIf="!truckForm.get('Colour').value && truckForm.get('Colour').touched"></span>  
                           </mat-error>  
                         </td>  
-                    </p>   
+                    </p> 
+                    <mat-hint style="color: rgb(65, 62, 62);" align="end">hint: only provide characters: {{input.value?.length || 0}}/5</mat-hint>   
                     <p>
                         <td class="tbl1" style="color:black">  
-                          <mat-form-field class="demo-full-width" style="color:black"> 
-                            <input matInput formControlName="RegNum" matTooltip="Enter RegNum" matInput placeholder="RegNum"matInput style="color:black" type="text" > 
+                          <mat-form-field class="demo-full-width" style="color:black"  hintLabel="Min 5 characters"> 
+                            <input #input minlength="5" formControlName="RegNum" matTooltip="Enter RegNum" matInput placeholder="RegNum"matInput style="color:black" type="text" > 
                           </mat-form-field>  
                           <mat-error>  
                             <span *ngIf="!truckForm.get('RegNum').value && truckForm.get('RegNum').touched"></span>  
                           </mat-error>  
                         </td>  
                     </p>   
+                    <mat-hint style="color: rgb(65, 62, 62);" align="end">hint: only provide characters: {{input.value?.length || 0}}/5</mat-hint> 
                     <p>
-                        <td class="tbl1" style="color:black">  
+                        <td class="tbl1" style="color:black"  hintLabel="Min 5 characters">  
                           <mat-form-field class="demo-full-width" style="color:black"> 
-                            <input matInput formControlName="Make" matTooltip="Enter Make" matInput placeholder="Make"matInput style="color:black" type="text" ngModel pattern="[a-zA-Z ]*">
+                            <input #input minlength="5" formControlName="Make" matTooltip="Enter Make" matInput placeholder="Make"matInput style="color:black" type="text" ngModel pattern="[a-zA-Z ]*">
                           </mat-form-field>  
                           <mat-error>  
                             <span *ngIf="!truckForm.get('Make').value && truckForm.get('Make').touched"></span>  
                           </mat-error>  
                         </td>  
                     </p> 
+                    <mat-hint style="color: rgb(65, 62, 62);" align="end">hint: only provide characters: {{input.value?.length || 0}}/5</mat-hint> 
                     <p>
                     <mat-form-field class="demo-full-width" >  
                         <mat-select formControlName="TruckStatus_ID" matTooltip="Choose Status " placeholder="Choose Status">

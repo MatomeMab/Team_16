@@ -15,7 +15,7 @@ import { CreateServiceComponent } from '../create-service/create-service.compone
 })
 export class ServiceListComponent implements OnInit {
   serviceList!:Observable<IService[]>;
-  displayedColumns: string[] = ['ServiceName', 'ServiceDescription'];
+  displayedColumns: string[] = ['ServiceName', 'ServiceDescription','edit','delete'];
   dataSaved = false; 
   public dataSource = new MatTableDataSource<IService>();
   serviceForm: any;
