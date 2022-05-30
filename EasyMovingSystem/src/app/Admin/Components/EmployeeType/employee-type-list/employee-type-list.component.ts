@@ -31,11 +31,11 @@ export class EmployeeTypeListComponent implements OnInit {
  //this.serviceList=this.service.getAllService();
  this.readEmployeeType();
   }
-  loadEmployeeTypeToEdit(empTypeId: number) {  
+  loadEmployeeTypeToEdit(empTypeId: string) {  
     this.empTypeService.getEmployeeTypeById(empTypeId).subscribe(empType=> {  
       this.massage = '';  
       this.dataSaved = false;  
-      //this.employeeTypeIdUpdate == empTypeId.EmployeeType_ID;  
+      this.employeeTypeIdUpdate == empType.EmployeeType_ID;  
       this.employeeTypeForm.controls['EmployeeTypeName'].setValue(empType.EmployeeTypeName);  
       this.employeeTypeForm.controls['EmployeeDescription'].setValue(empType.EmployeeDescription);  
       
@@ -44,19 +44,19 @@ export class EmployeeTypeListComponent implements OnInit {
   
   }
 
-  /*deleteEmployeeType(serviceId: number) {  
+  deleteEmployeeType(empTypeId: number) {  
     if (confirm("Are you sure you want to delete this ?")) {   
-    this.empType.deleteEmployeeTypeById(serviceId).subscribe(() => {  
+    this.empTypeService.deleteEmployeeTypeById(empTypeId).subscribe(() => {  
       this.dataSaved = true;  
       this.massage = 'Record Deleted Succefully';  
-      this.empType.getAllEmployeeType();  
+      this.empTypeService.getAllEmployeeType();  
       this.employeeTypeIdUpdate == null;  
       this.employeeTypeForm.reset();  
   
     });  
     
   }  
-}  */
+}  
 
 updateEmployeeType(empType:IEmployeeType){
   empType.EmployeeType_ID = this.employeeTypeIdUpdate;  
@@ -107,6 +107,7 @@ updateEmployeeType(empType:IEmployeeType){
   }
 
 //new delete
+/*
 deleteEmployeeType(id: number){
   this.empTypeService.deleteEmployeeType(id).subscribe(res=>{
     this.readEmployeeType();
@@ -121,7 +122,7 @@ deleteEmployeeType(id: number){
     }
   }
   );
-}
+}*/
 //new update
 /*updateEmployeeType(employeeId: number){
   const dialog = new MatDialogConfig

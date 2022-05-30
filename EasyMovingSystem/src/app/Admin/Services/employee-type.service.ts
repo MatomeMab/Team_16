@@ -16,7 +16,7 @@ export class EmployeeTypeService {
   getAllEmployeeType(): Observable<IEmployeeType[]> {  
     return this.http.get<IEmployeeType[]>(this.url + '/AllEmployeeTypeDetails/');  
   }  
-  getEmployeeTypeById(EmployeeType_ID: number): Observable<IEmployeeType> {  
+  getEmployeeTypeById(EmployeeType_ID:string): Observable<IEmployeeType> {  
     return this.http.get<IEmployeeType>(this.url + '/GetEmployeeTypeDetailsById/' + EmployeeType_ID);  
   }  
   updateEmployeeType(empType: IEmployeeType): Observable<IEmployeeType> {  
@@ -24,9 +24,9 @@ export class EmployeeTypeService {
     return this.http.put<IEmployeeType>(this.url + '/UpdateEmployeeTypeDetails/',  
     empType, httpOptions);  
   }  
-  deleteEmployeeTypeById(EmployeeType_ID:number) {  
+  deleteEmployeeTypeById(EmployeeType_ID:number) : Observable<number> {  
     const httpOptions = { headers: new HttpHeaders({ 'Content-Type': 'application/json'}) };  
-    return this.http.delete<IEmployeeType>(this.url + '/DeleteEmployeeTypeDetails?id=' + EmployeeType_ID,  
+    return this.http.delete<number>(this.url + '/DeleteEmployeeTypeDetails?id=' + EmployeeType_ID,  
  httpOptions);  
   } 
   createEmployeeType(empType: IEmployeeType): Observable<IEmployeeType> {  
