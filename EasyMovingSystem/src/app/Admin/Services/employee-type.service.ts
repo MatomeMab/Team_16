@@ -24,14 +24,20 @@ export class EmployeeTypeService {
     return this.http.put<IEmployeeType>(this.url + '/UpdateEmployeeTypeDetails/',  
     empType, httpOptions);  
   }  
-  deleteEmployeeTypeById(empTypeId: number): Observable<number> {  
+  deleteEmployeeTypeById(EmployeeType_ID:number) {  
     const httpOptions = { headers: new HttpHeaders({ 'Content-Type': 'application/json'}) };  
-    return this.http.delete<number>(this.url + '/DeleteEmployeeTypeDetails?id=' +empTypeId,  
+    return this.http.delete<IEmployeeType>(this.url + '/DeleteEmployeeTypeDetails?id=' + EmployeeType_ID,  
  httpOptions);  
   } 
   createEmployeeType(empType: IEmployeeType): Observable<IEmployeeType> {  
     const httpOptions = { headers: new HttpHeaders({ 'Content-Type': 'application/json'}) };  
     return this.http.post<IEmployeeType>(this.url + '/InsertEmployeeTypeDetails/',  
     empType, httpOptions);  
+  }
+
+  //new delete 
+  deleteEmployeeType(id: number) {
+    return this.http.delete(`${this.url+`DeleteEmployeeTypeDetails?id=`}/${id}`)
+      .pipe(map(res => res));
   }
 }

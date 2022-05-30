@@ -6,6 +6,8 @@ import { IEmployeeType } from 'src/app/Admin/Models/iemployee-type';
 import { NotificationsService } from 'src/app/Admin/Services/notifications.service';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Observable } from 'rxjs';
+import { HttpErrorResponse } from '@angular/common/http';
+
 
 @Component({
   selector: 'app-employee-type',
@@ -20,27 +22,29 @@ export class EmployeeTypeComponent implements OnInit {
   empTypeIdUpdate = null;  
   massage ='';  
   isAddMode!: boolean;
-  constructor(private formbulider: FormBuilder,private empType:EmployeeTypeService) { }
+  service!:IEmployeeType;
+  constructor(private formbulider: FormBuilder,private empTypeService:EmployeeTypeService, private notificationService:NotificationsService) { }
 
   ngOnInit(): void {
     this.employeeTypeForm = this.formbulider.group({  
       EmployeeTypeName: ['', [Validators.required]],  
       EmployeeDescription: ['', [Validators.required]],  
-    });  
+    }); 
+   
   }
   CreateEmployeeType(emp: IEmployeeType) {  
     if (this.empTypeIdUpdate == null) {  
-      this.empType.createEmployeeType(emp).subscribe(  
+      this.empTypeService.createEmployeeType(emp).subscribe(  
         () => {  
           this.dataSaved = true;  
-          this.massage = 'Record saved Successfully';  
+          this.notificationService.successToaster('Registration Successful', 'Success') 
           this.employeeTypeForm.reset();  
         }  
       ); 
       console.log(emp) 
     }
   }   
-   
+ 
   resetForm() {  
     this.employeeTypeForm.reset();  
     this.massage = '';  
@@ -65,5 +69,39 @@ export class EmployeeTypeComponent implements OnInit {
       { type: 'required', message: 'Employee Type description is required' }
     ]
   }
-  
+  /*
+  onSubmit() {
+    if (this.employeeTypeForm.valid) {
+      this.empTypeService = this.employeeTypeForm.value;
+      this.empTypeService.createEmployeeType(this.service).subscribe((res) => {
+        this.resetObject();
+        this.service = res as IEmployeeType;
+      }, (err: HttpErrorResponse) => {
+        if (err.status == 406) {
+          this.notificationService.failToaster('This username or email is already being used!', 'Error');
+        }
+        else if (err.status == 200) {
+          this.notificationService.successToaster('Registration Successful', 'Success')
+          this.Close();
+        }
+        else {
+          this.notificationService.errorToaster('Server Error, Please Contact System Administrator', 'Error')
+        }
+      }
+
+      )
+    }
+  }*/
+  Close() {
+    throw new Error('Method not implemented.');
+  }
+  resetObject() {
+    this.service = {
+      EmployeeType_ID: 0,
+      EmployeeTypeName: '',
+      EmployeeDescription: '',
+     
+    }
+  }
+
 }

@@ -2,11 +2,12 @@ import { Component, OnInit } from '@angular/core';
 import { IEmployeeType } from 'src/app/Admin/Models/iemployee-type';
 import { Router } from '@angular/router';
 import { MatTableDataSource } from '@angular/material/table';
-import { MatDialog,MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { MatDialog,MatDialogConfig,MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { Observable} from 'rxjs';
-import { EmployeeTypeService } from 'src/app/Admin/Services/employee-type.service';
 import { FormBuilder, NumberValueAccessor, Validators } from '@angular/forms'; 
 import { EmployeeTypeComponent } from '../employee-type/employee-type.component';
+import { EmployeeTypeService } from 'src/app/Admin/Services/employee-type.service';
+import { NotificationsService } from 'src/app/Admin/Services/notifications.service';
 @Component({
   selector: 'app-employee-type-list',
   templateUrl: './employee-type-list.component.html',
@@ -14,24 +15,24 @@ import { EmployeeTypeComponent } from '../employee-type/employee-type.component'
 })
 export class EmployeeTypeListComponent implements OnInit {
   empTypeList!:Observable<IEmployeeType[]>;
-  displayedColumns: string[] = ['EmployeeTypeName', 'EmployeeDescription'];
+  displayedColumns: string[] = ['EmployeeTypeName', 'EmployeeDescription', 'edit','delete'];
   dataSaved = false; 
   public dataSource = new MatTableDataSource<IEmployeeType>();
   employeeTypeForm: any;
   massage ='';
   allEmployeeTypes!: Observable<IEmployeeType[]>;
   employeeTypeIdUpdate!:number;
-  employeeType$:Observable<IEmployeeType[]>=this.empType.getAllEmployeeType();
+  employeeType$:Observable<IEmployeeType[]>=this.empTypeService.getAllEmployeeType();
 
   empTypes: IEmployeeType[]=[];
-  constructor(private dialog:MatDialog,private formbulider: FormBuilder, private empType:EmployeeTypeService,private router: Router) { }
+  constructor(private dialog:MatDialog,private formbulider: FormBuilder, private empTypeService:EmployeeTypeService,private router: Router, private notificationService:NotificationsService) { }
 
   ngOnInit(): void {
  //this.serviceList=this.service.getAllService();
  this.readEmployeeType();
   }
   loadEmployeeTypeToEdit(empTypeId: number) {  
-    this.empType.getEmployeeTypeById(empTypeId).subscribe(empType=> {  
+    this.empTypeService.getEmployeeTypeById(empTypeId).subscribe(empType=> {  
       this.massage = '';  
       this.dataSaved = false;  
       //this.employeeTypeIdUpdate == empTypeId.EmployeeType_ID;  
@@ -43,7 +44,7 @@ export class EmployeeTypeListComponent implements OnInit {
   
   }
 
-  deleteEmployeeType(serviceId: number) {  
+  /*deleteEmployeeType(serviceId: number) {  
     if (confirm("Are you sure you want to delete this ?")) {   
     this.empType.deleteEmployeeTypeById(serviceId).subscribe(() => {  
       this.dataSaved = true;  
@@ -55,12 +56,12 @@ export class EmployeeTypeListComponent implements OnInit {
     });  
     
   }  
-}  
+}  */
 
 updateEmployeeType(empType:IEmployeeType){
   empType.EmployeeType_ID = this.employeeTypeIdUpdate;  
-      this.empType.updateEmployeeType(empType).subscribe(() => {  
-        this.router.navigate(["/createService"])
+      this.empTypeService.updateEmployeeType(empType).subscribe(() => {  
+        this.router.navigate(["/EmployeeType"])
         this.dataSaved = true;  
         this.massage = 'Record Updated Successfully';   
         this.employeeTypeIdUpdate == null;  
@@ -104,4 +105,40 @@ updateEmployeeType(empType:IEmployeeType){
       }
     })
   }
+
+//new delete
+deleteEmployeeType(id: number){
+  this.empTypeService.deleteEmployeeType(id).subscribe(res=>{
+    this.readEmployeeType();
+    console.log(res);
+  },
+    (  err: { status: number; })=>{
+    if(err.status != 201){
+      this.notificationService.errorToaster('Cannot Delete User, Please Contact System Administrator','Error');
+    }
+    else{
+      this.notificationService.successToaster('Successfully Deleted User','Error')
+    }
+  }
+  );
+}
+//new update
+/*updateEmployeeType(employeeId: number){
+  const dialog = new MatDialogConfig
+  dialog.disableClose = true,
+  dialog.width = '50%';
+  dialog.height = 'auto';
+  dialog.data = { add: 'yes' }
+  const dialogReference = this.dialog.open(
+    EmployeeTypeComponent,
+    {
+      data: employeeId
+    });
+  dialogReference.afterClosed().subscribe((res) => {
+    if (res == 'add') {
+      this.notificationService.successToaster('Employee Edited', 'Success')
+      this.readEmployeeType();
+    }
+  });
+}*/
 }

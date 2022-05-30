@@ -1,38 +1,40 @@
-
+<mat-dialog-content>
+    <form [formGroup]="employeeTypeForm" (ngSubmit)="onFormSubmit()">
 <div class="container" id="center" >  
-    <mat-card style="background-color: white;" class="service-card">  
+    <mat-card style="background-color: white;width: 300px;" class="service-card" >  
       <mat-toolbar color="accent">  
         <div align="center" style="color:rgb(15, 15, 15);text-align: left;">  
-         Create Service
+         Create Employee Type
         </div>    
       </mat-toolbar>  
     <br><br>  
       <mat-card-content class="text" style="color:black">  
-        <form [formGroup]="employeeTypeForm"(ngSubmit)="onFormSubmit()" class="example-container">  
-                <table class="table table-striped" style="color:black">  
+      
+                <table class="table table-striped" style="color:black;width: 300px;" >  
                   <tr>  
                    <p>
-                    <td class="tbl1" style="color:black">  
-                      <mat-form-field class="demo-full-width" hintLabel="Mim 5 characters" >  
-                        <input #input minlength="5" formControlName="EmployeeTypeName" matTooltipClass="primary-tooltip" matTooltip="Enter Name" matInput placeholder="Employee Type Name" style="color:black" type="text" ngModel pattern="[a-zA-Z ]*">  
-                        <mat-hint style="color: #000;" align="end"> hint: only provide charcters & <br/> name must be more than 5</mat-hint>  
+                    <td class="tbl1" style="color:black;width: 400px">  
+                      <mat-form-field class="demo-full-width" hintLabel="Min 5 characters" >  
+                        <input #input minlength="5" formControlName="EmployeeTypeName" matTooltipClass="primary-tooltip" matTooltip="Enter Name" matInput placeholder=" Name" style="color:black" type="text"  pattern="[a-zA-Z ]*">  
+                       
                     </mat-form-field>  
                       <mat-error>  
                         <span *ngIf="!employeeTypeForm.get('EmployeeTypeName').value && employeeTypeForm.get('EmployeeTypeName').touched"></span>  
                       </mat-error>  
                     </td> 
                     </p>
+                    <mat-hint style="color: rgb(65, 62, 62);" align="end">hint: only provide characters: {{input.value?.length || 0}}/5</mat-hint>  
                     <p>
                         <td class="tbl1" style="color:black">  
-                          <mat-form-field class="demo-full-width" style="color:black" hintLabel="Mim 10 characters"> 
-                            <textarea #txtarea formControlName="EmployeeDescription" matTooltip="Enter Service Description" matInput placeholder="Employee Type Description"matInput style="color:black" type="text" ngModel pattern="[a-zA-Z ]*"></textarea> 
-                            <mat-hint style="color: #000;" align="end"> hint: only provide charcters & <br/> name must be more than 5</mat-hint> 
-                          </mat-form-field>  
+                          <mat-form-field class="demo-full-width" style="color:black" hintLabel="Min 10 characters"> 
+                            <textarea #txtarea minlength="10" formControlName="EmployeeDescription" matTooltip="Enter Service Description" matInput placeholder="Description"  style="color:black;width: 600px;" type="text"  pattern="[a-zA-Z ]*"></textarea> 
+                            </mat-form-field>  
                           <mat-error>  
                             <span *ngIf="!employeeTypeForm.get('EmployeeDescription').value && employeeTypeForm.get('EmployeeDescription').touched"></span>  
                           </mat-error>  
                         </td>  
-                        <p>
+                    </p>
+                    <mat-hint style="color: rgb(65, 62, 62);" align="end">hint: only provide characters: {{input.value?.length || 0}}/10</mat-hint>  
                   </tr>   
                   <tr>  
                     <td  class="content-center">  
@@ -46,8 +48,10 @@
                     </td>  
                   </tr>  
                 </table>   
-        </form>  
+       
       </mat-card-content>  
     </mat-card>  
     </div>  
+    </form>
+</mat-dialog-content>
 

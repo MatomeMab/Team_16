@@ -1,1 +1,105 @@
-<p>truck works!</p>
+<div class="container" id="center" >  
+    <mat-card style="background-color: white;" class="service-card">  
+      <mat-toolbar color="accent">  
+        <div align="center" style="color:rgb(15, 15, 15);text-align: left;">  
+         Create Truck
+        </div>    
+      </mat-toolbar>  
+    <br><br>  
+      <mat-card-content class="text" style="color:black">  
+        <form [formGroup]="truckForm"(ngSubmit)="onFormSubmit()" class="example-container">  
+                <table class="table table-striped" style="color:black">  
+                  <tr>  
+                    <p>
+                        <mat-form-field class="demo-full-width" >  
+                            <mat-select formControlName="TruckType_ID" matTooltip="Choose Truck type " placeholder="Choose Truck Type">
+                              <mat-option *ngFor="let status of allTruckTypes|async"  [value]="status.TruckType_ID" >
+                                <p >{{status.TruckTypeName}}</p>
+                              </mat-option>
+                            </mat-select> 
+                          </mat-form-field>  
+      
+                          <mat-error>  
+                            <span *ngIf="!truckForm.get('TruckType_ID').value && truckForm.get('TruckType_ID').touched"></span>  
+                          </mat-error> 
+                        </p>
+                   <p>
+                    <td class="tbl1" style="color:black">  
+                      <mat-form-field class="demo-full-width" >  
+                        <input formControlName="Model" matTooltipClass="primary-tooltip" matTooltip="Enter Model" matInput placeholder="Service Model" style="color:black" type="text" >  
+                      </mat-form-field>  
+                      <mat-error>  
+                        <span *ngIf="!truckForm.get('Model').value && truckForm.get('Model').touched"></span>  
+                      </mat-error>  
+                    </td> 
+                    </p>
+                    <p>
+                        <td class="tbl1" style="color:black">  
+                          <mat-form-field class="demo-full-width" style="color:black"> 
+                            <input matInput formControlName="Year" matTooltip="Enter Year" matInput placeholder="Year"matInput style="color:black" type="text" > 
+                          </mat-form-field>  
+                          <mat-error>  
+                            <span *ngIf="!truckForm.get('Year').value && truckForm.get('Year').touched"></span>  
+                          </mat-error>  
+                        </td>  
+                    </p>  
+                    <p>
+                        <td class="tbl1" style="color:black">  
+                          <mat-form-field class="demo-full-width" style="color:black"> 
+                            <input matInput formControlName="Colour" matTooltip="Enter Colour" matInput placeholder="Colour"matInput style="color:black" type="text" ngModel pattern="[a-zA-Z ]*">
+                          </mat-form-field>  
+                          <mat-error>  
+                            <span *ngIf="!truckForm.get('Colour').value && truckForm.get('Colour').touched"></span>  
+                          </mat-error>  
+                        </td>  
+                    </p>   
+                    <p>
+                        <td class="tbl1" style="color:black">  
+                          <mat-form-field class="demo-full-width" style="color:black"> 
+                            <input matInput formControlName="RegNum" matTooltip="Enter RegNum" matInput placeholder="RegNum"matInput style="color:black" type="text" > 
+                          </mat-form-field>  
+                          <mat-error>  
+                            <span *ngIf="!truckForm.get('RegNum').value && truckForm.get('RegNum').touched"></span>  
+                          </mat-error>  
+                        </td>  
+                    </p>   
+                    <p>
+                        <td class="tbl1" style="color:black">  
+                          <mat-form-field class="demo-full-width" style="color:black"> 
+                            <input matInput formControlName="Make" matTooltip="Enter Make" matInput placeholder="Make"matInput style="color:black" type="text" ngModel pattern="[a-zA-Z ]*">
+                          </mat-form-field>  
+                          <mat-error>  
+                            <span *ngIf="!truckForm.get('Make').value && truckForm.get('Make').touched"></span>  
+                          </mat-error>  
+                        </td>  
+                    </p> 
+                    <p>
+                    <mat-form-field class="demo-full-width" >  
+                        <mat-select formControlName="TruckStatus_ID" matTooltip="Choose Status " placeholder="Choose Status">
+                          <mat-option *ngFor="let status of allTruckStatus|async"  [value]="status.TruckStatus_ID" >
+                            <p >{{status.TruckStatusName}}</p>
+                          </mat-option>
+                        </mat-select> 
+                      </mat-form-field>  
+  
+                      <mat-error>  
+                        <span *ngIf="!truckForm.get('TruckStatus_ID').value && truckForm.get('TruckStatus_ID').touched"></span>  
+                      </mat-error> 
+                    </p>
+                  </tr>   
+                  <tr>  
+                    <td  class="content-center">  
+                      <button type="submit" mat-raised-button color="accent"matTooltip="Click Submit Button"[disabled]="!truckForm.valid">Submit</button>      
+                      <button type="reset" mat-raised-button color="accent"matTooltip="Click Reset Button" (click)="resetForm()">Reset</button>  
+                    </td>  
+                    <td>  
+                      <p *ngIf="dataSaved" style="color:rgb(0, 128, 0);font-size:20px;font-weight:bold" Class="success" align="left">  
+                        {{massage}}  
+                      </p>  
+                    </td>  
+                  </tr>  
+                </table>   
+        </form>  
+      </mat-card-content>  
+    </mat-card>  
+    </div> 
