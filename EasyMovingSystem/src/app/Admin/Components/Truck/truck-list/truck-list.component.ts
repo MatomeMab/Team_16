@@ -8,6 +8,7 @@ import { ITruck } from 'src/app/Admin/Models/itruck';
 import { TruckTruck } from 'src/app/Admin/Services/truck.service';
 import { TruckComponent } from '../truck/truck.component';
 import{NotificationsService} from 'src/app/Admin/Services/notifications.service'
+import { EditTruckComponent } from '../edit-truck/edit-truck.component';
 @Component({
   selector: 'app-truck-list',
   templateUrl: './truck-list.component.html',
@@ -43,7 +44,7 @@ export class TruckListComponent implements OnInit {
     });  
   
   }*/
-  routerTruckToEdit(truckId: number){
+  /*routerTruckToEdit(truckId: number){
     const dialog = new MatDialogConfig
     dialog.disableClose = true,
     dialog.width = '50%';
@@ -60,7 +61,7 @@ export class TruckListComponent implements OnInit {
         this.readTruck();
       }
     });
-  }
+  }*/
   deleteTruck(truckId: number) {  
     if (confirm("Are you sure you want to delete this ?")) {   
     this.truck.deleteTruckById(truckId).subscribe(() => {  
@@ -122,4 +123,24 @@ updateTruck(truck:ITruck){
       }
     })
   }
+  routerTruckToEdit(TruckType_ID: number, Model: string, Year: string ,Colour:string,RegNum:string,Make:string,TruckStatus_ID:string){
+    const dialog = new MatDialogConfig();
+    dialog.disableClose = true;
+    dialog.width = '50%';
+    dialog.height = 'auto';
+    dialog.data = {add: 'yes'};
+    const dialogReference = this.dialog.open(
+      EditTruckComponent,
+      {
+       data: { TruckType_ID: TruckType_ID,  Model: Model, Year: Year,Colour:Colour,RegNum:RegNum ,Make:Make,TruckStatus_ID:TruckStatus_ID}
+     });
+
+   dialogReference.afterClosed().subscribe((res) => {
+     if (res == 'add') {
+       this.notificationService.successToaster('Truck Succesfully Edited', 'Hooray');
+       this.readTruck();
+     }
+   });
+ }
+
 }

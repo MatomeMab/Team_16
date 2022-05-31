@@ -42,7 +42,7 @@ deleteService(serviceId: number){
   this.service.deleteServiceById(serviceId).subscribe(res=>{
     this.readService();
     console.log(res); 
-    this.notificationService.successToaster('Successfully delected Service','Error')
+    this.notificationService.successToaster('Successfully deleted Service','Error')
   },
   (  err: { status: number; })=>{
     if(err.status != 201){
@@ -101,12 +101,25 @@ applyFilter(event: Event) {
     });
   }
 
-
+  EditDialog(){
+    const dialog = new MatDialogConfig
+    dialog.disableClose = true, 
+    dialog.width = '50%';
+    dialog.height = 'auto';
+    dialog.data = { add: 'yes' }
+    const dialogReference = this.dialog.open(
+      CreateServiceComponent,);
+    dialogReference.afterClosed().subscribe((res) => {
+      if (res == 'add') {
+        this.readService();
+      }
+    });
+  }
   //router to edit
   routerEditService(Service_ID: number, ServiceName: string, ServiceDescription: string ){
     const dialog = new MatDialogConfig();
     dialog.disableClose = true;
-    dialog.width = 'auto';
+    dialog.width = '50%';
     dialog.height = 'auto';
     dialog.data = {add: 'yes'};
     const dialogReference = this.dialog.open(
@@ -117,7 +130,7 @@ applyFilter(event: Event) {
 
    dialogReference.afterClosed().subscribe((res) => {
      if (res == 'add') {
-       this.notificationService.successToaster('Service Edited', 'Hooray');
+       this.notificationService.successToaster('Service Succesfully Edited', 'Hooray');
        this.readService();
      }
    });

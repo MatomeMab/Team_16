@@ -35,7 +35,7 @@ export class CreateServiceComponent implements OnInit {
       this.service.createService(service).subscribe(  
         () => {  
           this.dataSaved = true;  
-          this.massage = this.notificationService.successToaster('Successfully added service','Error');  
+          this.massage = this.notificationService.successToaster('Successfully added service','Hooray!!');  
           this.serviceForm.reset();  
         }  
       ); 

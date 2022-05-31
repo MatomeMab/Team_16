@@ -36,8 +36,6 @@ export class EditTruckComponent implements OnInit {
   
   createForm() {
       this.truckForm = this.formBuilder.group({  
-        ServiceName: [this.data.ServiceName, [Validators.maxLength(20), Validators.minLength(5),Validators.required]],
-        ServiceDescription: [this.data.ServiceDescription, [ Validators.maxLength(20), Validators.minLength(10),Validators.required]] ,
         TruckType_ID: [this.data.TruckType_ID, [Validators.required]],  
         Model: [this.data.Model, [Validators.maxLength(20), Validators.minLength(5),Validators.required]],  
         Year: [this.data.Year, [Validators.maxLength(4), Validators.required]],  
