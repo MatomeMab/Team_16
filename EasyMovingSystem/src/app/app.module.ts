@@ -76,7 +76,7 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
     FormsModule, ReactiveFormsModule
 
   ],
-  providers: [],
+  providers: [SharedService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
