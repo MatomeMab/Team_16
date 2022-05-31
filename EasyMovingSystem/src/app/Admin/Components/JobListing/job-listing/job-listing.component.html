@@ -75,7 +75,7 @@
             </tr>
             <tr>
               <td mat-cell *matCellDef="let row">
-                <button mat-icon-button (click)="loadjobToEdit(row.jobId)">
+                <button mat-icon-button (click)="routerEditJob(row.Job_ID,row.Description,row.ExpiryDate,row.Amount,row.ListingStatus_ID)">
                   <mat-icon>edit</mat-icon>
                 </button>
               </td>

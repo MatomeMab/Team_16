@@ -23,6 +23,7 @@ export class JobListComponent implements OnInit {
   allJobTypesList:any=[];
   DatePosted= new Date();
   selectedStatus!: number;
+  minDate=new Date();
   constructor(private formbulider: FormBuilder, private jobService:JobService,private router: Router) { }
 
   ngOnInit(): void {
@@ -34,6 +35,7 @@ export class JobListComponent implements OnInit {
       ListingStatus_ID:['',[Validators.required]],
     }); 
     this.allListingStatus=this.jobService.getAllListingStatus(); 
+  
   }
   Createjob(job: IJob) {  
     if (this.jobIdUpdate == null) {  
@@ -77,15 +79,9 @@ export class JobListComponent implements OnInit {
     this.jobForm.reset();  
   } 
   
-  //minDate!: Moment;
-  maxDate!: Moment;
-  minDate=new Date();
 
-  /*picker(){
-    const currentYear = moment().year();
-    this.minDate = moment([currentYear - 1, 0, 1]);
-    this.maxDate = moment([currentYear + 1, 11, 31]);
-  }
- */
+  
+
+  
  
 }
