@@ -33,6 +33,7 @@ export class TruckComponent implements OnInit {
       RegNum:['',[Validators.required]],
       Make:['',[Validators.required]],
       TruckStatus_ID:['',[Validators.required]],
+      
     }); 
     this.allTruckStatus=this.truckService.getAllTruckStatus(); 
     this.allTruckTypes=this.truckService.getAllTruckType();
@@ -71,6 +72,7 @@ export class TruckComponent implements OnInit {
   loadAlltrucks() {  
     this.allTrucks = this.truckService.getAllTruck();  
     this.allTruckStatus=this.truckService.getAllTruckStatus();
+    this.allTruckTypes=this.truckService.getAllTruckType();
   }  
   onFormSubmit() {  
     this.dataSaved = false;  

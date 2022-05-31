@@ -1,4 +1,4 @@
-.mat-tooltip.tooltipStyle {
+/*.mat-tooltip.tooltipStyle {
     font-size: 11px;
     color: red;
 }
@@ -6,10 +6,10 @@
     color: white;
     background-color: red;
 
-  }
+  }*/
+  /*
 ::ng-deep .mat-tooltip {
-    /* your own custom styles here */ 
-    /* e.g. */
+   
     color: yellow;
 }
 .primary-tooltip { color: black !important; }
@@ -35,7 +35,7 @@
 
 .demo-full-width{
     color:black;
-}
+}*/
 /*
 #center{
     display: flex;
@@ -47,9 +47,9 @@
     transform: translate(-50%, -50%);
     
 }*/
-
+/*
 .service-card{
-    /*max-width: 600px;*/
+    max-width: 600px;
     display: flex;
     justify-content: center;
     display: inline-block;
@@ -76,4 +76,35 @@ mat-form-field.mat-form-field {
   }
   ::ng-deep .mat-form-field-label{
     color:#000 !important;
+}*/
+mat-form-field.mat-form-field {
+    font-size: 16px;
+    color: red;
+}
+
+  
+  ::ng-deep .mat-form-field-underline, ::ng-deep .mat-form-field-ripple {
+    background-color: rgb(0, 0, 0) !important;
+  }
+  /*
+  ::ng-deep .mat-focused .mat-form-field-label {
+    
+    color: green !important;
+   }
+*/
+   /** Overrides label color **/
+.mat-form-field-appearance-legacy .mat-form-field-label,
+.mat-form-field-appearance-legacy.mat-focused
+	.mat-form-field-label {
+	color: rgb(128, 32, 206) !important;
+    
+}
+
+/** Overrides caret & text color **/
+.mat-form-field-appearance-legacy .mat-input-element {
+	caret-color: rgb(192, 59, 59)!important;
+  color: rgb(74, 179, 32)!important;
+}
+::ng-deep .mat-form-field-label{
+color: #000;
 }

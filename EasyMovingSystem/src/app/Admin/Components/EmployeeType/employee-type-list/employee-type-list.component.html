@@ -31,7 +31,7 @@
             </tr>
             <tr>
               <td mat-cell *matCellDef="let row">
-                <button mat-icon-button (click)="loadEmployeeTypeToEdit(row.empTypeId)">
+                <button mat-icon-button (click)="routerEditEmpType(row.EmployeeType_ID,row.EmployeeTypeName,row.EmployeeDescription)">
                   <mat-icon>edit</mat-icon>
                 </button>
               </td>
@@ -44,7 +44,7 @@
             </tr>
             <tr>
               <td mat-cell *matCellDef="let row">
-                <button mat-icon-button (click)="deleteEmployeeType(row.Id)">
+                <button mat-icon-button (click)="deleteEmployeeType(row.EmployeeType_ID)">
                   <mat-icon>delete</mat-icon>
                 </button>
               </td>

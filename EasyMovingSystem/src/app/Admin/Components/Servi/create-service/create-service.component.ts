@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { Observable } from 'rxjs';
+import { first, Observable } from 'rxjs';
 import { ServiceService } from 'src/app/Admin/Services/service.service';
 import { FormBuilder, Validators, FormControl } from '@angular/forms'; 
 import { IService } from 'src/app/Admin/Models/iservice';
+import { Router, ActivatedRoute } from '@angular/router';
+import { NotificationsService } from 'src/app/Admin/Services/notifications.service';
 @Component({
   selector: 'app-create-service',
   templateUrl: './create-service.component.html',
@@ -14,9 +16,12 @@ export class CreateServiceComponent implements OnInit {
   colorControl = new FormControl('accent'); 
   allServices!: Observable<ServiceService[]>;  
   serviceIdUpdate = null;  
-  massage ='';  
+  massage !:any;  
   isAddMode!: boolean;
-  constructor(private formbulider: FormBuilder,private service:ServiceService) { }
+  id!:string;
+  loading!:boolean;
+  submitted!:boolean;
+  constructor(private formbulider: FormBuilder,private service:ServiceService, private router: Router, private route: ActivatedRoute,private notificationService:NotificationsService) { }
 
   ngOnInit(): void {
     this.serviceForm = this.formbulider.group({  
@@ -24,12 +29,13 @@ export class CreateServiceComponent implements OnInit {
       ServiceDescription: ['', [Validators.required]],  
     });  
   }
+  
   CreateService(service: IService) {  
     if (this.serviceIdUpdate == null) {  
       this.service.createService(service).subscribe(  
         () => {  
           this.dataSaved = true;  
-          this.massage = 'Record saved Successfully';  
+          this.massage = this.notificationService.successToaster('Successfully added service','Error');  
           this.serviceForm.reset();  
         }  
       ); 

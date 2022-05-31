@@ -10,13 +10,14 @@ import{IService} from '../Models/iservice'
 })
 export class ServiceService {
   readonly url = 'https://localhost:44355/Api/Service'
+  
   constructor(private http:HttpClient) { }
   
   
   getAllService(): Observable<IService[]> {  
     return this.http.get<IService[]>(this.url + '/AllServiceDetails/');  
   }  
-  getServiceById(Service_ID: number): Observable<IService> {  
+  getServiceById(Service_ID: number|string): Observable<IService> {  
     return this.http.get<IService>(this.url + '/GetServiceDetailsById/' + Service_ID);  
   }  
   updateService(service: IService): Observable<IService> {  
@@ -34,4 +35,10 @@ export class ServiceService {
     return this.http.post<IService>(this.url + '/InsertServiceDetails/',  
     service, httpOptions);  
   }
+
+  //new update
+  
+  update(id: string, params: any) {
+    return this.http.put(`${this.url}/UpdateServiceDetails`, params);
+}
 }

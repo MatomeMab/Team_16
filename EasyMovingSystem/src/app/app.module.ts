@@ -31,6 +31,10 @@ import { ServiceListComponent } from './Admin/Components/Servi/service-list/serv
 import { StaticPageComponent } from './LandingPage/static-page/static-page.component';
 import{ToastrModule,ToastrService} from 'ngx-toastr';
 import { EmployeeTypeComponent } from './Admin/Components/EmployeeType/employee-type/employee-type.component';
+import { EditServiceComponent } from './Admin/Components/Servi/edit-service/edit-service.component';
+import { EditJobComponent } from './Admin/Components/JobListing/edit-job/edit-job.component';
+import { EditEmployeeTypeComponent } from './Admin/Components/EmployeeType/edit-employee-type/edit-employee-type.component';
+import { EditTruckComponent } from './Admin/Components/Truck/edit-truck/edit-truck.component';
 
 
 
@@ -58,7 +62,11 @@ import { EmployeeTypeComponent } from './Admin/Components/EmployeeType/employee-
     JobListingComponent,
     CreateServiceComponent,
     ServiceListComponent,
-    StaticPageComponent
+    StaticPageComponent,
+    EditServiceComponent,
+    EditJobComponent,
+    EditEmployeeTypeComponent,
+    EditTruckComponent
     
    //navigation
    

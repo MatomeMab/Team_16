@@ -7,7 +7,7 @@
       </mat-toolbar>  
     <br><br>  
       <mat-card-content class="text" >  
-        <form [formGroup]="truckForm"(ngSubmit)="onFormSubmit()" class="example-container">  
+        <form [formGroup]="truckForm"(ngSubmit)="OnSubmit()" class="example-container">  
                  
                    
                      
@@ -20,7 +20,7 @@
                           </mat-form-field>  
       
                           <mat-error>  
-                            <span *ngIf="!truckForm.get('TruckType_ID').value && truckForm.get('TruckType_ID').touched"></span>  
+                            <span *ngIf="!truckForm.get('TruckType_ID') && truckForm.get('TruckType_ID')"></span>  
                           </mat-error> 
                       
                        
@@ -31,7 +31,7 @@
                         <input #input minlength="5" formControlName="Model" matTooltipClass="primary-tooltip" matTooltip="Enter Model" matInput placeholder=" Model" style="color:black; position: relative;" type="text"  >  
                       </mat-form-field>  
                       <mat-error>  
-                        <span *ngIf="!truckForm.get('Model').value && truckForm.get('Model').touched"></span>  
+                        <span *ngIf="!truckForm.get('Model') && truckForm.get('Model')"></span>  
                       </mat-error>  
                     
                   
@@ -42,7 +42,7 @@
                             <input #input maxlength="4" formControlName="Year" matTooltip="Enter Year" matInput placeholder="Year"matInput style="color:black" type="text" > 
                           </mat-form-field>  
                           <mat-error>  
-                            <span *ngIf="!truckForm.get('Year').value && truckForm.get('Year').touched"></span>  
+                            <span *ngIf="!truckForm.get('Year') && truckForm.get('Year')"></span>  
                           </mat-error>  
                         
                     </p>
@@ -53,7 +53,7 @@
                             <input #input minlength="5" formControlName="Colour" matTooltip="Enter Colour" matInput placeholder="Colour"matInput style="color:black" type="text" ngModel pattern="[a-zA-Z ]*">
                           </mat-form-field>  
                           <mat-error>  
-                            <span *ngIf="!truckForm.get('Colour').value && truckForm.get('Colour').touched"></span>  
+                            <span *ngIf="!truckForm.get('Colour') && truckForm.get('Colour')"></span>  
                           </mat-error>  
                          
                     </p> 
@@ -64,7 +64,7 @@
                             <input #input minlength="5" formControlName="RegNum" matTooltip="Enter RegNum" matInput placeholder="RegNum"matInput style="color:black" type="text" > 
                           </mat-form-field>  
                           <mat-error>  
-                            <span *ngIf="!truckForm.get('RegNum').value && truckForm.get('RegNum').touched"></span>  
+                            <span *ngIf="!truckForm.get('RegNum') && truckForm.get('RegNum')"></span>  
                           </mat-error>  
                          
                     </p>   
@@ -75,7 +75,7 @@
                             <input #input minlength="5" formControlName="Make" matTooltip="Enter Make" matInput placeholder="Make"matInput style="color:black" type="text" ngModel pattern="[a-zA-Z ]*">
                           </mat-form-field>  
                           <mat-error>  
-                            <span *ngIf="!truckForm.get('Make').value && truckForm.get('Make').touched"></span>  
+                            <span *ngIf="!truckForm.get('Make') && truckForm.get('Make')"></span>  
                           </mat-error>  
                          
                     </p> 
@@ -90,7 +90,7 @@
                       </mat-form-field>  
   
                       <mat-error>  
-                        <span *ngIf="!truckForm.get('TruckStatus_ID').value && truckForm.get('TruckStatus_ID').touched"></span>  
+                        <span *ngIf="!truckForm.get('TruckStatus_ID') && truckForm.get('TruckStatus_ID')"></span>  
                       </mat-error> 
                     </p>
                     
@@ -106,4 +106,4 @@
         </form>  
       </mat-card-content>  
     </mat-card>  
-    </div> 
+    </div>

@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { IEmployeeType } from '../Models/iemployee-type';
 import { HttpHeaders } from '@angular/common/http';  
+import { data } from 'jquery';
 
 @Injectable({
   providedIn: 'root'
@@ -24,11 +25,13 @@ export class EmployeeTypeService {
     return this.http.put<IEmployeeType>(this.url + '/UpdateEmployeeTypeDetails/',  
     empType, httpOptions);  
   }  
-  deleteEmployeeTypeById(EmployeeType_ID:number) : Observable<number> {  
+ /* deleteEmployeeTypeById(EmployeeType_ID:number) {  
     const httpOptions = { headers: new HttpHeaders({ 'Content-Type': 'application/json'}) };  
-    return this.http.delete<number>(this.url + '/DeleteEmployeeTypeDetails?id=' + EmployeeType_ID,  
- httpOptions);  
-  } 
+    return this.http.delete(this.url + '/DeleteEmployeeTypeDetails?id=' + EmployeeType_ID)  
+    .pipe(map(data=>{
+      return data
+    }))
+  } */
   createEmployeeType(empType: IEmployeeType): Observable<IEmployeeType> {  
     const httpOptions = { headers: new HttpHeaders({ 'Content-Type': 'application/json'}) };  
     return this.http.post<IEmployeeType>(this.url + '/InsertEmployeeTypeDetails/',  
@@ -36,8 +39,9 @@ export class EmployeeTypeService {
   }
 
   //new delete 
-  deleteEmployeeType(id: number) {
-    return this.http.delete(`${this.url+`DeleteEmployeeTypeDetails?id=`}/${id}`)
+  deleteEmployeeTypeById(id: number) {
+    return this.http.delete(`${this.url+`/DeleteEmployeeTypeDetails?id=`}${id}`)
       .pipe(map(res => res));
   }
+
 }

@@ -22,26 +22,26 @@ export class EmployeeTypeComponent implements OnInit {
   empTypeIdUpdate = null;  
   massage ='';  
   isAddMode!: boolean;
-  service!:IEmployeeType;
+  empType!:IEmployeeType;
   constructor(private formbulider: FormBuilder,private empTypeService:EmployeeTypeService, private notificationService:NotificationsService) { }
 
   ngOnInit(): void {
     this.employeeTypeForm = this.formbulider.group({  
-      EmployeeTypeName: ['', [Validators.required]],  
-      EmployeeDescription: ['', [Validators.required]],  
+      EmployeeTypeName: ['', [Validators.maxLength(50), Validators.minLength(5),Validators.required]],  
+      EmployeeDescription: ['', [Validators.maxLength(200), Validators.minLength(10),Validators.required]],  
     }); 
    
   }
-  CreateEmployeeType(emp: IEmployeeType) {  
+  CreateEmployeeType(empType: IEmployeeType) {  
     if (this.empTypeIdUpdate == null) {  
-      this.empTypeService.createEmployeeType(emp).subscribe(  
+      this.empTypeService.createEmployeeType(empType).subscribe(  
         () => {  
           this.dataSaved = true;  
           this.notificationService.successToaster('Registration Successful', 'Success') 
           this.employeeTypeForm.reset();  
         }  
       ); 
-      console.log(emp) 
+      console.log(empType) 
     }
   }   
  
@@ -52,8 +52,8 @@ export class EmployeeTypeComponent implements OnInit {
   }
   onFormSubmit() {  
     this.dataSaved = false; 
-    const emp=this.employeeTypeForm.value;
-    this.CreateEmployeeType(emp);   
+    const empType=this.employeeTypeForm.value;
+    this.CreateEmployeeType(empType);   
     this.employeeTypeForm.reset();  
   }
 
@@ -96,7 +96,7 @@ export class EmployeeTypeComponent implements OnInit {
     throw new Error('Method not implemented.');
   }
   resetObject() {
-    this.service = {
+    this.empType = {
       EmployeeType_ID: 0,
       EmployeeTypeName: '',
       EmployeeDescription: '',

@@ -8,6 +8,7 @@ import { FormBuilder, NumberValueAccessor, Validators } from '@angular/forms';
 import { EmployeeTypeComponent } from '../employee-type/employee-type.component';
 import { EmployeeTypeService } from 'src/app/Admin/Services/employee-type.service';
 import { NotificationsService } from 'src/app/Admin/Services/notifications.service';
+import { EditEmployeeTypeComponent } from '../edit-employee-type/edit-employee-type.component';
 @Component({
   selector: 'app-employee-type-list',
   templateUrl: './employee-type-list.component.html',
@@ -23,7 +24,7 @@ export class EmployeeTypeListComponent implements OnInit {
   allEmployeeTypes!: Observable<IEmployeeType[]>;
   employeeTypeIdUpdate!:number;
   employeeType$:Observable<IEmployeeType[]>=this.empTypeService.getAllEmployeeType();
-
+  id!: number;
   empTypes: IEmployeeType[]=[];
   constructor(private dialog:MatDialog,private formbulider: FormBuilder, private empTypeService:EmployeeTypeService,private router: Router, private notificationService:NotificationsService) { }
 
@@ -31,43 +32,7 @@ export class EmployeeTypeListComponent implements OnInit {
  //this.serviceList=this.service.getAllService();
  this.readEmployeeType();
   }
-  loadEmployeeTypeToEdit(empTypeId: string) {  
-    this.empTypeService.getEmployeeTypeById(empTypeId).subscribe(empType=> {  
-      this.massage = '';  
-      this.dataSaved = false;  
-      this.employeeTypeIdUpdate == empType.EmployeeType_ID;  
-      this.employeeTypeForm.controls['EmployeeTypeName'].setValue(empType.EmployeeTypeName);  
-      this.employeeTypeForm.controls['EmployeeDescription'].setValue(empType.EmployeeDescription);  
-      
-        
-    });  
-  
-  }
-
-  deleteEmployeeType(empTypeId: number) {  
-    if (confirm("Are you sure you want to delete this ?")) {   
-    this.empTypeService.deleteEmployeeTypeById(empTypeId).subscribe(() => {  
-      this.dataSaved = true;  
-      this.massage = 'Record Deleted Succefully';  
-      this.empTypeService.getAllEmployeeType();  
-      this.employeeTypeIdUpdate == null;  
-      this.employeeTypeForm.reset();  
-  
-    });  
-    
-  }  
-}  
-
-updateEmployeeType(empType:IEmployeeType){
-  empType.EmployeeType_ID = this.employeeTypeIdUpdate;  
-      this.empTypeService.updateEmployeeType(empType).subscribe(() => {  
-        this.router.navigate(["/EmployeeType"])
-        this.dataSaved = true;  
-        this.massage = 'Record Updated Successfully';   
-        this.employeeTypeIdUpdate == null;  
-        this.employeeTypeForm.reset();  
-      });  
-}
+ 
   applyFilter(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;
     this.dataSource.filter = filterValue.trim().toLowerCase();
@@ -82,12 +47,7 @@ updateEmployeeType(empType:IEmployeeType){
       width:'80%'
     });
   }
-  onFormSubmit() {  
-    this.dataSaved = false;  
-    const employee = this.employeeTypeForm.value;  
-    this.updateEmployeeType(employee);  
-    this.employeeTypeForm.reset();  
-  } 
+ 
   public myFilter = (value: string) => {
     this.dataSource.filter = value.trim().toLowerCase();
     console.log(this.dataSource.filter)
@@ -107,22 +67,23 @@ updateEmployeeType(empType:IEmployeeType){
   }
 
 //new delete
-/*
-deleteEmployeeType(id: number){
-  this.empTypeService.deleteEmployeeType(id).subscribe(res=>{
+
+deleteEmployeeType(empTypeId: number){
+  if (confirm("Are you sure you want to delete this ?")){
+  this.empTypeService.deleteEmployeeTypeById(empTypeId).subscribe(res=>{
     this.readEmployeeType();
-    console.log(res);
+    console.log(res); 
+    this.notificationService.successToaster('Successfully deleted Employee Type','Error')
   },
-    (  err: { status: number; })=>{
+  (  err: { status: number; })=>{
     if(err.status != 201){
-      this.notificationService.errorToaster('Cannot Delete User, Please Contact System Administrator','Error');
+      this.notificationService.errorToaster('Cannot delete Employee Type, Please Contact System Administrator','Error');
     }
-    else{
-      this.notificationService.successToaster('Successfully Deleted User','Error')
-    }
+    
   }
   );
-}*/
+}
+}
 //new update
 /*updateEmployeeType(employeeId: number){
   const dialog = new MatDialogConfig
@@ -142,4 +103,45 @@ deleteEmployeeType(id: number){
     }
   });
 }*/
+
+routerEditEmpType(EmployeeType_ID: number, EmployeeTypeName: string, EmployeeDescription: string ){
+  const dialog = new MatDialogConfig();
+  dialog.disableClose = true;
+  dialog.width = '50%';
+  dialog.height = 'auto';
+  dialog.data = {add: 'yes'};
+  const dialogReference = this.dialog.open(
+    EditEmployeeTypeComponent,
+    {
+     data: { EmployeeType_ID: EmployeeType_ID,  EmployeeTypeName: EmployeeTypeName, EmployeeDescription: EmployeeDescription }
+   });
+
+ dialogReference.afterClosed().subscribe((res) => {
+   if (res == 'add') {
+     this.notificationService.successToaster('Employee Type Edited', 'Hooray');
+     this.readEmployeeType();
+   }
+ });
+}
+
+
+Close() {
+  this.dialog.closeAll();
+}
+
+openAddDialog(){
+  const dialog = new MatDialogConfig
+  dialog.disableClose = true, 
+  dialog.width = '50%';
+  dialog.height = 'auto';
+  dialog.data = { add: 'yes' }
+  const dialogReference = this.dialog.open(
+    EmployeeTypeListComponent,);
+  dialogReference.afterClosed().subscribe((res) => {
+    if (res == 'add') {
+      this.notificationService.successToaster('Job Added', 'Success')
+      this.readEmployeeType();
+    }
+  });
+}
 }

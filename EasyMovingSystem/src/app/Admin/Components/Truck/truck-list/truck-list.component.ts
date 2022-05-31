@@ -61,9 +61,9 @@ export class TruckListComponent implements OnInit {
       }
     });
   }
-  deleteTruck(serviceId: number) {  
+  deleteTruck(truckId: number) {  
     if (confirm("Are you sure you want to delete this ?")) {   
-    this.truck.deleteTruckById(serviceId).subscribe(() => {  
+    this.truck.deleteTruckById(truckId).subscribe(() => {  
       this.dataSaved = true;  
       this.massage = 'Record Deleted Succefully';  
       this.truck.getAllTruck();  
@@ -118,7 +118,7 @@ updateTruck(truck:ITruck){
     },
     err=>{
       if(err.status != 201){
-        this.massage='Cannot List Employee Types, Please Contact System Administrator','Error';
+        this.massage='Cannot List Trucks, Please Contact System Administrator','Error';
       }
     })
   }

@@ -13,7 +13,7 @@
               <tr ngclass="btn-primary">  
                 <th class="tbl2">Name</th> 
                 <th class="tbl2">Description</th> 
-                
+                <th class="tbl2">Options</th>
               </tr>  
               <tr *ngFor="let ser of serviceList  | async">  
                 <td class="tbl2">{{ser.ServiceName}}</td> 
@@ -30,15 +30,15 @@
         </form>  
       </mat-card-content>  
     </mat-card>  
-    </div>  -->
-   
+    </div>  
+  -->
     <div class="container" style="width: 700px;">
       <div class="d-flex page__box p-3 mt-2">Service List</div>
       <div class="page__content shadow p-3">
         <div class="page__content-data">
           <div class="position-relative">
             <div class="position-absolute top-0 end-0 icon-hover">
-              <mat-icon style="font-size: xx-large" (click)="openDialog()">add</mat-icon>
+              <mat-icon style="font-size: xx-large" (click)="openAddDialog()">add</mat-icon>
             </div>
           </div>
           <br>
@@ -51,7 +51,7 @@
           <table mat-table [dataSource]="dataSource" class="mat-elevation-z8" style="width: 600px;">
             <ng-container matColumnDef="ServiceName">
               <th mat-header-cell *matHeaderCellDef>Service Name</th>
-              <td mat-cell *matCellDef="let element">{{element.ServiceName}} </td>
+              <td mat-cell *matCellDef="let element" style="color: blue;">{{element.ServiceName}} </td>
             </ng-container>
     
             <ng-container matColumnDef="ServiceDescription">
@@ -66,7 +66,7 @@
               </tr>
               <tr>
                 <td mat-cell *matCellDef="let row">
-                  <button mat-icon-button (click)="loadServiceToEdit(row.serviceId)">
+                  <button mat-icon-button class="btn btn-info" (click)="routerEditService(row.Service_ID,row.ServiceName,row.ServiceDescription)">
                     <mat-icon>edit</mat-icon>
                   </button>
                 </td>
@@ -79,7 +79,7 @@
               </tr>
               <tr>
                 <td mat-cell *matCellDef="let row">
-                  <button mat-icon-button (click)="deleteService(row.serviceId)">
+                  <button mat-icon-button class="btn btn-danger" (click)="deleteService(row.Service_ID)">
                     <mat-icon>delete</mat-icon>
                   </button>
                 </td>
@@ -90,7 +90,7 @@
             <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
             <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
     
-            <!-- Row shown when there is no matching data. -->
+           
             <tr class="mat-row" *matNoDataRow>
               <td class="mat-cell" colspan="4">No data matching the filter "{{input.value}}"</td>
             </tr>
