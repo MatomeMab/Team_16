@@ -11,7 +11,7 @@ namespace WebApi.Controllers
     [RoutePrefix("Api/EmployeeStatus")]
     public class EmployeeStatusController : ApiController
     {
-        private EasyMovingSystemEntities1 objEntity = new EasyMovingSystemEntities1();
+        private EasyMovingSystemEntities5 objEntity = new EasyMovingSystemEntities5();
         [HttpGet]
         [Route("AllEmployeeStatusDetails")]
         public IQueryable<EmployeeStatu> GetEmployeeStatus()

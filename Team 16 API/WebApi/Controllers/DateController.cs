@@ -12,7 +12,7 @@ namespace WebApi.Controllers
     [RoutePrefix("Api/Date")]
     public class DateController : ApiController
     {
-        private EasyMovingSystemEntities1 objEntity = new EasyMovingSystemEntities1();
+        private EasyMovingSystemEntities5 objEntity = new EasyMovingSystemEntities5();
 
         [HttpGet]
         [Route("AllDatesDetails")]

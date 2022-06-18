@@ -12,8 +12,7 @@ namespace WebApi.Controllers
     public class CandidateController : ApiController
     {
 
-        private EasyMovingSystemEntities1 objEntity = new EasyMovingSystemEntities1();
-
+        private EasyMovingSystemEntities5 objEntity = new EasyMovingSystemEntities5();
         [HttpGet]
         [Route("AllCandidateDetails")]
         public IQueryable<Candidate> GetCandidate()

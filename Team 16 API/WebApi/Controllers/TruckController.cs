@@ -10,7 +10,7 @@ namespace WebApi.Controllers
     [RoutePrefix("Api/Truck")]
     public class TruckController : ApiController
     {
-        private EasyMovingSystemEntities1 objEntity = new EasyMovingSystemEntities1();
+        private EasyMovingSystemEntities5 objEntity = new EasyMovingSystemEntities5();
 
         [HttpGet]
         [Route("AllTruckDetails")]

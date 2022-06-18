@@ -17,13 +17,27 @@ RoleName varchar(50) not null
 )
 GO
 
+
 --Table 2
 CREATE TABLE [User]
 (
 User_ID int Identity (1,1) Primary Key Not Null,
-UserName varchar (50) not null,
-Password varchar (50) not null,
-Email varchar (100) not null
+Role_ID int not null foreign key references Role(Role_ID) on delete no action,
+SessionID varchar(200),
+OTP varchar(4),
+Active bit not null,
+Email varchar (100) not null,
+Session_Expiry date
+)
+GO
+--password
+CREATE TABLE Password  
+(
+Password_ID int Identity (1,1) Primary Key Not Null,
+User_ID int not null foreign key references [User] (User_ID) on delete cascade,
+Password varchar(50) not null,
+Date date not null,
+Time datetime not null
 )
 GO
 --Table3
@@ -38,7 +52,7 @@ GO
 CREATE TABLE Client  
 (
 Client_ID int Identity (1,1) Primary Key Not Null,
---User_ID int not null foreign key references [User] (User_ID) on delete cascade,
+User_ID int not null foreign key references [User] (User_ID) on delete cascade,
 ClientName varchar (50) not null,
 ClientSurname varchar (50) not null,
 PhoneNum int not null,
@@ -73,7 +87,7 @@ GO
 CREATE TABLE Employee 
 (
 Employee_ID int Identity (1,1) Primary Key Not Null,
---User_ID int not null foreign key references [User](User_ID),
+User_ID int not null foreign key references [User](User_ID),
 EmployeeType_ID int not null foreign key references EmployeeType(EmployeeType_ID) on delete no action,
 EmployeeStatus_ID int not null foreign Key references EmployeeStatus(EmployeeStatus_ID) on delete no action,
 Title_ID int not null foreign key references Title(Title_ID) on delete no action,
@@ -85,7 +99,7 @@ PhoneNum int  not null,
 EmergencyName varchar (50) not null,
 EmergencySurname varchar (50) not null,
 EmergencyPhoneNum int not null
---Admin_ID int not null foreign key references Admin(Admin_ID)
+
 )
 GO
 
@@ -94,7 +108,7 @@ GO
 CREATE TABLE Booking 
 (
 Booking_ID int Identity (1,1) Primary Key Not Null,
---Client_ID int not null foreign key references Client(Client_ID)  on delete cascade,
+Client_ID int not null foreign key references Client(Client_ID)  on delete cascade,
 DateMade datetime not null,
 )
 GO
@@ -166,7 +180,6 @@ CREATE TABLE Truck
 Truck_ID int Identity (1,1) Primary Key Not Null,
 TruckType_ID int not null foreign key references TruckType(TruckType_ID) on delete no action,
 TruckStatus_ID int not null foreign key references TruckStatus(TruckStatus_ID) on delete no action,
---Admin_ID int not null foreign key references Admin(Admin_ID) on delete no action,
 Model varchar (50) not null,
 Year int not null,
 Colour varchar (50) not null,
@@ -183,8 +196,8 @@ Inspection_ID int Identity (1,1) Primary Key Not Null,
 InspectionNote varchar (200) not null,
 InspectionTime datetime not null,
 InspectionType_ID int not null foreign key references InspectionType(InspectionType_ID),
-Truck_ID int not null foreign key references Truck(Truck_ID) on delete cascade
---User_ID int not null foreign key references [User](User_ID),
+Truck_ID int not null foreign key references Truck(Truck_ID) on delete cascade,
+User_ID int not null foreign key references [User](User_ID)
 --Admin_ID int not null foreign key references Admin(Admin_ID)
 )
 GO
@@ -242,7 +255,7 @@ PaymentType_ID int not null foreign key references PaymentType(PaymentType_ID),
 Rental_ID int not null foreign key references RentalAgreement(Rental_ID) on delete no action,
 BookingInstance_ID int not null foreign key references BookingInstance(BookingInstance_ID) on delete no action,
 Client_ID int references Client(Client_ID),
---ProofOfPayment varbinary(max) not null,
+ProofOfPayment varbinary(max) not null,
 AmountPaid decimal (16,2) not null,
 AmountDue decimal (16,2) not null,
 DatePaid datetime not null 
@@ -338,11 +351,12 @@ GO
 CREATE TABLE QuotationRequest
 (
 QuotationRequest_ID int Identity (1,1) Primary Key Not Null,
---Client_ID int not null foreign key references Client(Client_ID) on delete cascade,
+Client_ID int not null foreign key references Client(Client_ID) on delete cascade,
 QuotationReqDate datetime not null,
 QuotationReqDescription varchar (200) not null,
-FromAddress varchar(200) not null,
-ToAddress varchar(200) not null
+FromAddress varchar(200)  null,
+ToAddress varchar(200)  null,
+
 --From and To Address
 )
 GO
@@ -363,7 +377,7 @@ CREATE TABLE BackgroundCheckStatus
 (
 BackgroundCheckStatus_ID int Identity (1,1) Primary Key Not Null,
 BackgroundCheckStatusName varchar (50) not null,
---Admin_ID int not null foreign key references Admin(Admin_ID),
+
 )
 GO
 
@@ -392,13 +406,13 @@ ListingStatusName varchar (50) not null,
 )
 GO
 
-/* Create Table 38 
+/* Create Table 38 */
 CREATE TABLE JobType 
 (
 JobType_ID int Identity (1,1) Primary Key Not Null,
 JobType varchar(50) not null,
 )
-GO*/
+GO
 
 /* Create Table 39 */
 CREATE TABLE JobListing
@@ -407,7 +421,6 @@ Job_ID int Identity (1,1) Primary Key Not Null,
 Description varchar (200) not null,
 Amount decimal(16,2) not null,
 ListingStatus_ID int not null foreign key references ListingStatus(ListingStatus_ID) on delete no action,
---Admin_ID int not null foreign key references Admin(Admin_ID) on delete cascade,
 DatePosted datetime not null,
 ExpiryDate datetime not null,
 )
@@ -453,7 +466,7 @@ GO
 CREATE TABLE Date
 (
 Date_ID int Identity (1,1) Primary Key Not Null,
-Date datetime not null
+Date date not null
 )
 GO
 
@@ -477,7 +490,7 @@ GO
 CREATE TABLE DateOrTimeSlotOrDriver
 (
 Employee_ID int not null foreign key references Employee(Employee_ID) on delete no action,
-DateorTimeslotDirive_ID int identity(1,1) primary key not null,
+DateorTimeslotDiriver_ID int identity(1,1) primary key not null,
 DateorTimeslot_ID int not null foreign key references DateorTimeslot(DateorTimeslot_ID) on delete no action,
 Description varchar(200) not null,
 BookingInstance_ID int not null foreign key references BookingInstance(BookingInstance_ID) on delete no action,
@@ -525,9 +538,9 @@ insert into BookingStatus values
 ('Cancelled')
 
 insert into Role values 
-('Client'),
+('Admin'),
 ('Employee'),
-('Admin')
+('Client')
 
 insert into TrackingStatus values
 ('Driver Assigned','Driver '),
@@ -553,17 +566,22 @@ insert into JobType values
 insert into TruckType values
 ('Flatbed','A flatbed truck is a type of truck which can be either articulated or rigid. As the name suggests, its bodywork is just an entirely flat, level "bed" with no sides or roof.')
 
+
 insert into [User] values
-('felicityfanelo@gmail.com','12345678F','felicityfanelo@gmail.com'),
-('percy@gmail.com','12345678P','percy@gmail.com'),
-('Admin@gmail.com','12345678A','Admin@gmail.com')
+(1,'Null','Null',1,'felicityfanelo@gmail.com','2022-06-09'),
+(2,'Null','Null',1,'haseenahsami27@gmail.com','2022-06-09'),
+(3,'Null','Null',1,'ffnghonyama@gmail.com','2022-06-09')
+insert into Password values
+(1,'fanelo123','2020-01-04','2020-01-04 11:12:01'),
+(2,'fanelo123','2020-01-04','2020-01-04 11:12:01'),
+(3,'fanelo123','2020-01-04','2020-01-04 11:12:01')
 insert into Admin values 
-(3,'Billy','VanVick',0845631279)
+(1,'Billy','VanVick',0845631279)
 insert into Client values
-('Fanelo','Nghonyama',0784569874)
+(3,'Fanelo','Nghonyama',0784569874)
 insert into Employee values
-(2,1,1,'Percy','Chabalala','1998-01-04','2020-01-04',0782598641,'Cecil','Mpongose',0785962112)
+(1,2,1,1,'Percy','Chabalala','1998-01-04','2020-01-04',0782598641,'Cecil','Mpongose',0785962112)
 insert into Truck values
-(1,2,'Altima',2022,'White','YYD89GP','Nissan')
+(1,1,'Altima',2022,'White','YYD89GP','Nissan')
 insert into JobListing values
 ('For testing purposes',500,1,'2020-01-04','2020-08-04')

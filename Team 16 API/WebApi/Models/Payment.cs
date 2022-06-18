@@ -19,6 +19,7 @@ namespace WebApi.Models
         public int Rental_ID { get; set; }
         public int BookingInstance_ID { get; set; }
         public Nullable<int> Client_ID { get; set; }
+        public byte[] ProofOfPayment { get; set; }
         public decimal AmountPaid { get; set; }
         public decimal AmountDue { get; set; }
         public System.DateTime DatePaid { get; set; }

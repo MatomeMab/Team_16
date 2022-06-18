@@ -13,10 +13,10 @@ namespace WebApi.Models
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class EasyMovingSystemEntities1 : DbContext
+    public partial class EasyMovingSystemEntities5 : DbContext
     {
-        public EasyMovingSystemEntities1()
-            : base("name=EasyMovingSystemEntities1")
+        public EasyMovingSystemEntities5()
+            : base("name=EasyMovingSystemEntities5")
         {
         }
     
@@ -47,11 +47,11 @@ namespace WebApi.Models
         public virtual DbSet<InspectionItem> InspectionItems { get; set; }
         public virtual DbSet<InspectionType> InspectionTypes { get; set; }
         public virtual DbSet<JobListing> JobListings { get; set; }
-        public virtual DbSet<JobType> JobTypes { get; set; }
         public virtual DbSet<License> Licenses { get; set; }
         public virtual DbSet<ListingStatu> ListingStatus { get; set; }
         public virtual DbSet<Notification> Notifications { get; set; }
         public virtual DbSet<NotificationType> NotificationTypes { get; set; }
+        public virtual DbSet<Password> Passwords { get; set; }
         public virtual DbSet<Payment> Payments { get; set; }
         public virtual DbSet<PaymentType> PaymentTypes { get; set; }
         public virtual DbSet<Quotation> Quotations { get; set; }

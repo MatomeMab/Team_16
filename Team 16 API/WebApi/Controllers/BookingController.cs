@@ -12,7 +12,7 @@ namespace WebApi.Controllers
     public class BookingController : ApiController
     {
 
-        private EasyMovingSystemEntities1 objEntity = new EasyMovingSystemEntities1();
+        private EasyMovingSystemEntities5 objEntity = new EasyMovingSystemEntities5();
 
         [HttpGet]
         [Route("AllBookingDetails")]

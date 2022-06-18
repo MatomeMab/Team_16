@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-  <EntityContainerMapping StorageEntityContainer="EasyMovingSystemModelStoreContainer" CdmEntityContainer="EasyMovingSystemEntities1">
+  <EntityContainerMapping StorageEntityContainer="EasyMovingSystemModelStoreContainer" CdmEntityContainer="EasyMovingSystemEntities5">
     <EntitySetMapping Name="Admins">
       <EntityTypeMapping TypeName="EasyMovingSystemModel.Admin">
         <MappingFragment StoreEntitySet="Admin">
@@ -44,6 +44,7 @@
       <EntityTypeMapping TypeName="EasyMovingSystemModel.Booking">
         <MappingFragment StoreEntitySet="Booking">
           <ScalarProperty Name="Booking_ID" ColumnName="Booking_ID" />
+          <ScalarProperty Name="Client_ID" ColumnName="Client_ID" />
           <ScalarProperty Name="DateMade" ColumnName="DateMade" />
         </MappingFragment>
       </EntityTypeMapping>
@@ -87,6 +88,7 @@
       <EntityTypeMapping TypeName="EasyMovingSystemModel.Client">
         <MappingFragment StoreEntitySet="Client">
           <ScalarProperty Name="Client_ID" ColumnName="Client_ID" />
+          <ScalarProperty Name="User_ID" ColumnName="User_ID" />
           <ScalarProperty Name="ClientName" ColumnName="ClientName" />
           <ScalarProperty Name="ClientSurname" ColumnName="ClientSurname" />
           <ScalarProperty Name="PhoneNum" ColumnName="PhoneNum" />
@@ -114,7 +116,7 @@
       <EntityTypeMapping TypeName="EasyMovingSystemModel.DateOrTimeSlotOrDriver">
         <MappingFragment StoreEntitySet="DateOrTimeSlotOrDriver">
           <ScalarProperty Name="Employee_ID" ColumnName="Employee_ID" />
-          <ScalarProperty Name="DateorTimeslotDirive_ID" ColumnName="DateorTimeslotDirive_ID" />
+          <ScalarProperty Name="DateorTimeslotDiriver_ID" ColumnName="DateorTimeslotDiriver_ID" />
           <ScalarProperty Name="DateorTimeslot_ID" ColumnName="DateorTimeslot_ID" />
           <ScalarProperty Name="Description" ColumnName="Description" />
           <ScalarProperty Name="BookingInstance_ID" ColumnName="BookingInstance_ID" />
@@ -142,6 +144,7 @@
       <EntityTypeMapping TypeName="EasyMovingSystemModel.Employee">
         <MappingFragment StoreEntitySet="Employee">
           <ScalarProperty Name="Employee_ID" ColumnName="Employee_ID" />
+          <ScalarProperty Name="User_ID" ColumnName="User_ID" />
           <ScalarProperty Name="EmployeeType_ID" ColumnName="EmployeeType_ID" />
           <ScalarProperty Name="EmployeeStatus_ID" ColumnName="EmployeeStatus_ID" />
           <ScalarProperty Name="Title_ID" ColumnName="Title_ID" />
@@ -190,6 +193,7 @@
           <ScalarProperty Name="InspectionTime" ColumnName="InspectionTime" />
           <ScalarProperty Name="InspectionType_ID" ColumnName="InspectionType_ID" />
           <ScalarProperty Name="Truck_ID" ColumnName="Truck_ID" />
+          <ScalarProperty Name="User_ID" ColumnName="User_ID" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -219,14 +223,6 @@
           <ScalarProperty Name="ListingStatus_ID" ColumnName="ListingStatus_ID" />
           <ScalarProperty Name="DatePosted" ColumnName="DatePosted" />
           <ScalarProperty Name="ExpiryDate" ColumnName="ExpiryDate" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="JobTypes">
-      <EntityTypeMapping TypeName="EasyMovingSystemModel.JobType">
-        <MappingFragment StoreEntitySet="JobType">
-          <ScalarProperty Name="JobType_ID" ColumnName="JobType_ID" />
-          <ScalarProperty Name="JobType1" ColumnName="JobType" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -265,6 +261,17 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="Passwords">
+      <EntityTypeMapping TypeName="EasyMovingSystemModel.Password">
+        <MappingFragment StoreEntitySet="Password">
+          <ScalarProperty Name="Password_ID" ColumnName="Password_ID" />
+          <ScalarProperty Name="User_ID" ColumnName="User_ID" />
+          <ScalarProperty Name="Password1" ColumnName="Password" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="Time" ColumnName="Time" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
     <EntitySetMapping Name="Payments">
       <EntityTypeMapping TypeName="EasyMovingSystemModel.Payment">
         <MappingFragment StoreEntitySet="Payment">
@@ -273,6 +280,7 @@
           <ScalarProperty Name="Rental_ID" ColumnName="Rental_ID" />
           <ScalarProperty Name="BookingInstance_ID" ColumnName="BookingInstance_ID" />
           <ScalarProperty Name="Client_ID" ColumnName="Client_ID" />
+          <ScalarProperty Name="ProofOfPayment" ColumnName="ProofOfPayment" />
           <ScalarProperty Name="AmountPaid" ColumnName="AmountPaid" />
           <ScalarProperty Name="AmountDue" ColumnName="AmountDue" />
           <ScalarProperty Name="DatePaid" ColumnName="DatePaid" />
@@ -312,6 +320,7 @@
       <EntityTypeMapping TypeName="EasyMovingSystemModel.QuotationRequest">
         <MappingFragment StoreEntitySet="QuotationRequest">
           <ScalarProperty Name="QuotationRequest_ID" ColumnName="QuotationRequest_ID" />
+          <ScalarProperty Name="Client_ID" ColumnName="Client_ID" />
           <ScalarProperty Name="QuotationReqDate" ColumnName="QuotationReqDate" />
           <ScalarProperty Name="QuotationReqDescription" ColumnName="QuotationReqDescription" />
           <ScalarProperty Name="FromAddress" ColumnName="FromAddress" />
@@ -428,9 +437,12 @@
       <EntityTypeMapping TypeName="EasyMovingSystemModel.User">
         <MappingFragment StoreEntitySet="User">
           <ScalarProperty Name="User_ID" ColumnName="User_ID" />
-          <ScalarProperty Name="UserName" ColumnName="UserName" />
-          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="Role_ID" ColumnName="Role_ID" />
+          <ScalarProperty Name="SessionID" ColumnName="SessionID" />
+          <ScalarProperty Name="OTP" ColumnName="OTP" />
+          <ScalarProperty Name="Active" ColumnName="Active" />
           <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Session_Expiry" ColumnName="Session_Expiry" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

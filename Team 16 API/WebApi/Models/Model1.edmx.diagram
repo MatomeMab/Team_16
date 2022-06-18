@@ -4,96 +4,103 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="06bc93d444a74628ba27b34cd8717128" Name="Diagram1" ZoomLevel="60">
-        <EntityTypeShape EntityType="EasyMovingSystemModel.Admin" Width="1.5" PointX="18.25" PointY="13" IsExpanded="true" />
-        <EntityTypeShape EntityType="EasyMovingSystemModel.Application" Width="1.5" PointX="13.25" PointY="7.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="EasyMovingSystemModel.ApplicationStatu" Width="1.5" PointX="11" PointY="5.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="EasyMovingSystemModel.BackgroundCheckStatu" Width="1.5" PointX="9.75" PointY="2.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="EasyMovingSystemModel.Booking" Width="1.5" PointX="3" PointY="11.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="EasyMovingSystemModel.BookingInstance" Width="1.5" PointX="5.25" PointY="1.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="EasyMovingSystemModel.BookingStatu" Width="1.5" PointX="3" PointY="13.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="EasyMovingSystemModel.Candidate" Width="1.5" PointX="11" PointY="11.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="EasyMovingSystemModel.Client" Width="1.5" PointX="0.75" PointY="7.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="EasyMovingSystemModel.Date" Width="1.5" PointX="3" PointY="43" IsExpanded="true" />
-        <EntityTypeShape EntityType="EasyMovingSystemModel.DateOrTimeSlot" Width="1.5" PointX="5.25" PointY="43.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="EasyMovingSystemModel.DateOrTimeSlotOrDriver" Width="1.5" PointX="7.5" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="EasyMovingSystemModel.Document" Width="1.5" PointX="11" PointY="8" IsExpanded="true" />
-        <EntityTypeShape EntityType="EasyMovingSystemModel.DocumentType" Width="1.5" PointX="8.75" PointY="8.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="EasyMovingSystemModel.Employee" Width="1.5" PointX="3" PointY="31.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="EasyMovingSystemModel.EmployeeStatu" Width="1.5" PointX="0.75" PointY="30.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="EasyMovingSystemModel.EmployeeType" Width="1.5" PointX="0.75" PointY="32.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="EasyMovingSystemModel.Feedback" Width="1.5" PointX="7.5" PointY="4.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="EasyMovingSystemModel.Inspection" Width="1.5" PointX="0.75" PointY="13.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="EasyMovingSystemModel.InspectionItem" Width="1.5" PointX="3" PointY="37.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="EasyMovingSystemModel.InspectionType" Width="1.5" PointX="1.5" PointY="17.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="EasyMovingSystemModel.JobListing" Width="1.5" PointX="11" PointY="14.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="EasyMovingSystemModel.JobType" Width="1.5" PointX="5.75" PointY="12.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="EasyMovingSystemModel.License" Width="1.5" PointX="3" PointY="8" IsExpanded="true" />
-        <EntityTypeShape EntityType="EasyMovingSystemModel.ListingStatu" Width="1.5" PointX="8.75" PointY="14.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="EasyMovingSystemModel.Notification" Width="1.5" PointX="16" PointY="4.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="EasyMovingSystemModel.NotificationType" Width="1.5" PointX="13.75" PointY="4.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="EasyMovingSystemModel.Payment" Width="1.5" PointX="6" PointY="7.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="EasyMovingSystemModel.PaymentType" Width="1.5" PointX="3.75" PointY="17.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="EasyMovingSystemModel.Quotation" Width="1.5" PointX="13.75" PointY="16.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="EasyMovingSystemModel.QuotationLine" Width="1.5" PointX="16" PointY="16.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="EasyMovingSystemModel.QuotationRequest" Width="1.5" PointX="13.75" PointY="20.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="EasyMovingSystemModel.RentalAgreement" Width="1.5" PointX="3" PointY="3.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="EasyMovingSystemModel.RentalStatu" Width="1.5" PointX="0.75" PointY="4.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="EasyMovingSystemModel.Role" Width="1.5" PointX="13.75" PointY="13.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="EasyMovingSystemModel.Service" Width="1.5" PointX="13.75" PointY="23.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="EasyMovingSystemModel.TimeSlot" Width="1.5" PointX="3" PointY="45.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="EasyMovingSystemModel.Title" Width="1.5" PointX="0.75" PointY="35" IsExpanded="true" />
-        <EntityTypeShape EntityType="EasyMovingSystemModel.TrackingStatu" Width="1.5" PointX="3" PointY="39.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="EasyMovingSystemModel.Truck" Width="1.5" PointX="1.5" PointY="20.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="EasyMovingSystemModel.TruckPhoto" Width="1.5" PointX="3.75" PointY="21" IsExpanded="true" />
-        <EntityTypeShape EntityType="EasyMovingSystemModel.TruckStatu" Width="1.5" PointX="1.5" PointY="24.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="EasyMovingSystemModel.TruckType" Width="1.5" PointX="1.5" PointY="27.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="EasyMovingSystemModel.User" Width="1.5" PointX="16" PointY="12.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="EasyMovingSystemModel.UserNotification" Width="1.5" PointX="18.25" PointY="10.125" IsExpanded="true" />
-        <AssociationConnector Association="EasyMovingSystemModel.FK__Admin__User_ID__412EB0B6" ManuallyRouted="false" />
-        <AssociationConnector Association="EasyMovingSystemModel.FK__Applicati__Appli__151B244E" ManuallyRouted="false" />
-        <AssociationConnector Association="EasyMovingSystemModel.FK__Applicati__Candi__123EB7A3" ManuallyRouted="false" />
-        <AssociationConnector Association="EasyMovingSystemModel.FK__Applicati__Docum__14270015" ManuallyRouted="false" />
-        <AssociationConnector Association="EasyMovingSystemModel.FK__Applicati__Job_I__1332DBDC" ManuallyRouted="false" />
-        <AssociationConnector Association="EasyMovingSystemModel.FK__BookingIn__Booki__59FA5E80" ManuallyRouted="false" />
-        <AssociationConnector Association="EasyMovingSystemModel.FK__BookingIn__Booki__59063A47" ManuallyRouted="false" />
-        <AssociationConnector Association="EasyMovingSystemModel.FK__BookingIn__Emplo__5AEE82B9" ManuallyRouted="false" />
-        <AssociationConnector Association="EasyMovingSystemModel.FK__BookingIn__Inspe__5812160E" ManuallyRouted="false" />
-        <AssociationConnector Association="EasyMovingSystemModel.FK__BookingIn__Renta__5CD6CB2B" ManuallyRouted="false" />
-        <AssociationConnector Association="EasyMovingSystemModel.FK__BookingIn__Track__571DF1D5" ManuallyRouted="false" />
-        <AssociationConnector Association="EasyMovingSystemModel.FK__BookingIn__Truck__5BE2A6F2" ManuallyRouted="false" />
-        <AssociationConnector Association="EasyMovingSystemModel.FK__DateOrTim__Booki__245D67DE" ManuallyRouted="false" />
-        <AssociationConnector Association="EasyMovingSystemModel.FK__Feedback__Bookin__6754599E" ManuallyRouted="false" />
-        <AssociationConnector Association="EasyMovingSystemModel.FK__Payment__Booking__6383C8BA" ManuallyRouted="false" />
-        <AssociationConnector Association="EasyMovingSystemModel.FK__License__Client___6D0D32F4" ManuallyRouted="false" />
-        <AssociationConnector Association="EasyMovingSystemModel.FK__Payment__Client___6477ECF3" ManuallyRouted="false" />
-        <AssociationConnector Association="EasyMovingSystemModel.FK__RentalAgr__Clien__5165187F" ManuallyRouted="false" />
-        <AssociationConnector Association="EasyMovingSystemModel.FK__DateOrTim__Date___1EA48E88" ManuallyRouted="false" />
-        <AssociationConnector Association="EasyMovingSystemModel.FK__DateOrTim__Dateo__236943A5" ManuallyRouted="false" />
-        <AssociationConnector Association="EasyMovingSystemModel.FK__DateOrTim__TimeS__1F98B2C1" ManuallyRouted="false" />
-        <AssociationConnector Association="EasyMovingSystemModel.FK__DateOrTim__Emplo__22751F6C" ManuallyRouted="false" />
-        <AssociationConnector Association="EasyMovingSystemModel.FK__Document__Docume__06CD04F7" ManuallyRouted="false" />
-        <AssociationConnector Association="EasyMovingSystemModel.FK__Employee__Employ__32E0915F" ManuallyRouted="false" />
-        <AssociationConnector Association="EasyMovingSystemModel.FK__Employee__Employ__33D4B598" ManuallyRouted="false" />
-        <AssociationConnector Association="EasyMovingSystemModel.FK__Employee__Title___34C8D9D1" ManuallyRouted="false" />
-        <AssociationConnector Association="EasyMovingSystemModel.FK__Inspectio__Inspe__4BAC3F29" ManuallyRouted="false" />
-        <AssociationConnector Association="EasyMovingSystemModel.FK__Inspectio__Truck__4CA06362" ManuallyRouted="false" />
-        <AssociationConnector Association="EasyMovingSystemModel.FK__RentalAgr__Inspe__52593CB8" ManuallyRouted="false" />
-        <AssociationConnector Association="EasyMovingSystemModel.FK__JobListin__Listi__0D7A0286" ManuallyRouted="false" />
-        <AssociationConnector Association="EasyMovingSystemModel.FK__License__Rental___6C190EBB" ManuallyRouted="false" />
-        <AssociationConnector Association="EasyMovingSystemModel.FK__Notificat__Notif__73BA3083" ManuallyRouted="false" />
-        <AssociationConnector Association="EasyMovingSystemModel.FK__UserNotif__Notif__76969D2E" ManuallyRouted="false" />
-        <AssociationConnector Association="EasyMovingSystemModel.FK__Payment__Payment__619B8048" ManuallyRouted="false" />
-        <AssociationConnector Association="EasyMovingSystemModel.FK__Payment__Rental___628FA481" ManuallyRouted="false" />
-        <AssociationConnector Association="EasyMovingSystemModel.FK__Quotation__Quota__7F2BE32F" ManuallyRouted="false" />
-        <AssociationConnector Association="EasyMovingSystemModel.FK__Quotation__Quota__7E37BEF6" ManuallyRouted="false" />
-        <AssociationConnector Association="EasyMovingSystemModel.FK__Quotation__Servi__00200768" ManuallyRouted="false" />
-        <AssociationConnector Association="EasyMovingSystemModel.FK__RentalAgr__Renta__5070F446" ManuallyRouted="false" />
-        <AssociationConnector Association="EasyMovingSystemModel.FK__RentalAgr__Truck__4F7CD00D" ManuallyRouted="false" />
-        <AssociationConnector Association="EasyMovingSystemModel.FK__Truck__TruckStat__48CFD27E" ManuallyRouted="false" />
-        <AssociationConnector Association="EasyMovingSystemModel.FK__Truck__TruckType__47DBAE45" ManuallyRouted="false" />
-        <AssociationConnector Association="EasyMovingSystemModel.FK__TruckPhot__Truck__17F790F9" ManuallyRouted="false" />
-        <AssociationConnector Association="EasyMovingSystemModel.FK__UserNotif__User___778AC167" ManuallyRouted="false" />
+      <Diagram DiagramId="b9932f239bd646b1a4f7fe5546192048" Name="Diagram1">
+        <EntityTypeShape EntityType="EasyMovingSystemModel.Admin" Width="1.5" PointX="5.25" PointY="17.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="EasyMovingSystemModel.Application" Width="1.5" PointX="13.25" PointY="7.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="EasyMovingSystemModel.ApplicationStatu" Width="1.5" PointX="11" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="EasyMovingSystemModel.BackgroundCheckStatu" Width="1.5" PointX="0.75" PointY="2" IsExpanded="true" />
+        <EntityTypeShape EntityType="EasyMovingSystemModel.Booking" Width="1.5" PointX="7.5" PointY="20.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="EasyMovingSystemModel.BookingInstance" Width="1.5" PointX="9.75" PointY="18.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="EasyMovingSystemModel.BookingStatu" Width="1.5" PointX="7.5" PointY="23.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="EasyMovingSystemModel.Candidate" Width="1.5" PointX="11" PointY="32.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="EasyMovingSystemModel.Client" Width="1.5" PointX="5.25" PointY="21.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="EasyMovingSystemModel.Date" Width="1.5" PointX="8.5" PointY="34.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="EasyMovingSystemModel.DateOrTimeSlot" Width="1.5" PointX="10.75" PointY="35.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="EasyMovingSystemModel.DateOrTimeSlotOrDriver" Width="1.5" PointX="13" PointY="25.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="EasyMovingSystemModel.Document" Width="1.5" PointX="11" PointY="7.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="EasyMovingSystemModel.DocumentType" Width="1.5" PointX="8.75" PointY="7.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="EasyMovingSystemModel.Employee" Width="1.5" PointX="5.25" PointY="25.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="EasyMovingSystemModel.EmployeeStatu" Width="1.5" PointX="3" PointY="25.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="EasyMovingSystemModel.EmployeeType" Width="1.5" PointX="3" PointY="28" IsExpanded="true" />
+        <EntityTypeShape EntityType="EasyMovingSystemModel.Feedback" Width="1.5" PointX="12" PointY="28.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="EasyMovingSystemModel.Inspection" Width="1.5" PointX="8.25" PointY="14.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="EasyMovingSystemModel.InspectionItem" Width="1.5" PointX="7.5" PointY="29.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="EasyMovingSystemModel.InspectionType" Width="1.5" PointX="6" PointY="12.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="EasyMovingSystemModel.JobListing" Width="1.5" PointX="11" PointY="46" IsExpanded="true" />
+        <EntityTypeShape EntityType="EasyMovingSystemModel.License" Width="1.5" PointX="10.5" PointY="24.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="EasyMovingSystemModel.ListingStatu" Width="1.5" PointX="8.75" PointY="46.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="EasyMovingSystemModel.Notification" Width="1.5" PointX="9" PointY="3.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="EasyMovingSystemModel.NotificationType" Width="1.5" PointX="6.75" PointY="4.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="EasyMovingSystemModel.Password" Width="1.5" PointX="5.25" PointY="35.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="EasyMovingSystemModel.Payment" Width="1.5" PointX="14.75" PointY="19.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="EasyMovingSystemModel.PaymentType" Width="1.5" PointX="12.5" PointY="12.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="EasyMovingSystemModel.Quotation" Width="1.5" PointX="7.5" PointY="40" IsExpanded="true" />
+        <EntityTypeShape EntityType="EasyMovingSystemModel.QuotationLine" Width="1.5" PointX="9.75" PointY="27.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="EasyMovingSystemModel.QuotationRequest" Width="1.5" PointX="7.5" PointY="25.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="EasyMovingSystemModel.RentalAgreement" Width="1.5" PointX="12.5" PointY="20" IsExpanded="true" />
+        <EntityTypeShape EntityType="EasyMovingSystemModel.RentalStatu" Width="1.5" PointX="10.25" PointY="11.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="EasyMovingSystemModel.Role" Width="1.5" PointX="0.75" PointY="22" IsExpanded="true" />
+        <EntityTypeShape EntityType="EasyMovingSystemModel.Service" Width="1.5" PointX="7.5" PointY="42.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="EasyMovingSystemModel.TimeSlot" Width="1.5" PointX="8.5" PointY="36.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="EasyMovingSystemModel.Title" Width="1.5" PointX="3" PointY="30.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="EasyMovingSystemModel.TrackingStatu" Width="1.5" PointX="7.5" PointY="31.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="EasyMovingSystemModel.Truck" Width="1.5" PointX="6" PointY="7.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="EasyMovingSystemModel.TruckPhoto" Width="1.5" PointX="8.25" PointY="1.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="EasyMovingSystemModel.TruckStatu" Width="1.5" PointX="3.75" PointY="7.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="EasyMovingSystemModel.TruckType" Width="1.5" PointX="3.75" PointY="9.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="EasyMovingSystemModel.User" Width="1.5" PointX="3" PointY="21" IsExpanded="true" />
+        <EntityTypeShape EntityType="EasyMovingSystemModel.UserNotification" Width="1.5" PointX="11.25" PointY="15.875" IsExpanded="true" />
+        <AssociationConnector Association="EasyMovingSystemModel.FK__Admin__User_ID__47DBAE45" ManuallyRouted="false" />
+        <AssociationConnector Association="EasyMovingSystemModel.FK__Applicati__Appli__1DB06A4F" ManuallyRouted="false" />
+        <AssociationConnector Association="EasyMovingSystemModel.FK__Applicati__Candi__1AD3FDA4" ManuallyRouted="false" />
+        <AssociationConnector Association="EasyMovingSystemModel.FK__Applicati__Docum__1CBC4616" ManuallyRouted="false" />
+        <AssociationConnector Association="EasyMovingSystemModel.FK__Applicati__Job_I__1BC821DD" ManuallyRouted="false" />
+        <AssociationConnector Association="EasyMovingSystemModel.FK__Booking__Client___3D5E1FD2" ManuallyRouted="false" />
+        <AssociationConnector Association="EasyMovingSystemModel.FK__BookingIn__Booki__619B8048" ManuallyRouted="false" />
+        <AssociationConnector Association="EasyMovingSystemModel.FK__BookingIn__Booki__60A75C0F" ManuallyRouted="false" />
+        <AssociationConnector Association="EasyMovingSystemModel.FK__BookingIn__Emplo__628FA481" ManuallyRouted="false" />
+        <AssociationConnector Association="EasyMovingSystemModel.FK__BookingIn__Inspe__5FB337D6" ManuallyRouted="false" />
+        <AssociationConnector Association="EasyMovingSystemModel.FK__BookingIn__Renta__6477ECF3" ManuallyRouted="false" />
+        <AssociationConnector Association="EasyMovingSystemModel.FK__BookingIn__Track__5EBF139D" ManuallyRouted="false" />
+        <AssociationConnector Association="EasyMovingSystemModel.FK__BookingIn__Truck__6383C8BA" ManuallyRouted="false" />
+        <AssociationConnector Association="EasyMovingSystemModel.FK__DateOrTim__Booki__2CF2ADDF" ManuallyRouted="false" />
+        <AssociationConnector Association="EasyMovingSystemModel.FK__Feedback__Bookin__6EF57B66" ManuallyRouted="false" />
+        <AssociationConnector Association="EasyMovingSystemModel.FK__Payment__Booking__6B24EA82" ManuallyRouted="false" />
+        <AssociationConnector Association="EasyMovingSystemModel.FK__Client__User_ID__2F10007B" ManuallyRouted="false" />
+        <AssociationConnector Association="EasyMovingSystemModel.FK__License__Client___74AE54BC" ManuallyRouted="false" />
+        <AssociationConnector Association="EasyMovingSystemModel.FK__Payment__Client___6C190EBB" ManuallyRouted="false" />
+        <AssociationConnector Association="EasyMovingSystemModel.FK__Quotation__Clien__03F0984C" ManuallyRouted="false" />
+        <AssociationConnector Association="EasyMovingSystemModel.FK__RentalAgr__Clien__59063A47" ManuallyRouted="false" />
+        <AssociationConnector Association="EasyMovingSystemModel.FK__DateOrTim__Date___2739D489" ManuallyRouted="false" />
+        <AssociationConnector Association="EasyMovingSystemModel.FK__DateOrTim__Dateo__2BFE89A6" ManuallyRouted="false" />
+        <AssociationConnector Association="EasyMovingSystemModel.FK__DateOrTim__TimeS__282DF8C2" ManuallyRouted="false" />
+        <AssociationConnector Association="EasyMovingSystemModel.FK__DateOrTim__Emplo__2B0A656D" ManuallyRouted="false" />
+        <AssociationConnector Association="EasyMovingSystemModel.FK__Document__Docume__0F624AF8" ManuallyRouted="false" />
+        <AssociationConnector Association="EasyMovingSystemModel.FK__Employee__Employ__38996AB5" ManuallyRouted="false" />
+        <AssociationConnector Association="EasyMovingSystemModel.FK__Employee__Employ__398D8EEE" ManuallyRouted="false" />
+        <AssociationConnector Association="EasyMovingSystemModel.FK__Employee__Title___3A81B327" ManuallyRouted="false" />
+        <AssociationConnector Association="EasyMovingSystemModel.FK__Employee__User_I__37A5467C" ManuallyRouted="false" />
+        <AssociationConnector Association="EasyMovingSystemModel.FK__Inspectio__Inspe__52593CB8" ManuallyRouted="false" />
+        <AssociationConnector Association="EasyMovingSystemModel.FK__Inspectio__Truck__534D60F1" ManuallyRouted="false" />
+        <AssociationConnector Association="EasyMovingSystemModel.FK__Inspectio__User___5441852A" ManuallyRouted="false" />
+        <AssociationConnector Association="EasyMovingSystemModel.FK__RentalAgr__Inspe__59FA5E80" ManuallyRouted="false" />
+        <AssociationConnector Association="EasyMovingSystemModel.FK__JobListin__Listi__160F4887" ManuallyRouted="false" />
+        <AssociationConnector Association="EasyMovingSystemModel.FK__License__Rental___73BA3083" ManuallyRouted="false" />
+        <AssociationConnector Association="EasyMovingSystemModel.FK__Notificat__Notif__7B5B524B" ManuallyRouted="false" />
+        <AssociationConnector Association="EasyMovingSystemModel.FK__UserNotif__Notif__7E37BEF6" ManuallyRouted="false" />
+        <AssociationConnector Association="EasyMovingSystemModel.FK__Password__User_I__29572725" ManuallyRouted="false" />
+        <AssociationConnector Association="EasyMovingSystemModel.FK__Payment__Payment__693CA210" ManuallyRouted="false" />
+        <AssociationConnector Association="EasyMovingSystemModel.FK__Payment__Rental___6A30C649" ManuallyRouted="false" />
+        <AssociationConnector Association="EasyMovingSystemModel.FK__Quotation__Quota__07C12930" ManuallyRouted="false" />
+        <AssociationConnector Association="EasyMovingSystemModel.FK__Quotation__Quota__06CD04F7" ManuallyRouted="false" />
+        <AssociationConnector Association="EasyMovingSystemModel.FK__Quotation__Servi__08B54D69" ManuallyRouted="false" />
+        <AssociationConnector Association="EasyMovingSystemModel.FK__RentalAgr__Renta__5812160E" ManuallyRouted="false" />
+        <AssociationConnector Association="EasyMovingSystemModel.FK__RentalAgr__Truck__571DF1D5" ManuallyRouted="false" />
+        <AssociationConnector Association="EasyMovingSystemModel.FK__User__Role_ID__267ABA7A" ManuallyRouted="false" />
+        <AssociationConnector Association="EasyMovingSystemModel.FK__Truck__TruckStat__4F7CD00D" ManuallyRouted="false" />
+        <AssociationConnector Association="EasyMovingSystemModel.FK__Truck__TruckType__4E88ABD4" ManuallyRouted="false" />
+        <AssociationConnector Association="EasyMovingSystemModel.FK__TruckPhot__Truck__208CD6FA" ManuallyRouted="false" />
+        <AssociationConnector Association="EasyMovingSystemModel.FK__UserNotif__User___7F2BE32F" ManuallyRouted="false" />
         <AssociationConnector Association="EasyMovingSystemModel.UserRole" ManuallyRouted="false" />
       </Diagram>
     </edmx:Diagrams>

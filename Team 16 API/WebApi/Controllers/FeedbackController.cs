@@ -11,8 +11,8 @@ namespace WebApi.Controllers
     [RoutePrefix("Api/Feedback")]
     public class FeedbackController : ApiController
     {
-       
-        private EasyMovingSystemEntities1 objEntity = new EasyMovingSystemEntities1();
+
+        private EasyMovingSystemEntities5 objEntity = new EasyMovingSystemEntities5();
 
         [HttpGet]
         [Route("AllFeedbackDetails")]

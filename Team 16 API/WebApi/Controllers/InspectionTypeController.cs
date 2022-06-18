@@ -11,7 +11,7 @@ namespace WebApi.Controllers
     [RoutePrefix("Api/InspectionType")]
     public class InspectionTypeController : ApiController
     {
-        private EasyMovingSystemEntities1 objEntity = new EasyMovingSystemEntities1();
+        private EasyMovingSystemEntities5 objEntity = new EasyMovingSystemEntities5();
 
         [HttpGet]
         [Route("AllInspectionTypeDetails")]

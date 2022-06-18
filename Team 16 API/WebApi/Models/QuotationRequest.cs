@@ -21,11 +21,13 @@ namespace WebApi.Models
         }
     
         public int QuotationRequest_ID { get; set; }
+        public int Client_ID { get; set; }
         public System.DateTime QuotationReqDate { get; set; }
         public string QuotationReqDescription { get; set; }
         public string FromAddress { get; set; }
         public string ToAddress { get; set; }
     
+        public virtual Client Client { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<QuotationLine> QuotationLines { get; set; }
     }

@@ -11,7 +11,7 @@ namespace WebApi.Controllers
     [RoutePrefix("Api/Time")]
     public class TimeController : ApiController
     {
-        private EasyMovingSystemEntities1 objEntity = new EasyMovingSystemEntities1();
+        private EasyMovingSystemEntities5 objEntity = new EasyMovingSystemEntities5();
 
         [HttpGet]
         [Route("AllTimeSlotDetails")]

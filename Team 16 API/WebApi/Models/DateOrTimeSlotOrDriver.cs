@@ -15,7 +15,7 @@ namespace WebApi.Models
     public partial class DateOrTimeSlotOrDriver
     {
         public int Employee_ID { get; set; }
-        public int DateorTimeslotDirive_ID { get; set; }
+        public int DateorTimeslotDiriver_ID { get; set; }
         public int DateorTimeslot_ID { get; set; }
         public string Description { get; set; }
         public int BookingInstance_ID { get; set; }

@@ -213,8 +213,8 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\InspectionTypeController.cs" />
     <Compile Include="Controllers\JobListingController.cs" />
-    <Compile Include="Controllers\JobTypeController.cs" />
     <Compile Include="Controllers\ListingStatusController.cs" />
+    <Compile Include="Controllers\PasswordController.cs" />
     <Compile Include="Controllers\PaymentController.cs" />
     <Compile Include="Controllers\QuotationController.cs" />
     <Compile Include="Controllers\QuotationRequestController.cs" />
@@ -226,6 +226,7 @@
     <Compile Include="Controllers\TruckPhotoController.cs" />
     <Compile Include="Controllers\TruckStatusController.cs" />
     <Compile Include="Controllers\TruckTypeController.cs" />
+    <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -296,9 +297,6 @@
     <Compile Include="Models\JobListing.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\JobType.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
     <Compile Include="Models\License.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
@@ -324,6 +322,9 @@
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\NotificationType.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Password.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Payment.cs">

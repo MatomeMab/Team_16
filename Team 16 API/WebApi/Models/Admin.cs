@@ -18,7 +18,7 @@ namespace WebApi.Models
         public int User_ID { get; set; }
         public string AdminName { get; set; }
         public string SurName { get; set; }
-        public int PhoneNum { get; set; }
+        public string PhoneNum { get; set; }
     
         public virtual User User { get; set; }
     }

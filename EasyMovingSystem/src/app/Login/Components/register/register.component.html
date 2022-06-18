@@ -1,1 +1,200 @@
-<p>register works!</p>
+<div class="Register">
+    <form
+      [formGroup]="registerClient"
+      (ngSubmit)="RegisterClient()"
+      action=''
+      method="POST"
+    >
+      <fieldset>
+        <div id="legend">
+          <legend class="">Register</legend>
+        </div>
+        <div
+        class="form-group"
+        [ngClass]="{
+          'has-error':
+            f['clientName'].errors && (f['clientName'].touched || f['clientName'].dirty)
+        }"
+      >
+        <label>Name</label>
+        <input
+          id="clientName"
+          required
+          placeholder="Fanelo"
+          type="text"
+          formControlName="clientName"
+          class="form-control"
+          [ngClass]="{
+            'has-error':
+              f['clientName'].errors && (f['clientName'].touched || f['clientName'].dirty)
+          }"
+        />
+        <span
+          class="help-block"
+          *ngIf="f['clientName'].errors && (f['clientName'].touched || f['clientName'].dirty)"
+        >
+          <span *ngIf="f['clientName'].errors?.['required']">
+            Name is required
+          </span>
+          <span *ngIf="f['clientName'].errors?.['ClientName']">
+            Please enter a name
+          </span>
+        </span>
+      </div>
+  
+  
+  
+      <div
+      class="form-group"
+      [ngClass]="{
+        'has-error':
+          f['clientSurname'].errors && (f['clientSurname'].touched || f['clientSurname'].dirty)
+      }"
+    >
+      <label>Surname</label>
+      <input
+        id="clientSurname"
+        required
+        placeholder="Nghonyama"
+        type="text"
+        formControlName="clientSurname"
+        class="form-control"
+        [ngClass]="{
+          'has-error':
+            f['clientSurname'].errors && (f['clientSurname'].touched || f['clientSurname'].dirty)
+        }"
+      />
+      <span
+        class="help-block"
+        *ngIf="f['clientSurname'].errors && (f['clientSurname'].touched || f['clientSurname'].dirty)"
+      >
+        <span *ngIf="f['clientSurname'].errors?.['required']">
+          Surname is required
+        </span>
+        <span *ngIf="f['clientSurname'].errors?.['ClientSurname']">
+          Please enter a Surname
+        </span>
+      </span>
+    </div>
+    <div
+          class="form-group"
+          [ngClass]="{
+            'has-error':
+              f['phoneNum'].errors && (f['phoneNum'].touched || f['phoneNum'].dirty)
+          }"
+        >
+          <label>Phone number</label>
+          <input
+            id="phoneNum"
+            required
+            placeholder="084 7837 286"
+            
+            formControlName="phoneNum"
+            class="form-control"
+            [ngClass]="{
+              'has-error':
+                f['phoneNum'].errors && (f['phoneNum'].touched || f['phoneNum'].dirty)
+            }"
+          />
+          <span
+            class="help-block"
+            *ngIf="f['phoneNum'].errors && (f['phoneNum'].touched || f['phoneNum'].dirty)"
+          >
+            <span *ngIf="f['phoneNum'].errors?.['required']">
+              Email Address is required
+            </span>
+            <span *ngIf="f['phoneNum'].errors?.['PhoneNum']">
+              Please enter a valid email
+            </span>
+          </span>
+        </div>
+  
+        <div
+          class="form-group"
+          [ngClass]="{
+            'has-error':
+              f['phoneNum'].errors && (f['phoneNum'].touched || f['phoneNum'].dirty)
+          }"
+        >
+          <label>Email</label>
+          <input
+            id="email"
+            required
+            placeholder="johndoe@gmail.com"
+            
+            formControlName="email"
+            class="form-control"
+            [ngClass]="{
+              'has-error':
+                f['email'].errors && (f['email'].touched || f['email'].dirty)
+            }"
+          />
+          <span
+            class="help-block"
+            *ngIf="f['email'].errors && (f['email'].touched || f['email'].dirty)"
+          >
+            <span *ngIf="f['email'].errors?.['required']">
+              Email Address is required
+            </span>
+            <span *ngIf="f['email'].errors?.['Email']">
+              Please enter a valid email
+            </span>
+          </span>
+        </div>
+  
+        <div class="form-group">
+          <label for="firstname">Password</label>
+          <input
+            type="password"
+            id="password"
+            formControlName="password"
+            placeholder="Enter Password"
+            class="form-control"
+          />
+          <span
+            class="help-block"
+            *ngIf="
+              f['password'].errors &&
+              (f['password'].touched || f['password'].dirty)
+            "
+          >
+            <span *ngIf="f['password'].errors?.['required']">
+              Password is required
+            </span>
+          </span>
+        </div>
+  
+        <div class="form-group">
+          <label for="firstname">Confirm Password</label>
+          <input
+            type="password"
+            id="password_confirm"
+            formControlName="password_confirm"
+            placeholder="Confirm Password"
+            class="form-control"
+          />
+          <span
+            class="help-block"
+            *ngIf="
+              f['password_confirm'].errors &&
+              (f['password_confirm'].touched || f['password_confirm'].dirty)
+            "
+          >
+            <span *ngIf="f['password_confirm'].errors?.['required']">
+              Confirm Password is required
+            </span>
+          </span>
+        </div>
+  
+        <div class="control-group">
+          <div class="controls">
+            <button type="submit" class="btn btn-success">Register</button>
+          </div>
+          <div class="controls">
+            <button routerLink="/login" class="btn btn-light">Cancel</button>
+          </div>
+        </div>
+      </fieldset>
+    </form>
+  </div>
+  

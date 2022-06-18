@@ -12,9 +12,14 @@ namespace WebApi.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class JobType
+    public partial class Password
     {
-        public int JobType_ID { get; set; }
-        public string JobType1 { get; set; }
+        public int Password_ID { get; set; }
+        public Nullable<int> User_ID { get; set; }
+        public string Password1 { get; set; }
+        public System.DateTime Date { get; set; }
+        public System.TimeSpan Time { get; set; }
+    
+        public virtual User User { get; set; }
     }
 }

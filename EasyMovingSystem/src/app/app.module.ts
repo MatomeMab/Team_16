@@ -19,7 +19,7 @@ import { SearchBookingComponent } from './Admin/Components/Booking/search-bookin
 import { UpdateBackgroundStatusComponent } from './Admin/Components/update-background-status/update-background-status.component';
 import { CapturePaymentComponent } from './Admin/Components/Payment/capture-payment/capture-payment.component';
 import { LoginComponent } from './Login/Components/login/login.component';
-import { RegisterComponent } from './Login/Components/register/register.component';
+import { RegisterComponent,OTPDialog } from './Login/Components/register/register.component';
 import { ForgotPasswordComponent } from './Login/Components/forgot-password/forgot-password.component';
 import { NavBarComponent } from './Admin/Components/nav-bar/nav-bar.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
@@ -40,7 +40,7 @@ import { EditTruckComponent } from './Admin/Components/Truck/edit-truck/edit-tru
 
 @NgModule({
   declarations: [
-    AppComponent,
+    AppComponent,OTPDialog,
     InspectionTypeListComponent,
     EmployeeTypeListComponent,
     TruckListComponent,
