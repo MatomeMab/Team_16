@@ -1,1 +1,314 @@
-<p>nav-bar works!</p>
+<span>
+    <mat-nav-list >
+      <div class="logo py-4">
+        <img src="assets/img/GFS_edited.png" alt="Company Logo">
+      </div>
+      <mat-divider></mat-divider>
+      <br>
+      <span>
+        <a mat-list-item routerLinkActive="list-item-active" routerLink="/profile">
+          <mat-icon>
+            <mat-icon>person</mat-icon>
+          </mat-icon> Your Profile
+        </a>
+      </span>
+      <span>
+        <a mat-list-item routerLinkActive="list-item-active" routerLink="/employees">
+          <mat-icon>
+            <mat-icon>people</mat-icon>
+          </mat-icon> Employees
+        </a>
+      </span>
+      <span>
+        <a mat-list-item routerLinkActive="list-item-active" routerLink="/clients">
+          <mat-icon>
+            <mat-icon>people_outline</mat-icon>
+          </mat-icon> Clients
+        </a>
+      </span>
+      <span>
+        <a mat-list-item routerLinkActive="list-item-active" routerLink="/suppliers">
+          <mat-icon>
+            <mat-icon>shopping_cart</mat-icon>
+          </mat-icon> Suppliers
+        </a>
+      </span>
+      <span>
+        <a mat-list-item routerLinkActive="list-item-active" routerLink="/users">
+          <mat-icon>
+            <mat-icon>supervised_user_circle</mat-icon>
+          </mat-icon> Users
+        </a>
+      </span>
+      <span>
+        <a mat-list-item routerLinkActive="list-item-active" routerLink="/bookings">
+          <mat-icon>
+            <mat-icon>calendar_today</mat-icon>
+          </mat-icon> Bookings
+        </a>
+      </span>
+      <span>
+        <a mat-list-item routerLinkActive="list-item-active" routerLink="/schedule">
+          <mat-icon>
+            <mat-icon>schedule</mat-icon>
+          </mat-icon> Schedule
+        </a>
+      </span>
+      <span>
+        <a mat-list-item [matMenuTriggerFor]="reports">
+          <mat-icon>
+            <mat-icon> poll</mat-icon>
+          </mat-icon> Reports <mat-icon>keyboard_arrow_down</mat-icon>
+        </a>
+        <mat-menu #reports="matMenu" xPosition="before">
+          <button mat-menu-item routerLinkActive="list-item-active" routerLink="/quotesreport">Quotes </button>
+          <button mat-menu-item routerLinkActive="list-item-active" routerLink="/collectionnotesreport">Collection Notes</button>
+          <button mat-menu-item routerLinkActive="list-item-active" routerLink="/servicesbookedreport">Services Booked</button>
+          <button mat-menu-item routerLinkActive="list-item-active" routerLink="/bookingpaymentsreport">Booking Payments</button>
+          <button mat-menu-item routerLinkActive="list-item-active" routerLink="/suggectionsreport">Suggestions</button>
+           <button mat-menu-item routerLinkActive="list-item-active" routerLink="/employeeschedulereport">Employee Schedule </button>
+        </mat-menu>
+      </span>
+      <span>
+        <a mat-list-item [matMenuTriggerFor]="documents">
+          <mat-icon>
+            <mat-icon> insert_drive_file</mat-icon>
+          </mat-icon> Documents <mat-icon>keyboard_arrow_down</mat-icon>
+        </a>
+        <mat-menu #documents="matMenu" xPosition="before">
+          <button mat-menu-item routerLinkActive="list-item-active" routerLink="/invoices">Invoices</button>
+          <button mat-menu-item routerLinkActive="list-item-active" routerLink="/read-quote">Quotes</button>
+          <button mat-menu-item routerLinkActive="list-item-active" routerLink="/requestedquotes">Requested Quotes</button>
+          <button mat-menu-item routerLinkActive="list-item-active" routerLink="/collectionnote">Collection Notes</button>
+        </mat-menu>
+      </span>
+      <span>
+        <a mat-list-item [matMenuTriggerFor]="resources">
+          <mat-icon>
+            <mat-icon> directions_car</mat-icon>
+          </mat-icon> Resources <mat-icon>keyboard_arrow_down</mat-icon>
+        </a>
+        <mat-menu #resources="matMenu" xPosition="before">
+          <button mat-menu-item routerLinkActive="list-item-active" routerLink="/vehicle">Vehicles</button>
+          <button mat-menu-item routerLinkActive="list-item-active" routerLink="/equipment">Equipment</button>
+        </mat-menu>
+      </span>
+      <span>
+        <a mat-list-item [matMenuTriggerFor]="employee">
+          <mat-icon>
+            <mat-icon> insert_drive_file</mat-icon>
+          </mat-icon>Employee Settings<mat-icon>keyboard_arrow_down</mat-icon>
+        </a>
+        <mat-menu #employee="matMenu" xPosition="before">
+          <button mat-menu-item routerLinkActive="list-item-active" routerLink="/employmentstatuses">Employment
+            Statuses</button>
+          <button mat-menu-item routerLinkActive="list-item-active" routerLink="/titles">Titles</button>
+          <button mat-menu-item routerLinkActive="list-item-active" routerLink="/employeetypes">Employee Types</button>
+        </mat-menu>
+      </span>
+      <span>
+        <a mat-list-item routerLinkActive="list-item-active" routerLink="/read-complaints">
+          <mat-icon>
+            <mat-icon>error</mat-icon>
+          </mat-icon> Suggestions
+        </a>
+      </span>
+      <span>
+        <a mat-list-item routerLinkActive="list-item-active" routerLink="/adminhelp">
+          <mat-icon>
+            <mat-icon>help</mat-icon>
+          </mat-icon> Help
+        </a>
+      </span>
+      <span>
+        <a mat-list-item [matMenuTriggerFor]="settings">
+          <mat-icon>
+            <mat-icon> settings</mat-icon>
+          </mat-icon> System Management <mat-icon>keyboard_arrow_down</mat-icon>
+        </a>
+        <mat-menu #settings="matMenu" xPosition="before">
+          <button mat-menu-item routerLinkActive="list-item-active" routerLink="/services">Services</button>
+          <button mat-menu-item routerLinkActive="list-item-active" routerLink="/servicetypes">Service Type</button>
+          <button mat-menu-item routerLinkActive="list-item-active" routerLink="/serviceprice">Service Price</button>
+          <button mat-menu-item routerLinkActive="list-item-active" routerLink="/read-slot-status">Slot Statuses</button>
+          <button mat-menu-item routerLinkActive="list-item-active" routerLink="/read-per-km-rate">Per Km Rate</button>
+          <button mat-menu-item routerLinkActive="list-item-active" routerLink="/paymenttypes">Payment Types</button>
+          <button mat-menu-item routerLinkActive="list-item-active" routerLink="/bookingstatus">Booking Statuses</button>
+          <button mat-menu-item routerLinkActive="list-item-active" routerLink="/quotestatuses">Quote Statuses</button>
+          <button mat-menu-item routerLinkActive="list-item-active" routerLink="/user-settings">User Settings</button>
+        </mat-menu>
+      </span>
+      <!-- <span>
+        <a mat-list-item routerLinkActive="list-item-active" routerLink="/login">
+          <mat-icon>
+            <mat-icon>login</mat-icon>
+          </mat-icon> User Login
+        </a>
+      </span> -->
+      <!-- <span>
+        <a mat-list-item routerLinkActive="list-item-active" routerLink="/tempeditemployee">
+          <mat-icon>
+            <mat-icon>edit</mat-icon>
+          </mat-icon> Edit Employee
+        </a>
+      </span> -->
+      <!-- <span>
+        <a mat-list-item routerLinkActive="list-item-active" routerLink="/Employee Schedule">
+          <mat-icon>
+            <mat-icon>schedule</mat-icon>
+          </mat-icon> Schedule
+        </a>
+      </span>
+      <span>
+        <a mat-list-item routerLinkActive="list-item-active" routerLink="/register-client">
+          <mat-icon>
+            <mat-icon>how_to_reg</mat-icon>
+          </mat-icon> Register Client
+        </a>
+      </span>
+      <span>
+        <a mat-list-item routerLinkActive="list-item-active" routerLink="/editclient">
+          <mat-icon>
+            <mat-icon>manage_accounts</mat-icon>
+          </mat-icon> Edit Client
+        </a>
+      </span>
+      <span>
+        <a mat-list-item routerLinkActive="list-item-active" routerLink="/estimate-costing">
+          <mat-icon>
+            <mat-icon>request_quote</mat-icon>
+          </mat-icon> Generate Estimate Costing
+        </a>
+      </span>
+      <span>
+        <a mat-list-item routerLinkActive="list-item-active" routerLink="/request-quote">
+          <mat-icon>
+            <mat-icon>request_quote</mat-icon>
+          </mat-icon> Request Quote
+        </a>
+      </span>
+      <span>
+        <a mat-list-item routerLinkActive="list-item-active" routerLink="/make-booking">
+          <mat-icon>
+            <mat-icon>calendar_today</mat-icon>
+          </mat-icon> Make Booking
+        </a>
+      </span>
+      <span>
+        <a mat-list-item routerLinkActive="list-item-active" routerLink="/mybookings">
+          <mat-icon>
+            <mat-icon>calendar_today</mat-icon>
+          </mat-icon> My Bookings
+        </a>
+      </span>
+      <span>
+        <a mat-list-item routerLinkActive="list-item-active" routerLink="/requestedquotes">
+          <mat-icon>
+            <mat-icon>request_quote</mat-icon>
+          </mat-icon> My Quotes
+        </a>
+      </span>
+       <span>
+        <a mat-list-item routerLinkActive="list-item-active" routerLink="/lodge-complaint">
+          <mat-icon>
+            <mat-icon>assignment</mat-icon>
+          </mat-icon> Lodge Complaint
+        </a>
+      </span>
+      <span>
+        <a mat-list-item routerLinkActive="list-item-active" routerLink="/clientviewinvoices">
+          <mat-icon>
+            <mat-icon>receipt_long</mat-icon>
+          </mat-icon> View Invoices
+        </a>
+      </span>
+      <span>
+        <a mat-list-item routerLinkActive="list-item-active" routerLink="/helpvideo">
+          <mat-icon>
+            <mat-icon>help</mat-icon>
+          </mat-icon> Help
+        </a>
+      </span> -->
+      <!-- </span> -->
+    </mat-nav-list>
+  
+    <mat-nav-list *ngIf="value$ == 'Employee'">
+      <div class="logo py-4">
+        <img src="assets/img/GFS_edited.png" alt="Company Logo">
+      </div>
+      <mat-divider></mat-divider>
+      <br>
+      <span>
+        <a mat-list-item routerLinkActive="list-item-active" routerLink="/profile">
+          <mat-icon>
+            <mat-icon>person</mat-icon>
+          </mat-icon> Your Profile
+        </a>
+      </span>
+      <span>
+        <a mat-list-item routerLinkActive="list-item-active" routerLink="/make-booking">
+          <mat-icon>
+            <mat-icon>calendar_today</mat-icon>
+          </mat-icon> Your Schedule
+        </a>
+      </span>
+      <span>
+        <a mat-list-item routerLinkActive="list-item-active" routerLink="/helpvideo">
+          <mat-icon>
+            <mat-icon>error</mat-icon>
+          </mat-icon> Help Video
+        </a>
+      </span>
+    </mat-nav-list>
+  
+    <mat-nav-list *ngIf="value$ == 'Client'">
+      <div class="logo py-4">
+        <img src="assets/img/GFS_edited.png" alt="Company Logo">
+      </div>
+      <mat-divider></mat-divider>
+      <br>
+      <span>
+        <a mat-list-item routerLinkActive="list-item-active" routerLink="/profile">
+          <mat-icon>
+            <mat-icon>person</mat-icon>
+          </mat-icon> Your Profile
+        </a>
+      </span>
+      <span>
+        <a mat-list-item routerLinkActive="list-item-active" routerLink="/make-booking">
+          <mat-icon>
+            <mat-icon>calendar_today</mat-icon>
+          </mat-icon> Make A Booking
+        </a>
+      </span>
+      <span>
+        <a mat-list-item [matMenuTriggerFor]="documents">
+  
+          <mat-icon>
+            <mat-icon> insert_drive_file</mat-icon>
+          </mat-icon> Your Documents <mat-icon>keyboard_arrow_down</mat-icon>
+        </a>
+        <mat-menu #documents="matMenu" xPosition="before">
+          <button mat-menu-item routerLinkActive="list-item-active" routerLink="/read-client-quote">Quotes</button>
+          <button mat-menu-item routerLinkActive="list-item-active" routerLink="/titles">Collection Notes</button>
+          <button mat-menu-item routerLinkActive="list-item-active" routerLink="/read-quote-request">Requested
+            Quotes</button>
+        </mat-menu>
+      </span>
+      <span>
+        <a mat-list-item routerLinkActive="list-item-active" routerLink="/helpvideo">
+          <mat-icon>
+            <mat-icon>help</mat-icon>
+          </mat-icon> What we can do for you
+        </a>
+      </span>
+       <span>
+        <a mat-list-item routerLinkActive="list-item-active" routerLink="/clienthelp">
+          <mat-icon>
+            <mat-icon>help</mat-icon>
+          </mat-icon> Help
+        </a>
+      </span>
+    </mat-nav-list>
+  </span>
+  
