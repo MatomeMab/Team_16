@@ -58,7 +58,7 @@ Client_ID int Identity (1,1) Primary Key Not Null,
 User_ID int not null foreign key references [User] (User_ID) on delete cascade,
 ClientName varchar (50) not null,
 ClientSurname varchar (50) not null,
-PhoneNum int not null,
+PhoneNum varchar(10) not null,
 
 )
 GO
@@ -156,7 +156,7 @@ Admin_ID int Identity (1,1) Primary Key Not Null,
 User_ID int not null foreign key references [User](User_ID) on delete cascade,
 AdminName varchar (50) not null,
 Surname varchar (50) not null,
-PhoneNum int not null 
+PhoneNum varchar(10) not null 
 )
 GO
 
@@ -205,7 +205,7 @@ CREATE TABLE RentalAgreement
 (
 Rental_ID int Identity (1,1) Primary Key Not Null,
 Truck_ID int not null foreign key references Truck(Truck_ID),
-RentalStatus_ID  int not null foreign key references RentalStatus(RentalStatus_ID) on delete no action,
+RentalStatus_ID  int foreign key references RentalStatus(RentalStatus_ID) on delete no action,
 Client_ID int not null foreign key references Client(Client_ID) on delete cascade,
 Inspection_ID int not null foreign key references Inspection(Inspection_ID),
 Description varchar(1000),
@@ -436,7 +436,7 @@ Client_ID int foreign key references Client(Client_ID),
 CandidateName varchar (50) not null,
 CandidateSurname varchar (50) not null,
 CandidateEmailAddress varchar(50) not null,
-CandidatePhonNum int not null
+CandidatePhonNum varchar(10) not null
 
 )
 GO
@@ -572,9 +572,7 @@ insert into JobStatus values
 ('Vacany filled'),
 ('Active')
 
-insert into JobType values
-('Parker'),
-('Cleaner')
+
 
 insert into TruckType values
 ('Flatbed','A flatbed truck is a type of truck which can be either articulated or rigid. As the name suggests, its bodywork is just an entirely flat, level "bed" with no sides or roof.')
@@ -590,13 +588,13 @@ insert into [User] values
 (3,'fanelo123','2020-01-04','2020-01-04 11:12:01')*/
 
 insert into Admin values 
-(1,'Billy','VanVick',0845631279)
+(1,'Billy','VanVick','0845631279')
 insert into Client values
-(3,'Fanelo','Nghonyama',0784569874)
+(3,'Fanelo','Nghonyama','0784569874')
 insert into Candidate values
 (1,'Fani','vanVick','van@gmail.com','0847826414')
 insert into Employee values
-(1,2,1,1,'Percy','Chabalala','1998-01-04','2020-01-04',0782598641,'Cecil','Mpongose',0785962112)
+(1,2,1,1,'Percy','Chabalala','1998-01-04','2020-01-04','0782598641','Cecil','Mpongose','0785962112')
 insert into Truck values
 (1,1,'Altima',2022,'White','YYD89GP','Nissan')
 insert into JobListing values
