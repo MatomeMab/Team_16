@@ -98,10 +98,10 @@ EmployeeName varchar (50) not null,
 EmployeeSurname varchar (50) not null,
 DateOfBirth date not null,
 DateEmployed date not null,
-PhoneNum int  not null,
+PhoneNum varchar(10)  not null,
 EmergencyName varchar (50) not null,
 EmergencySurname varchar (50) not null,
-EmergencyPhoneNum int not null
+EmergencyPhoneNum varchar(10) not null
 
 )
 GO
@@ -208,6 +208,7 @@ Truck_ID int not null foreign key references Truck(Truck_ID),
 RentalStatus_ID  int foreign key references RentalStatus(RentalStatus_ID) on delete no action,
 Client_ID int not null foreign key references Client(Client_ID) on delete cascade,
 Inspection_ID int not null foreign key references Inspection(Inspection_ID),
+Booking_ID int  foreign key references Booking(Booking_ID) on delete no action,
 Description varchar(1000),
 StartDate date not null,
 ExpiryDate date not null
@@ -231,7 +232,7 @@ BookingStatus_ID int references BookingStatus(BookingStatus_ID) on delete no act
 Booking_ID int not null foreign key references Booking(Booking_ID) on delete cascade,
 Employee_ID int not null foreign key references Employee(Employee_ID) on delete no action,
 Truck_ID int references Truck(Truck_ID) on delete no action,
-Rental_ID int not null foreign key references RentalAgreement(Rental_ID) on delete no action,
+--Rental_ID int not null foreign key references RentalAgreement(Rental_ID) on delete no action,
 BookingInstanceDate datetime not null,
 BookingInstanceDescription varchar (200)
 
@@ -250,8 +251,8 @@ CREATE TABLE Payment
 (
 Payment_ID int Identity (1,1) Primary Key Not Null,
 PaymentType_ID int not null foreign key references PaymentType(PaymentType_ID),
-Rental_ID int not null foreign key references RentalAgreement(Rental_ID) on delete no action,
-BookingInstance_ID int not null foreign key references BookingInstance(BookingInstance_ID) on delete no action,
+Rental_ID int foreign key references RentalAgreement(Rental_ID) on delete no action,
+BookingInstance_ID int foreign key references BookingInstance(BookingInstance_ID) on delete no action,
 Client_ID int not null foreign key references Client(Client_ID),
 ProofOfPayment varbinary(max) not null,
 AmountPaid decimal (16,2) not null,
@@ -372,7 +373,6 @@ GO
 CREATE TABLE QuotationLine
 (
 QuotationLine_ID int Identity (1,1) Primary Key Not Null,
-QuotationRequest_ID int not null foreign key references QuotationRequest(QuotationRequest_ID) ,
 Quotation_ID int not null foreign key references Quotation(Quotation_ID),
 Service_ID int not null foreign key references Service(Service_ID),
 QuotationLineDescription varchar (200)
@@ -500,7 +500,14 @@ Description varchar(200)
 )
 GO
 --Added tables
-
+CREATE TABLE QuotationRequestLine
+(
+QuotationRequestLine_ID int identity(1,1) primary key not null,
+QuotationRequest_ID int not null foreign key references QuotationRequest(QuotationRequest_ID),
+Service_ID int not null foreign key references Service(Service_ID),
+QuotationReqLineDescription varchar(500)
+)
+GO
 ---DATA
 
 
@@ -604,4 +611,6 @@ insert into Quotation values
 insert into QuotationRequest values
 (1,1,'2022-07-02','no additional notes','180 Soweto street','260 Tembisa street')
 insert into QuotationLine values
-(1,1,1,'No comments')
+(1,1,'No comments')
+insert into QuotationRequestLine values
+(1,1,'No comments')
