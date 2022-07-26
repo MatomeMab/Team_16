@@ -1,0 +1,56 @@
+.mat-card {    
+    text-align: -webkit-center; 
+     
+    
+}    
+   
+    
+.demo-form {    
+    min-width: 150px;    
+    max-width: 500px;    
+    width: 100%;    
+}    
+    
+.demo-full-width {    
+    width: 100%;    
+}    
+    
+body {    
+    margin: 0;    
+    font-family: Roboto, sans-serif;    
+    
+}    
+    
+   
+    
+mat-toolbar-row {    
+    justify-content: space-between;    
+}    
+    
+.done {    
+    position: fixed;    
+    bottom: 20px;    
+    right: 20px;    
+    color: white;    
+}    
+    
+.content-center {    
+    text-align: -webkit-center;  
+      
+}
+.mat-form-field {
+    font-size: 16px;
+    width: 85%;
+  }
+  #content{
+    display: flex;
+    justify-content: center;
+    display: inline-block;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); 
+    display: flex;    
+    align-items: center;    
+    width: 100%;
+} 

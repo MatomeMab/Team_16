@@ -1,0 +1,11 @@
+.controls {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    .mat-form-field { 
+        width: 400px;
+        font-family: 'Poppins', sans-serif;
+    }
+}

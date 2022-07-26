@@ -1,0 +1,63 @@
+
+  <div id="content">   
+    <mat-card  >    
+        <!-- Title of an Card -->    
+        <mat-card-title>    
+         Register Truck 
+        </mat-card-title>    
+        
+        <mat-card-content  >    
+            <form [formGroup]="truckForm" (ngSubmit)="onFormSubmit()">    
+                <table>    
+                    <tr>    
+                        <td>    
+                            <mat-form-field class="demo-full-width">    
+                                <input matInput placeholder="Model">    
+                            </mat-form-field>    
+                        </td>    
+                        <td>    
+                            <mat-form-field class="demo-full-width">    
+                                <input matInput placeholder="Make">    
+                            </mat-form-field>    
+                        </td>    
+                    </tr> 
+                    <tr>    
+                      <td colspan="2">    
+                          <mat-form-field class="demo-full-width">    
+                              <input matInput placeholder="Color">    
+                          </mat-form-field>    
+                      </td>    
+                  </tr>   
+                  <tr>    
+                    <td colspan="2">    
+                        <mat-form-field class="demo-full-width">    
+                            <input matInput placeholder="Registration Number">    
+                        </mat-form-field>    
+                    </td>    
+                </tr>  
+             <tr>    
+                <td>    
+                    <span>Avaliablity</span><br><br>    
+                    <mat-radio-group>    
+                        <mat-radio-button value="1">Available</mat-radio-button>    
+                        <mat-radio-button value="2">Not Available</mat-radio-button>    
+                    </mat-radio-group>    
+                </td>        
+             </tr>    
+                    <tr>    
+                        <td colspan="2">    
+        
+                        </td>    
+                    </tr>    
+                    <tr>    
+                        <td colspan="2" class="content-center">    
+                            <button mat-raised-button color="accent">Submit</button>    
+                            <button mat-raised-button color="accent">Clear</button>    
+                        </td>    
+                    </tr>    
+                </table>    
+            </form>    
+        </mat-card-content>    
+      </mat-card>   
+     </div>
+

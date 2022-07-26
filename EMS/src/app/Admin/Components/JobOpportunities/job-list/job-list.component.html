@@ -1,0 +1,81 @@
+
+<div class="container-fluid page"  id="center">
+    <div class="d-flex page__box p-3 mt-1">Quotation Request List</div>
+    <div class="page__content shadow p-3">
+      <div class="page__content-data">
+        <div class="position-relative">
+          <div class="position-absolute top-0 end-0 icon-hover">
+            <mat-icon style="font-size: xx-large" (click)="openAddDialog()" >add</mat-icon>
+          </div>
+        </div>
+        <br>
+        <mat-form-field appearance="standard">
+          <mat-label>Filter</mat-label>
+          <input matInput (keyup)="myFilter($any($event.target).value)" placeholder="Ex. ium" #input>
+        </mat-form-field>
+        <br>
+  
+      <table id="excel-table" mat-table [dataSource]="dataSource" class="mat-elevation-z8" style="width: 700px;">
+  
+        <ng-container matColumnDef="Description">
+          <th mat-header-cell *matHeaderCellDef> Description </th>
+          <td mat-cell  *matCellDef="let element"> {{element.Description}}</td>
+        </ng-container>
+        <ng-container matColumnDef="DatePosted">
+            <th mat-header-cell *matHeaderCellDef>Date Posted</th>
+            <td mat-cell *matCellDef="let element">{{element.DatePosted}}</td>
+          </ng-container>
+        <ng-container matColumnDef="ExpiryDate">
+          <th mat-header-cell *matHeaderCellDef> Expiry Date</th>
+          <td mat-cell  *matCellDef="let element"> {{element.ExpiryDate}}</td>
+        </ng-container>
+  
+        <ng-container matColumnDef="Amount">
+          <th mat-header-cell *matHeaderCellDef> Amount </th>
+          <td mat-cell  *matCellDef="let element"> {{element.Amount}}</td>
+        </ng-container>
+  
+        <ng-container matColumnDef="Status">
+          <th mat-header-cell *matHeaderCellDef> Status </th>
+          <td mat-cell  *matCellDef="let element"> {{element.Status}} </td>
+        </ng-container>
+        <ng-container matColumnDef="edit">
+            <tr>
+              <th mat-header-cell *matHeaderCellDef>Edit</th>
+            </tr>
+            <tr>
+              <td mat-cell *matCellDef="let row">
+                <button mat-icon-button (click)="routerEditJob(row.Job_ID,row.Description,row.ExpiryDate,row.Amount,row.JobStatus_ID)">
+                  <mat-icon>edit</mat-icon>
+                </button>
+              </td>
+            </tr>
+          </ng-container>
+  
+          <ng-container matColumnDef="delete">
+            <tr>
+              <th mat-header-cell *matHeaderCellDef>Delete</th>
+            </tr>
+            <tr>
+              <td mat-cell *matCellDef="let row">
+                <button mat-icon-button (click)="deletejob(row.Job_ID)">
+                  <mat-icon>delete</mat-icon>
+                </button>
+              </td>
+            </tr>
+          </ng-container>
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        <tr class="mat-row" *matNoDataRow>
+          <td class="mat-cell" colspan="4">No data matching the filter "{{input.value}}"</td>
+        </tr>
+      </table>
+  
+      <br>
+    </div>
+  </div>
+  </div>
+  
+  
+  
+  
