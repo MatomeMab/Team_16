@@ -1,0 +1,1535 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="EasyMovingSystemModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Administrator">
+    <Key>
+      <PropertyRef Name="Admin_ID" />
+    </Key>
+    <Property Name="Admin_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="AdminName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="User_ID" Type="Int32" />
+    <Property Name="SurName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="PhoneNum" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="EmailAddress" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Administrator1" Relationship="Self.FK_Administrator_Administrator" FromRole="Administrator" ToRole="Administrator1" />
+    <NavigationProperty Name="Administrator2" Relationship="Self.FK_Administrator_Administrator" FromRole="Administrator1" ToRole="Administrator" />
+    <NavigationProperty Name="User" Relationship="Self.FK_Administrator_User" FromRole="Administrator" ToRole="User" />
+  </EntityType>
+  <EntityType Name="Application">
+    <Key>
+      <PropertyRef Name="Application_ID" />
+    </Key>
+    <Property Name="Application_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Candidate_ID" Type="Int32" Nullable="false" />
+    <Property Name="Job_ID" Type="Int32" Nullable="false" />
+    <Property Name="Document_ID" Type="Int32" Nullable="false" />
+    <Property Name="ApplicationStatus_ID" Type="Int32" Nullable="false" />
+    <Property Name="ApplicationDate" Type="DateTime" Nullable="false" Precision="0" />
+    <NavigationProperty Name="ApplicationStatu" Relationship="Self.FK__Applicati__Appli__14270015" FromRole="Application" ToRole="ApplicationStatus" />
+    <NavigationProperty Name="Candidate" Relationship="Self.FK__Applicati__Candi__114A936A" FromRole="Application" ToRole="Candidate" />
+    <NavigationProperty Name="DocumentFile" Relationship="Self.FK__Applicati__Docum__1332DBDC" FromRole="Application" ToRole="DocumentFiles" />
+    <NavigationProperty Name="JobListing" Relationship="Self.FK__Applicati__Job_I__123EB7A3" FromRole="Application" ToRole="JobListing" />
+  </EntityType>
+  <EntityType Name="ApplicationStatu">
+    <Key>
+      <PropertyRef Name="ApplicationStatus_ID" />
+    </Key>
+    <Property Name="ApplicationStatus_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ApplicationStatusName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="Applications" Relationship="Self.FK__Applicati__Appli__14270015" FromRole="ApplicationStatus" ToRole="Application" />
+  </EntityType>
+  <EntityType Name="BackgroundCheckStatu">
+    <Key>
+      <PropertyRef Name="BackgroundCheckStatus_ID" />
+    </Key>
+    <Property Name="BackgroundCheckStatus_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="BackgroundCheckStatusName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Booking">
+    <Key>
+      <PropertyRef Name="Booking_ID" />
+    </Key>
+    <Property Name="Booking_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Client_ID" Type="Int32" Nullable="false" />
+    <Property Name="DateMade" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="BookingDescription" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Client" Relationship="Self.FK__Booking__Client___3D5E1FD2" FromRole="Booking" ToRole="Client" />
+    <NavigationProperty Name="BookingInstances" Relationship="Self.FK__BookingIn__Booki__619B8048" FromRole="Booking" ToRole="BookingInstance" />
+  </EntityType>
+  <EntityType Name="BookingInstance">
+    <Key>
+      <PropertyRef Name="BookingInstance_ID" />
+    </Key>
+    <Property Name="BookingInstance_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TrackingStatus_ID" Type="Int32" />
+    <Property Name="InspectionItem_ID" Type="Int32" />
+    <Property Name="BookingStatus_ID" Type="Int32" />
+    <Property Name="Booking_ID" Type="Int32" />
+    <Property Name="Employee_ID" Type="Int32" />
+    <Property Name="Truck_ID" Type="Int32" />
+    <Property Name="BookingInstanceDate" Type="DateTime" Precision="3" />
+    <Property Name="BookingInstanceDescription" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="DateOrTimeSlotOrDriver_ID" Type="Int32" />
+    <NavigationProperty Name="Booking" Relationship="Self.FK__BookingIn__Booki__619B8048" FromRole="BookingInstance" ToRole="Booking" />
+    <NavigationProperty Name="BookingStatu" Relationship="Self.FK__BookingIn__Booki__60A75C0F" FromRole="BookingInstance" ToRole="BookingStatus" />
+    <NavigationProperty Name="Employee" Relationship="Self.FK__BookingIn__Emplo__628FA481" FromRole="BookingInstance" ToRole="Employee" />
+    <NavigationProperty Name="InspectionItem" Relationship="Self.FK__BookingIn__Inspe__5FB337D6" FromRole="BookingInstance" ToRole="InspectionItem" />
+    <NavigationProperty Name="TrackingStatu" Relationship="Self.FK__BookingIn__Track__5EBF139D" FromRole="BookingInstance" ToRole="TrackingStatus" />
+    <NavigationProperty Name="Truck" Relationship="Self.FK__BookingIn__Truck__6383C8BA" FromRole="BookingInstance" ToRole="Truck" />
+    <NavigationProperty Name="Payments" Relationship="Self.FK__Payment__Booking__6B24EA82" FromRole="BookingInstance" ToRole="Payment" />
+    <NavigationProperty Name="DateOrTimeSlotOrDriver" Relationship="Self.FK_BookingInstance_DateOrTimeSlotOrDriver" FromRole="BookingInstance" ToRole="DateOrTimeSlotOrDriver" />
+  </EntityType>
+  <EntityType Name="BookingStatu">
+    <Key>
+      <PropertyRef Name="BookingStatus_ID" />
+    </Key>
+    <Property Name="BookingStatus_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="BookingDescription" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="BookingInstances" Relationship="Self.FK__BookingIn__Booki__60A75C0F" FromRole="BookingStatus" ToRole="BookingInstance" />
+  </EntityType>
+  <EntityType Name="Candidate">
+    <Key>
+      <PropertyRef Name="Candidate_ID" />
+    </Key>
+    <Property Name="Candidate_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CandidateSurname" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="CandidateName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="CandidateEmailAddress" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="CandidatePhonNum" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="Applications" Relationship="Self.FK__Applicati__Candi__114A936A" FromRole="Candidate" ToRole="Application" />
+  </EntityType>
+  <EntityType Name="Client">
+    <Key>
+      <PropertyRef Name="Client_ID" />
+    </Key>
+    <Property Name="Client_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="User_ID" Type="Int32" />
+    <Property Name="ClientName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="ClientSurname" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="PhoneNum" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Address" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Bookings" Relationship="Self.FK__Booking__Client___3D5E1FD2" FromRole="Client" ToRole="Booking" />
+    <NavigationProperty Name="Licenses" Relationship="Self.FK__License__Client___74AE54BC" FromRole="Client" ToRole="License" />
+    <NavigationProperty Name="Payments" Relationship="Self.FK__Payment__Client___6C190EBB" FromRole="Client" ToRole="Payment" />
+    <NavigationProperty Name="QuotationRequests" Relationship="Self.FK__Quotation__Clien__03F0984C" FromRole="Client" ToRole="QuotationRequest" />
+    <NavigationProperty Name="User" Relationship="Self.FK_Client_User" FromRole="Client" ToRole="User" />
+    <NavigationProperty Name="Inspections" Relationship="Self.FK_Inspection_Client" FromRole="Client" ToRole="Inspection" />
+    <NavigationProperty Name="TblFeedbacks" Relationship="Self.FK_TblFeedback_Client" FromRole="Client" ToRole="TblFeedback" />
+    <NavigationProperty Name="RentalAgreements" Relationship="EasyMovingSystemModel.FK__RentalAgr__Clien__59063A47" FromRole="Client" ToRole="RentalAgreement" />
+  </EntityType>
+  <EntityType Name="DateOrTimeSlotOrDriver">
+    <Key>
+      <PropertyRef Name="DateorTimeslotDiriver_ID" />
+    </Key>
+    <Property Name="Employee_ID" Type="Int32" Nullable="false" />
+    <Property Name="DateorTimeslotDiriver_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Timeslot_ID" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="BookingInstances" Relationship="Self.FK_BookingInstance_DateOrTimeSlotOrDriver" FromRole="DateOrTimeSlotOrDriver" ToRole="BookingInstance" />
+    <NavigationProperty Name="Employee" Relationship="Self.FK__DateOrTim__Emplo__2B0A656D" FromRole="DateOrTimeSlotOrDriver" ToRole="Employee" />
+    <NavigationProperty Name="TimeSlot" Relationship="Self.FK_DateOrTimeSlotOrDriver_TimeSlot" FromRole="DateOrTimeSlotOrDriver" ToRole="TimeSlot" />
+  </EntityType>
+  <EntityType Name="DocumentFile">
+    <Key>
+      <PropertyRef Name="Document_ID" />
+    </Key>
+    <Property Name="Document_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="DocumentName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="DocumentType_ID" Type="Int32" Nullable="false" />
+    <Property Name="FileData" Type="Binary" MaxLength="Max" FixedLength="false" />
+    <Property Name="ContentType" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Applications" Relationship="Self.FK__Applicati__Docum__1332DBDC" FromRole="DocumentFiles" ToRole="Application" />
+    <NavigationProperty Name="DocumentType" Relationship="Self.FK__Document__Docume__22751F6C" FromRole="DocumentFiles" ToRole="DocumentType" />
+    <NavigationProperty Name="Payments" Relationship="Self.FK_Payment_DocumentFiles" FromRole="DocumentFiles" ToRole="Payment" />
+  </EntityType>
+  <EntityType Name="DocumentType">
+    <Key>
+      <PropertyRef Name="DocumentType_ID" />
+    </Key>
+    <Property Name="DocumentType_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="DocumentTypeDescription" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="DocumentFiles" Relationship="Self.FK__Document__Docume__22751F6C" FromRole="DocumentType" ToRole="DocumentFiles" />
+  </EntityType>
+  <EntityType Name="Employee">
+    <Key>
+      <PropertyRef Name="Employee_ID" />
+    </Key>
+    <Property Name="Employee_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="User_ID" Type="Int32" />
+    <Property Name="EmployeeType_ID" Type="Int32" />
+    <Property Name="EmployeeStatus_ID" Type="Int32" />
+    <Property Name="Title_ID" Type="Int32" />
+    <Property Name="EmployeeEmail" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="EmployeeName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="EmployeeSurname" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="DateOfBirth" Type="DateTime" Precision="0" />
+    <Property Name="DateEmployed" Type="DateTime" Precision="0" />
+    <Property Name="PhoneNum" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="EmergencyName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="EmergencySurname" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="EmergencyPhoneNum" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="BookingInstances" Relationship="Self.FK__BookingIn__Emplo__628FA481" FromRole="Employee" ToRole="BookingInstance" />
+    <NavigationProperty Name="DateOrTimeSlotOrDrivers" Relationship="Self.FK__DateOrTim__Emplo__2B0A656D" FromRole="Employee" ToRole="DateOrTimeSlotOrDriver" />
+    <NavigationProperty Name="EmployeeType" Relationship="Self.FK__Employee__Employ__38996AB5" FromRole="Employee" ToRole="EmployeeType" />
+    <NavigationProperty Name="EmployeeStatu" Relationship="Self.FK__Employee__Employ__398D8EEE" FromRole="Employee" ToRole="EmployeeStatus" />
+    <NavigationProperty Name="Title" Relationship="Self.FK__Employee__Title___3A81B327" FromRole="Employee" ToRole="Title" />
+    <NavigationProperty Name="User" Relationship="Self.FK_Employee_User" FromRole="Employee" ToRole="User" />
+  </EntityType>
+  <EntityType Name="EmployeeStatu">
+    <Key>
+      <PropertyRef Name="EmployeeStatus_ID" />
+    </Key>
+    <Property Name="EmployeeStatus_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="EmployeeStatusName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="Employees" Relationship="Self.FK__Employee__Employ__398D8EEE" FromRole="EmployeeStatus" ToRole="Employee" />
+  </EntityType>
+  <EntityType Name="EmployeeType">
+    <Key>
+      <PropertyRef Name="EmployeeType_ID" />
+    </Key>
+    <Property Name="EmployeeType_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="EmployeeTypeName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="EmployeeDescription" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="Employees" Relationship="Self.FK__Employee__Employ__38996AB5" FromRole="EmployeeType" ToRole="Employee" />
+  </EntityType>
+  <EntityType Name="FeedbackType">
+    <Key>
+      <PropertyRef Name="FeedbackType_ID" />
+    </Key>
+    <Property Name="FeedbackType_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="FeedbackType1" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="TblFeedbacks" Relationship="Self.FK__Feedback__Bookin__6EF57B66" FromRole="FeedbackType" ToRole="TblFeedback" />
+  </EntityType>
+  <EntityType Name="Inspection">
+    <Key>
+      <PropertyRef Name="Inspection_ID" />
+    </Key>
+    <Property Name="Inspection_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="InspectionNotetextarea" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="InspectionTime" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="InspectionType_ID" Type="Int32" Nullable="false" />
+    <Property Name="Truck_ID" Type="Int32" Nullable="false" />
+    <Property Name="Client_ID" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Client" Relationship="Self.FK_Inspection_Client" FromRole="Inspection" ToRole="Client" />
+    <NavigationProperty Name="InspectionType" Relationship="Self.FK__Inspectio__Inspe__2739D489" FromRole="Inspection" ToRole="InspectionType" />
+    <NavigationProperty Name="Truck" Relationship="Self.FK__Inspectio__Truck__534D60F1" FromRole="Inspection" ToRole="Truck" />
+    <NavigationProperty Name="RentalAgreements" Relationship="EasyMovingSystemModel.FK__RentalAgr__Inspe__37703C52" FromRole="Inspection" ToRole="RentalAgreement" />
+  </EntityType>
+  <EntityType Name="InspectionItem">
+    <Key>
+      <PropertyRef Name="InspectionItem_ID" />
+    </Key>
+    <Property Name="InspectionItem_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ItemDescription" Type="String" MaxLength="300" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="BookingInstances" Relationship="Self.FK__BookingIn__Inspe__5FB337D6" FromRole="InspectionItem" ToRole="BookingInstance" />
+  </EntityType>
+  <EntityType Name="InspectionType">
+    <Key>
+      <PropertyRef Name="InspectionType_ID" />
+    </Key>
+    <Property Name="InspectionType_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TypeName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="TypeDescription" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="Inspections" Relationship="Self.FK__Inspectio__Inspe__2739D489" FromRole="InspectionType" ToRole="Inspection" />
+  </EntityType>
+  <EntityType Name="JobListing">
+    <Key>
+      <PropertyRef Name="Job_ID" />
+    </Key>
+    <Property Name="Job_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Description" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Amount" Type="Decimal" Precision="16" Scale="2" Nullable="false" />
+    <Property Name="ListingStatus_ID" Type="Int32" Nullable="false" />
+    <Property Name="DatePosted" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="ExpiryDate" Type="DateTime" Nullable="false" Precision="3" />
+    <NavigationProperty Name="Applications" Relationship="Self.FK__Applicati__Job_I__123EB7A3" FromRole="JobListing" ToRole="Application" />
+    <NavigationProperty Name="ListingStatu" Relationship="Self.FK__JobListin__Listi__29221CFB" FromRole="JobListing" ToRole="ListingStatus" />
+  </EntityType>
+  <EntityType Name="JobType">
+    <Key>
+      <PropertyRef Name="JobType_ID" />
+    </Key>
+    <Property Name="JobType_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="JobType1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+  </EntityType>
+  <EntityType Name="License">
+    <Key>
+      <PropertyRef Name="License_ID" />
+    </Key>
+    <Property Name="License_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Rental_ID" Type="Int32" Nullable="false" />
+    <Property Name="Client_ID" Type="Int32" Nullable="false" />
+    <Property Name="ExpiryDate" Type="DateTime" Nullable="false" Precision="0" />
+    <NavigationProperty Name="Client" Relationship="Self.FK__License__Client___74AE54BC" FromRole="License" ToRole="Client" />
+    <NavigationProperty Name="RentalAgreement" Relationship="EasyMovingSystemModel.FK__License__Rental___2A164134" FromRole="License" ToRole="RentalAgreement" />
+  </EntityType>
+  <EntityType Name="ListingStatu">
+    <Key>
+      <PropertyRef Name="ListingStatus_ID" />
+    </Key>
+    <Property Name="ListingStatus_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ListingStatusName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="JobListings" Relationship="Self.FK__JobListin__Listi__29221CFB" FromRole="ListingStatus" ToRole="JobListing" />
+  </EntityType>
+  <EntityType Name="Notification">
+    <Key>
+      <PropertyRef Name="Notification_ID" />
+    </Key>
+    <Property Name="Notification_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="NotificationType_ID" Type="Int32" />
+    <Property Name="NotificationDescription" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="NotificationType" Relationship="Self.FK__Notificat__Notif__2BFE89A6" FromRole="Notification" ToRole="NotificationType" />
+    <NavigationProperty Name="UserNotifications" Relationship="Self.FK__UserNotif__Notif__3D2915A8" FromRole="Notification" ToRole="UserNotification" />
+  </EntityType>
+  <EntityType Name="NotificationType">
+    <Key>
+      <PropertyRef Name="NotificationType_ID" />
+    </Key>
+    <Property Name="NotificationType_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="NotificationTypeName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="Notifications" Relationship="Self.FK__Notificat__Notif__2BFE89A6" FromRole="NotificationType" ToRole="Notification" />
+  </EntityType>
+  <EntityType Name="Password">
+    <Key>
+      <PropertyRef Name="Password_ID" />
+    </Key>
+    <Property Name="Password_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="User_ID" Type="Int32" Nullable="false" />
+    <Property Name="Password1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Date" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="Time" Type="DateTime" Nullable="false" Precision="3" />
+  </EntityType>
+  <EntityType Name="Payment">
+    <Key>
+      <PropertyRef Name="Payment_ID" />
+    </Key>
+    <Property Name="Payment_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="PaymentType_ID" Type="Int32" Nullable="false" />
+    <Property Name="Rental_ID" Type="Int32" />
+    <Property Name="BookingInstance_ID" Type="Int32" Nullable="false" />
+    <Property Name="Client_ID" Type="Int32" />
+    <Property Name="Document_ID" Type="Int32" Nullable="false" />
+    <Property Name="AmountPaid" Type="Decimal" Precision="16" Scale="2" Nullable="false" />
+    <Property Name="AmountDue" Type="Decimal" Precision="16" Scale="2" Nullable="false" />
+    <Property Name="DatePaid" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="PaymentStatus_ID" Type="Int32" />
+    <NavigationProperty Name="BookingInstance" Relationship="Self.FK__Payment__Booking__6B24EA82" FromRole="Payment" ToRole="BookingInstance" />
+    <NavigationProperty Name="Client" Relationship="Self.FK__Payment__Client___6C190EBB" FromRole="Payment" ToRole="Client" />
+    <NavigationProperty Name="DocumentFile" Relationship="Self.FK_Payment_DocumentFiles" FromRole="Payment" ToRole="DocumentFiles" />
+    <NavigationProperty Name="PaymentType" Relationship="Self.FK__Payment__Payment__2CF2ADDF" FromRole="Payment" ToRole="PaymentType" />
+    <NavigationProperty Name="PaymentStatu" Relationship="Self.FK_Payment_PaymentStatus" FromRole="Payment" ToRole="PaymentStatus" />
+    <NavigationProperty Name="RentalAgreement" Relationship="EasyMovingSystemModel.FK__Payment__Rental___2DE6D218" FromRole="Payment" ToRole="RentalAgreement" />
+  </EntityType>
+  <EntityType Name="PaymentStatu">
+    <Key>
+      <PropertyRef Name="PaymentStatus_ID" />
+    </Key>
+    <Property Name="PaymentStatus_ID" Type="Int32" Nullable="false" />
+    <Property Name="PaymentStatus" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <NavigationProperty Name="Payments" Relationship="Self.FK_Payment_PaymentStatus" FromRole="PaymentStatus" ToRole="Payment" />
+  </EntityType>
+  <EntityType Name="PaymentType">
+    <Key>
+      <PropertyRef Name="PaymentType_ID" />
+    </Key>
+    <Property Name="PaymentType_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="PaymentTypeName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="Payments" Relationship="Self.FK__Payment__Payment__2CF2ADDF" FromRole="PaymentType" ToRole="Payment" />
+  </EntityType>
+  <EntityType Name="Quotation">
+    <Key>
+      <PropertyRef Name="Quotation_ID" />
+    </Key>
+    <Property Name="Quotation_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="QuotationDescription" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+    <Property Name="QuotationDate" Type="DateTime" Precision="3" />
+    <Property Name="Amount" Type="Decimal" Precision="16" Scale="2" Nullable="false" />
+    <NavigationProperty Name="QuotationLines" Relationship="Self.FK__Quotation__Quota__30C33EC3" FromRole="Quotation" ToRole="QuotationLine" />
+  </EntityType>
+  <EntityType Name="QuotationLine">
+    <Key>
+      <PropertyRef Name="QuotationLine_ID" />
+    </Key>
+    <Property Name="QuotationLine_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="QuotationLineDescription" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="Quotation_ID" Type="Int32" Nullable="false" />
+    <Property Name="Service_ID" Type="Int32" />
+    <Property Name="QuotationRequest_ID" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Quotation" Relationship="Self.FK__Quotation__Quota__30C33EC3" FromRole="QuotationLine" ToRole="Quotation" />
+    <NavigationProperty Name="Service" Relationship="Self.FK__Quotation__Servi__31B762FC" FromRole="QuotationLine" ToRole="Service" />
+    <NavigationProperty Name="QuotationRequest" Relationship="Self.FK_QuotationLine_QuotationRequest" FromRole="QuotationLine" ToRole="QuotationRequest" />
+  </EntityType>
+  <EntityType Name="QuotationRequest">
+    <Key>
+      <PropertyRef Name="QuotationRequest_ID" />
+    </Key>
+    <Property Name="QuotationRequest_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Client_ID" Type="Int32" Nullable="false" />
+    <Property Name="QuotationReqDate" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="QuotationReqDescription" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="FromAddress" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="ToAddress" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Client" Relationship="Self.FK__Quotation__Clien__03F0984C" FromRole="QuotationRequest" ToRole="Client" />
+    <NavigationProperty Name="QuotationLines" Relationship="Self.FK_QuotationLine_QuotationRequest" FromRole="QuotationRequest" ToRole="QuotationLine" />
+    <NavigationProperty Name="QuotationRequestLines" Relationship="Self.FK_QuotationRequestLine_QuotationRequest" FromRole="QuotationRequest" ToRole="QuotationRequestLine" />
+  </EntityType>
+  <EntityType Name="QuotationRequestLine">
+    <Key>
+      <PropertyRef Name="QuotationRequestLine_ID" />
+    </Key>
+    <Property Name="QuotationRequestLine_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="QuotationRequest_ID" Type="Int32" Nullable="false" />
+    <Property Name="Service_ID" Type="Int32" Nullable="false" />
+    <Property Name="Truck_ID" Type="Int32" />
+    <NavigationProperty Name="QuotationRequest" Relationship="Self.FK_QuotationRequestLine_QuotationRequest" FromRole="QuotationRequestLine" ToRole="QuotationRequest" />
+    <NavigationProperty Name="Service" Relationship="Self.FK_QuotationRequestLine_Service" FromRole="QuotationRequestLine" ToRole="Service" />
+    <NavigationProperty Name="Truck" Relationship="Self.FK_QuotationRequestLine_Truck" FromRole="QuotationRequestLine" ToRole="Truck" />
+  </EntityType>
+  <EntityType Name="RentalStatu">
+    <Key>
+      <PropertyRef Name="RentalStatus_ID" />
+    </Key>
+    <Property Name="RentalStatus_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="RentalStatusName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="RentalAgreements" Relationship="EasyMovingSystemModel.FK__RentalAgr__Renta__367C1819" FromRole="RentalStatu" ToRole="RentalAgreement" />
+  </EntityType>
+  <EntityType Name="Role">
+    <Key>
+      <PropertyRef Name="Role_ID" />
+    </Key>
+    <Property Name="Role_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="RoleName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+  </EntityType>
+  <EntityType Name="RoleType">
+    <Key>
+      <PropertyRef Name="RoleTypeId" />
+    </Key>
+    <Property Name="RoleTypeId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="RoleTpe" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Users" Relationship="Self.FK_User_RoleTypes" FromRole="RoleTypes" ToRole="User" />
+    <NavigationProperty Name="UserRoles" Relationship="Self.FK_UserRole_RoleTypes" FromRole="RoleTypes" ToRole="UserRole" />
+  </EntityType>
+  <EntityType Name="Service">
+    <Key>
+      <PropertyRef Name="Service_ID" />
+    </Key>
+    <Property Name="Service_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ServiceName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="ServiceDescription" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="QuotationLines" Relationship="Self.FK__Quotation__Servi__31B762FC" FromRole="Service" ToRole="QuotationLine" />
+    <NavigationProperty Name="QuotationRequestLines" Relationship="Self.FK_QuotationRequestLine_Service" FromRole="Service" ToRole="QuotationRequestLine" />
+    <NavigationProperty Name="TblFeedbacks" Relationship="Self.FK_TblFeedback_Service" FromRole="Service" ToRole="TblFeedback" />
+  </EntityType>
+  <EntityType Name="TblFeedback">
+    <Key>
+      <PropertyRef Name="Feedback_ID" />
+    </Key>
+    <Property Name="Feedback_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="FeedbackType_ID" Type="Int32" />
+    <Property Name="FeedbackDescription" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Service_ID" Type="Int32" />
+    <Property Name="Client_ID" Type="Int32" />
+    <Property Name="Booking_ID" Type="Int32" />
+    <Property Name="Rating" Type="Int32" />
+    <NavigationProperty Name="Client" Relationship="Self.FK_TblFeedback_Client" FromRole="TblFeedback" ToRole="Client" />
+    <NavigationProperty Name="FeedbackType" Relationship="Self.FK__Feedback__Bookin__6EF57B66" FromRole="TblFeedback" ToRole="FeedbackType" />
+    <NavigationProperty Name="Service" Relationship="Self.FK_TblFeedback_Service" FromRole="TblFeedback" ToRole="Service" />
+  </EntityType>
+  <EntityType Name="TimeSlot">
+    <Key>
+      <PropertyRef Name="TimeSlot_ID" />
+    </Key>
+    <Property Name="TimeSlot_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="StartTime" Type="Time" Nullable="false" Precision="7" />
+    <Property Name="EndTime" Type="Time" Nullable="false" Precision="7" />
+    <Property Name="Date" Type="DateTime" Precision="0" />
+    <NavigationProperty Name="DateOrTimeSlotOrDrivers" Relationship="Self.FK_DateOrTimeSlotOrDriver_TimeSlot" FromRole="TimeSlot" ToRole="DateOrTimeSlotOrDriver" />
+  </EntityType>
+  <EntityType Name="Title">
+    <Key>
+      <PropertyRef Name="Title_ID" />
+    </Key>
+    <Property Name="Title_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TitleName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="Employees" Relationship="Self.FK__Employee__Title___3A81B327" FromRole="Title" ToRole="Employee" />
+  </EntityType>
+  <EntityType Name="TrackingStatu">
+    <Key>
+      <PropertyRef Name="TrackingStatus_ID" />
+    </Key>
+    <Property Name="TrackingStatus_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TrackingStatusName" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="TrackingStatusDescription" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="BookingInstances" Relationship="Self.FK__BookingIn__Track__5EBF139D" FromRole="TrackingStatus" ToRole="BookingInstance" />
+  </EntityType>
+  <EntityType Name="Truck">
+    <Key>
+      <PropertyRef Name="Truck_ID" />
+    </Key>
+    <Property Name="Truck_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TruckType_ID" Type="Int32" Nullable="false" />
+    <Property Name="TruckStatus_ID" Type="Int32" Nullable="false" />
+    <Property Name="Model" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Year" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Colour" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="RegNum" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Make" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="BookingInstances" Relationship="Self.FK__BookingIn__Truck__6383C8BA" FromRole="Truck" ToRole="BookingInstance" />
+    <NavigationProperty Name="Inspections" Relationship="Self.FK__Inspectio__Truck__534D60F1" FromRole="Truck" ToRole="Inspection" />
+    <NavigationProperty Name="QuotationRequestLines" Relationship="Self.FK_QuotationRequestLine_Truck" FromRole="Truck" ToRole="QuotationRequestLine" />
+    <NavigationProperty Name="TruckStatu" Relationship="Self.FK__Truck__TruckStat__4F7CD00D" FromRole="Truck" ToRole="TruckStatus" />
+    <NavigationProperty Name="TruckType" Relationship="Self.FK__Truck__TruckType__4E88ABD4" FromRole="Truck" ToRole="TruckType" />
+    <NavigationProperty Name="TruckPhotoes" Relationship="Self.FK__TruckPhot__Truck__208CD6FA" FromRole="Truck" ToRole="TruckPhoto" />
+    <NavigationProperty Name="RentalAgreements" Relationship="EasyMovingSystemModel.FK__RentalAgr__Truck__571DF1D5" FromRole="Truck" ToRole="RentalAgreement" />
+  </EntityType>
+  <EntityType Name="TruckPhoto">
+    <Key>
+      <PropertyRef Name="Photo_ID" />
+    </Key>
+    <Property Name="Photo_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Photo" Type="Binary" MaxLength="Max" FixedLength="false" Nullable="false" />
+    <Property Name="Truck_ID" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Truck" Relationship="Self.FK__TruckPhot__Truck__208CD6FA" FromRole="TruckPhoto" ToRole="Truck" />
+  </EntityType>
+  <EntityType Name="TruckStatu">
+    <Key>
+      <PropertyRef Name="TruckStatus_ID" />
+    </Key>
+    <Property Name="TruckStatus_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TruckStatusName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="Trucks" Relationship="Self.FK__Truck__TruckStat__4F7CD00D" FromRole="TruckStatus" ToRole="Truck" />
+  </EntityType>
+  <EntityType Name="TruckType">
+    <Key>
+      <PropertyRef Name="TruckType_ID" />
+    </Key>
+    <Property Name="TruckType_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TruckTypeName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="TruckTypeDescription" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="Trucks" Relationship="Self.FK__Truck__TruckType__4E88ABD4" FromRole="TruckType" ToRole="Truck" />
+  </EntityType>
+  <EntityType Name="User">
+    <Key>
+      <PropertyRef Name="User_ID" />
+    </Key>
+    <Property Name="User_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Role_ID" Type="Int32" />
+    <Property Name="SessionID" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="OTP" Type="String" MaxLength="4" FixedLength="false" Unicode="false" />
+    <Property Name="Active" Type="Boolean" />
+    <Property Name="Email" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Session_Expiry" Type="DateTime" Precision="0" />
+    <Property Name="Password" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Administrators" Relationship="Self.FK_Administrator_User" FromRole="User" ToRole="Administrator" />
+    <NavigationProperty Name="Clients" Relationship="Self.FK_Client_User" FromRole="User" ToRole="Client" />
+    <NavigationProperty Name="Employees" Relationship="Self.FK_Employee_User" FromRole="User" ToRole="Employee" />
+    <NavigationProperty Name="RoleType" Relationship="Self.FK_User_RoleTypes" FromRole="User" ToRole="RoleTypes" />
+    <NavigationProperty Name="UserRoles" Relationship="Self.FK_UserRole_User" FromRole="User" ToRole="UserRole" />
+  </EntityType>
+  <EntityType Name="UserNotification">
+    <Key>
+      <PropertyRef Name="UserNotification_ID" />
+    </Key>
+    <Property Name="UserNotification_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Notification_ID" Type="Int32" Nullable="false" />
+    <Property Name="User_ID" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Notification" Relationship="Self.FK__UserNotif__Notif__3D2915A8" FromRole="UserNotification" ToRole="Notification" />
+  </EntityType>
+  <EntityType Name="UserRole">
+    <Key>
+      <PropertyRef Name="Role_ID" />
+    </Key>
+    <Property Name="Role_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="User_ID" Type="Int32" />
+    <Property Name="RoleTypeId" Type="Int32" />
+    <Property Name="Admin_ID" Type="Int32" />
+    <NavigationProperty Name="RoleType" Relationship="Self.FK_UserRole_RoleTypes" FromRole="UserRole" ToRole="RoleTypes" />
+    <NavigationProperty Name="User" Relationship="Self.FK_UserRole_User" FromRole="UserRole" ToRole="User" />
+  </EntityType>
+  <Association Name="FK_Administrator_Administrator">
+    <End Role="Administrator" Type="Self.Administrator" Multiplicity="1" />
+    <End Role="Administrator1" Type="Self.Administrator" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Administrator">
+        <PropertyRef Name="Admin_ID" />
+      </Principal>
+      <Dependent Role="Administrator1">
+        <PropertyRef Name="Admin_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Administrator_User">
+    <End Role="User" Type="Self.User" Multiplicity="0..1" />
+    <End Role="Administrator" Type="Self.Administrator" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="User_ID" />
+      </Principal>
+      <Dependent Role="Administrator">
+        <PropertyRef Name="User_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Applicati__Appli__14270015">
+    <End Role="ApplicationStatus" Type="Self.ApplicationStatu" Multiplicity="1" />
+    <End Role="Application" Type="Self.Application" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ApplicationStatus">
+        <PropertyRef Name="ApplicationStatus_ID" />
+      </Principal>
+      <Dependent Role="Application">
+        <PropertyRef Name="ApplicationStatus_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Applicati__Candi__114A936A">
+    <End Role="Candidate" Type="Self.Candidate" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Application" Type="Self.Application" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Candidate">
+        <PropertyRef Name="Candidate_ID" />
+      </Principal>
+      <Dependent Role="Application">
+        <PropertyRef Name="Candidate_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Applicati__Docum__1332DBDC">
+    <End Role="DocumentFiles" Type="Self.DocumentFile" Multiplicity="1" />
+    <End Role="Application" Type="Self.Application" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DocumentFiles">
+        <PropertyRef Name="Document_ID" />
+      </Principal>
+      <Dependent Role="Application">
+        <PropertyRef Name="Document_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Applicati__Job_I__123EB7A3">
+    <End Role="JobListing" Type="Self.JobListing" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Application" Type="Self.Application" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="JobListing">
+        <PropertyRef Name="Job_ID" />
+      </Principal>
+      <Dependent Role="Application">
+        <PropertyRef Name="Job_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Booking__Client___3D5E1FD2">
+    <End Role="Client" Type="Self.Client" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Booking" Type="Self.Booking" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Client">
+        <PropertyRef Name="Client_ID" />
+      </Principal>
+      <Dependent Role="Booking">
+        <PropertyRef Name="Client_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__BookingIn__Booki__619B8048">
+    <End Role="Booking" Type="Self.Booking" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="BookingInstance" Type="Self.BookingInstance" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Booking">
+        <PropertyRef Name="Booking_ID" />
+      </Principal>
+      <Dependent Role="BookingInstance">
+        <PropertyRef Name="Booking_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__BookingIn__Booki__60A75C0F">
+    <End Role="BookingStatus" Type="Self.BookingStatu" Multiplicity="0..1" />
+    <End Role="BookingInstance" Type="Self.BookingInstance" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="BookingStatus">
+        <PropertyRef Name="BookingStatus_ID" />
+      </Principal>
+      <Dependent Role="BookingInstance">
+        <PropertyRef Name="BookingStatus_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__BookingIn__Emplo__628FA481">
+    <End Role="Employee" Type="Self.Employee" Multiplicity="0..1" />
+    <End Role="BookingInstance" Type="Self.BookingInstance" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Employee">
+        <PropertyRef Name="Employee_ID" />
+      </Principal>
+      <Dependent Role="BookingInstance">
+        <PropertyRef Name="Employee_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__BookingIn__Inspe__5FB337D6">
+    <End Role="InspectionItem" Type="Self.InspectionItem" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="BookingInstance" Type="Self.BookingInstance" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="InspectionItem">
+        <PropertyRef Name="InspectionItem_ID" />
+      </Principal>
+      <Dependent Role="BookingInstance">
+        <PropertyRef Name="InspectionItem_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__BookingIn__Track__5EBF139D">
+    <End Role="TrackingStatus" Type="Self.TrackingStatu" Multiplicity="0..1" />
+    <End Role="BookingInstance" Type="Self.BookingInstance" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TrackingStatus">
+        <PropertyRef Name="TrackingStatus_ID" />
+      </Principal>
+      <Dependent Role="BookingInstance">
+        <PropertyRef Name="TrackingStatus_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__BookingIn__Truck__6383C8BA">
+    <End Role="Truck" Type="Self.Truck" Multiplicity="0..1" />
+    <End Role="BookingInstance" Type="Self.BookingInstance" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Truck">
+        <PropertyRef Name="Truck_ID" />
+      </Principal>
+      <Dependent Role="BookingInstance">
+        <PropertyRef Name="Truck_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Payment__Booking__6B24EA82">
+    <End Role="BookingInstance" Type="Self.BookingInstance" Multiplicity="1" />
+    <End Role="Payment" Type="Self.Payment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="BookingInstance">
+        <PropertyRef Name="BookingInstance_ID" />
+      </Principal>
+      <Dependent Role="Payment">
+        <PropertyRef Name="BookingInstance_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_BookingInstance_DateOrTimeSlotOrDriver">
+    <End Role="DateOrTimeSlotOrDriver" Type="Self.DateOrTimeSlotOrDriver" Multiplicity="0..1" />
+    <End Role="BookingInstance" Type="Self.BookingInstance" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DateOrTimeSlotOrDriver">
+        <PropertyRef Name="DateorTimeslotDiriver_ID" />
+      </Principal>
+      <Dependent Role="BookingInstance">
+        <PropertyRef Name="DateOrTimeSlotOrDriver_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__License__Client___74AE54BC">
+    <End Role="Client" Type="Self.Client" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="License" Type="Self.License" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Client">
+        <PropertyRef Name="Client_ID" />
+      </Principal>
+      <Dependent Role="License">
+        <PropertyRef Name="Client_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Payment__Client___6C190EBB">
+    <End Role="Client" Type="Self.Client" Multiplicity="0..1" />
+    <End Role="Payment" Type="Self.Payment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Client">
+        <PropertyRef Name="Client_ID" />
+      </Principal>
+      <Dependent Role="Payment">
+        <PropertyRef Name="Client_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Quotation__Clien__03F0984C">
+    <End Role="Client" Type="Self.Client" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="QuotationRequest" Type="Self.QuotationRequest" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Client">
+        <PropertyRef Name="Client_ID" />
+      </Principal>
+      <Dependent Role="QuotationRequest">
+        <PropertyRef Name="Client_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Client_User">
+    <End Role="User" Type="Self.User" Multiplicity="0..1" />
+    <End Role="Client" Type="Self.Client" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="User_ID" />
+      </Principal>
+      <Dependent Role="Client">
+        <PropertyRef Name="User_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Inspection_Client">
+    <End Role="Client" Type="Self.Client" Multiplicity="1" />
+    <End Role="Inspection" Type="Self.Inspection" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Client">
+        <PropertyRef Name="Client_ID" />
+      </Principal>
+      <Dependent Role="Inspection">
+        <PropertyRef Name="Client_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TblFeedback_Client">
+    <End Role="Client" Type="Self.Client" Multiplicity="0..1" />
+    <End Role="TblFeedback" Type="Self.TblFeedback" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Client">
+        <PropertyRef Name="Client_ID" />
+      </Principal>
+      <Dependent Role="TblFeedback">
+        <PropertyRef Name="Client_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__DateOrTim__Emplo__2B0A656D">
+    <End Role="Employee" Type="Self.Employee" Multiplicity="1" />
+    <End Role="DateOrTimeSlotOrDriver" Type="Self.DateOrTimeSlotOrDriver" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Employee">
+        <PropertyRef Name="Employee_ID" />
+      </Principal>
+      <Dependent Role="DateOrTimeSlotOrDriver">
+        <PropertyRef Name="Employee_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DateOrTimeSlotOrDriver_TimeSlot">
+    <End Role="TimeSlot" Type="Self.TimeSlot" Multiplicity="1" />
+    <End Role="DateOrTimeSlotOrDriver" Type="Self.DateOrTimeSlotOrDriver" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TimeSlot">
+        <PropertyRef Name="TimeSlot_ID" />
+      </Principal>
+      <Dependent Role="DateOrTimeSlotOrDriver">
+        <PropertyRef Name="Timeslot_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Document__Docume__22751F6C">
+    <End Role="DocumentType" Type="Self.DocumentType" Multiplicity="1" />
+    <End Role="DocumentFiles" Type="Self.DocumentFile" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DocumentType">
+        <PropertyRef Name="DocumentType_ID" />
+      </Principal>
+      <Dependent Role="DocumentFiles">
+        <PropertyRef Name="DocumentType_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Payment_DocumentFiles">
+    <End Role="DocumentFiles" Type="Self.DocumentFile" Multiplicity="1" />
+    <End Role="Payment" Type="Self.Payment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DocumentFiles">
+        <PropertyRef Name="Document_ID" />
+      </Principal>
+      <Dependent Role="Payment">
+        <PropertyRef Name="Document_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Employee__Employ__38996AB5">
+    <End Role="EmployeeType" Type="Self.EmployeeType" Multiplicity="0..1" />
+    <End Role="Employee" Type="Self.Employee" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="EmployeeType">
+        <PropertyRef Name="EmployeeType_ID" />
+      </Principal>
+      <Dependent Role="Employee">
+        <PropertyRef Name="EmployeeType_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Employee__Employ__398D8EEE">
+    <End Role="EmployeeStatus" Type="Self.EmployeeStatu" Multiplicity="0..1" />
+    <End Role="Employee" Type="Self.Employee" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="EmployeeStatus">
+        <PropertyRef Name="EmployeeStatus_ID" />
+      </Principal>
+      <Dependent Role="Employee">
+        <PropertyRef Name="EmployeeStatus_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Employee__Title___3A81B327">
+    <End Role="Title" Type="Self.Title" Multiplicity="0..1" />
+    <End Role="Employee" Type="Self.Employee" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Title">
+        <PropertyRef Name="Title_ID" />
+      </Principal>
+      <Dependent Role="Employee">
+        <PropertyRef Name="Title_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Employee_User">
+    <End Role="User" Type="Self.User" Multiplicity="0..1" />
+    <End Role="Employee" Type="Self.Employee" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="User_ID" />
+      </Principal>
+      <Dependent Role="Employee">
+        <PropertyRef Name="User_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Feedback__Bookin__6EF57B66">
+    <End Role="FeedbackType" Type="Self.FeedbackType" Multiplicity="0..1" />
+    <End Role="TblFeedback" Type="Self.TblFeedback" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FeedbackType">
+        <PropertyRef Name="FeedbackType_ID" />
+      </Principal>
+      <Dependent Role="TblFeedback">
+        <PropertyRef Name="FeedbackType_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Inspectio__Inspe__2739D489">
+    <End Role="InspectionType" Type="Self.InspectionType" Multiplicity="1" />
+    <End Role="Inspection" Type="Self.Inspection" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="InspectionType">
+        <PropertyRef Name="InspectionType_ID" />
+      </Principal>
+      <Dependent Role="Inspection">
+        <PropertyRef Name="InspectionType_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Inspectio__Truck__534D60F1">
+    <End Role="Truck" Type="Self.Truck" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Inspection" Type="Self.Inspection" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Truck">
+        <PropertyRef Name="Truck_ID" />
+      </Principal>
+      <Dependent Role="Inspection">
+        <PropertyRef Name="Truck_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__JobListin__Listi__29221CFB">
+    <End Role="ListingStatus" Type="Self.ListingStatu" Multiplicity="1" />
+    <End Role="JobListing" Type="Self.JobListing" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ListingStatus">
+        <PropertyRef Name="ListingStatus_ID" />
+      </Principal>
+      <Dependent Role="JobListing">
+        <PropertyRef Name="ListingStatus_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Notificat__Notif__2BFE89A6">
+    <End Role="NotificationType" Type="Self.NotificationType" Multiplicity="0..1" />
+    <End Role="Notification" Type="Self.Notification" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="NotificationType">
+        <PropertyRef Name="NotificationType_ID" />
+      </Principal>
+      <Dependent Role="Notification">
+        <PropertyRef Name="NotificationType_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__UserNotif__Notif__3D2915A8">
+    <End Role="Notification" Type="Self.Notification" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="UserNotification" Type="Self.UserNotification" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Notification">
+        <PropertyRef Name="Notification_ID" />
+      </Principal>
+      <Dependent Role="UserNotification">
+        <PropertyRef Name="Notification_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Payment__Payment__2CF2ADDF">
+    <End Role="PaymentType" Type="Self.PaymentType" Multiplicity="1" />
+    <End Role="Payment" Type="Self.Payment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PaymentType">
+        <PropertyRef Name="PaymentType_ID" />
+      </Principal>
+      <Dependent Role="Payment">
+        <PropertyRef Name="PaymentType_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Payment_PaymentStatus">
+    <End Role="PaymentStatus" Type="Self.PaymentStatu" Multiplicity="0..1" />
+    <End Role="Payment" Type="Self.Payment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PaymentStatus">
+        <PropertyRef Name="PaymentStatus_ID" />
+      </Principal>
+      <Dependent Role="Payment">
+        <PropertyRef Name="PaymentStatus_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Quotation__Quota__30C33EC3">
+    <End Role="Quotation" Type="Self.Quotation" Multiplicity="1" />
+    <End Role="QuotationLine" Type="Self.QuotationLine" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Quotation">
+        <PropertyRef Name="Quotation_ID" />
+      </Principal>
+      <Dependent Role="QuotationLine">
+        <PropertyRef Name="Quotation_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Quotation__Servi__31B762FC">
+    <End Role="Service" Type="Self.Service" Multiplicity="0..1" />
+    <End Role="QuotationLine" Type="Self.QuotationLine" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Service">
+        <PropertyRef Name="Service_ID" />
+      </Principal>
+      <Dependent Role="QuotationLine">
+        <PropertyRef Name="Service_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_QuotationLine_QuotationRequest">
+    <End Role="QuotationRequest" Type="Self.QuotationRequest" Multiplicity="1" />
+    <End Role="QuotationLine" Type="Self.QuotationLine" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="QuotationRequest">
+        <PropertyRef Name="QuotationRequest_ID" />
+      </Principal>
+      <Dependent Role="QuotationLine">
+        <PropertyRef Name="QuotationRequest_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_QuotationRequestLine_QuotationRequest">
+    <End Role="QuotationRequest" Type="Self.QuotationRequest" Multiplicity="1" />
+    <End Role="QuotationRequestLine" Type="Self.QuotationRequestLine" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="QuotationRequest">
+        <PropertyRef Name="QuotationRequest_ID" />
+      </Principal>
+      <Dependent Role="QuotationRequestLine">
+        <PropertyRef Name="QuotationRequest_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_QuotationRequestLine_Service">
+    <End Role="Service" Type="Self.Service" Multiplicity="1" />
+    <End Role="QuotationRequestLine" Type="Self.QuotationRequestLine" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Service">
+        <PropertyRef Name="Service_ID" />
+      </Principal>
+      <Dependent Role="QuotationRequestLine">
+        <PropertyRef Name="Service_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_QuotationRequestLine_Truck">
+    <End Role="Truck" Type="Self.Truck" Multiplicity="0..1" />
+    <End Role="QuotationRequestLine" Type="Self.QuotationRequestLine" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Truck">
+        <PropertyRef Name="Truck_ID" />
+      </Principal>
+      <Dependent Role="QuotationRequestLine">
+        <PropertyRef Name="Truck_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_User_RoleTypes">
+    <End Role="RoleTypes" Type="Self.RoleType" Multiplicity="0..1" />
+    <End Role="User" Type="Self.User" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="RoleTypes">
+        <PropertyRef Name="RoleTypeId" />
+      </Principal>
+      <Dependent Role="User">
+        <PropertyRef Name="Role_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_UserRole_RoleTypes">
+    <End Role="RoleTypes" Type="Self.RoleType" Multiplicity="0..1" />
+    <End Role="UserRole" Type="Self.UserRole" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="RoleTypes">
+        <PropertyRef Name="RoleTypeId" />
+      </Principal>
+      <Dependent Role="UserRole">
+        <PropertyRef Name="RoleTypeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TblFeedback_Service">
+    <End Role="Service" Type="Self.Service" Multiplicity="0..1" />
+    <End Role="TblFeedback" Type="Self.TblFeedback" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Service">
+        <PropertyRef Name="Service_ID" />
+      </Principal>
+      <Dependent Role="TblFeedback">
+        <PropertyRef Name="Service_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Truck__TruckStat__4F7CD00D">
+    <End Role="TruckStatus" Type="Self.TruckStatu" Multiplicity="1" />
+    <End Role="Truck" Type="Self.Truck" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TruckStatus">
+        <PropertyRef Name="TruckStatus_ID" />
+      </Principal>
+      <Dependent Role="Truck">
+        <PropertyRef Name="TruckStatus_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Truck__TruckType__4E88ABD4">
+    <End Role="TruckType" Type="Self.TruckType" Multiplicity="1" />
+    <End Role="Truck" Type="Self.Truck" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TruckType">
+        <PropertyRef Name="TruckType_ID" />
+      </Principal>
+      <Dependent Role="Truck">
+        <PropertyRef Name="TruckType_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__TruckPhot__Truck__208CD6FA">
+    <End Role="Truck" Type="Self.Truck" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="TruckPhoto" Type="Self.TruckPhoto" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Truck">
+        <PropertyRef Name="Truck_ID" />
+      </Principal>
+      <Dependent Role="TruckPhoto">
+        <PropertyRef Name="Truck_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_UserRole_User">
+    <End Role="User" Type="Self.User" Multiplicity="0..1" />
+    <End Role="UserRole" Type="Self.UserRole" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="User_ID" />
+      </Principal>
+      <Dependent Role="UserRole">
+        <PropertyRef Name="User_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="EasyMovingSystemEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Administrators" EntityType="Self.Administrator" />
+    <EntitySet Name="Applications" EntityType="Self.Application" />
+    <EntitySet Name="ApplicationStatus" EntityType="Self.ApplicationStatu" />
+    <EntitySet Name="BackgroundCheckStatus" EntityType="Self.BackgroundCheckStatu" />
+    <EntitySet Name="Bookings" EntityType="Self.Booking" />
+    <EntitySet Name="BookingInstances" EntityType="Self.BookingInstance" />
+    <EntitySet Name="BookingStatus" EntityType="Self.BookingStatu" />
+    <EntitySet Name="Candidates" EntityType="Self.Candidate" />
+    <EntitySet Name="Clients" EntityType="Self.Client" />
+    <EntitySet Name="DateOrTimeSlotOrDrivers" EntityType="Self.DateOrTimeSlotOrDriver" />
+    <EntitySet Name="DocumentFiles" EntityType="Self.DocumentFile" />
+    <EntitySet Name="DocumentTypes" EntityType="Self.DocumentType" />
+    <EntitySet Name="Employees" EntityType="Self.Employee" />
+    <EntitySet Name="EmployeeStatus" EntityType="Self.EmployeeStatu" />
+    <EntitySet Name="EmployeeTypes" EntityType="Self.EmployeeType" />
+    <EntitySet Name="FeedbackTypes" EntityType="Self.FeedbackType" />
+    <EntitySet Name="Inspections" EntityType="Self.Inspection" />
+    <EntitySet Name="InspectionItems" EntityType="Self.InspectionItem" />
+    <EntitySet Name="InspectionTypes" EntityType="Self.InspectionType" />
+    <EntitySet Name="JobListings" EntityType="Self.JobListing" />
+    <EntitySet Name="JobTypes" EntityType="Self.JobType" />
+    <EntitySet Name="Licenses" EntityType="Self.License" />
+    <EntitySet Name="ListingStatus" EntityType="Self.ListingStatu" />
+    <EntitySet Name="Notifications" EntityType="Self.Notification" />
+    <EntitySet Name="NotificationTypes" EntityType="Self.NotificationType" />
+    <EntitySet Name="Passwords" EntityType="Self.Password" />
+    <EntitySet Name="Payments" EntityType="Self.Payment" />
+    <EntitySet Name="PaymentStatus" EntityType="Self.PaymentStatu" />
+    <EntitySet Name="PaymentTypes" EntityType="Self.PaymentType" />
+    <EntitySet Name="Quotations" EntityType="Self.Quotation" />
+    <EntitySet Name="QuotationLines" EntityType="Self.QuotationLine" />
+    <EntitySet Name="QuotationRequests" EntityType="Self.QuotationRequest" />
+    <EntitySet Name="QuotationRequestLines" EntityType="Self.QuotationRequestLine" />
+    <EntitySet Name="RentalStatus" EntityType="Self.RentalStatu" />
+    <EntitySet Name="Roles" EntityType="Self.Role" />
+    <EntitySet Name="RoleTypes" EntityType="Self.RoleType" />
+    <EntitySet Name="Services" EntityType="Self.Service" />
+    <EntitySet Name="TblFeedbacks" EntityType="Self.TblFeedback" />
+    <EntitySet Name="TimeSlots" EntityType="Self.TimeSlot" />
+    <EntitySet Name="Titles" EntityType="Self.Title" />
+    <EntitySet Name="TrackingStatus" EntityType="Self.TrackingStatu" />
+    <EntitySet Name="Trucks" EntityType="Self.Truck" />
+    <EntitySet Name="TruckPhotoes" EntityType="Self.TruckPhoto" />
+    <EntitySet Name="TruckStatus" EntityType="Self.TruckStatu" />
+    <EntitySet Name="TruckTypes" EntityType="Self.TruckType" />
+    <EntitySet Name="Users" EntityType="Self.User" />
+    <EntitySet Name="UserNotifications" EntityType="Self.UserNotification" />
+    <EntitySet Name="UserRoles" EntityType="Self.UserRole" />
+    <AssociationSet Name="FK_Administrator_Administrator" Association="Self.FK_Administrator_Administrator">
+      <End Role="Administrator" EntitySet="Administrators" />
+      <End Role="Administrator1" EntitySet="Administrators" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Administrator_User" Association="Self.FK_Administrator_User">
+      <End Role="User" EntitySet="Users" />
+      <End Role="Administrator" EntitySet="Administrators" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Applicati__Appli__14270015" Association="Self.FK__Applicati__Appli__14270015">
+      <End Role="ApplicationStatus" EntitySet="ApplicationStatus" />
+      <End Role="Application" EntitySet="Applications" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Applicati__Candi__114A936A" Association="Self.FK__Applicati__Candi__114A936A">
+      <End Role="Candidate" EntitySet="Candidates" />
+      <End Role="Application" EntitySet="Applications" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Applicati__Docum__1332DBDC" Association="Self.FK__Applicati__Docum__1332DBDC">
+      <End Role="DocumentFiles" EntitySet="DocumentFiles" />
+      <End Role="Application" EntitySet="Applications" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Applicati__Job_I__123EB7A3" Association="Self.FK__Applicati__Job_I__123EB7A3">
+      <End Role="JobListing" EntitySet="JobListings" />
+      <End Role="Application" EntitySet="Applications" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Booking__Client___3D5E1FD2" Association="Self.FK__Booking__Client___3D5E1FD2">
+      <End Role="Client" EntitySet="Clients" />
+      <End Role="Booking" EntitySet="Bookings" />
+    </AssociationSet>
+    <AssociationSet Name="FK__BookingIn__Booki__619B8048" Association="Self.FK__BookingIn__Booki__619B8048">
+      <End Role="Booking" EntitySet="Bookings" />
+      <End Role="BookingInstance" EntitySet="BookingInstances" />
+    </AssociationSet>
+    <AssociationSet Name="FK__BookingIn__Booki__60A75C0F" Association="Self.FK__BookingIn__Booki__60A75C0F">
+      <End Role="BookingStatus" EntitySet="BookingStatus" />
+      <End Role="BookingInstance" EntitySet="BookingInstances" />
+    </AssociationSet>
+    <AssociationSet Name="FK__BookingIn__Emplo__628FA481" Association="Self.FK__BookingIn__Emplo__628FA481">
+      <End Role="Employee" EntitySet="Employees" />
+      <End Role="BookingInstance" EntitySet="BookingInstances" />
+    </AssociationSet>
+    <AssociationSet Name="FK__BookingIn__Inspe__5FB337D6" Association="Self.FK__BookingIn__Inspe__5FB337D6">
+      <End Role="InspectionItem" EntitySet="InspectionItems" />
+      <End Role="BookingInstance" EntitySet="BookingInstances" />
+    </AssociationSet>
+    <AssociationSet Name="FK__BookingIn__Track__5EBF139D" Association="Self.FK__BookingIn__Track__5EBF139D">
+      <End Role="TrackingStatus" EntitySet="TrackingStatus" />
+      <End Role="BookingInstance" EntitySet="BookingInstances" />
+    </AssociationSet>
+    <AssociationSet Name="FK__BookingIn__Truck__6383C8BA" Association="Self.FK__BookingIn__Truck__6383C8BA">
+      <End Role="Truck" EntitySet="Trucks" />
+      <End Role="BookingInstance" EntitySet="BookingInstances" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Payment__Booking__6B24EA82" Association="Self.FK__Payment__Booking__6B24EA82">
+      <End Role="BookingInstance" EntitySet="BookingInstances" />
+      <End Role="Payment" EntitySet="Payments" />
+    </AssociationSet>
+    <AssociationSet Name="FK_BookingInstance_DateOrTimeSlotOrDriver" Association="Self.FK_BookingInstance_DateOrTimeSlotOrDriver">
+      <End Role="DateOrTimeSlotOrDriver" EntitySet="DateOrTimeSlotOrDrivers" />
+      <End Role="BookingInstance" EntitySet="BookingInstances" />
+    </AssociationSet>
+    <AssociationSet Name="FK__License__Client___74AE54BC" Association="Self.FK__License__Client___74AE54BC">
+      <End Role="Client" EntitySet="Clients" />
+      <End Role="License" EntitySet="Licenses" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Payment__Client___6C190EBB" Association="Self.FK__Payment__Client___6C190EBB">
+      <End Role="Client" EntitySet="Clients" />
+      <End Role="Payment" EntitySet="Payments" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Quotation__Clien__03F0984C" Association="Self.FK__Quotation__Clien__03F0984C">
+      <End Role="Client" EntitySet="Clients" />
+      <End Role="QuotationRequest" EntitySet="QuotationRequests" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Client_User" Association="Self.FK_Client_User">
+      <End Role="User" EntitySet="Users" />
+      <End Role="Client" EntitySet="Clients" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Inspection_Client" Association="Self.FK_Inspection_Client">
+      <End Role="Client" EntitySet="Clients" />
+      <End Role="Inspection" EntitySet="Inspections" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TblFeedback_Client" Association="Self.FK_TblFeedback_Client">
+      <End Role="Client" EntitySet="Clients" />
+      <End Role="TblFeedback" EntitySet="TblFeedbacks" />
+    </AssociationSet>
+    <AssociationSet Name="FK__DateOrTim__Emplo__2B0A656D" Association="Self.FK__DateOrTim__Emplo__2B0A656D">
+      <End Role="Employee" EntitySet="Employees" />
+      <End Role="DateOrTimeSlotOrDriver" EntitySet="DateOrTimeSlotOrDrivers" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DateOrTimeSlotOrDriver_TimeSlot" Association="Self.FK_DateOrTimeSlotOrDriver_TimeSlot">
+      <End Role="TimeSlot" EntitySet="TimeSlots" />
+      <End Role="DateOrTimeSlotOrDriver" EntitySet="DateOrTimeSlotOrDrivers" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Document__Docume__22751F6C" Association="Self.FK__Document__Docume__22751F6C">
+      <End Role="DocumentType" EntitySet="DocumentTypes" />
+      <End Role="DocumentFiles" EntitySet="DocumentFiles" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Payment_DocumentFiles" Association="Self.FK_Payment_DocumentFiles">
+      <End Role="DocumentFiles" EntitySet="DocumentFiles" />
+      <End Role="Payment" EntitySet="Payments" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Employee__Employ__38996AB5" Association="Self.FK__Employee__Employ__38996AB5">
+      <End Role="EmployeeType" EntitySet="EmployeeTypes" />
+      <End Role="Employee" EntitySet="Employees" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Employee__Employ__398D8EEE" Association="Self.FK__Employee__Employ__398D8EEE">
+      <End Role="EmployeeStatus" EntitySet="EmployeeStatus" />
+      <End Role="Employee" EntitySet="Employees" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Employee__Title___3A81B327" Association="Self.FK__Employee__Title___3A81B327">
+      <End Role="Title" EntitySet="Titles" />
+      <End Role="Employee" EntitySet="Employees" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Employee_User" Association="Self.FK_Employee_User">
+      <End Role="User" EntitySet="Users" />
+      <End Role="Employee" EntitySet="Employees" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Feedback__Bookin__6EF57B66" Association="Self.FK__Feedback__Bookin__6EF57B66">
+      <End Role="FeedbackType" EntitySet="FeedbackTypes" />
+      <End Role="TblFeedback" EntitySet="TblFeedbacks" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Inspectio__Inspe__2739D489" Association="Self.FK__Inspectio__Inspe__2739D489">
+      <End Role="InspectionType" EntitySet="InspectionTypes" />
+      <End Role="Inspection" EntitySet="Inspections" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Inspectio__Truck__534D60F1" Association="Self.FK__Inspectio__Truck__534D60F1">
+      <End Role="Truck" EntitySet="Trucks" />
+      <End Role="Inspection" EntitySet="Inspections" />
+    </AssociationSet>
+    <AssociationSet Name="FK__JobListin__Listi__29221CFB" Association="Self.FK__JobListin__Listi__29221CFB">
+      <End Role="ListingStatus" EntitySet="ListingStatus" />
+      <End Role="JobListing" EntitySet="JobListings" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Notificat__Notif__2BFE89A6" Association="Self.FK__Notificat__Notif__2BFE89A6">
+      <End Role="NotificationType" EntitySet="NotificationTypes" />
+      <End Role="Notification" EntitySet="Notifications" />
+    </AssociationSet>
+    <AssociationSet Name="FK__UserNotif__Notif__3D2915A8" Association="Self.FK__UserNotif__Notif__3D2915A8">
+      <End Role="Notification" EntitySet="Notifications" />
+      <End Role="UserNotification" EntitySet="UserNotifications" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Payment__Payment__2CF2ADDF" Association="Self.FK__Payment__Payment__2CF2ADDF">
+      <End Role="PaymentType" EntitySet="PaymentTypes" />
+      <End Role="Payment" EntitySet="Payments" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Payment_PaymentStatus" Association="Self.FK_Payment_PaymentStatus">
+      <End Role="PaymentStatus" EntitySet="PaymentStatus" />
+      <End Role="Payment" EntitySet="Payments" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Quotation__Quota__30C33EC3" Association="Self.FK__Quotation__Quota__30C33EC3">
+      <End Role="Quotation" EntitySet="Quotations" />
+      <End Role="QuotationLine" EntitySet="QuotationLines" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Quotation__Servi__31B762FC" Association="Self.FK__Quotation__Servi__31B762FC">
+      <End Role="Service" EntitySet="Services" />
+      <End Role="QuotationLine" EntitySet="QuotationLines" />
+    </AssociationSet>
+    <AssociationSet Name="FK_QuotationLine_QuotationRequest" Association="Self.FK_QuotationLine_QuotationRequest">
+      <End Role="QuotationRequest" EntitySet="QuotationRequests" />
+      <End Role="QuotationLine" EntitySet="QuotationLines" />
+    </AssociationSet>
+    <AssociationSet Name="FK_QuotationRequestLine_QuotationRequest" Association="Self.FK_QuotationRequestLine_QuotationRequest">
+      <End Role="QuotationRequest" EntitySet="QuotationRequests" />
+      <End Role="QuotationRequestLine" EntitySet="QuotationRequestLines" />
+    </AssociationSet>
+    <AssociationSet Name="FK_QuotationRequestLine_Service" Association="Self.FK_QuotationRequestLine_Service">
+      <End Role="Service" EntitySet="Services" />
+      <End Role="QuotationRequestLine" EntitySet="QuotationRequestLines" />
+    </AssociationSet>
+    <AssociationSet Name="FK_QuotationRequestLine_Truck" Association="Self.FK_QuotationRequestLine_Truck">
+      <End Role="Truck" EntitySet="Trucks" />
+      <End Role="QuotationRequestLine" EntitySet="QuotationRequestLines" />
+    </AssociationSet>
+    <AssociationSet Name="FK_User_RoleTypes" Association="Self.FK_User_RoleTypes">
+      <End Role="RoleTypes" EntitySet="RoleTypes" />
+      <End Role="User" EntitySet="Users" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UserRole_RoleTypes" Association="Self.FK_UserRole_RoleTypes">
+      <End Role="RoleTypes" EntitySet="RoleTypes" />
+      <End Role="UserRole" EntitySet="UserRoles" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TblFeedback_Service" Association="Self.FK_TblFeedback_Service">
+      <End Role="Service" EntitySet="Services" />
+      <End Role="TblFeedback" EntitySet="TblFeedbacks" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Truck__TruckStat__4F7CD00D" Association="Self.FK__Truck__TruckStat__4F7CD00D">
+      <End Role="TruckStatus" EntitySet="TruckStatus" />
+      <End Role="Truck" EntitySet="Trucks" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Truck__TruckType__4E88ABD4" Association="Self.FK__Truck__TruckType__4E88ABD4">
+      <End Role="TruckType" EntitySet="TruckTypes" />
+      <End Role="Truck" EntitySet="Trucks" />
+    </AssociationSet>
+    <AssociationSet Name="FK__TruckPhot__Truck__208CD6FA" Association="Self.FK__TruckPhot__Truck__208CD6FA">
+      <End Role="Truck" EntitySet="Trucks" />
+      <End Role="TruckPhoto" EntitySet="TruckPhotoes" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UserRole_User" Association="Self.FK_UserRole_User">
+      <End Role="User" EntitySet="Users" />
+      <End Role="UserRole" EntitySet="UserRoles" />
+    </AssociationSet>
+    <EntitySet Name="RentalAgreements" EntityType="EasyMovingSystemModel.RentalAgreement" />
+    <AssociationSet Name="FK__RentalAgr__Clien__59063A47" Association="EasyMovingSystemModel.FK__RentalAgr__Clien__59063A47">
+      <End Role="Client" EntitySet="Clients" />
+      <End Role="RentalAgreement" EntitySet="RentalAgreements" />
+    </AssociationSet>
+    <AssociationSet Name="FK__RentalAgr__Inspe__37703C52" Association="EasyMovingSystemModel.FK__RentalAgr__Inspe__37703C52">
+      <End Role="Inspection" EntitySet="Inspections" />
+      <End Role="RentalAgreement" EntitySet="RentalAgreements" />
+    </AssociationSet>
+    <AssociationSet Name="FK__License__Rental___2A164134" Association="EasyMovingSystemModel.FK__License__Rental___2A164134">
+      <End Role="RentalAgreement" EntitySet="RentalAgreements" />
+      <End Role="License" EntitySet="Licenses" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Payment__Rental___2DE6D218" Association="EasyMovingSystemModel.FK__Payment__Rental___2DE6D218">
+      <End Role="RentalAgreement" EntitySet="RentalAgreements" />
+      <End Role="Payment" EntitySet="Payments" />
+    </AssociationSet>
+    <AssociationSet Name="FK__RentalAgr__Renta__367C1819" Association="EasyMovingSystemModel.FK__RentalAgr__Renta__367C1819">
+      <End Role="RentalStatu" EntitySet="RentalStatus" />
+      <End Role="RentalAgreement" EntitySet="RentalAgreements" />
+    </AssociationSet>
+    <AssociationSet Name="FK__RentalAgr__Truck__571DF1D5" Association="EasyMovingSystemModel.FK__RentalAgr__Truck__571DF1D5">
+      <End Role="Truck" EntitySet="Trucks" />
+      <End Role="RentalAgreement" EntitySet="RentalAgreements" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="RentalAgreement">
+    <Key>
+      <PropertyRef Name="Rental_ID" />
+    </Key>
+    <Property Name="Rental_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Truck_ID" Type="Int32" Nullable="false" />
+    <Property Name="RentalStatus_ID" Type="Int32" />
+    <Property Name="Client_ID" Type="Int32" Nullable="false" />
+    <Property Name="Description" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+    <Property Name="StartDate" Type="DateTime" Precision="0" />
+    <Property Name="ExpiryDate" Type="DateTime" Precision="0" />
+    <Property Name="Inspection_ID" Type="Int32" />
+    <NavigationProperty Name="Client" Relationship="EasyMovingSystemModel.FK__RentalAgr__Clien__59063A47" FromRole="RentalAgreement" ToRole="Client" />
+    <NavigationProperty Name="Inspection" Relationship="EasyMovingSystemModel.FK__RentalAgr__Inspe__37703C52" FromRole="RentalAgreement" ToRole="Inspection" />
+    <NavigationProperty Name="Licenses" Relationship="EasyMovingSystemModel.FK__License__Rental___2A164134" FromRole="RentalAgreement" ToRole="License" />
+    <NavigationProperty Name="Payments" Relationship="EasyMovingSystemModel.FK__Payment__Rental___2DE6D218" FromRole="RentalAgreement" ToRole="Payment" />
+    <NavigationProperty Name="RentalStatu" Relationship="EasyMovingSystemModel.FK__RentalAgr__Renta__367C1819" FromRole="RentalAgreement" ToRole="RentalStatu" />
+    <NavigationProperty Name="Truck" Relationship="EasyMovingSystemModel.FK__RentalAgr__Truck__571DF1D5" FromRole="RentalAgreement" ToRole="Truck" />
+  </EntityType>
+  <Association Name="FK__RentalAgr__Clien__59063A47">
+    <End Type="EasyMovingSystemModel.Client" Role="Client" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="EasyMovingSystemModel.RentalAgreement" Role="RentalAgreement" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Client">
+        <PropertyRef Name="Client_ID" />
+      </Principal>
+      <Dependent Role="RentalAgreement">
+        <PropertyRef Name="Client_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__RentalAgr__Inspe__37703C52">
+    <End Type="EasyMovingSystemModel.Inspection" Role="Inspection" Multiplicity="0..1" />
+    <End Type="EasyMovingSystemModel.RentalAgreement" Role="RentalAgreement" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Inspection">
+        <PropertyRef Name="Inspection_ID" />
+      </Principal>
+      <Dependent Role="RentalAgreement">
+        <PropertyRef Name="Inspection_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__License__Rental___2A164134">
+    <End Type="EasyMovingSystemModel.RentalAgreement" Role="RentalAgreement" Multiplicity="1" />
+    <End Type="EasyMovingSystemModel.License" Role="License" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="RentalAgreement">
+        <PropertyRef Name="Rental_ID" />
+      </Principal>
+      <Dependent Role="License">
+        <PropertyRef Name="Rental_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Payment__Rental___2DE6D218">
+    <End Type="EasyMovingSystemModel.RentalAgreement" Role="RentalAgreement" Multiplicity="0..1" />
+    <End Type="EasyMovingSystemModel.Payment" Role="Payment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="RentalAgreement">
+        <PropertyRef Name="Rental_ID" />
+      </Principal>
+      <Dependent Role="Payment">
+        <PropertyRef Name="Rental_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__RentalAgr__Renta__367C1819">
+    <End Type="EasyMovingSystemModel.RentalStatu" Role="RentalStatu" Multiplicity="0..1" />
+    <End Type="EasyMovingSystemModel.RentalAgreement" Role="RentalAgreement" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="RentalStatu">
+        <PropertyRef Name="RentalStatus_ID" />
+      </Principal>
+      <Dependent Role="RentalAgreement">
+        <PropertyRef Name="RentalStatus_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__RentalAgr__Truck__571DF1D5">
+    <End Type="EasyMovingSystemModel.Truck" Role="Truck" Multiplicity="1" />
+    <End Type="EasyMovingSystemModel.RentalAgreement" Role="RentalAgreement" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Truck">
+        <PropertyRef Name="Truck_ID" />
+      </Principal>
+      <Dependent Role="RentalAgreement">
+        <PropertyRef Name="Truck_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

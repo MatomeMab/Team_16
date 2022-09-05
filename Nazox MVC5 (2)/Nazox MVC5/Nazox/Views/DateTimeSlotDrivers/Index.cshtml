@@ -1,0 +1,54 @@
+﻿@model IEnumerable<Nazox.Models.DateOrTimeSlotOrDriver>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Description)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DateOrTimeSlot.TimeSlot.EndTime)
+        </th> 
+        <th>
+            @Html.DisplayNameFor(model => model.da.TimeSlot.StartTime)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Employee.EmployeeName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.BookingInstance.BookingInstanceDescription)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Description)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DateOrTimeSlot.DateorTimeslot_ID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Employee.EmployeeName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.BookingInstance.BookingInstanceDescription)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.DateorTimeslotDiriver_ID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.DateorTimeslotDiriver_ID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.DateorTimeslotDiriver_ID })
+        </td>
+    </tr>
+}
+
+</table>

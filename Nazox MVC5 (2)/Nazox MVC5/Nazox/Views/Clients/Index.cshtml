@@ -1,0 +1,44 @@
+﻿@model IEnumerable<Nazox.Models.Client>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+<p><a href="@Url.Action("exportClients","Reports")">Export Employee</a></p>
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.ClientName)
+        </th>
+        <th>
+            <a href="~/Views/Clients/Index.cshtml">~/Views/Clients/Index.cshtml</a>
+            @Html.DisplayNameFor(model => model.ClientSurname)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.User.Active)
+        </th>
+
+        <th></th>
+        <th>Is Active</th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.ClientName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ClientSurname)
+            </td>
+
+
+            <td>@Html.DisplayFor(modelItem => item.User.Active)</td>
+        </tr>
+    }
+
+</table>

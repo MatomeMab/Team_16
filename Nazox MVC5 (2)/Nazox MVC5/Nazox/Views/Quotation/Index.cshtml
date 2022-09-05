@@ -1,0 +1,80 @@
+﻿@model IEnumerable<Nazox.Models.Quotation>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+@*<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.QuotationDescription)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.QuotationDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Amount)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.QuotationDescription)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.QuotationDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Amount)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.Quotation_ID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.Quotation_ID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.Quotation_ID })
+        </td>
+    </tr>
+}
+
+</table>*@
+
+<table class="table">
+    <thead>
+    <tr>
+
+        <th>Name</th>
+        <th>Service</th>
+        <th>Phone Number</th>
+        <th>From Address</th>
+        <th>To Address</th>
+        <th>Description</th>
+        <th>Action</th>
+
+    </tr>
+        </thead>
+    <tbody>
+        @foreach (var p in ViewBag.rQuote)
+        {
+
+
+        <tr>
+            @*<td>@p.Service_ID</td>
+            <td>@p.Client_ID</td>*@
+            <td>@p.FromAddress</td>
+            <td>@p.ToAddress</td>
+            <td>@p.QuotationReqDescription</td>
+            <td>
+                <a href="@Url.Action("Create","Quotation", new { ids = p.QuotationRequest_ID, id = ViewBag.UserId })" class="btn btn-primary waves-effect waves-light">Create Quote</a>
+            </td>
+
+
+        </tr>
+        }
+    </tbody>
+</table>

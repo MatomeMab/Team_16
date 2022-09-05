@@ -1,0 +1,235 @@
+D:\NAZOX LAST WORK\Nazox\Nazox\bin\Nazox.dll.config
+D:\NAZOX LAST WORK\Nazox\Nazox\bin\Nazox.dll
+D:\NAZOX LAST WORK\Nazox\Nazox\bin\Nazox.pdb
+D:\NAZOX LAST WORK\Nazox\Nazox\bin\roslyn\csc.exe
+D:\NAZOX LAST WORK\Nazox\Nazox\bin\roslyn\csc.exe.config
+D:\NAZOX LAST WORK\Nazox\Nazox\bin\roslyn\csc.rsp
+D:\NAZOX LAST WORK\Nazox\Nazox\bin\roslyn\csi.exe
+D:\NAZOX LAST WORK\Nazox\Nazox\bin\roslyn\csi.exe.config
+D:\NAZOX LAST WORK\Nazox\Nazox\bin\roslyn\csi.rsp
+D:\NAZOX LAST WORK\Nazox\Nazox\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+D:\NAZOX LAST WORK\Nazox\Nazox\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+D:\NAZOX LAST WORK\Nazox\Nazox\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+D:\NAZOX LAST WORK\Nazox\Nazox\bin\roslyn\Microsoft.CodeAnalysis.dll
+D:\NAZOX LAST WORK\Nazox\Nazox\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+D:\NAZOX LAST WORK\Nazox\Nazox\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+D:\NAZOX LAST WORK\Nazox\Nazox\bin\roslyn\Microsoft.CSharp.Core.targets
+D:\NAZOX LAST WORK\Nazox\Nazox\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+D:\NAZOX LAST WORK\Nazox\Nazox\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+D:\NAZOX LAST WORK\Nazox\Nazox\bin\roslyn\Microsoft.Managed.Core.targets
+D:\NAZOX LAST WORK\Nazox\Nazox\bin\roslyn\Microsoft.VisualBasic.Core.targets
+D:\NAZOX LAST WORK\Nazox\Nazox\bin\roslyn\Microsoft.Win32.Primitives.dll
+D:\NAZOX LAST WORK\Nazox\Nazox\bin\roslyn\System.AppContext.dll
+D:\NAZOX LAST WORK\Nazox\Nazox\bin\roslyn\System.Collections.Immutable.dll
+D:\NAZOX LAST WORK\Nazox\Nazox\bin\roslyn\System.Console.dll
+D:\NAZOX LAST WORK\Nazox\Nazox\bin\roslyn\System.Diagnostics.DiagnosticSource.dll
+D:\NAZOX LAST WORK\Nazox\Nazox\bin\roslyn\System.Diagnostics.FileVersionInfo.dll
+D:\NAZOX LAST WORK\Nazox\Nazox\bin\roslyn\System.Diagnostics.StackTrace.dll
+D:\NAZOX LAST WORK\Nazox\Nazox\bin\roslyn\System.Globalization.Calendars.dll
+D:\NAZOX LAST WORK\Nazox\Nazox\bin\roslyn\System.IO.Compression.dll
+D:\NAZOX LAST WORK\Nazox\Nazox\bin\roslyn\System.IO.Compression.ZipFile.dll
+D:\NAZOX LAST WORK\Nazox\Nazox\bin\roslyn\System.IO.FileSystem.dll
+D:\NAZOX LAST WORK\Nazox\Nazox\bin\roslyn\System.IO.FileSystem.Primitives.dll
+D:\NAZOX LAST WORK\Nazox\Nazox\bin\roslyn\System.Net.Http.dll
+D:\NAZOX LAST WORK\Nazox\Nazox\bin\roslyn\System.Net.Sockets.dll
+D:\NAZOX LAST WORK\Nazox\Nazox\bin\roslyn\System.Reflection.Metadata.dll
+D:\NAZOX LAST WORK\Nazox\Nazox\bin\roslyn\System.Runtime.InteropServices.RuntimeInformation.dll
+D:\NAZOX LAST WORK\Nazox\Nazox\bin\roslyn\System.Security.Cryptography.Algorithms.dll
+D:\NAZOX LAST WORK\Nazox\Nazox\bin\roslyn\System.Security.Cryptography.Encoding.dll
+D:\NAZOX LAST WORK\Nazox\Nazox\bin\roslyn\System.Security.Cryptography.Primitives.dll
+D:\NAZOX LAST WORK\Nazox\Nazox\bin\roslyn\System.Security.Cryptography.X509Certificates.dll
+D:\NAZOX LAST WORK\Nazox\Nazox\bin\roslyn\System.Text.Encoding.CodePages.dll
+D:\NAZOX LAST WORK\Nazox\Nazox\bin\roslyn\System.Threading.Tasks.Extensions.dll
+D:\NAZOX LAST WORK\Nazox\Nazox\bin\roslyn\System.ValueTuple.dll
+D:\NAZOX LAST WORK\Nazox\Nazox\bin\roslyn\System.Xml.ReaderWriter.dll
+D:\NAZOX LAST WORK\Nazox\Nazox\bin\roslyn\System.Xml.XmlDocument.dll
+D:\NAZOX LAST WORK\Nazox\Nazox\bin\roslyn\System.Xml.XPath.dll
+D:\NAZOX LAST WORK\Nazox\Nazox\bin\roslyn\System.Xml.XPath.XDocument.dll
+D:\NAZOX LAST WORK\Nazox\Nazox\bin\roslyn\vbc.exe
+D:\NAZOX LAST WORK\Nazox\Nazox\bin\roslyn\vbc.exe.config
+D:\NAZOX LAST WORK\Nazox\Nazox\bin\roslyn\vbc.rsp
+D:\NAZOX LAST WORK\Nazox\Nazox\bin\roslyn\VBCSCompiler.exe
+D:\NAZOX LAST WORK\Nazox\Nazox\bin\roslyn\VBCSCompiler.exe.config
+D:\NAZOX LAST WORK\Nazox\Nazox\bin\Antlr3.Runtime.dll
+D:\NAZOX LAST WORK\Nazox\Nazox\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+D:\NAZOX LAST WORK\Nazox\Nazox\bin\Microsoft.Web.Infrastructure.dll
+D:\NAZOX LAST WORK\Nazox\Nazox\bin\Newtonsoft.Json.dll
+D:\NAZOX LAST WORK\Nazox\Nazox\bin\System.Web.Helpers.dll
+D:\NAZOX LAST WORK\Nazox\Nazox\bin\System.Web.Mvc.dll
+D:\NAZOX LAST WORK\Nazox\Nazox\bin\System.Web.Optimization.dll
+D:\NAZOX LAST WORK\Nazox\Nazox\bin\System.Web.Razor.dll
+D:\NAZOX LAST WORK\Nazox\Nazox\bin\System.Web.WebPages.Deployment.dll
+D:\NAZOX LAST WORK\Nazox\Nazox\bin\System.Web.WebPages.dll
+D:\NAZOX LAST WORK\Nazox\Nazox\bin\System.Web.WebPages.Razor.dll
+D:\NAZOX LAST WORK\Nazox\Nazox\bin\WebGrease.dll
+D:\NAZOX LAST WORK\Nazox\Nazox\bin\System.Web.Helpers.xml
+D:\NAZOX LAST WORK\Nazox\Nazox\bin\System.Web.Mvc.xml
+D:\NAZOX LAST WORK\Nazox\Nazox\bin\System.Web.Optimization.xml
+D:\NAZOX LAST WORK\Nazox\Nazox\bin\System.Web.Razor.xml
+D:\NAZOX LAST WORK\Nazox\Nazox\bin\System.Web.WebPages.xml
+D:\NAZOX LAST WORK\Nazox\Nazox\bin\System.Web.WebPages.Deployment.xml
+D:\NAZOX LAST WORK\Nazox\Nazox\bin\System.Web.WebPages.Razor.xml
+D:\NAZOX LAST WORK\Nazox\Nazox\bin\Newtonsoft.Json.xml
+D:\NAZOX LAST WORK\Nazox\Nazox\bin\Antlr3.Runtime.pdb
+D:\NAZOX LAST WORK\Nazox\Nazox\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+D:\NAZOX LAST WORK\Nazox\Nazox\obj\Debug\Nazox.csprojAssemblyReference.cache
+D:\NAZOX LAST WORK\Nazox\Nazox\obj\Debug\Nazox.csproj.CoreCompileInputs.cache
+D:\NAZOX LAST WORK\Nazox\Nazox\obj\Debug\Nazox.csproj.CopyComplete
+D:\NAZOX LAST WORK\Nazox\Nazox\obj\Debug\Nazox.dll
+D:\NAZOX LAST WORK\Nazox\Nazox\obj\Debug\Nazox.pdb
+F:\trial\template\nazox\Nazox MVC5\Nazox\Nazox\bin\Nazox.dll.config
+F:\trial\template\nazox\Nazox MVC5\Nazox\Nazox\bin\Nazox.dll
+F:\trial\template\nazox\Nazox MVC5\Nazox\Nazox\bin\Nazox.pdb
+F:\trial\template\nazox\Nazox MVC5\Nazox\Nazox\bin\roslyn\csc.exe
+F:\trial\template\nazox\Nazox MVC5\Nazox\Nazox\bin\roslyn\csc.exe.config
+F:\trial\template\nazox\Nazox MVC5\Nazox\Nazox\bin\roslyn\csc.rsp
+F:\trial\template\nazox\Nazox MVC5\Nazox\Nazox\bin\roslyn\csi.exe
+F:\trial\template\nazox\Nazox MVC5\Nazox\Nazox\bin\roslyn\csi.exe.config
+F:\trial\template\nazox\Nazox MVC5\Nazox\Nazox\bin\roslyn\csi.rsp
+F:\trial\template\nazox\Nazox MVC5\Nazox\Nazox\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+F:\trial\template\nazox\Nazox MVC5\Nazox\Nazox\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+F:\trial\template\nazox\Nazox MVC5\Nazox\Nazox\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+F:\trial\template\nazox\Nazox MVC5\Nazox\Nazox\bin\roslyn\Microsoft.CodeAnalysis.dll
+F:\trial\template\nazox\Nazox MVC5\Nazox\Nazox\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+F:\trial\template\nazox\Nazox MVC5\Nazox\Nazox\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+F:\trial\template\nazox\Nazox MVC5\Nazox\Nazox\bin\roslyn\Microsoft.CSharp.Core.targets
+F:\trial\template\nazox\Nazox MVC5\Nazox\Nazox\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+F:\trial\template\nazox\Nazox MVC5\Nazox\Nazox\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+F:\trial\template\nazox\Nazox MVC5\Nazox\Nazox\bin\roslyn\Microsoft.Managed.Core.targets
+F:\trial\template\nazox\Nazox MVC5\Nazox\Nazox\bin\roslyn\Microsoft.VisualBasic.Core.targets
+F:\trial\template\nazox\Nazox MVC5\Nazox\Nazox\bin\roslyn\Microsoft.Win32.Primitives.dll
+F:\trial\template\nazox\Nazox MVC5\Nazox\Nazox\bin\roslyn\System.AppContext.dll
+F:\trial\template\nazox\Nazox MVC5\Nazox\Nazox\bin\roslyn\System.Collections.Immutable.dll
+F:\trial\template\nazox\Nazox MVC5\Nazox\Nazox\bin\roslyn\System.Console.dll
+F:\trial\template\nazox\Nazox MVC5\Nazox\Nazox\bin\roslyn\System.Diagnostics.DiagnosticSource.dll
+F:\trial\template\nazox\Nazox MVC5\Nazox\Nazox\bin\roslyn\System.Diagnostics.FileVersionInfo.dll
+F:\trial\template\nazox\Nazox MVC5\Nazox\Nazox\bin\roslyn\System.Diagnostics.StackTrace.dll
+F:\trial\template\nazox\Nazox MVC5\Nazox\Nazox\bin\roslyn\System.Globalization.Calendars.dll
+F:\trial\template\nazox\Nazox MVC5\Nazox\Nazox\bin\roslyn\System.IO.Compression.dll
+F:\trial\template\nazox\Nazox MVC5\Nazox\Nazox\bin\roslyn\System.IO.Compression.ZipFile.dll
+F:\trial\template\nazox\Nazox MVC5\Nazox\Nazox\bin\roslyn\System.IO.FileSystem.dll
+F:\trial\template\nazox\Nazox MVC5\Nazox\Nazox\bin\roslyn\System.IO.FileSystem.Primitives.dll
+F:\trial\template\nazox\Nazox MVC5\Nazox\Nazox\bin\roslyn\System.Net.Http.dll
+F:\trial\template\nazox\Nazox MVC5\Nazox\Nazox\bin\roslyn\System.Net.Sockets.dll
+F:\trial\template\nazox\Nazox MVC5\Nazox\Nazox\bin\roslyn\System.Reflection.Metadata.dll
+F:\trial\template\nazox\Nazox MVC5\Nazox\Nazox\bin\roslyn\System.Runtime.InteropServices.RuntimeInformation.dll
+F:\trial\template\nazox\Nazox MVC5\Nazox\Nazox\bin\roslyn\System.Security.Cryptography.Algorithms.dll
+F:\trial\template\nazox\Nazox MVC5\Nazox\Nazox\bin\roslyn\System.Security.Cryptography.Encoding.dll
+F:\trial\template\nazox\Nazox MVC5\Nazox\Nazox\bin\roslyn\System.Security.Cryptography.Primitives.dll
+F:\trial\template\nazox\Nazox MVC5\Nazox\Nazox\bin\roslyn\System.Security.Cryptography.X509Certificates.dll
+F:\trial\template\nazox\Nazox MVC5\Nazox\Nazox\bin\roslyn\System.Text.Encoding.CodePages.dll
+F:\trial\template\nazox\Nazox MVC5\Nazox\Nazox\bin\roslyn\System.Threading.Tasks.Extensions.dll
+F:\trial\template\nazox\Nazox MVC5\Nazox\Nazox\bin\roslyn\System.ValueTuple.dll
+F:\trial\template\nazox\Nazox MVC5\Nazox\Nazox\bin\roslyn\System.Xml.ReaderWriter.dll
+F:\trial\template\nazox\Nazox MVC5\Nazox\Nazox\bin\roslyn\System.Xml.XmlDocument.dll
+F:\trial\template\nazox\Nazox MVC5\Nazox\Nazox\bin\roslyn\System.Xml.XPath.dll
+F:\trial\template\nazox\Nazox MVC5\Nazox\Nazox\bin\roslyn\System.Xml.XPath.XDocument.dll
+F:\trial\template\nazox\Nazox MVC5\Nazox\Nazox\bin\roslyn\vbc.exe
+F:\trial\template\nazox\Nazox MVC5\Nazox\Nazox\bin\roslyn\vbc.exe.config
+F:\trial\template\nazox\Nazox MVC5\Nazox\Nazox\bin\roslyn\vbc.rsp
+F:\trial\template\nazox\Nazox MVC5\Nazox\Nazox\bin\roslyn\VBCSCompiler.exe
+F:\trial\template\nazox\Nazox MVC5\Nazox\Nazox\bin\roslyn\VBCSCompiler.exe.config
+F:\trial\template\nazox\Nazox MVC5\Nazox\Nazox\bin\Antlr3.Runtime.dll
+F:\trial\template\nazox\Nazox MVC5\Nazox\Nazox\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+F:\trial\template\nazox\Nazox MVC5\Nazox\Nazox\bin\Microsoft.Web.Infrastructure.dll
+F:\trial\template\nazox\Nazox MVC5\Nazox\Nazox\bin\Newtonsoft.Json.dll
+F:\trial\template\nazox\Nazox MVC5\Nazox\Nazox\bin\System.Web.Helpers.dll
+F:\trial\template\nazox\Nazox MVC5\Nazox\Nazox\bin\System.Web.Mvc.dll
+F:\trial\template\nazox\Nazox MVC5\Nazox\Nazox\bin\System.Web.Optimization.dll
+F:\trial\template\nazox\Nazox MVC5\Nazox\Nazox\bin\System.Web.Razor.dll
+F:\trial\template\nazox\Nazox MVC5\Nazox\Nazox\bin\System.Web.WebPages.Deployment.dll
+F:\trial\template\nazox\Nazox MVC5\Nazox\Nazox\bin\System.Web.WebPages.dll
+F:\trial\template\nazox\Nazox MVC5\Nazox\Nazox\bin\System.Web.WebPages.Razor.dll
+F:\trial\template\nazox\Nazox MVC5\Nazox\Nazox\bin\WebGrease.dll
+F:\trial\template\nazox\Nazox MVC5\Nazox\Nazox\bin\System.Web.Helpers.xml
+F:\trial\template\nazox\Nazox MVC5\Nazox\Nazox\bin\System.Web.Mvc.xml
+F:\trial\template\nazox\Nazox MVC5\Nazox\Nazox\bin\System.Web.Optimization.xml
+F:\trial\template\nazox\Nazox MVC5\Nazox\Nazox\bin\System.Web.Razor.xml
+F:\trial\template\nazox\Nazox MVC5\Nazox\Nazox\bin\System.Web.WebPages.xml
+F:\trial\template\nazox\Nazox MVC5\Nazox\Nazox\bin\System.Web.WebPages.Deployment.xml
+F:\trial\template\nazox\Nazox MVC5\Nazox\Nazox\bin\System.Web.WebPages.Razor.xml
+F:\trial\template\nazox\Nazox MVC5\Nazox\Nazox\bin\Newtonsoft.Json.xml
+F:\trial\template\nazox\Nazox MVC5\Nazox\Nazox\bin\Antlr3.Runtime.pdb
+F:\trial\template\nazox\Nazox MVC5\Nazox\Nazox\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+F:\trial\template\nazox\Nazox MVC5\Nazox\Nazox\obj\Debug\Nazox.csprojResolveAssemblyReference.cache
+F:\trial\template\nazox\Nazox MVC5\Nazox\Nazox\obj\Debug\Nazox.dll
+F:\trial\template\nazox\Nazox MVC5\Nazox\Nazox\obj\Debug\Nazox.pdb
+C:\Users\mudz\Documents\Dzunisani\Mekurion\Fanelo Up Assigment\Nazox_Asp.net_v1.0.0\Nazox MVC5\Nazox\bin\Nazox.dll.config
+C:\Users\mudz\Documents\Dzunisani\Mekurion\Fanelo Up Assigment\Nazox_Asp.net_v1.0.0\Nazox MVC5\Nazox\bin\Nazox.dll
+C:\Users\mudz\Documents\Dzunisani\Mekurion\Fanelo Up Assigment\Nazox_Asp.net_v1.0.0\Nazox MVC5\Nazox\bin\Nazox.pdb
+C:\Users\mudz\Documents\Dzunisani\Mekurion\Fanelo Up Assigment\Nazox_Asp.net_v1.0.0\Nazox MVC5\Nazox\bin\roslyn\csc.exe
+C:\Users\mudz\Documents\Dzunisani\Mekurion\Fanelo Up Assigment\Nazox_Asp.net_v1.0.0\Nazox MVC5\Nazox\bin\roslyn\csc.exe.config
+C:\Users\mudz\Documents\Dzunisani\Mekurion\Fanelo Up Assigment\Nazox_Asp.net_v1.0.0\Nazox MVC5\Nazox\bin\roslyn\csc.rsp
+C:\Users\mudz\Documents\Dzunisani\Mekurion\Fanelo Up Assigment\Nazox_Asp.net_v1.0.0\Nazox MVC5\Nazox\bin\roslyn\csi.exe
+C:\Users\mudz\Documents\Dzunisani\Mekurion\Fanelo Up Assigment\Nazox_Asp.net_v1.0.0\Nazox MVC5\Nazox\bin\roslyn\csi.exe.config
+C:\Users\mudz\Documents\Dzunisani\Mekurion\Fanelo Up Assigment\Nazox_Asp.net_v1.0.0\Nazox MVC5\Nazox\bin\roslyn\csi.rsp
+C:\Users\mudz\Documents\Dzunisani\Mekurion\Fanelo Up Assigment\Nazox_Asp.net_v1.0.0\Nazox MVC5\Nazox\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+C:\Users\mudz\Documents\Dzunisani\Mekurion\Fanelo Up Assigment\Nazox_Asp.net_v1.0.0\Nazox MVC5\Nazox\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+C:\Users\mudz\Documents\Dzunisani\Mekurion\Fanelo Up Assigment\Nazox_Asp.net_v1.0.0\Nazox MVC5\Nazox\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+C:\Users\mudz\Documents\Dzunisani\Mekurion\Fanelo Up Assigment\Nazox_Asp.net_v1.0.0\Nazox MVC5\Nazox\bin\roslyn\Microsoft.CodeAnalysis.dll
+C:\Users\mudz\Documents\Dzunisani\Mekurion\Fanelo Up Assigment\Nazox_Asp.net_v1.0.0\Nazox MVC5\Nazox\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+C:\Users\mudz\Documents\Dzunisani\Mekurion\Fanelo Up Assigment\Nazox_Asp.net_v1.0.0\Nazox MVC5\Nazox\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+C:\Users\mudz\Documents\Dzunisani\Mekurion\Fanelo Up Assigment\Nazox_Asp.net_v1.0.0\Nazox MVC5\Nazox\bin\roslyn\Microsoft.CSharp.Core.targets
+C:\Users\mudz\Documents\Dzunisani\Mekurion\Fanelo Up Assigment\Nazox_Asp.net_v1.0.0\Nazox MVC5\Nazox\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+C:\Users\mudz\Documents\Dzunisani\Mekurion\Fanelo Up Assigment\Nazox_Asp.net_v1.0.0\Nazox MVC5\Nazox\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+C:\Users\mudz\Documents\Dzunisani\Mekurion\Fanelo Up Assigment\Nazox_Asp.net_v1.0.0\Nazox MVC5\Nazox\bin\roslyn\Microsoft.Managed.Core.targets
+C:\Users\mudz\Documents\Dzunisani\Mekurion\Fanelo Up Assigment\Nazox_Asp.net_v1.0.0\Nazox MVC5\Nazox\bin\roslyn\Microsoft.VisualBasic.Core.targets
+C:\Users\mudz\Documents\Dzunisani\Mekurion\Fanelo Up Assigment\Nazox_Asp.net_v1.0.0\Nazox MVC5\Nazox\bin\roslyn\Microsoft.Win32.Primitives.dll
+C:\Users\mudz\Documents\Dzunisani\Mekurion\Fanelo Up Assigment\Nazox_Asp.net_v1.0.0\Nazox MVC5\Nazox\bin\roslyn\System.AppContext.dll
+C:\Users\mudz\Documents\Dzunisani\Mekurion\Fanelo Up Assigment\Nazox_Asp.net_v1.0.0\Nazox MVC5\Nazox\bin\roslyn\System.Collections.Immutable.dll
+C:\Users\mudz\Documents\Dzunisani\Mekurion\Fanelo Up Assigment\Nazox_Asp.net_v1.0.0\Nazox MVC5\Nazox\bin\roslyn\System.Console.dll
+C:\Users\mudz\Documents\Dzunisani\Mekurion\Fanelo Up Assigment\Nazox_Asp.net_v1.0.0\Nazox MVC5\Nazox\bin\roslyn\System.Diagnostics.DiagnosticSource.dll
+C:\Users\mudz\Documents\Dzunisani\Mekurion\Fanelo Up Assigment\Nazox_Asp.net_v1.0.0\Nazox MVC5\Nazox\bin\roslyn\System.Diagnostics.FileVersionInfo.dll
+C:\Users\mudz\Documents\Dzunisani\Mekurion\Fanelo Up Assigment\Nazox_Asp.net_v1.0.0\Nazox MVC5\Nazox\bin\roslyn\System.Diagnostics.StackTrace.dll
+C:\Users\mudz\Documents\Dzunisani\Mekurion\Fanelo Up Assigment\Nazox_Asp.net_v1.0.0\Nazox MVC5\Nazox\bin\roslyn\System.Globalization.Calendars.dll
+C:\Users\mudz\Documents\Dzunisani\Mekurion\Fanelo Up Assigment\Nazox_Asp.net_v1.0.0\Nazox MVC5\Nazox\bin\roslyn\System.IO.Compression.dll
+C:\Users\mudz\Documents\Dzunisani\Mekurion\Fanelo Up Assigment\Nazox_Asp.net_v1.0.0\Nazox MVC5\Nazox\bin\roslyn\System.IO.Compression.ZipFile.dll
+C:\Users\mudz\Documents\Dzunisani\Mekurion\Fanelo Up Assigment\Nazox_Asp.net_v1.0.0\Nazox MVC5\Nazox\bin\roslyn\System.IO.FileSystem.dll
+C:\Users\mudz\Documents\Dzunisani\Mekurion\Fanelo Up Assigment\Nazox_Asp.net_v1.0.0\Nazox MVC5\Nazox\bin\roslyn\System.IO.FileSystem.Primitives.dll
+C:\Users\mudz\Documents\Dzunisani\Mekurion\Fanelo Up Assigment\Nazox_Asp.net_v1.0.0\Nazox MVC5\Nazox\bin\roslyn\System.Net.Http.dll
+C:\Users\mudz\Documents\Dzunisani\Mekurion\Fanelo Up Assigment\Nazox_Asp.net_v1.0.0\Nazox MVC5\Nazox\bin\roslyn\System.Net.Sockets.dll
+C:\Users\mudz\Documents\Dzunisani\Mekurion\Fanelo Up Assigment\Nazox_Asp.net_v1.0.0\Nazox MVC5\Nazox\bin\roslyn\System.Reflection.Metadata.dll
+C:\Users\mudz\Documents\Dzunisani\Mekurion\Fanelo Up Assigment\Nazox_Asp.net_v1.0.0\Nazox MVC5\Nazox\bin\roslyn\System.Runtime.InteropServices.RuntimeInformation.dll
+C:\Users\mudz\Documents\Dzunisani\Mekurion\Fanelo Up Assigment\Nazox_Asp.net_v1.0.0\Nazox MVC5\Nazox\bin\roslyn\System.Security.Cryptography.Algorithms.dll
+C:\Users\mudz\Documents\Dzunisani\Mekurion\Fanelo Up Assigment\Nazox_Asp.net_v1.0.0\Nazox MVC5\Nazox\bin\roslyn\System.Security.Cryptography.Encoding.dll
+C:\Users\mudz\Documents\Dzunisani\Mekurion\Fanelo Up Assigment\Nazox_Asp.net_v1.0.0\Nazox MVC5\Nazox\bin\roslyn\System.Security.Cryptography.Primitives.dll
+C:\Users\mudz\Documents\Dzunisani\Mekurion\Fanelo Up Assigment\Nazox_Asp.net_v1.0.0\Nazox MVC5\Nazox\bin\roslyn\System.Security.Cryptography.X509Certificates.dll
+C:\Users\mudz\Documents\Dzunisani\Mekurion\Fanelo Up Assigment\Nazox_Asp.net_v1.0.0\Nazox MVC5\Nazox\bin\roslyn\System.Text.Encoding.CodePages.dll
+C:\Users\mudz\Documents\Dzunisani\Mekurion\Fanelo Up Assigment\Nazox_Asp.net_v1.0.0\Nazox MVC5\Nazox\bin\roslyn\System.Threading.Tasks.Extensions.dll
+C:\Users\mudz\Documents\Dzunisani\Mekurion\Fanelo Up Assigment\Nazox_Asp.net_v1.0.0\Nazox MVC5\Nazox\bin\roslyn\System.ValueTuple.dll
+C:\Users\mudz\Documents\Dzunisani\Mekurion\Fanelo Up Assigment\Nazox_Asp.net_v1.0.0\Nazox MVC5\Nazox\bin\roslyn\System.Xml.ReaderWriter.dll
+C:\Users\mudz\Documents\Dzunisani\Mekurion\Fanelo Up Assigment\Nazox_Asp.net_v1.0.0\Nazox MVC5\Nazox\bin\roslyn\System.Xml.XmlDocument.dll
+C:\Users\mudz\Documents\Dzunisani\Mekurion\Fanelo Up Assigment\Nazox_Asp.net_v1.0.0\Nazox MVC5\Nazox\bin\roslyn\System.Xml.XPath.dll
+C:\Users\mudz\Documents\Dzunisani\Mekurion\Fanelo Up Assigment\Nazox_Asp.net_v1.0.0\Nazox MVC5\Nazox\bin\roslyn\System.Xml.XPath.XDocument.dll
+C:\Users\mudz\Documents\Dzunisani\Mekurion\Fanelo Up Assigment\Nazox_Asp.net_v1.0.0\Nazox MVC5\Nazox\bin\roslyn\vbc.exe
+C:\Users\mudz\Documents\Dzunisani\Mekurion\Fanelo Up Assigment\Nazox_Asp.net_v1.0.0\Nazox MVC5\Nazox\bin\roslyn\vbc.exe.config
+C:\Users\mudz\Documents\Dzunisani\Mekurion\Fanelo Up Assigment\Nazox_Asp.net_v1.0.0\Nazox MVC5\Nazox\bin\roslyn\vbc.rsp
+C:\Users\mudz\Documents\Dzunisani\Mekurion\Fanelo Up Assigment\Nazox_Asp.net_v1.0.0\Nazox MVC5\Nazox\bin\roslyn\VBCSCompiler.exe
+C:\Users\mudz\Documents\Dzunisani\Mekurion\Fanelo Up Assigment\Nazox_Asp.net_v1.0.0\Nazox MVC5\Nazox\bin\roslyn\VBCSCompiler.exe.config
+C:\Users\mudz\Documents\Dzunisani\Mekurion\Fanelo Up Assigment\Nazox_Asp.net_v1.0.0\Nazox MVC5\Nazox\bin\Antlr3.Runtime.dll
+C:\Users\mudz\Documents\Dzunisani\Mekurion\Fanelo Up Assigment\Nazox_Asp.net_v1.0.0\Nazox MVC5\Nazox\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\Users\mudz\Documents\Dzunisani\Mekurion\Fanelo Up Assigment\Nazox_Asp.net_v1.0.0\Nazox MVC5\Nazox\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\mudz\Documents\Dzunisani\Mekurion\Fanelo Up Assigment\Nazox_Asp.net_v1.0.0\Nazox MVC5\Nazox\bin\Newtonsoft.Json.dll
+C:\Users\mudz\Documents\Dzunisani\Mekurion\Fanelo Up Assigment\Nazox_Asp.net_v1.0.0\Nazox MVC5\Nazox\bin\System.Web.Helpers.dll
+C:\Users\mudz\Documents\Dzunisani\Mekurion\Fanelo Up Assigment\Nazox_Asp.net_v1.0.0\Nazox MVC5\Nazox\bin\System.Web.Mvc.dll
+C:\Users\mudz\Documents\Dzunisani\Mekurion\Fanelo Up Assigment\Nazox_Asp.net_v1.0.0\Nazox MVC5\Nazox\bin\System.Web.Optimization.dll
+C:\Users\mudz\Documents\Dzunisani\Mekurion\Fanelo Up Assigment\Nazox_Asp.net_v1.0.0\Nazox MVC5\Nazox\bin\System.Web.Razor.dll
+C:\Users\mudz\Documents\Dzunisani\Mekurion\Fanelo Up Assigment\Nazox_Asp.net_v1.0.0\Nazox MVC5\Nazox\bin\System.Web.WebPages.Deployment.dll
+C:\Users\mudz\Documents\Dzunisani\Mekurion\Fanelo Up Assigment\Nazox_Asp.net_v1.0.0\Nazox MVC5\Nazox\bin\System.Web.WebPages.dll
+C:\Users\mudz\Documents\Dzunisani\Mekurion\Fanelo Up Assigment\Nazox_Asp.net_v1.0.0\Nazox MVC5\Nazox\bin\System.Web.WebPages.Razor.dll
+C:\Users\mudz\Documents\Dzunisani\Mekurion\Fanelo Up Assigment\Nazox_Asp.net_v1.0.0\Nazox MVC5\Nazox\bin\WebGrease.dll
+C:\Users\mudz\Documents\Dzunisani\Mekurion\Fanelo Up Assigment\Nazox_Asp.net_v1.0.0\Nazox MVC5\Nazox\bin\System.Web.Helpers.xml
+C:\Users\mudz\Documents\Dzunisani\Mekurion\Fanelo Up Assigment\Nazox_Asp.net_v1.0.0\Nazox MVC5\Nazox\bin\System.Web.Mvc.xml
+C:\Users\mudz\Documents\Dzunisani\Mekurion\Fanelo Up Assigment\Nazox_Asp.net_v1.0.0\Nazox MVC5\Nazox\bin\System.Web.Optimization.xml
+C:\Users\mudz\Documents\Dzunisani\Mekurion\Fanelo Up Assigment\Nazox_Asp.net_v1.0.0\Nazox MVC5\Nazox\bin\System.Web.Razor.xml
+C:\Users\mudz\Documents\Dzunisani\Mekurion\Fanelo Up Assigment\Nazox_Asp.net_v1.0.0\Nazox MVC5\Nazox\bin\System.Web.WebPages.xml
+C:\Users\mudz\Documents\Dzunisani\Mekurion\Fanelo Up Assigment\Nazox_Asp.net_v1.0.0\Nazox MVC5\Nazox\bin\System.Web.WebPages.Deployment.xml
+C:\Users\mudz\Documents\Dzunisani\Mekurion\Fanelo Up Assigment\Nazox_Asp.net_v1.0.0\Nazox MVC5\Nazox\bin\System.Web.WebPages.Razor.xml
+C:\Users\mudz\Documents\Dzunisani\Mekurion\Fanelo Up Assigment\Nazox_Asp.net_v1.0.0\Nazox MVC5\Nazox\bin\Newtonsoft.Json.xml
+C:\Users\mudz\Documents\Dzunisani\Mekurion\Fanelo Up Assigment\Nazox_Asp.net_v1.0.0\Nazox MVC5\Nazox\bin\Antlr3.Runtime.pdb
+C:\Users\mudz\Documents\Dzunisani\Mekurion\Fanelo Up Assigment\Nazox_Asp.net_v1.0.0\Nazox MVC5\Nazox\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Users\mudz\Documents\Dzunisani\Mekurion\Fanelo Up Assigment\Nazox_Asp.net_v1.0.0\Nazox MVC5\Nazox\obj\Debug\Nazox.csproj.AssemblyReference.cache
+C:\Users\mudz\Documents\Dzunisani\Mekurion\Fanelo Up Assigment\Nazox_Asp.net_v1.0.0\Nazox MVC5\Nazox\obj\Debug\Nazox.csproj.CoreCompileInputs.cache
+C:\Users\mudz\Documents\Dzunisani\Mekurion\Fanelo Up Assigment\Nazox_Asp.net_v1.0.0\Nazox MVC5\Nazox\obj\Debug\Nazox.csproj.CopyComplete
+C:\Users\mudz\Documents\Dzunisani\Mekurion\Fanelo Up Assigment\Nazox_Asp.net_v1.0.0\Nazox MVC5\Nazox\obj\Debug\Nazox.dll
+C:\Users\mudz\Documents\Dzunisani\Mekurion\Fanelo Up Assigment\Nazox_Asp.net_v1.0.0\Nazox MVC5\Nazox\obj\Debug\Nazox.pdb

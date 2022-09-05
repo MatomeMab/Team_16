@@ -1,0 +1,34 @@
+﻿@model Nazox.Models.DateOrTimeSlotOrDriver
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>DateOrTimeSlotOrDriver</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Employee.EmployeeName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Employee.EmployeeName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TimeSlot.TimeSlot_ID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TimeSlot.TimeSlot_ID)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { ids = Model.DateorTimeslotDiriver_ID }) |
+    @Html.ActionLink("Back to List", "Index", "Schedule",new { id = ViewBag.UserId })
+</p>

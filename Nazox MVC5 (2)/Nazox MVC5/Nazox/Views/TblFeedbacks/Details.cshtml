@@ -1,0 +1,66 @@
+﻿@model Nazox.Models.TblFeedback
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>TblFeedback</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.FeedbackDescription)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FeedbackDescription)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Booking_ID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Booking_ID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Rating)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Rating)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Client.ClientName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Client.ClientName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FeedbackType.FeedbackType1)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FeedbackType.FeedbackType1)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Service.ServiceName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Service.ServiceName)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Feedback_ID }) |
+    @Html.ActionLink("Back to List", "Index", new { id = ViewBag.ClientId, User_ID = ViewBag.UserId })
+</p>

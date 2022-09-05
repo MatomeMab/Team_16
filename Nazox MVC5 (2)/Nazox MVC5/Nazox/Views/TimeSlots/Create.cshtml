@@ -1,0 +1,187 @@
+﻿@model Nazox.Models.TimeSlot
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/_Shared/_Layout.cshtml";
+
+    if (TempData["error"] != null)
+    {
+        <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+        <script type="text/javascript">
+                swal("Error!",@Html.Raw(Json.Encode(TempData["error"])),"error");
+        </script>
+    }
+
+    if (TempData["success"] != null)
+    {
+        <div class="alert alert-success alert-dismissable fade show" role="alert">
+            @TempData["sucess"]
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+    }
+}
+<!-- Sweet Alert-->
+<link href="~/assets/libs/sweetalert2/sweetalert2.min.css" rel="stylesheet" type="text/css" />
+<h2>Create</h2>
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    <div class="panel-body BoxAndShadow">
+        <div class="form-horizontal">
+            <div class="content">
+                <br />
+                <h4>TimeSlot</h4>
+                <hr />
+
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Date, "Date", htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.Date, new { htmlAttributes = new { @class = "form-control datepicker" } })
+                        @Html.ValidationMessageFor(model => model.Date, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(model => model.StartTime, "Start Time", htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.StartTime, new { htmlAttributes = new { @class = "form-control disableTimeRangesExample" } })
+                        @Html.ValidationMessageFor(model => model.StartTime, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.EndTime, "End Time", htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.EndTime, new { htmlAttributes = new { @class = "form-control disableTimeRangesExample" } })
+                        @Html.ValidationMessageFor(model => model.EndTime, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <br />
+
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-10">
+                        <input type="submit" value="Create" class="btn btn-primary waves-effect waves-light" />
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+
+}
+<br />
+<div>
+    <a href="@Url.Action("Index","TimeSlots",new { id = ViewBag.UserId })" class="btn btn-primary waves-effect waves-light">Back to Index</a>
+</div>
+
+
+<!--SWEET ALERT-->
+
+
+
+
+
+
+
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/timepicker/1.3.5/jquery.timepicker.min.css">
+    <script src="~/Scripts/jquery-3.4.1.min.js"></script>
+    <link href="~/Content/datepicker3.css" rel="stylesheet" />
+    <script src="~/Content/bootstrap-datepicker.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/timepicker/1.3.5/jquery.timepicker.min.js"></script>
+    <script src="~/Scripts/jquery.timepicker.js"></script>
+    <link href="~/Content/jquery.timepicker.css" rel="stylesheet" />
+
+
+
+    @*Sweet alert*@
+
+
+
+
+
+
+    <script type="text/javascript">
+        //---------------------------------Box shadow styling starts-------------------------------
+        $('.BoxAndShadow').css('box-shadow', ' 0 0 10px #808080');
+        $('.BoxAndShadow').hover(function () {
+
+            $(this).css('box-shadow', ' 0 0 20px #808080');
+        }, function () {
+            $(this).css('box-shadow', ' 0 0 10px #808080');
+        });
+        //---------------------------------Box shadow styling ends---------------------------------
+
+        //$(document).ready(function () {
+
+        //     $('.timepicker').timepicker({
+        //         timeFormat: 'h:mm p',
+        //         interval: 60,
+        //         dynamic: false,
+        //         dropdown: true,
+        //         scrollbar: true
+
+        //     });
+
+        // });
+        $(document).ready(function () {
+
+            $(".datepicker").datepicker({
+                dateFormat: "dd-mm-yy",
+                //changemonth: true,
+                //changeyear: true,
+                startDate: new Date(),
+                hideIfNoPrevNext: true,
+                changeMonth: false,
+                stepMonths: 0,
+
+            });
+
+            $('.timeformatExample1').timepicker({ 'timeFormat': 'H:i:s' });
+            $('.disableTimeRangesExample').timepicker({
+                'timeFormat': 'H:i:s',
+                'disableTimeRanges': [
+                    ['12:00am', '7:00am'],
+                    ['7pm','11:59pm']
+                    
+                   
+                ]
+            });
+        });
+
+        function Create() {
+
+            var data = $('form').serialize();
+            $.ajax({
+                url: "/TimeSlots/Create",
+                type: "POST",
+                data: data,
+                dataType: "html",
+                success: function () {
+                    swal("Done!", "It was succesfully created!", "success")
+                        .then((success) => {
+                            window.location.href = "/TimeSlots/Index"
+                        });
+
+                },
+                error: function (xhr, ajaxOptions, thrownError) {
+                    swal("Error creating!", "Please try again", "error");
+                }
+            });
+
+
+
+
+
+        }
+
+    </script>
+}

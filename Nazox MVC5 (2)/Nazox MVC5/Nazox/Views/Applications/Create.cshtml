@@ -1,0 +1,102 @@
+﻿
+@{
+    ViewBag.Title = "Create";
+}
+
+<h2>Create</h2>
+
+<div id="mainContent">
+    @*Dont Delete this Div*@
+
+
+    @*Add Employee Form*@
+    <div class="container">
+
+
+        <h2 class="h2">Add Employee</h2>
+        <h4 class="h4">Please Enter the following Employee Details:</h4>
+
+        @using (Html.BeginForm("EmployeeAdded", "Employee", FormMethod.Post, new { enctype = "multipart/form-data", @class = "InputForm" }))
+        {
+            <div class="mb-3">
+                <label class="form-label">Employee Picture:</label>
+                <input id="picID" name="empPicure" type="file" class="form-control">
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Name:</label>
+                <input id="nameID" name="EmpName" type="text" class="form-control">
+                <small id="emailHelp" class="form-text text-dark">*</small>
+                <small id="emailHelp" class="form-text text-dark">Max 50 Characters.</small>
+            </div>
+            <div class="mb-3">
+                <label for="Surname" class="form-label">Surname:</label>
+                <input id="surID" name="EmpSurname" type="text" class="form-control">
+                <small id="emailHelp" class="form-text text-dark">*</small>
+                <small id="emailHelp" class="form-text text-dark">Max 50 Characters.</small>
+            </div>
+            <div class="mb-3">
+                <label for="Cellphone" class="form-label">Cellphone Number:</label>
+                <input id="cellID" name="CellNo" type="text" class="form-control">
+                <small id="emailHelp" class="form-text text-dark">*</small>
+                <small id="emailHelp" class="form-text text-dark">Max 10 Characters.</small>
+            </div>
+            <div class="mb-3">
+                <label for="Email" class="form-label">Email Address:</label>
+                <input id="emailID" name="EmailAddress" type="text" class="form-control" aria-describedby="emailHelp">
+                <small id="emailHelp" class="form-text text-dark">*</small>
+                <small id="emailHelp" class="form-text text-dark">Max 50 Characters.</small>
+            </div>
+            <div class="mb-3">
+                <label for="Address" class="form-label">Employee Physical Address:</label>
+                <input id="addrID" name="Addressstr" type="text" class="form-control">
+                <small id="emailHelp" class="form-text text-dark">*</small>
+                <small id="emailHelp" class="form-text text-dark">Max 50 Characters.</small>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Employee Type:</label>
+                @Html.DropDownList("EmpTypeID", new SelectList(ViewBag.employeeTypes, "Employee_Type_ID", "Employee_Type_Description"), "Select Employee Type", new { @class = "form-control", @id = "typeID" })
+                <small id="emailHelp" class="form-text text-dark">*</small>
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">Username:</label>
+                <input name="usernamestr" type="text" class="form-control" id="UNameID">
+                <small id="emailHelp" class="form-text text-dark">*</small>
+                <small id="emailHelp" class="form-text text-dark">Max 10 Characters.</small>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">User Role:</label>
+                @Html.DropDownList("userRoleID", new SelectList(ViewBag.Userroles, "User_Role_ID", "User_Role_Name"), "Select User Role", new { @class = "form-control", @id = "roleID" })
+                <small id="emailHelp" class="form-text text-dark">*</small>
+            </div>
+
+            <small id="emailHelp" class="form-text text-dark">*Compulsory</small><br />
+            <button onclick="validate()" type="button" class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#ConfirmAddition">Confirm</button>
+
+            @*Confirm Modal*@
+
+            <div class="modal fade" id="ConfirmAddition" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="staticBackdropLabel">Confirm</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <p id="messagecon"></p>
+                        </div>
+                        <div class="modal-footer">
+                            <button id="SubmitButton" type="submit" class="btn btn-dark">Confirm</button>
+                            <button id="Cancelbtn" type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancel</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+
+
+
+        <br />
+    </div>
+
+</div>

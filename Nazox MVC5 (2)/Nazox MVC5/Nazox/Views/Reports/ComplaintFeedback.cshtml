@@ -1,0 +1,57 @@
+﻿@model IEnumerable<Nazox.Models.TblFeedback>
+
+@{
+    ViewBag.Title = "ComplaintFeedback";
+}
+
+<h2>ComplaintFeedback</h2>
+
+<p>
+<p><a href="@Url.Action("exportComplaintsFeedback","Reports")">Export Employee</a></p>
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.FeedbackDescription)
+        </th>
+
+        <th>
+            @Html.DisplayNameFor(model => model.Client.ClientName)
+        </th>
+        <th>@Html.DisplayNameFor(model => model.Client.PhoneNum)</th>
+        <th>
+            @Html.DisplayNameFor(model => model.FeedbackType.FeedbackType1)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Service.ServiceName)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Client.ClientName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FeedbackDescription)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem =>  item.Client.PhoneNum)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Rating)
+            </td>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.FeedbackType.FeedbackType1)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Service.ServiceName)
+            </td>
+            
+        </tr>
+    }
+
+</table>

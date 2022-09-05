@@ -1,0 +1,34 @@
+﻿@model Nazox.Models.ReportsVM
+@using Nazox.Models
+@using System.Globalization
+@using System.Data
+@{
+    ViewBag.Title = "EmpRep";
+}
+
+<h2>List Report</h2>
+<div class="criteria">
+    @*creatte a form so that a user can enter the criteria*@
+    @*@using (Html.BeginForm("Advanced", "Home", FormMethod.Post)) { 
+    <label>Select List</label>
+    @Html.DropDownListFor(m => m.SelectedList, Model.List, "Select List", new {@class="form-control"})
+    <label>From</label>
+    @Html.TextBoxFor(m=>m.DateFrom,"yyy-MM-dd",new {@Value="2020-08-01",@type="date",@class="form-control"})
+    <label>To</label>
+    @Html.TextBoxFor(m=>m.DateTo,"yyy-MM-dd",new {@Value="2020-08-30",@type="date",@class="form-control"})
+    <br/>
+    <input type="submit" value="Generate" class="btn btn-primary"/>
+    }*@
+</div>
+<!--only shows after criteria has been selected-->
+
+@if (Model.employee != null) 
+{
+    <!--this part shows general details on the employees-->
+    <div class="panel panel-success">
+        <div class="panel-heading"><strong>Details:</strong>@Model.employee.EmployeeName</div>
+        <div class="panel-body">
+            <label>Employee Surname:</label>@Model.employee.EmployeeSurname<br/>
+        </div>
+    </div>
+}

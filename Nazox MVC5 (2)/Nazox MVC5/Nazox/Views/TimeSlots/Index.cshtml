@@ -1,0 +1,267 @@
+﻿@model IEnumerable<Nazox.Models.TimeSlot>
+
+@{
+    ViewBag.Title = "Time Slots Home Index";
+    Layout = "~/Views/_Shared/_Layout.cshtml";
+
+    if (TempData["success"] != null)
+    {
+        <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+        <script type="text/javascript">
+                swal("Success!",@Html.Raw(Json.Encode(TempData["success"])),"success");
+        </script>
+    }
+    if (TempData["Delete"] != null)
+    {
+        <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+        <script type="text/javascript">
+                swal("Error!",@Html.Raw(Json.Encode(TempData["Delete"])),"error");
+        </script>
+    }
+    if (TempData["Error"] != null)
+    {
+        <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+        <script type="text/javascript">
+                swal("Error!",@Html.Raw(Json.Encode(TempData["Error"])),"error");
+        </script>
+    }
+
+
+}
+<!-- Sweet Alert-->
+<link href="~/assets/libs/sweetalert2/sweetalert2.min.css" rel="stylesheet" type="text/css" />
+<h2>Time Slots Index</h2>
+
+<link href="~/assets/libs/datatables.net-bs4/css/dataTables.bootstrap4.min.css" rel="stylesheet" type="text/css" />
+<link href="~/assets/libs/datatables.net-buttons-bs4/css/buttons.bootstrap4.min.css" rel="stylesheet" type="text/css" />
+<link href="~/assets/libs/datatables.net-select-bs4/css//select.bootstrap4.min.css" rel="stylesheet" type="text/css" />
+<!-- Responsive datatable examples -->
+<link href="~/assets/libs/datatables.net-responsive-bs4/css/responsive.bootstrap4.min.css" rel="stylesheet" type="text/css" />
+<link href="~/Content/ej/web/bootstrap-theme/ej.web.all.min.css" rel="stylesheet" type="text/css" />
+<link href="~//assets/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+<link href="~//assets/css/app.min.css" rel="stylesheet" type="text/css" />
+
+<p>
+    <a href="@Url.Action("Create",new { id = ViewBag.UserId })" class="btn btn-primary waves-effect waves-light">Add Time Slot</a>
+</p>
+
+
+@*<div class="row">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-body BoxAndShadow">
+                    <h4 class="card-title">WENDA Logistics</h4>
+                    <p class="card-title-desc">
+                        List of Time Slots
+
+                    </p>
+
+                    <table id="datatable-buttons" class="table table-striped table-bordered dt-responsive nowrap" style="border-collapse: collapse; border-spacing: 0; width: 100%;">
+                        <tr style="font-weight:bold">
+                            <th>
+                                @Html.DisplayNameFor(model => model.Date)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.StartTime)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.EndTime)
+                            </th>
+                            <th>Actions</th>
+                        </tr>
+
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Date)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.StartTime)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.EndTime)
+                                </td>
+                                <td>
+                                    @Html.ActionLink("Edit", "Edit", new { id = item.TimeSlot_ID }) |
+                                    @Html.ActionLink("Details", "Details", new { id = item.TimeSlot_ID }) |
+                                    @Html.ActionLink("Delete", "Delete", new { id = item.TimeSlot_ID })
+                                </td>
+                            </tr>
+                        }
+
+
+                    </table>
+
+                </div>
+            </div>
+        </div>
+    </div>*@
+
+
+<!--DUMMY TABLE-->
+<div class="row">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-body">
+
+                <h4 class="card-title">Time Slot List</h4>
+                <p class="card-title-desc">
+
+                </p>
+
+                <table id="datatable" class="table table-bordered dt-responsive nowrap" style="border-collapse: collapse; border-spacing: 0; width: 100%;">
+                    <thead>
+                        <tr>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Date)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.StartTime)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.EndTime)
+                            </th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    @foreach (var item in Model)
+                    {
+                        <tbody>
+                            <tr>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Date)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.StartTime)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.EndTime)
+                                </td>
+                                <td>
+                                    @Html.ActionLink("Edit", "Edit", new { ids = item.TimeSlot_ID, id = ViewBag.UserId }) |
+                                    @Html.ActionLink("Details", "Details", new { ids = item.TimeSlot_ID, id = ViewBag.UserId }) |
+                                    @Html.ActionLink("Delete", "Delete", new { ids = item.TimeSlot_ID, id = ViewBag.UserId })
+                                    <div>
+                                        <form asp-action="Delete" method="post" asp-controller="TimeSlots" asp-route-id="@item.TimeSlot_ID">
+                                            <button type="button" class="btn btn-danger" onclick="return functionConfirm(this)">Delete</button>
+                                        </form>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    }
+
+
+                </table>
+
+            </div>
+        </div>
+    </div> <!-- end col -->
+</div> <!-- end row -->
+<!--DUMMY TABLE-->
+<!-- end row-->
+<!-- JAVASCRIPT -->
+<script src="~/assets/libs/jquery/jquery.min.js"></script>
+<script src="~/assets/libs/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="~/assets/libs/metismenu/metisMenu.min.js"></script>
+<script src="~/assets/libs/simplebar/simplebar.min.js"></script>
+<script src="~/assets/libs/node-waves/waves.min.js"></script>
+
+<!-- Required datatable js -->
+<script src="~/assets/libs/datatables.net/js/jquery.dataTables.min.js"></script>
+<script src="~/assets/libs/datatables.net-bs4/js/dataTables.bootstrap4.min.js"></script>
+
+<!-- Buttons examples -->
+<script src="~/assets/libs/datatables.net-buttons/js/dataTables.buttons.min.js"></script>
+<script src="~/assets/libs/datatables.net-buttons-bs4/js/buttons.bootstrap4.min.js"></script>
+<script src="~/assets/libs/jszip/jszip.min.js"></script>
+<script src="~/assets/libs/pdfmake/build/pdfmake.min.js"></script>
+<script src="~/assets/libs/pdfmake/build/vfs_fonts.js"></script>
+<script src="~/assets/libs/datatables.net-buttons/js/buttons.html5.min.js"></script>
+<script src="~/assets/libs/datatables.net-buttons/js/buttons.print.min.js"></script>
+<script src="~/assets/libs/datatables.net-buttons/js/buttons.colVis.min.js"></script>
+
+<script src="~/assets/libs/datatables.net-keytable/js/dataTables.keyTable.min.js"></script>
+<script src="~/assets/libs/datatables.net-select/js/dataTables.select.min.js"></script>
+
+<!-- Responsive examples -->
+<script src="~/assets/libs/datatables.net-responsive/js/dataTables.responsive.min.js"></script>
+<script src="~/assets/libs/datatables.net-responsive-bs4/js/responsive.bootstrap4.min.js"></script>
+
+<!-- Datatable init js -->
+<script src="~/assets/js/pages/datatables.init.js"></script>
+
+<script src="~/assets/js/app.js"></script>
+
+<!--SWEET ALERT-->
+<!-- Sweet Alerts js -->
+<script src="~/assets/libs/sweetalert2/sweetalert2.min.js"></script>
+
+<!-- Sweet alert init js-->
+<script src="~/assets/js/pages/sweet-alerts.init.js"></script>
+
+
+
+
+<!--END OF SWEET ALERT-->
+
+
+
+<script type="text/javascript">
+
+    //---------------------------------Box shadow styling starts-------------------------------
+    $('.BoxAndShadow').css('box-shadow', ' 0 0 10px #808080');
+    $('.BoxAndShadow').hover(function () {
+
+        $(this).css('box-shadow', ' 0 0 20px #808080');
+    }, function () {
+        $(this).css('box-shadow', ' 0 0 10px #808080');
+    });
+    //---------------------------------Box shadow styling ends---------------------------------
+
+
+    /*SWEET ALERT*/
+    $("#btn-sa-confirm").on('click', function () {
+        Swal.fire({
+            title: 'Are you sure?',
+            text: "You won't be able to revert this!",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#1ab394',
+            cancelButtonColor: '#d9534f',
+            confirmButtonText: 'Yes, delete it!'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                Swal.fire(
+                    'Deleted!',
+                    'Your file has been deleted.',
+                    'success'
+                )
+            }
+        });
+    });
+    function functionConfirm(event) {
+        swal({
+            title: 'are you sure?',
+            text: "You will not be able to recover this item",
+            type: 'warning',
+            showCancelButton: true,
+            cancelButtonText: 'No',
+            cancelButtonClass: 'btn btn-danger',
+            showConfirmButton: true,
+            confirmButtonText: 'Yes',
+            confirmButtonClass: 'btn btn-success'
+        }, function (isConfirm) {
+            if (isConfirm) {
+                $('form').submit();
+                return true;
+            } else {
+                return false;
+            }
+        });
+        return false;
+    }
+</script>
+
+

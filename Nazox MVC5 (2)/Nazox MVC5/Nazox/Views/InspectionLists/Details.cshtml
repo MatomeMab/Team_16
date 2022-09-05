@@ -1,0 +1,58 @@
+﻿@model Nazox.Models.Inspection
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Inspection</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.InspectionNotetextarea)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.InspectionNotetextarea)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.InspectionTime)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.InspectionTime)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Client.ClientName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Client.ClientName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.InspectionType.TypeName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.InspectionType.TypeName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Truck.Model)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Truck.Model)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Inspection_ID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

@@ -1,0 +1,147 @@
+﻿@model Nazox.Models.TblFeedback
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h2>Edit</h2>
+<link href="~/assets/libs/admin-resources/jquery.vectormap/jquery-jvectormap-1.2.2.css" rel="stylesheet" type="text/css" />
+
+<!-- DataTables -->
+<link href="~/assets/libs/datatables.net-bs4/css/dataTables.bootstrap4.min.css" rel="stylesheet" type="text/css" />
+<link href="~/assets/css/bootstrap.min.css" rel="stylesheet" />
+<!-- Responsive datatable examples -->
+<link href="~/assets/libs/datatables.net-responsive-bs4/css/responsive.bootstrap4.min.css" rel="stylesheet" type="text/css" />
+<link href="~/assets/css/app.min.css" rel="stylesheet" />
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    <div class="form-horizontal">
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @Html.HiddenFor(model => model.Feedback_ID)
+        <div class="col-lg-12">
+            <div class="card BoxAndShadow">
+                <div class="card-body">
+                    <h4 class="card-title">Edit My Feedback</h4>
+                    <div class="row">
+
+                        <div class="col-md-4">
+                            <div class="mb-3 position-relative">
+                                <label for="validationTooltip01" class="form-label">Employee Type Name</label>
+
+                                @Html.DropDownList("BookingInstance_ID", null, htmlAttributes: new { @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.BookingInstance_ID, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="mb-3 position-relative">
+                                <label for="validationTooltip01" class="form-label">Feedback Description</label>
+
+                                @Html.EditorFor(model => model.FeedbackDescription, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.FeedbackDescription, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- end card -->
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Save" class="btn btn-primary waves-effect waves-light" />
+            </div>
+        </div>
+    </div>
+}
+<div>
+    @Html.ActionLink("Back to List", "Index", new { id = ViewBag.UserId })
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+
+    <!-- JAVASCRIPT -->
+    <script src="~/assets/libs/jquery/jquery.min.js"></script>
+    <script src="~/assets/libs/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="~/assets/libs/metismenu/metisMenu.min.js"></script>
+    <script src="~/assets/libs/simplebar/simplebar.min.js"></script>
+    <script src="~/assets/libs/node-waves/waves.min.js"></script>
+    <script src="~/Scripts/jquery-3.4.1.min.js"></script>
+
+    <!-- Required datatable js -->
+    <script src="~/assets/libs/datatables.net/js/jquery.dataTables.min.js"></script>
+    <script src="~/assets/libs/datatables.net-bs4/js/dataTables.bootstrap4.min.js"></script>
+
+    <!-- Buttons examples -->
+    <script src="~/assets/libs/datatables.net-buttons/js/dataTables.buttons.min.js"></script>
+    <script src="~/assets/libs/datatables.net-buttons-bs4/js/buttons.bootstrap4.min.js"></script>
+    <script src="~/assets/libs/pdfmake/build/pdfmake.min.js"></script>
+    <script src="~/assets/libs/pdfmake/build/vfs_fonts.js"></script>
+    <script src="~/assets/libs/datatables.net-buttons/js/buttons.html5.min.js"></script>
+    <script src="~/assets/libs/datatables.net-buttons/js/buttons.print.min.js"></script>
+    <script src="~/assets/libs/datatables.net-buttons/js/buttons.colVis.min.js"></script>
+
+    <script src="~/assets/libs/datatables.net-keytable/js/dataTables.keyTable.min.js"></script>
+    <script src="~/assets/libs/datatables.net-select/js/dataTables.select.min.js"></script>
+    <script src="~/assets/libs/jquery/jquery.min.js"></script>
+    <script src="~/assets/libs/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="~/assets/libs/metismenu/metisMenu.min.js"></script>
+    <script src="~/assets/libs/simplebar/simplebar.min.js"></script>
+    <script src="~/assets/libs/node-waves/waves.min.js"></script>
+
+    <script src="~/assets/libs/parsleyjs/parsley.min.js"></script>
+
+    <script src="~/assets/js/pages/form-validation.init.js"></script>
+    <!-- Responsive examples -->
+    <script src="~/assets/libs/datatables.net-responsive/js/dataTables.responsive.min.js"></script>
+    <script src="~/assets/libs/datatables.net-responsive-bs4/js/responsive.bootstrap4.min.js"></script>
+
+    <!-- Datatable init js -->
+    <script src="~/assets/js/pages/datatables.init.js"></script>
+    <link href="~/Content/datepicker3.css" rel="stylesheet" />
+    <script src="~/Content/bootstrap-datepicker.js"></script>
+    <script src="~/assets/js/app.js"></script>
+
+
+    <script type="text/javascript">
+        window.onload = function () {
+            var i = 0; var previous_hash = window.location.hash;
+            var x = setInterval(function () {
+                i++; window.location.hash = "/noop/" + i;
+                if (i == 10) {
+                    clearInterval(x);
+                    window.location.hash = previous_hash;
+                }
+            }, 10);
+        }
+
+        //---------------------------------Box shadow styling starts-------------------------------
+        $('.BoxAndShadow').css('box-shadow', ' 0 0 10px #808080');
+
+        $('.BoxAndShadow').hover(function () {
+
+            $(this).css('box-shadow', ' 0 0 20px #808080');
+        }, function () {
+            $(this).css('box-shadow', ' 0 0 10px #808080');
+        });
+        //---------------------------------Box shadow styling ends---------------------------------
+
+        $(document).ready(function () {
+
+            $('#data_1 .input-group.date').datepicker({
+                todayBtn: "linked",
+                keyboardNavigation: false,
+                forceParse: false,
+                calendarWeeks: true,
+                autoclose: true
+            });
+        });
+
+        $('.chosen-select').chosen({ width: "100%" });
+
+    </script>
+
+}

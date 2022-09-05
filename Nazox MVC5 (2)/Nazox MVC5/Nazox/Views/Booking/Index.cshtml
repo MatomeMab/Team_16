@@ -1,0 +1,39 @@
+﻿@model IEnumerable<Nazox.Models.Booking>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create", new { id = ViewBag.ClientId, User_ID = ViewBag.UserId })
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.DateMade)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Client.ClientName)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.DateMade)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Client.ClientName)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.Booking_ID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.Booking_ID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.Booking_ID })
+        </td>
+    </tr>
+}
+
+</table>

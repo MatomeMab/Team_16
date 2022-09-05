@@ -1,0 +1,58 @@
+﻿@model Nazox.Models.QuotationRequest
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>QuotationRequest</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.QuotationReqDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.QuotationReqDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.QuotationReqDescription)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.QuotationReqDescription)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FromAddress)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FromAddress)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ToAddress)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ToAddress)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Client.ClientName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Client.ClientName)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.QuotationRequest_ID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

@@ -1,0 +1,125 @@
+﻿@model Nazox.Models.QuotationRequest
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Create Quotation</h2>
+
+<div>
+    <h4>Create Quotation</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.QuotationReqDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.QuotationReqDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.QuotationReqDescription)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.QuotationReqDescription)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FromAddress)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FromAddress)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ToAddress)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ToAddress)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Client.ClientName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Client.ClientName)
+        </dd>
+
+    </dl>
+</div>
+
+
+
+
+
+
+    
+
+
+    @using (Html.BeginForm("Details", "QuotationRequestList", FormMethod.Post))
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-horizontal">
+            <h4>Booking</h4>
+            <hr />
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="row">
+
+            <div class="col-md-4">
+                <div class="mb-3 position-relative">
+                    <label for="validationTooltip04" class="form-label">Description</label>
+                    <div class="form-group" style="padding-right: 2em" id="Dob">
+                        <div class="input-group date">
+
+                            <textarea class="text-box single-line" id="QuotationDescription" name="QuotationDescription" value="" required></textarea>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="mb-3 position-relative">
+                    <label for="validationTooltip04" class="form-label">Amount</label>
+                    <div class="form-group" style="padding-right: 2em" id="Amount">
+                        <div class="input-group date">
+
+                            <input class="text-box single-line" id="Amount" name="Amount" value="" required />
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                
+                <div class="col-md-10">
+                    @*@Html.DropDownList("Service_ID", ViewBag.data as SelectList, "Select Service")*@
+
+                    @*@Html.DropDownList("QuotationRequest_ID", (IEnumerable<SelectListItem>)ViewBag.RequestQuote_ID as SelectList, "Select Service")*@
+
+                </div>
+            </div>
+            @*<div class="col-md-4">
+                <div class="input-group date" data-provide="datepicker">
+                    <input type="text" id="QuotationDate" name="QuotationDate" class="form-control" value="@DateTime.Now">
+                    <div class="input-group-addon">
+                        <span class="glyphicon glyphicon-th"></span>
+                    </div>
+                </div>
+            </div>*@
+
+        </div>
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" value="Details" class="btn btn-default" />
+                </div>
+            </div>
+        </div>
+    }
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.QuotationRequest_ID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

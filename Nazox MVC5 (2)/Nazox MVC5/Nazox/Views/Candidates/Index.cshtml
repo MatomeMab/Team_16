@@ -1,0 +1,96 @@
+﻿@model IEnumerable<Nazox.Models.Candidate>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.CandidateSurname)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CandidateName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CandidateEmailAddress)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CandidatePhonNum)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.CandidateSurname)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CandidateName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CandidateEmailAddress)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CandidatePhonNum)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.Candidate_ID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.Candidate_ID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.Candidate_ID })
+        </td>
+    </tr>
+}
+
+</table>
+<script type="text/javascript">
+        window.onload = function () {
+            var i = 0; var previous_hash = window.location.hash;
+            var x = setInterval(function () {
+                i++; window.location.hash = "/noop/" + i;
+                if (i == 10) {
+                    clearInterval(x);
+                    window.location.hash = previous_hash;
+                }
+            }, 10);
+        }
+
+        //---------------------------------Box shadow styling starts-------------------------------
+        $('.BoxAndShadow').css('box-shadow', ' 0 0 10px #808080');
+
+        $('.BoxAndShadow').hover(function () {
+
+            $(this).css('box-shadow', ' 0 0 20px #808080');
+        }, function () {
+            $(this).css('box-shadow', ' 0 0 10px #808080');
+        });
+        //---------------------------------Box shadow styling ends---------------------------------
+
+        $(document).ready(function () {
+
+            $('#data_1 .input-group.date').datepicker({
+                todayBtn: "linked",
+                keyboardNavigation: false,
+                forceParse: false,
+                calendarWeeks: true,
+                autoclose: true
+            });
+
+        });
+        var dTable
+        $(document).ready(function () {
+            $.noConflict();
+            dTable = $("#datatable").DataTable({});
+        })
+        $('.chosen-select').chosen({ width: "100%" });
+
+
+        $('.chosen-select').chosen({ width: "100%" });
+
+</script>

@@ -1,0 +1,107 @@
+﻿@model Nazox.Models.Employee
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Employee</h4>
+    <hr />
+    <dl class="dl-horizontal">
+       
+        <dt>
+            @Html.DisplayNameFor(model => model.EmployeeName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EmployeeName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EmployeeSurname)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EmployeeSurname)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DateOfBirth)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DateOfBirth)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DateEmployed)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DateEmployed)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PhoneNum)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PhoneNum)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EmergencyName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EmergencyName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EmergencySurname)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EmergencySurname)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EmergencyPhoneNum)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EmergencyPhoneNum)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EmployeeType.EmployeeTypeName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EmployeeType.EmployeeTypeName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EmployeeStatu.EmployeeStatusName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EmployeeStatu.EmployeeStatusName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Title.TitleName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Title.TitleName)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    <a href="@Url.Action("Edit", new { ids = Model.Employee_ID })" class="btn btn-primary waves-effect waves-light">Edit</a>
+    <a href="@Url.Action("Index" , new { id = ViewBag.UserId })"  class="btn btn-primary waves-effect waves-light">Back to List</a>
+</p>

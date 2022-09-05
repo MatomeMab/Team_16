@@ -1,0 +1,60 @@
+﻿@model Nazox.Models.Date
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<h2>Create</h2>
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <h4>Date</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+       
+        <div class="form-group col-md-4 col-sm-6" style="padding-right: 2em" id="data_1">
+            @Html.LabelFor(model => model.Date1,"Date") <span style="color:red;">*</span>
+
+            <div class="input-group date">
+                <span class="input-group-addon"><i class="fa fa-calendar"></i></span><input class="text-box single-line" id="Date1" name="Date1" value="" required />
+            </div>
+        </div>
+
+        <br>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Create" class="btn btn-primary waves-effect waves-light" />
+            </div>
+        </div>
+    </div>
+}
+<br>
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+<script src="~/Scripts/jquery-3.4.1.min.js"></script>
+<link href="~/Content/datepicker3.css" rel="stylesheet" />
+<script src="~/Content/bootstrap-datepicker.js"></script>
+
+<script type="text/javascript">
+
+    $('#data_1 .input-group.date').datepicker({
+        todayBtn: "linked",
+        keyboardNavigation: false,
+        forceParse: false,
+        calendarWeeks: true,
+        autoclose: true
+
+    });
+
+</script>
+
+}

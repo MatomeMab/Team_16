@@ -1,0 +1,98 @@
+﻿@model Nazox.Models.BookingInstance
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>BookingInstance</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.BookingInstanceDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BookingInstanceDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BookingInstanceDescription)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BookingInstanceDescription)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BookingTime)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BookingTime)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Booking.Booking_ID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Booking.Booking_ID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BookingStatu.BookingDescription)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BookingStatu.BookingDescription)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Employee.EmployeeEmail)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Employee.EmployeeEmail)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.InspectionItem.ItemDescription)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.InspectionItem.ItemDescription)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RentalAgreement.Description)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RentalAgreement.Description)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TrackingStatu.TrackingStatusName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TrackingStatu.TrackingStatusName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Truck.Model)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Truck.Model)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.BookingInstance_ID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
